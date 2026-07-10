@@ -2,6 +2,9 @@
   "name": "scarosso-deals",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "scan:scarosso": "node scripts/scan-scarosso.mjs"
   },
