@@ -1,0 +1,12 @@
+{
+  "name": "scarosso-deals",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scan:scarosso": "node scripts/scan-scarosso.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}
