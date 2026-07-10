@@ -12,12 +12,12 @@ if (!API_KEY) {
 const BASE_URL = "https://www.scarosso.com";
 
 const START_URLS = [
-  "https://www.scarosso.com/en-us/sales/men/",
-  "https://www.scarosso.com/en-us/sales/men/sneakers/",
-  "https://www.scarosso.com/en-us/sales/men/loafers/",
-  "https://www.scarosso.com/en-us/sales/men/flats/",
-  "https://www.scarosso.com/en-us/sales/men/boots/",
-  "https://www.scarosso.com/en-us/sales/men/last-pairs/"
+  "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+  "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+  "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+  "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42",
+  "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+  "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
 ];
 
 const TARGET_SIZE = "42";
