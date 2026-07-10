@@ -2,8 +2,11 @@
   "site": "scarosso.com",
   "target_size": "42",
   "min_discount_percent": 30,
-  "checked_at": null,
-  "scanned_product_count": 0,
+  "checked_at": "2026-07-10T09:20:25.837Z",
+  "scanned_product_count": 88,
   "match_count": 0,
-  "matches": []
+  "matches": [],
+  "debug": {
+    "products_without_discount": 12
+  }
 }
