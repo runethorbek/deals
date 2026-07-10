@@ -1,0 +1,42 @@
+name: Daily Scarosso Scan
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Scarosso scanner
+        env:
+          SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
+        run: npm run scan:scarosso
+
+      - name: Commit updated deals JSON
+        run: |
+          if [[ -n "$(git status --porcelain public/deals/scarosso-latest.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add public/deals/scarosso-latest.json
+            git commit -m "Update Scarosso deals"
+            git push
+          else
+            echo "No deal changes to commit"
+          fi
