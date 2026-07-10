@@ -1,4 +1,3 @@
-```js
 import fs from "node:fs/promises";
 import path from "node:path";
 import * as cheerio from "cheerio";
@@ -45,7 +44,12 @@ async function getRenderedHtml(url) {
     const text = await res.text().catch(() => "");
 
     throw new Error(
-      `ScrapingAnt failed for ${url}: ${res.status} ${text.slice(0, 300)}`
+      "ScrapingAnt failed for " +
+        url +
+        ": " +
+        res.status +
+        " " +
+        text.slice(0, 300)
     );
   }
 
@@ -566,4 +570,3 @@ scan().catch((error) => {
   console.error(error);
   process.exit(1);
 });
-```
