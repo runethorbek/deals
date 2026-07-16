@@ -1,0 +1,56 @@
+name: Daily Vinted Scan
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "47 6 * * *"
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Debug environment
+        run: |
+          node --version
+          npm --version
+          ls -la
+          ls -la scripts || true
+          ls -la public/deals || true
+          test -n "$SCRAPINGANT_API_KEY" && echo "SCRAPINGANT_API_KEY is set" || echo "SCRAPINGANT_API_KEY is missing"
+        env:
+          SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
+
+      - name: Run Vinted scanner
+        env:
+          SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
+        run: node scripts/scan-vinted.mjs
+
+      - name: Commit updated Vinted deals JSON
+        run: |
+          if [[ -n "$(git status --porcelain public/deals/vinted-latest.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add public/deals/vinted-latest.json
+            git commit -m "Update Vinted deals"
+            git push
+          else
+            echo "No Vinted deal changes to commit"
+          fi
