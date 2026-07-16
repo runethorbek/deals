@@ -3,7 +3,7 @@ name: Daily Zalando Scan
 on:
   workflow_dispatch:
   schedule:
-    - cron: "37 6 * * *"
+    - cron: "37 3 * * *"
 
 permissions:
   contents: write
