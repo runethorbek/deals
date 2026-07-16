@@ -1,0 +1,23 @@
+{
+  "site": "vinted.com",
+  "scan_mode": "vinted-listing-pages-only",
+  "start_urls": [
+    "https://www.vinted.com/catalog?catalog[]=1786&size_ids[]=207&page=1",
+    "https://www.vinted.com/catalog?catalog[]=1786&size_ids[]=207&page=2",
+    "https://www.vinted.com/catalog?catalog[]=1786&size_ids[]=207&page=3"
+  ],
+  "catalog_id": "1786",
+  "target_size_id": "207",
+  "checked_at": null,
+  "scanned_page_count": 0,
+  "scanned_product_count": 0,
+  "product_count": 0,
+  "products": [],
+  "debug": {
+    "pages": [],
+    "products_with_price": 0,
+    "products_without_price": 0,
+    "products_with_brand": 0,
+    "products_with_size_guess": 0
+  }
+}
