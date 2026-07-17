@@ -3,7 +3,7 @@ name: Daily Vinted Scan
 on:
   workflow_dispatch:
   schedule:
-    - cron: "27 3 * * *"
+    - cron: "40 2 * * *"
 
 permissions:
   contents: write
