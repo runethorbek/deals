@@ -6,10 +6,10 @@
   ],
   "target_size": "46",
   "min_discount_percent": 30,
-  "checked_at": "2026-07-18T05:49:42.200Z",
+  "checked_at": "2026-07-19T06:13:59.813Z",
   "scanned_page_count": 1,
-  "scanned_product_count": 131,
-  "product_count": 131,
+  "scanned_product_count": 116,
+  "product_count": 116,
   "products": [
     {
       "title": "Marineblå linnedbukser med løs pasform, der har lynlås og knaplukning, kombineret med hvide sneakers med marineblå detaljer.",
@@ -25,7 +25,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "heart_outlinedHarmont & BlainePANTALONI UOMO TASCA AMERICA REGULAR FIT - Chino - blu scuro1.029,60 krNormalpris:1.716,00 kr-40%",
+      "raw_card_text": "heart_outlinedSponsoreretHarmont & BlainePANTALONI UOMO TASCA AMERICA REGULAR FIT - Chino - blu scuro1.029,60 krNormalpris:1.716,00 kr-40%",
       "original_price": 716,
       "current_price": 29.6,
       "discount_percent": 95.9,
@@ -35,7 +35,113 @@
         716,
         29.6
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Grå skræddersyede bukser lavet af letvægtsstof, med lige pasform, stribedetaljer og sidelommer, parret med sorte sko.",
+      "url": "https://www.zalando.dk/boss-h-lenon-b1-jakkesat-bukser-dark-grey-bb122e0k2-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/69d4e7d1dcee42c2b4368fccf6f84ee2/59b73c845f884b668a7fbdd249dc6c93.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - dark greyfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%Sidste laveste pris1.117,00 krSpar op til-7%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        117,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført grå straight-leg bukser, sort langærmet skjorte og sorte lædersko står mod en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-grey-bb122a0vg-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ab5daffdfe3f4f68b566e33333758546/7771de8ab3fe4e1e9fc80681d62e645d.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedBOSSGENIUS - Bukser - dark greyfra1.037,00 krNormalpris:1.595,00 krSpar op til-35%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Skræddersyede sorte bukser med en glat, lige pasform, der har flad front og bæltesløjfer. Bæres med en hvid skjorte med knap og sorte sko.",
+      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.037,00 krNormalpris:1.595,00 krSpar op til-35%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Sorte dressbukser med en skræddersyet pasform, rene linjer og en glat tekstur. Båret med en matchende sort skjorte med knapper og sorte sko.",
+      "url": "https://www.zalando.dk/boss-h-lenon-bukser-black-bb122e0k2-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/b17d8d2512f9450f89041701496fd773/aab6c6c2d9554a7b9be4d6ae6ff1cbb5.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - blackfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%Sidste laveste pris1.117,00 krSpar op til-7%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        117,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Sorte slim-fit bukser med snoreliv, frontfald og glat overflade, parret med sorte sko og en hvid skjorte.",
@@ -51,7 +157,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedBOSSGENIUS - Bukser - blackfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%",
+      "raw_card_text": "Dealheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%",
       "original_price": 595,
       "current_price": 37,
       "discount_percent": 93.8,
@@ -61,12 +167,12 @@
         595,
         37
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Beige skræddersyede bukser lavet af letvægtsstof, med lige pasform, glat front og bæltestropper. Bruges med brune ruskinds-sneakers.",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-beige-ti522e06v-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/6ee9c6c011af4201bffc01eab5b960fd/02b509d362db4ba1a92479242919d973.jpg?imwidth=300",
+      "title": "The Kooples Habitbukser - beige",
+      "url": "https://www.zalando.dk/the-kooples-chino-beige-tha22e04f-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/a86034891d4d43269825aaa99f0fcbce/22fb956f8b1b4d19b824744e7fb4ecea.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -77,17 +183,71 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENUTA - Bukser - beige1.047,00 krNormalpris:1.495,00 kr-30%",
-      "original_price": 495,
-      "current_price": 47,
-      "discount_percent": 90.5,
+      "raw_card_text": "Designerheart_outlinedThe KooplesHabitbukser - beige1.152,00 krOprindeligt:1.920,00 kr-40%Sidste laveste pris1.344,00 kr-14%",
+      "original_price": 920,
+      "current_price": 152,
+      "discount_percent": 83.5,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 40,
+      "price_candidates": [
+        920,
+        344,
+        152
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "The Kooples Habitbukser - blue",
+      "url": "https://www.zalando.dk/the-kooples-bukser-blue-tha22e04i-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6622002c267242ea903e65300970535c/dd0aec11bd1f4d8dbb4244930612d52f.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealDesignerheart_outlinedThe KooplesHabitbukser - blue567,50 krOprindeligt:1.135,00 kr-50%Sidste laveste pris794,50 kr-29%",
+      "original_price": 794.5,
+      "current_price": 135,
+      "discount_percent": 83,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 50,
+      "price_candidates": [
+        794.5,
+        567.5,
+        135
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført mørkegrå habitbukser, sorte læder double monk strap sko og en hvid skjorte stoppet ned i bukserne, står på en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/boss-wenten-habitbukser-dark-blue-bb122a0va-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/1eb9acb9c95346a6a9287ebf0ef82723/04917f2cd55e4dcb8ae3d6f5e9a83bd4.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedBOSSWENTEN - Bukser - dark bluefra1.117,00 krNormalpris:1.595,00 krSpar op til-30%",
+      "original_price": 595,
+      "current_price": 117,
+      "discount_percent": 80.3,
       "discount_status": "calculated-from-prices",
       "explicit_discount_percent": 30,
       "price_candidates": [
-        495,
-        47
+        595,
+        117
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført lysegrå linnedbukser med op-rullede manchetter og sorte sandaler med krydsremme, stående med den ene hånd i lommen.",
@@ -113,7 +273,7 @@
         949,
         249
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført mørkegrå bukser med optrukne ben, hvide sneakers, blåt bælte og hvid langærmet skjorte med den ene hånd i lommen.",
@@ -139,7 +299,7 @@
         949,
         249
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte bukser med opbuk og beige slip-on sko, stående foran en ensfarvet lys baggrund.",
@@ -165,7 +325,7 @@
         949,
         249
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført skræddersyede grå habitbukser og mørkebrune tasselloafers, stående med hænderne i lommerne mod en ensfarvet baggrund.",
@@ -191,7 +351,7 @@
         699,
         189
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført mørkegrå skræddersyede bukser, brun langærmet top og sorte læder-loafers mod en ensfarvet lys baggrund.",
@@ -218,7 +378,7 @@
         400,
         250
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Marineblå dressbukser med en glat overflade. Har en flad front, skræddersyet pasform og en sort talje, parret med blanke sorte sko.",
@@ -244,216 +404,7 @@
         995,
         297
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mørkegrå skræddersyede bukser med en glat tekstur, der har en slim fit, og stylet med et sort bælte. Kombinationen afsluttes med sorte sko.",
-      "url": "https://www.zalando.dk/boss-lenon-habitbukser-black-bb122a0vj-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/06ae1330f1834d20aa4cffe7fb0d241c/d15f6ae1f3ae4c2b9995112eb55a4c31.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSLENON - Bukser - blackfra1.297,00 krOprindeligt:1.995,00 krSpar op til-35%Sidste laveste pris1.397,00 krSpar op til-7%",
-      "original_price": 995,
-      "current_price": 297,
-      "discount_percent": 70.2,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 35,
-      "price_candidates": [
-        995,
-        397,
-        297
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Grå skræddersyede bukser lavet af letvægtsstof, med lige pasform, stribedetaljer og sidelommer, parret med sorte sko.",
-      "url": "https://www.zalando.dk/boss-h-lenon-b1-jakkesat-bukser-dark-grey-bb122e0k2-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/69d4e7d1dcee42c2b4368fccf6f84ee2/59b73c845f884b668a7fbdd249dc6c93.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - dark greyfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført grå straight-leg bukser, sort langærmet skjorte og sorte lædersko står mod en ensfarvet baggrund.",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-grey-bb122a0vg-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ab5daffdfe3f4f68b566e33333758546/7771de8ab3fe4e1e9fc80681d62e645d.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSGENIUS - Bukser - dark greyfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført mørkegrå habitbukser, sorte læder double monk strap sko og en hvid skjorte stoppet ned i bukserne, står på en ensfarvet baggrund.",
-      "url": "https://www.zalando.dk/boss-wenten-habitbukser-dark-blue-bb122a0va-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/1eb9acb9c95346a6a9287ebf0ef82723/04917f2cd55e4dcb8ae3d6f5e9a83bd4.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSWENTEN - Bukser - dark bluefra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført sorte skræddersyede bukser med snor i taljen, hvid skjorte og sorte læder loafers, står med hænderne afslappet ned langs siderne.",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-blue-bb122a0ve-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/4cd9fa938ed642b4892e319d3fdc38b3/9bed3f7cb2a2497bbb89ebe0021214bb.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSGENIUS - Bukser - dark bluefra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Marineblå habitbukser i glat stof med en skræddersyet pasform, der har sidelommer og lige ben, båret med glinsende sorte sko.",
-      "url": "https://www.zalando.dk/boss-chino-dark-blue-bb122e0k2-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/b6d54408dd834ab3bcd8bf54f35f9fa2/2513860b2b5744b7a56253cedb7defad.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - dark bluefra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Skræddersyede sorte bukser med en glat, lige pasform, der har flad front og bæltesløjfer. Bæres med en hvid skjorte med knap og sorte sko.",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Sorte dressbukser med en skræddersyet pasform, rene linjer og en glat tekstur. Båret med en matchende sort skjorte med knapper og sorte sko.",
-      "url": "https://www.zalando.dk/boss-h-lenon-bukser-black-bb122e0k2-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/b17d8d2512f9450f89041701496fd773/aab6c6c2d9554a7b9be4d6ae6ff1cbb5.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - blackfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Sorte skræddersyede bukser med tætsiddende pasform, der har flad front, pressede linjer og en glat stoffinish, båret med sorte loafers.",
@@ -479,7 +430,7 @@
         602,
         204
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte bukser med lige ben og elastisk talje samt beige sneakers, stående med den ene hånd i lommen.",
@@ -505,7 +456,87 @@
         725,
         300
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført løstsiddende olivengrønne bukser, lysegrå kortærmet skjorte og mørkebrune sandaler med åbne tæer, stående med den ene hånd i lommen.",
+      "url": "https://www.zalando.dk/massimo-dutti-chino-mottled-green-m3i21a1ol-m11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6c52416b26fd4a45828c8a9267688b20/2ed72ba5a3864e7380635e2910db024a.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedMassimo Dutti100% LINEN STRAIGHT-LEG TROUSERS - Chino - mottled green400,00 krOprindeligt:850,00 kr-53%Sidste laveste pris500,00 kr-20%",
+      "original_price": 850,
+      "current_price": 400,
+      "discount_percent": 52.9,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 53,
+      "price_candidates": [
+        850,
+        500,
+        400
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført olivengrønne bukser med nålestriber og brune loafers, stående mod en ensartet lys baggrund.",
+      "url": "https://www.zalando.dk/massimo-dutti-striped-linen-trousers-02865392-bukser-dark-green-m3i22e0s9-m11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/290b753323e84881b5d903101bd149b6/e37be18603d04dec82a1ebbabf7603c8.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedMassimo DuttiSTRIPED LINEN TROUSERS - Bukser - dark green400,00 krOprindeligt:850,00 kr-53%Sidste laveste pris500,00 krSpar op til-20%",
+      "original_price": 850,
+      "current_price": 400,
+      "discount_percent": 52.9,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 53,
+      "price_candidates": [
+        850,
+        500,
+        400
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Beige skræddersyede bukser lavet af letvægtsstof, med lige pasform, glat front og bæltestropper. Bruges med brune ruskinds-sneakers.",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-beige-ti522e06v-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6ee9c6c011af4201bffc01eab5b960fd/02b509d362db4ba1a92479242919d973.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENUTA - Bukser - beige972,00 krNormalpris:1.495,00 kr-35%",
+      "original_price": 972,
+      "current_price": 495,
+      "discount_percent": 49.1,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        972,
+        495
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Lysegrå linnedragt med en enkeltknaps blazer, klaplapeller og to knapper. Parret med sorte sko med spænde detaljer.",
@@ -532,34 +563,7 @@
         637,
         467
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført beige linnedbukser med sort bælte og sorte læder mokkasiner med kvaster, stående med hænder delvist i lommerne.",
-      "url": "https://www.zalando.dk/matinique-bukser-winter-twig-m6022e085-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/117bce1c963d4b02a5edcf28e02cc0e7/64bf0152421647ac989f8b6068668fd1.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedMatiniqueMAWESLEY - Bukser - winter twig699,30 krOprindeligt:999,00 kr-30%Sidste laveste pris899,10 kr-22%",
-      "original_price": 999,
-      "current_price": 699.3,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        999,
-        899.1,
-        699.3
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MAHART HERITAGE - Cargobukser - caribou",
@@ -585,7 +589,87 @@
         999,
         699.3
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført brune bukser med lige ben, beige top og brune sandaler, stående mod en ensfarvet lys baggrund.",
+      "url": "https://www.zalando.dk/massimo-dutti-bukser-mustard-yellow-m3i22e0tz-e11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/026a327cc4714cd0952f6c3217c213f1/f6f7bb8940bb462b8e24fed6423d0b67.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedMassimo DuttiFADED 100% LINEN TOTAL LOOK PANTS - Bukser - mustard yellow650,00 krOprindeligt:900,00 kr-28%Sidste laveste pris850,00 kr-24%",
+      "original_price": 900,
+      "current_price": 650,
+      "discount_percent": 27.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 28,
+      "price_candidates": [
+        900,
+        850,
+        650
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført løse sorte bukser og sorte flip-flops stående mod en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/massimo-dutti-bukser-dark-blue-m3i22e0tq-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/efc6dd19e25b47298689beb7349ac4e8/5642ca4f54694cd9bea50532b7cb67c1.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedMassimo DuttiSTRAIGHT-LEG LINEN PANTS - Habitbukser - dark blue650,00 krOprindeligt:900,00 kr-28%Sidste laveste pris850,00 kr-24%",
+      "original_price": 900,
+      "current_price": 650,
+      "discount_percent": 27.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 28,
+      "price_candidates": [
+        900,
+        850,
+        650
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Matinique, MAHART - Bukser - plaza taupe",
+      "url": "https://www.zalando.dk/matinique-bukser-plaza-taupe-m6022e07r-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/c0e76f61e5494e51b02946a6e1552991/4873b53b96c54769bb208bb85d74bbd3.png?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedMatiniqueMAHART - Bukser - plaza taupe599,25 krNormalpris:799,00 kr-25%",
+      "original_price": 799,
+      "current_price": 599.25,
+      "discount_percent": 25,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 25,
+      "price_candidates": [
+        799,
+        599.25
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MAHART - Bukser - winter twig",
@@ -611,7 +695,33 @@
         799,
         599.25
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Matinique, MAWESLEY CASUAL - Bukser - dark navy",
+      "url": "https://www.zalando.dk/matinique-wesley-bukser-dark-navy-m6022e07m-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/49655d12d17c444e823bd4be021cea38/a163415eac1a4751b90051bdbb6e1148.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedMatiniqueMAWESLEY CASUAL - Bukser - dark navy674,25 krNormalpris:899,00 kr-25%",
+      "original_price": 899,
+      "current_price": 674.25,
+      "discount_percent": 25,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 25,
+      "price_candidates": [
+        899,
+        674.25
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MAWESLEY CASUAL - Bukser - pearl blue melange",
@@ -637,12 +747,12 @@
         899,
         674.25
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Matinique, MAWESLEY CASUAL - Bukser - winter twig melange",
-      "url": "https://www.zalando.dk/matinique-wesley-bukser-winter-twig-melange-m6022e07m-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/3a4fc5b22f074a4287e0d7ed923e5e8a/402da6726e954c5db313c8e17b343854.jpg?imwidth=300",
+      "title": "Mand iført løstsiddende olivengrønne bukser og matchende skjorte med knapper samt sorte espadriller på en ensfarvet hvid baggrund.",
+      "url": "https://www.zalando.dk/120-lino-men-pant-bukser-kaky-l1922e01d-m11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/a35fcfb4399049f1bf01ee93ffbeb3c5/3bba03fe3cce41a08be50a6fc11a3c98.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -653,48 +763,22 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedMatiniqueMAWESLEY CASUAL - Bukser - winter twig melange674,25 krNormalpris:899,00 kr-25%",
-      "original_price": 899,
-      "current_price": 674.25,
-      "discount_percent": 25,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        899,
-        674.25
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Matinique, MABARTON - Bukser - olive night",
-      "url": "https://www.zalando.dk/matinique-barton-pant-bukser-olive-night-m6022e024-n11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/3973de5ae20941199bcf445e77487d9a/5ecd76b9391b45babbb2e62529d34362.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMatiniqueMABARTON - Bukser - olive night539,10 krNormalpris:599,00 kr-10%",
-      "original_price": 599,
-      "current_price": 539.1,
-      "discount_percent": 10,
+      "raw_card_text": "Designerheart_outlined120% LinoMEN PANT - Bukser - kaky1.616,00 krNormalpris:1.795,00 kr-10%",
+      "original_price": 795,
+      "current_price": 616,
+      "discount_percent": 22.5,
       "discount_status": "calculated-from-prices",
       "explicit_discount_percent": 10,
       "price_candidates": [
-        599,
-        539.1
+        795,
+        616
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Matinique, MAHART - Bukser - tradewinds",
-      "url": "https://www.zalando.dk/matinique-hart-bukser-tradewinds-m6022e07v-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/22ac2646ffd2407c9770e2236df2345b/1ad72724d9854406926ce65f8c43b075.png?imwidth=300",
+      "title": "Mand iført lysegrå skræddersyede bukser, hvid skjorte og mørke slip-on sko, stående mod en ensartet hvid baggrund.",
+      "url": "https://www.zalando.dk/boss-bukser-open-blue-six-bb122a17s-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/dfef2665d34c49e69ffa78c05ed4e592/f4fe17899f7b4d0681b8740434e0667a.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -705,7 +789,59 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedMatiniqueMAHART - Bukser - tradewinds719,10 krNormalpris:799,00 kr-10%",
+      "raw_card_text": "Dealheart_outlinedSponsoreretBOSSBOSS C-GENIUS-262 - Habitbukser - open blue six1.619,10 krNormalpris:1.799,00 kr-10%",
+      "original_price": 799,
+      "current_price": 619.1,
+      "discount_percent": 22.5,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 10,
+      "price_candidates": [
+        799,
+        619.1
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført sorte skræddersyede bukser, lyseblå skjorte og sorte pæne sko, stående foran en ensfarvet hvid baggrund.",
+      "url": "https://www.zalando.dk/officine-generale-drew-italian-fresco-bukser-dark-grey-ge022e005-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/27971ec2d6fa45b2893697b96a36fe97/bdefdd6eca454373bae06e84e9763a4f.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedOFFICINE GENERALEDREW ITALIAN - Chino - dark greyfra1.317,00 krNormalpris:2.395,00 krSpar op til-45%",
+      "original_price": 395,
+      "current_price": 317,
+      "discount_percent": 19.7,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 45,
+      "price_candidates": [
+        395,
+        317
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Matinique, MAWESLEY - Bukser - black",
+      "url": "https://www.zalando.dk/matinique-bukser-black-m6024b001-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/f8e009126ed74908b9f66c6ad0a736c7/626507f8cee14de98a20037fbb047bc2.png?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedMatiniqueMAWESLEY - Bukser - black719,10 krNormalpris:799,00 kr-10%",
       "original_price": 799,
       "current_price": 719.1,
       "discount_percent": 10,
@@ -715,7 +851,7 @@
         799,
         719.1
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MAWESLEY - Bukser - winter twig",
@@ -741,59 +877,7 @@
         799,
         719.1
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Matinique, MAWESLEY JERSEY - Bukser - sea spray",
-      "url": "https://www.zalando.dk/matinique-bukser-sea-spray-m6022e07t-m11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/8badbf38a47141bfbce89c52b8345d25/a0e951a23ce24f62968c82cbfe2830c9.png?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedMatiniqueMAWESLEY JERSEY - Bukser - sea spray719,10 krNormalpris:799,00 kr-10%",
-      "original_price": 799,
-      "current_price": 719.1,
-      "discount_percent": 10,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 10,
-      "price_candidates": [
-        799,
-        719.1
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført sorte bukser med lige ben og sorte sneakers, stående med hænderne i lommerne mod en ensfarvet baggrund.",
-      "url": "https://www.zalando.dk/the-kooples-pantalon-costum-chino-dark-navy-tha22e064-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ff8bd02001b64698bd85bb930fa7bfce/b002ec183b254b8e8b88a1413621c52e.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealDesignerheart_outlinedThe KooplesPANTALON COSTUM - Bukser - dark navy948,00 krNormalpris:1.895,00 kr-50%",
-      "original_price": 948,
-      "current_price": 895,
-      "discount_percent": 5.6,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 50,
-      "price_candidates": [
-        948,
-        895
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "30 Dages returret",
@@ -818,7 +902,32 @@
       "price_candidates": [
         499
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Beige bukser med lige pasform kombineret med brune mokkasiner i ruskind, med den ene hånd i lommen, båret med en lys, stribet skjorte.",
+      "url": "https://www.zalando.dk/trussardi-bukser-beige-t0422e01n-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/4cb044d17c8346cab551a8cb82ffdd99/897a9dfd79fc4e5f9766c3b4fd3c8543.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Plus sizeheart_outlinedTrussardiBukser - beige1.484,51 kr",
+      "original_price": null,
+      "current_price": 484.51,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        484.51
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Beige bukser med snøre, båret med matchende beige sneakers med sorte snørebånd, hænderne hviler afslappet i lommerne.",
@@ -843,7 +952,7 @@
       "price_candidates": [
         643
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Beige hørbukser med skræddersyet pasform, der har sidelommer og en knappet talje, parret med mørke læder loafers.",
@@ -868,7 +977,7 @@
       "price_candidates": [
         699
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Beige linnedbukser med forplisseringer foran, sidelommer, knaplukning og snøre i taljen.",
@@ -893,7 +1002,7 @@
       "price_candidates": [
         511
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Beige linnedragtbukser med snøre, båret sammen med brune slip-on espadrillos på en person, der står mod en ensfarvet baggrund.",
@@ -918,32 +1027,7 @@
       "price_candidates": [
         499
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Beige skræddersyede bukser med forreste pres, bæltestropper, båret med sorte læder loafers og en hvid indstukket skjorte.",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tense-chino-auburn-glaze-ti522e07c-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c3e5ca8d2cc9483cbbca8b2044cd3abf/9ea2fe057aed483387d300a645d6b1ce.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENSE - Chino - auburn glaze1.695,00 kr",
-      "original_price": null,
-      "current_price": 695,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        695
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Beige skræddersyede bukser med sidejusteringsspænder, båret med sorte slip-on festko. og en sort top på en hvid baggrund.",
@@ -968,7 +1052,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Bestilling",
@@ -991,7 +1075,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Betaling & sikkerhed",
@@ -1014,32 +1098,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Blå løstsiddende hørbukser med forreste plisseringer, sidelommer, bæltestropper og knaplukning i taljen.",
-      "url": "https://www.zalando.dk/next-bukser-blue-nx322e1m5-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/a429851178f241af999781ff02776009/a5fe2872fee4422b8a979c0c7d39a59b.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedNextBukser - blue584,00 kr",
-      "original_price": null,
-      "current_price": 584,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        584
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Fællesskabets retningslinjer",
@@ -1062,7 +1121,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Faktura",
@@ -1085,7 +1144,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Gratis retur",
@@ -1108,7 +1167,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Gratis standardlevering ved køb for minimum 499 kr.*",
@@ -1133,7 +1192,32 @@
       "price_candidates": [
         499
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Herregrå bukser med et struktureret hørfiskebensmønster, lige snit, skrå lommer og en talje med knaplukning.",
+      "url": "https://www.zalando.dk/falconeri-bukser-black-faw22e00j-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/bf8c224e69f2462fbb4532d195c035e9/308e70a354a745018ba366c59a508ccb.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedFalconeriREGULAR FIT - Bukser - black2.779,00 kr",
+      "original_price": null,
+      "current_price": 779,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        779
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Højre hånd hviler ved siden af olivengrønne linnedbukser med synlig baglomme og linning under en hvid skjorte.",
@@ -1158,7 +1242,7 @@
       "price_candidates": [
         608
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Hvid skjorte med knapper, stoppet ned i mørkegrå skræddersyede bukser med knaplukning foran og bæltestropper, vist fra taljen til midt på låret.",
@@ -1183,7 +1267,7 @@
       "price_candidates": [
         839
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Indløs gavekort",
@@ -1206,7 +1290,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Klarna",
@@ -1229,7 +1313,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Levering",
@@ -1252,7 +1336,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mænds sorte skræddersyede bukser med forreste pressede folder båret med beige sneakers og en beige skjorte stoppet ned i bukserne på en ensfarvet baggrund.",
@@ -1277,7 +1361,7 @@
       "price_candidates": [
         643
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand har lyseblå tætsiddende bukser og sorte sandaler med remme på, kombineret med en hvid kortærmet skjorte, og står på et gråt gulv.",
@@ -1302,7 +1386,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført beige bukser med lige ben, sorte læderloafers og en olivengrøn, tekstureret kortærmet sweater, stående mod en hvid baggrund.",
@@ -1327,7 +1411,7 @@
       "price_candidates": [
         900
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført beige bukser med snoretræk og beige sneakers med sorte snørebånd, stående med hænder afslappet langs siden på hvid baggrund.",
@@ -1352,7 +1436,7 @@
       "price_candidates": [
         643
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført beige dressbukser kombineret med sorte dresssko og en mørk vinrød langærmet skjorte, der står mod en hvid baggrund.",
@@ -1377,7 +1461,7 @@
       "price_candidates": [
         495
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført beige habitbukser, mørkebrune loafers og en navy kortærmet striktrøje, står med hænderne i lommerne.",
@@ -1402,7 +1486,7 @@
       "price_candidates": [
         699
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført beige linnedbukser, hvid kortærmet skjorte og sorte læderloafer, stående mod en ensartet lys baggrund.",
@@ -1427,7 +1511,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført beige linnedbukser, mørkebrun skjorte og brune sandaler, står mod en ensfarvet lys baggrund med armene langs siden.",
@@ -1452,7 +1536,32 @@
       "price_candidates": [
         900
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført beige skræddersyede bukser og brune sneakers med hvide såler, stående mod en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/boggi-milano-chino-taupe-bq122e08j-b12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/0389a9c567194ad199c612a969ef4681/e24b34c3e0084b6bb048291e7e1b6fec.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedBoggi MilanoChino - taupe1.643,00 kr",
+      "original_price": null,
+      "current_price": 643,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        643
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført beige skræddersyede bukser og matchende sneakers med sorte snørebånd, stående mod en ensfarvet baggrund.",
@@ -1477,12 +1586,12 @@
       "price_candidates": [
         643
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Mand iført brune ternede bukser, sorte lædersko og en blå langærmet top, stående mod en ensartet baggrund.",
-      "url": "https://www.zalando.dk/tiger-of-sweden-iscove-bukser-macchiato-ti522e07b-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/d19c6f5e57164126b66ca14fd2aebc29/1ba2e2fc24db4a9f9cf2c3b634f2b7fc.jpg?imwidth=300",
+      "title": "Mand iført grå plisserede bukser med opsmøgede kanter, sorte sokker, sorte læder loafers og en hvid skjorte med tynde lodrette striber.",
+      "url": "https://www.zalando.dk/boss-perin-bukser-open-grey-bb122e1c7-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/67e591cd13ad44c3942ed7d4bffed8e2/aab1478bc9854e4b88d4f4ecb30c5f04.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -1493,16 +1602,16 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedTiger of SwedenISCOVE - Bukser - macchiato1.495,00 kr",
+      "raw_card_text": "heart_outlinedBOSSPERIN - Bukser - open grey2.595,00 kr",
       "original_price": null,
-      "current_price": 495,
+      "current_price": 595,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        495
+        595
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført grønne skræddersyede bukser, sorte sko og en beige langærmet skjorte står mod en ensfarvet lys baggrund.",
@@ -1527,7 +1636,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført hvid strikket kortærmet skjorte, hvide bukser med sort bælte og sorte slip-on sko står på gråt gulv.",
@@ -1552,7 +1661,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført hvide bukser med rette ben, en brun kortærmet skjorte, der ikke er stoppet i bukserne, og mørkebrune åbne sandaler, stående på en grå gulv.",
@@ -1577,7 +1686,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført hvide, lige bukser, sort strikket trøje og sorte læder loafers, stående mod en ensfarvet baggrund.",
@@ -1602,7 +1711,7 @@
       "price_candidates": [
         900
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført lige, mørkebrune bukser og matchende mørkebrune sneakers, stående mod en ensartet lys baggrund.",
@@ -1627,7 +1736,7 @@
       "price_candidates": [
         900
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført lyse beige skræddersyede bukser, en brun kortærmet skjorte og sorte pæne sko, stående mod en ensfarvet baggrund.",
@@ -1652,12 +1761,12 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Mand iført lyseblå skræddersyede bukser, sorte læderloafers og en mørk marineblå skjorte mod en ensfarvet hvid baggrund.",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tense-chino-heather-ti522e07c-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ec2b4c0fe8884cf2a5780e89fb0030eb/fea64c0becec4d419c2f5604b5961089.jpg?imwidth=300",
+      "title": "Mand iført lysebrune trækstrækstrikbukser og matchende beige ruskindsneakers, stående mod en hvid baggrund.",
+      "url": "https://www.zalando.dk/falconeri-traningsbukser-natuerlich-wheat-blend-faw22e000-b12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/7cae60eece9a48fe82539f6aba0e04bd/1bc6b026efff4d698be418df571e45f8.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -1668,16 +1777,16 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENSE - Chino - heather1.695,00 kr",
+      "raw_card_text": "heart_outlinedFalconeriULTRASOFT - Træningsbukser - light brown2.439,00 kr",
       "original_price": null,
-      "current_price": 695,
+      "current_price": 439,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        695
+        439
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført lysegrå bukser med lige ben, hvid langærmet skjorte med knapper og mørkebrune sandaler, stående på en grå gulv.",
@@ -1702,7 +1811,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført lysegrå habitbukser, sort bælte, sorte loafers og en hvid kortærmet skjorte med tynde, horisontale striber.",
@@ -1727,32 +1836,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført marineblå afslappede bukser med snørelukning og mørke slip-on sko, stående med den ene hånd i lommen og neutral baggrund.",
-      "url": "https://www.zalando.dk/boggi-milano-bukser-blue-bq122e08f-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c3fe603396ab46c48dea5b14074ef78b/21b7a34ea0c040cb9b4d69d9dc0824f3.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedBoggi MilanoBukser - blue1.499,00 kr",
-      "original_price": null,
-      "current_price": 499,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        499
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført marineblå bukser med snørelukning og lommer samt beige sneakers med mørke snørebånd, stående foran en ensfarvet baggrund.",
@@ -1777,32 +1861,7 @@
       "price_candidates": [
         643
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført marineblå bukser med snoretræk og sorte lædersandaler, stående mod en ensfarvet lys baggrund.",
-      "url": "https://www.zalando.dk/jlindeberg-soren-drape-pants-bukser-navy-jl122e0d1-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/33fbdb778edd44c3b5fe598f4ac76c7f/38b0992db12743ee842047ed542c6952.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedJ.LINDEBERGSOREN DRAPE PANTS - Bukser - navy1.245,00 kr",
-      "original_price": null,
-      "current_price": 245,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        245
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført marineblå bukser, brune ruskindssko, hvid skjorte og marineblå jakke, stående mod en ensfarvet lys baggrund.",
@@ -1827,32 +1886,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført mørke skræddersyede bukser, lys blå skjorte, mønstret slips og brune ruskindstøfler med kvaster mod en ensfarvet baggrund.",
-      "url": "https://www.zalando.dk/oscar-jacobson-delon-side-adjuster-evo-trousers-habitbukser-navy-sj322e035-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/42f29c26687d46e7bd373c20cd5a72f6/8dfafa068f11487dbf0784ea900bf19b.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedSponsoreretOscar JacobsonDELON SIDE ADJUSTER EVO TROUSERS - Bukser - navy1.999,00 kr",
-      "original_price": null,
-      "current_price": 999,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        999
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført mørke, skræddersyede bukser med manchetter, en grå og hvid stribet kortærmet skjorte og sorte slip-on sko, der står på gråt gulv.",
@@ -1877,57 +1911,7 @@
       "price_candidates": [
         699
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført mørkegrå skræddersyede bukser og mørkebrune læderloafers, stående mod en ensfarvet hvid baggrund.",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-dark-blue-m3i22e0u2-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/8c09eec7879c422ba7e0398e1cd39c73/5e6675e60d1c48898ab0859b4775e4a5.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedMassimo Dutti100% LINEN STRIPED PANTS - Bukser - dark blue900,00 kr",
-      "original_price": null,
-      "current_price": 900,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        900
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført mørkegrå skræddersyede bukser, sorte finere sko og en lyseblå langærmet skjorte, stående mod en hvid baggrund.",
-      "url": "https://www.zalando.dk/boss-bukser-dark-blue-five-bb122e1ez-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/69adfb9888014ad197353c3648c3188a/9da522c07de34f09b6cd4a6dade352a7.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedBOSSBukser - dark blue five1.299,00 kr",
-      "original_price": null,
-      "current_price": 299,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        299
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført navyblå afslappede bukser med snøre og lommer samt beige slip-on espadrillos, stående mod en ensfarvet baggrund.",
@@ -1952,7 +1936,32 @@
       "price_candidates": [
         499
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført off-white linnedragt med snøre og brune ruskindssko uden snørebånd, stående mod en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/boggi-milano-bukser-white-bq122e08f-a11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/724ddf973e0b400eb925b132abfb4570/9ab785b56ea34b3bbcbff19c0798ceb2.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedBoggi MilanoBukser - white1.499,00 kr",
+      "original_price": null,
+      "current_price": 499,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        499
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført skræddersyede mørkeblå bukser og brune ruskindslofers, hænderne i lommerne, foran en ensfarvet lys baggrund.",
@@ -1977,7 +1986,7 @@
       "price_candidates": [
         699
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført skræddersyede, off-white bukser og lysebrune loafers i ruskind, stående foran en ensfarvet baggrund.",
@@ -1993,7 +2002,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "heart_outlinedBläckNINO LINEN CHINOS - Chino - ecru699,00 kr",
+      "raw_card_text": "heart_outlinedSponsoreretBläckNINO LINEN CHINOS - Chino - ecru699,00 kr",
       "original_price": null,
       "current_price": 699,
       "discount_percent": null,
@@ -2002,7 +2011,7 @@
       "price_candidates": [
         699
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sort kortærmet sweater, marineblå bukser med snor i taljen, sorte sko og solbriller, der holder en stor marineblå mulepose med sorte stropper.",
@@ -2027,7 +2036,7 @@
       "price_candidates": [
         487
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte bukser med bælte, lyseblå skjorte og sorte lædersko, stående med hænder delvist i lommerne.",
@@ -2052,12 +2061,12 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Mand iført sorte bukser med læg, sort bælte, sorte lædersko og en lyseblå striktrøje med lange ærmer.",
-      "url": "https://www.zalando.dk/tiger-of-sweden-theo-bukser-midnight-blue-ti522e06z-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/f62ce7cb6ea24d5ea9cf673b9d5ed8ec/f2933ed2701b49658e1b78685369aa22.jpg?imwidth=300",
+      "title": "Mand iført sorte bukser med høj talje med matchende bælte og hvide sneakers, stående mod en ensfarvet lyse baggrund.",
+      "url": "https://www.zalando.dk/officine-generale-hugo-italian-fresco-bukser-dark-navy-ge022e007-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/b4cb709a66044358a4886695805c4757/c083b29e52f04b87a4c59e70be12fc7e.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -2068,16 +2077,41 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedTiger of SwedenTHEO - Bukser - midnight blue1.895,00 kr",
+      "raw_card_text": "Designerheart_outlinedOFFICINE GENERALEBukser - dark navy2.645,00 kr",
       "original_price": null,
-      "current_price": 895,
+      "current_price": 645,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        895
+        645
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført sorte bukser med lige ben, sorte lædersko og en hvid ærmeløs top, står mod en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-black-ti522e07g-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/5b99e7266d5847f593590a97991d2354/0dba40b154a244339a91c9fd0fd0a450.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTOMMIE - Bukser - black2.295,00 kr",
+      "original_price": null,
+      "current_price": 295,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        295
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte formelle bukser, sorte lædersko og en hvid langærmet skjorte med knapper, stående mod en hvid baggrund.",
@@ -2093,7 +2127,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "heart_outlinedBOSSHabitbukser - black one1.799,00 kr",
+      "raw_card_text": "heart_outlinedSponsoreretBOSSHabitbukser - black one1.799,00 kr",
       "original_price": null,
       "current_price": 799,
       "discount_percent": null,
@@ -2102,7 +2136,32 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført sorte formelle bukser, sorte pæne sko og en rød- og hvidstribet langærmet skjorte, stående mod en hvid baggrund.",
+      "url": "https://www.zalando.dk/boss-h-perino-b1-263-bukser-dark-blue-one-bb122a15q-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/858df7fc744f4118abb3bcde7ff0a7e8/69f121a2d58e423c9e9e3e924fa1124b.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Nyhedheart_outlinedBOSSH-PERINO-B1-263 - Habitbukser - dark blue one1.799,00 kr",
+      "original_price": null,
+      "current_price": 799,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        799
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte habitbukser med snøre i taljen, lyseblå skjorte, sort bælte og sorte dresssko, står oprejst.",
@@ -2127,7 +2186,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte habitbukser, hvid skjorte med knapper og sorte dressko, stående foran en ensfarvet hvid baggrund.",
@@ -2152,7 +2211,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte habitbukser, lysebeige skjorte med knapper og mørkebrune ruskindsløse sko stående med hænderne afslappet ned langs siden.",
@@ -2177,7 +2236,32 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført sorte plisserede bukser med opsmøgede ben og sorte læder loafers, stående mod en hvid baggrund.",
+      "url": "https://www.zalando.dk/boss-perin-bukser-dark-blue-bb122e1c7-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/382dbae0ce2e419a807ecf80b1ed4106/3c937b1dac1347e3a4f708f6816541ad.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedBOSSPERIN - Bukser - dark blue2.595,00 kr",
+      "original_price": null,
+      "current_price": 595,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        595
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte skræddersyede bukser med plisseringer og sorte læder sko med frynser, stående mod en ensfarvet hvid baggrund.",
@@ -2202,7 +2286,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte skræddersyede bukser med sidejusteringsspænder, hvide sokker, sorte læderloafers og en hvid skjorte stoppet i bukserne.",
@@ -2227,7 +2311,7 @@
       "price_candidates": [
         595
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte skræddersyede bukser, sort bælte og sorte læder loafers, stående mod en ensartet lysegrå baggrund.",
@@ -2252,7 +2336,7 @@
       "price_candidates": [
         900
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte skræddersyede bukser, sorte læder loafers og en mørk langærmet top mod en hvid baggrund.",
@@ -2268,7 +2352,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "heart_outlinedBOSSH-GENIUS-TUX-B1 - Bukser - black1.999,00 kr",
+      "raw_card_text": "heart_outlinedSponsoreretBOSSH-GENIUS-TUX-B1 - Bukser - black1.999,00 kr",
       "original_price": null,
       "current_price": 999,
       "discount_percent": null,
@@ -2277,7 +2361,7 @@
       "price_candidates": [
         999
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført tætsiddende brune habitbukser, grå kortærmet top og sorte pæne sko stående på en neutral baggrund.",
@@ -2302,7 +2386,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand med gråt skæg iført sort kortærmet sweater, lysegrå løse bukser og brune sandaler, står i et rum med beige panelvægge.",
@@ -2327,7 +2411,7 @@
       "price_candidates": [
         511
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand stående iført lyse beige vidde bukser, hvid skjorte og beige ruskindstøfler med kvaster mod en hvid baggrund.",
@@ -2352,32 +2436,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand står med én hånd i lommen iført beige skræddersyede bukser, mørk tekstureret skjorte og brune ruskindsslippers på en ensfarvet lys baggrund.",
-      "url": "https://www.zalando.dk/oscar-jacobson-dandy-trousers-chino-white-grass-sj322e030-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/78df4e886d844f368548a3640ad446be/53b5d38528fa48468570aadbe03f7e85.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedSponsoreretOscar JacobsonDANDY TROUSERS - Chino - white grass1.699,00 kr",
-      "original_price": null,
-      "current_price": 699,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        699
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MABARTON - Bukser - broken white",
@@ -2402,7 +2461,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MABARTON - Bukser - broken whites",
@@ -2427,32 +2486,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Matinique, MABARTON - Bukser - khaki",
-      "url": "https://www.zalando.dk/matinique-barton-pant-bukser-khaki-m6022e024-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/4477e64a404d476fab3191d7c5b06ce5/548cc2d8f3a848f197abf76114fa8e99.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedMatiniqueMABARTON - Bukser - khaki599,00 kr",
-      "original_price": null,
-      "current_price": 599,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        599
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MABARTON WIDE - Bukser - black",
@@ -2477,7 +2511,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MABARTON WIDE - Bukser - broken white",
@@ -2502,7 +2536,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MABARTON WIDE - Bukser - dark navy",
@@ -2527,7 +2561,7 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MABARTON WIDE - Bukser - plaza taupe",
@@ -2552,7 +2586,57 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Matinique, MABARTON WIDE - Bukser - winter twig",
+      "url": "https://www.zalando.dk/matinique-mabarton-wide-bukser-winter-twig-m6022e06l-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/80b33e567e144b19bb94960acb70cdc8/f5ccc1ef65ad4d46ba3c6f52b657f571.png?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedMatiniqueMABARTON WIDE - Bukser - winter twig599,00 kr",
+      "original_price": null,
+      "current_price": 599,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        599
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Matinique, MALIAM - Chino - smoked pearl",
+      "url": "https://www.zalando.dk/matinique-maliam-chino-smoked-pearl-m6022e01k-c16.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/51667a13e26d41f79e3f6406d2439a2d/ec3554568e8b498280328ea703c31a83.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedMatiniqueMALIAM - Chino - smoked pearl699,00 kr",
+      "original_price": null,
+      "current_price": 699,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        699
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "MobilePay",
@@ -2575,7 +2659,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mørkegrå skræddersyede bukser med en glat tekstur, flad front og sidelommer, parret med en hvid skjorte med knapper og sorte sko.",
@@ -2600,7 +2684,7 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mørkhudet person iført cremefarvede skræddersyede bukser, mørke olivengrøn skjorte og mørkebrune lædersandaler, stående på gråt gulv.",
@@ -2625,57 +2709,7 @@
       "price_candidates": [
         699
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Nedre del af en person iført mørke stribede bukser og sorte loafers med beige detaljer, stående mod en hvid baggrund.",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-phantom-ti522e07p-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/39c3815ed3b24699abe43f07841fa1fe/8dc2acc0d35c4e73bf7b3ca0d67cf889.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerNyhedheart_outlinedTiger of SwedenTOMMIE - Bukser - phantom2.295,00 kr",
-      "original_price": null,
-      "current_price": 295,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        295
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Oscar Jacobson DENZ - Chino - dark blue",
-      "url": "https://www.zalando.dk/oscar-jacobson-chino-dark-blue-sj322e00z-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/06c48cf76bc241e6a942ebb1c2eeb82c/f3fec8777ade4033ab522ec06554e35b.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedOscar JacobsonDENZ - Chino - dark blue1.799,00 kr",
-      "original_price": null,
-      "current_price": 799,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        799
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Paypal",
@@ -2698,7 +2732,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Person iført løse mørkegrå bukser, en stoppet lys skjorte og brune sandaler, stående mod en ensfarvet lys baggrund.",
@@ -2723,12 +2757,12 @@
       "price_candidates": [
         900
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Person iført mørkegrønne bukser og sorte loafers, der holder en marineblå shopper i den ene hånd ved siden.",
-      "url": "https://www.zalando.dk/selected-bukser-black-0bn22e00m-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/778d482520fa4714a293c8646ecfc13b/c1ce5be8ff3946ea9acd3b9f31e281b9.jpg?imwidth=300",
+      "title": "Person iført mørke skræddersyede bukser og sorte læderloafers, stående med den ene hånd i lommen mod en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/hugo-hugo-hogan263x-bukser-dark-blue-five-hu722a0sc-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/8e436941a364446c87e66cd1169c41c1/8629314a03754639bda3c5b7b0352609.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -2739,391 +2773,16 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "heart_outlinedSelectedChino - black799,95 kr",
+      "raw_card_text": "heart_outlinedSponsoreretHUGOHUGO HOGAN263X - Habitbukser - dark blue five1.299,00 kr",
       "original_price": null,
-      "current_price": 799.95,
+      "current_price": 299,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        799.95
+        299
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, BEDFORD CLASSIC FIT LINEN-COTTON PANT - Chino - dusty azure",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-bedford-classic-fit-linen-cotton-pant-chino-dusty-azure-po222e0ab-k12.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ad775b8560c44b2d81e6b08d99433fa1/5a6aaf34d363449b85d35f1aa33fd62c.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenBEDFORD CLASSIC FIT LINEN-COTTON PANT - Chino - dusty azure1.595,00 kr",
-      "original_price": null,
-      "current_price": 595,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        595
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, BEDFORD CLASSIC FIT LINEN-COTTON PANT - Chino - white",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-bedford-classic-fit-linen-cotton-pant-chino-white-po222e0ab-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/be8b5bae80114820abd53a201abca582/20a2c748118b4977a88d2228f134e983.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenBEDFORD CLASSIC FIT LINEN-COTTON PANT - Chino - white1.595,00 kr",
-      "original_price": null,
-      "current_price": 595,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        595
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, BEDFORD STRETCH STRAIGHT FIT CHINO PANT - Chino - classic stone",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-bedford-stretch-straight-fit-chino-pant-chino-classic-stone-po222e0an-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ef3718500dd44bb184fa45f7011296cb/68c046c562eb49e3b136437ff0258c0e.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenBEDFORD STRETCH STRAIGHT FIT CHINO PANT - Chino - classic stone1.495,00 kr",
-      "original_price": null,
-      "current_price": 495,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        495
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, BEDFORD STRETCH STRAIGHT FIT CHINO PANT - Chino - khaki",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-bedford-stretch-straight-fit-chino-pant-chino-khaki-po222e0an-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/0aaa7f7c609e4812b432289fe92c4718/10e2d9fde80a4dd696c18b7825008895.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerNyhedheart_outlinedPolo Ralph LaurenBEDFORD STRETCH STRAIGHT FIT CHINO PANT - Chino - khaki1.495,00 kr",
-      "original_price": null,
-      "current_price": 495,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        495
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, BEDFORD STRETCH STRAIGHT FIT CHINO PANT - Chino - nautical ink",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-bedford-stretch-straight-fit-chino-pant-chino-nautical-ink-po222e0an-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/7cf910b678ff4cdb871c6392774ca91c/0055462ee14841e5b63464c3e3014097.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenBEDFORD STRETCH STRAIGHT FIT CHINO PANT - Chino - nautical ink1.495,00 kr",
-      "original_price": null,
-      "current_price": 495,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        495
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, DOUBLE-KNIT TRACK PANT - Træningsbukser - newport navy",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-double-knit-track-pant-traningsbukser-newport-navy-po222e0am-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/0164bc375d2842eba4e864d939a309a9/0011c62199ff48aa9bd5878ffa2b5d2a.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenDOUBLE-KNIT TRACK PANT - Træningsbukser - newport navy1.395,00 kr",
-      "original_price": null,
-      "current_price": 395,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        395
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, DOUBLE-KNIT TRACK PANT - Træningsbukser - white",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-double-knit-track-pant-traningsbukser-white-po222e0am-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/d0ab6e1e05ec427cb06a0ad6d26b3d89/5fc2f00e2b494c9fbcdef8ae13fc1fcb.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenDOUBLE-KNIT TRACK PANT - Træningsbukser - white1.395,00 kr",
-      "original_price": null,
-      "current_price": 395,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        395
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, GLEN PLAID SUMMER TWEED SUIT TROUSER - Bukser - brown/tan",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-glen-plaid-summer-tweed-suit-trouser-bukser-browntan-po222a06c-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/f7a6676d2adf489780112bdb70b03363/2f087887ed83445ca229dc2357169872.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenGLEN PLAID SUMMER TWEED SUIT TROUSER - Bukser - brown/tan4.395,00 kr",
-      "original_price": null,
-      "current_price": 395,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        395
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, LATEEF RELAXED FIT LINEN PANT - Bukser - blue white",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-lateef-relaxed-fit-linen-pant-bukser-blue-white-po222e0al-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/1cb79ca9454b41ef885d8db9032c9d66/d103809beb2148d4addbdbe55c53af1b.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenLATEEF RELAXED FIT LINEN PANT - Bukser - blue white2.195,00 kr",
-      "original_price": null,
-      "current_price": 195,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        195
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, LATEEF RELAXED FIT PLEATED LINEN PANT - Bukser - ceramic white",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-lateef-relaxed-fit-pleated-linen-pant-bukser-ceramic-white-po222e09a-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/0adf72db2e6a41fd9ecf546df4aff88f/e0597a2de3004332a4396b818c2428ba.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenLATEEF RELAXED FIT PLEATED LINEN PANT - Bukser - ceramic white2.195,00 kr",
-      "original_price": null,
-      "current_price": 195,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        195
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, LATEEF RELAXED FIT PLEATED LINEN PANT - Bukser - coastal beige",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-lateef-relaxed-fit-pleated-linen-pant-bukser-coastal-beige-po222e09a-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/2f081c4e360041d8a34ee55386d0f7c8/b709273934564da78955a66d262531d4.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenLATEEF RELAXED FIT PLEATED LINEN PANT - Bukser - coastal beige2.195,00 kr",
-      "original_price": null,
-      "current_price": 195,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        195
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, LATEEF RELAXED FIT PLEATED LINEN PANT - Bukser - sage green",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-lateef-relaxed-fit-pleated-linen-pant-bukser-sage-green-po222e09a-m11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/5a85b7cff9564da889dbb9d902da2f2a/4f156aa2bb064fd69fa3ab2387fe964f.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerNyhedheart_outlinedPolo Ralph LaurenLATEEF RELAXED FIT PLEATED LINEN PANT - Bukser - sage green2.195,00 kr",
-      "original_price": null,
-      "current_price": 195,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        195
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, MANHASSET CLASSIC FIT LINEN COTTON PANT - Chino - vintage khaki/mini houndstooth",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-manhasset-classic-fit-linen-cotton-pant-chino-vintage-khakimini-houndstooth-po222e0aj-n11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/61d263ec624a4ab280b00421ad73b009/309d1896a4664abf94fb493d02c03633.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedPolo Ralph LaurenMANHASSET CLASSIC FIT LINEN COTTON PANT - Chino - vintage khaki/mini houndstooth1.745,00 kr",
-      "original_price": null,
-      "current_price": 745,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        745
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, PLEATED GLEN PLAID SUIT TROUSER - Bukser - sand/brown",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-pants-bukser-sandbrown-po222a05p-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/6e4ff5c2532c4b7cb4ee742a23d9fce0/1603ff4be922440b8f20cee32273ba50.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerMix & matchheart_outlinedPolo Ralph LaurenPLEATED GLEN PLAID SUIT TROUSER - Bukser - sand/brown4.395,00 kr",
-      "original_price": null,
-      "current_price": 395,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        395
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Polo Ralph Lauren, WIMBLEDON BALLPERSON JOGGER PANT - Træningsbukser - refined navy/white",
-      "url": "https://www.zalando.dk/polo-ralph-lauren-ballboy-athletic-traningsbukser-refined-navywhite-po222e07y-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/adcd750b5f5540c1bb61a0b63cb6de85/8c025d5b5cee4928ad6410d899fcd8c3.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerMix & matchheart_outlinedPolo Ralph LaurenWIMBLEDON BALLPERSON JOGGER PANT - Træningsbukser - refined navy/white1.195,00 kr",
-      "original_price": null,
-      "current_price": 195,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        195
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Registrering",
@@ -3146,7 +2805,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Returnering",
@@ -3169,7 +2828,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Sådan returnerer du et produkt fra Zalando Partner",
@@ -3192,12 +2851,12 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Sorte skræddersyede bukser med bæltestropper, frontknap og sidelommer, designet med et lige ben.",
-      "url": "https://www.zalando.dk/mango-adult-bukser-blue-m9122e1gb-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/602925d10dec40b282338fda15e62102/a0a5d41c4a6345bd87944671453fa969.jpg?imwidth=300&filter=packshot",
+      "title": "Sorte bukser lavet af et glat, vævet stof. Har sidelommer og et lige ben med en linning.",
+      "url": "https://www.zalando.dk/next-bukser-black-nx322e1hh-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/bc70c8dcede748b3a20b41d7006a3cb9/17992bd012b04b57835325257a326c49.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -3208,41 +2867,16 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Mix & matchheart_outlinedMangoADULT - Bukser - blue799,00 kr",
+      "raw_card_text": "heart_outlinedNextREGULAR FIT SIGNATURE NOVA FIDES - Bukser - black912,00 kr",
       "original_price": null,
-      "current_price": 799,
+      "current_price": 912,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        799
+        912
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Sorte skræddersyede bukser med en slank pasform, fremstillet af glat stof med en subtil glans og en trimmet talje, parret med sorte loafers.",
-      "url": "https://www.zalando.dk/boss-bukser-black-bb122e0lu-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c4ae3e8587d14ebf89f6f6c115fe0b3a/3a9b7041dee94b24b4ec897a4bbad529.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedBOSSBukser - black1.999,00 kr",
-      "original_price": null,
-      "current_price": 999,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        999
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Spørgsmål om gavekort?",
@@ -3265,7 +2899,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Visa",
@@ -3288,7 +2922,7 @@
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     }
   ],
   "match_count": 22,
@@ -3307,7 +2941,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "heart_outlinedHarmont & BlainePANTALONI UOMO TASCA AMERICA REGULAR FIT - Chino - blu scuro1.029,60 krNormalpris:1.716,00 kr-40%",
+      "raw_card_text": "heart_outlinedSponsoreretHarmont & BlainePANTALONI UOMO TASCA AMERICA REGULAR FIT - Chino - blu scuro1.029,60 krNormalpris:1.716,00 kr-40%",
       "original_price": 716,
       "current_price": 29.6,
       "discount_percent": 95.9,
@@ -3317,7 +2951,113 @@
         716,
         29.6
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Grå skræddersyede bukser lavet af letvægtsstof, med lige pasform, stribedetaljer og sidelommer, parret med sorte sko.",
+      "url": "https://www.zalando.dk/boss-h-lenon-b1-jakkesat-bukser-dark-grey-bb122e0k2-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/69d4e7d1dcee42c2b4368fccf6f84ee2/59b73c845f884b668a7fbdd249dc6c93.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - dark greyfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%Sidste laveste pris1.117,00 krSpar op til-7%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        117,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført grå straight-leg bukser, sort langærmet skjorte og sorte lædersko står mod en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-grey-bb122a0vg-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ab5daffdfe3f4f68b566e33333758546/7771de8ab3fe4e1e9fc80681d62e645d.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedBOSSGENIUS - Bukser - dark greyfra1.037,00 krNormalpris:1.595,00 krSpar op til-35%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Skræddersyede sorte bukser med en glat, lige pasform, der har flad front og bæltesløjfer. Bæres med en hvid skjorte med knap og sorte sko.",
+      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.037,00 krNormalpris:1.595,00 krSpar op til-35%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Sorte dressbukser med en skræddersyet pasform, rene linjer og en glat tekstur. Båret med en matchende sort skjorte med knapper og sorte sko.",
+      "url": "https://www.zalando.dk/boss-h-lenon-bukser-black-bb122e0k2-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/b17d8d2512f9450f89041701496fd773/aab6c6c2d9554a7b9be4d6ae6ff1cbb5.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - blackfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%Sidste laveste pris1.117,00 krSpar op til-7%",
+      "original_price": 595,
+      "current_price": 37,
+      "discount_percent": 93.8,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        595,
+        117,
+        37
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Sorte slim-fit bukser med snoreliv, frontfald og glat overflade, parret med sorte sko og en hvid skjorte.",
@@ -3333,7 +3073,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedBOSSGENIUS - Bukser - blackfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%",
+      "raw_card_text": "Dealheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.037,00 krOprindeligt:1.595,00 krSpar op til-35%",
       "original_price": 595,
       "current_price": 37,
       "discount_percent": 93.8,
@@ -3343,12 +3083,12 @@
         595,
         37
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
-      "title": "Beige skræddersyede bukser lavet af letvægtsstof, med lige pasform, glat front og bæltestropper. Bruges med brune ruskinds-sneakers.",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-beige-ti522e06v-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/6ee9c6c011af4201bffc01eab5b960fd/02b509d362db4ba1a92479242919d973.jpg?imwidth=300",
+      "title": "The Kooples Habitbukser - beige",
+      "url": "https://www.zalando.dk/the-kooples-chino-beige-tha22e04f-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/a86034891d4d43269825aaa99f0fcbce/22fb956f8b1b4d19b824744e7fb4ecea.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "target_size": "46",
@@ -3359,17 +3099,71 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENUTA - Bukser - beige1.047,00 krNormalpris:1.495,00 kr-30%",
-      "original_price": 495,
-      "current_price": 47,
-      "discount_percent": 90.5,
+      "raw_card_text": "Designerheart_outlinedThe KooplesHabitbukser - beige1.152,00 krOprindeligt:1.920,00 kr-40%Sidste laveste pris1.344,00 kr-14%",
+      "original_price": 920,
+      "current_price": 152,
+      "discount_percent": 83.5,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 40,
+      "price_candidates": [
+        920,
+        344,
+        152
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "The Kooples Habitbukser - blue",
+      "url": "https://www.zalando.dk/the-kooples-bukser-blue-tha22e04i-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6622002c267242ea903e65300970535c/dd0aec11bd1f4d8dbb4244930612d52f.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealDesignerheart_outlinedThe KooplesHabitbukser - blue567,50 krOprindeligt:1.135,00 kr-50%Sidste laveste pris794,50 kr-29%",
+      "original_price": 794.5,
+      "current_price": 135,
+      "discount_percent": 83,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 50,
+      "price_candidates": [
+        794.5,
+        567.5,
+        135
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført mørkegrå habitbukser, sorte læder double monk strap sko og en hvid skjorte stoppet ned i bukserne, står på en ensfarvet baggrund.",
+      "url": "https://www.zalando.dk/boss-wenten-habitbukser-dark-blue-bb122a0va-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/1eb9acb9c95346a6a9287ebf0ef82723/04917f2cd55e4dcb8ae3d6f5e9a83bd4.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealMix & matchheart_outlinedBOSSWENTEN - Bukser - dark bluefra1.117,00 krNormalpris:1.595,00 krSpar op til-30%",
+      "original_price": 595,
+      "current_price": 117,
+      "discount_percent": 80.3,
       "discount_status": "calculated-from-prices",
       "explicit_discount_percent": 30,
       "price_candidates": [
-        495,
-        47
+        595,
+        117
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført lysegrå linnedbukser med op-rullede manchetter og sorte sandaler med krydsremme, stående med den ene hånd i lommen.",
@@ -3395,7 +3189,7 @@
         949,
         249
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført mørkegrå bukser med optrukne ben, hvide sneakers, blåt bælte og hvid langærmet skjorte med den ene hånd i lommen.",
@@ -3421,7 +3215,7 @@
         949,
         249
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte bukser med opbuk og beige slip-on sko, stående foran en ensfarvet lys baggrund.",
@@ -3447,7 +3241,7 @@
         949,
         249
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført skræddersyede grå habitbukser og mørkebrune tasselloafers, stående med hænderne i lommerne mod en ensfarvet baggrund.",
@@ -3473,7 +3267,7 @@
         699,
         189
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført mørkegrå skræddersyede bukser, brun langærmet top og sorte læder-loafers mod en ensfarvet lys baggrund.",
@@ -3500,7 +3294,7 @@
         400,
         250
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Marineblå dressbukser med en glat overflade. Har en flad front, skræddersyet pasform og en sort talje, parret med blanke sorte sko.",
@@ -3526,216 +3320,7 @@
         995,
         297
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mørkegrå skræddersyede bukser med en glat tekstur, der har en slim fit, og stylet med et sort bælte. Kombinationen afsluttes med sorte sko.",
-      "url": "https://www.zalando.dk/boss-lenon-habitbukser-black-bb122a0vj-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/06ae1330f1834d20aa4cffe7fb0d241c/d15f6ae1f3ae4c2b9995112eb55a4c31.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSLENON - Bukser - blackfra1.297,00 krOprindeligt:1.995,00 krSpar op til-35%Sidste laveste pris1.397,00 krSpar op til-7%",
-      "original_price": 995,
-      "current_price": 297,
-      "discount_percent": 70.2,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 35,
-      "price_candidates": [
-        995,
-        397,
-        297
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Grå skræddersyede bukser lavet af letvægtsstof, med lige pasform, stribedetaljer og sidelommer, parret med sorte sko.",
-      "url": "https://www.zalando.dk/boss-h-lenon-b1-jakkesat-bukser-dark-grey-bb122e0k2-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/69d4e7d1dcee42c2b4368fccf6f84ee2/59b73c845f884b668a7fbdd249dc6c93.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - dark greyfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført grå straight-leg bukser, sort langærmet skjorte og sorte lædersko står mod en ensfarvet baggrund.",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-grey-bb122a0vg-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ab5daffdfe3f4f68b566e33333758546/7771de8ab3fe4e1e9fc80681d62e645d.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSGENIUS - Bukser - dark greyfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført mørkegrå habitbukser, sorte læder double monk strap sko og en hvid skjorte stoppet ned i bukserne, står på en ensfarvet baggrund.",
-      "url": "https://www.zalando.dk/boss-wenten-habitbukser-dark-blue-bb122a0va-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/1eb9acb9c95346a6a9287ebf0ef82723/04917f2cd55e4dcb8ae3d6f5e9a83bd4.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSWENTEN - Bukser - dark bluefra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført sorte skræddersyede bukser med snor i taljen, hvid skjorte og sorte læder loafers, står med hænderne afslappet ned langs siderne.",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-blue-bb122a0ve-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/4cd9fa938ed642b4892e319d3fdc38b3/9bed3f7cb2a2497bbb89ebe0021214bb.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedBOSSGENIUS - Bukser - dark bluefra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Marineblå habitbukser i glat stof med en skræddersyet pasform, der har sidelommer og lige ben, båret med glinsende sorte sko.",
-      "url": "https://www.zalando.dk/boss-chino-dark-blue-bb122e0k2-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/b6d54408dd834ab3bcd8bf54f35f9fa2/2513860b2b5744b7a56253cedb7defad.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - dark bluefra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Skræddersyede sorte bukser med en glat, lige pasform, der har flad front og bæltesløjfer. Bæres med en hvid skjorte med knap og sorte sko.",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Sorte dressbukser med en skræddersyet pasform, rene linjer og en glat tekstur. Båret med en matchende sort skjorte med knapper og sorte sko.",
-      "url": "https://www.zalando.dk/boss-h-lenon-bukser-black-bb122e0k2-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/b17d8d2512f9450f89041701496fd773/aab6c6c2d9554a7b9be4d6ae6ff1cbb5.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - blackfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
-      "original_price": 595,
-      "current_price": 196,
-      "discount_percent": 67.1,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        595,
-        196
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Sorte skræddersyede bukser med tætsiddende pasform, der har flad front, pressede linjer og en glat stoffinish, båret med sorte loafers.",
@@ -3761,7 +3346,7 @@
         602,
         204
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Mand iført sorte bukser med lige ben og elastisk talje samt beige sneakers, stående med den ene hånd i lommen.",
@@ -3787,7 +3372,87 @@
         725,
         300
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført løstsiddende olivengrønne bukser, lysegrå kortærmet skjorte og mørkebrune sandaler med åbne tæer, stående med den ene hånd i lommen.",
+      "url": "https://www.zalando.dk/massimo-dutti-chino-mottled-green-m3i21a1ol-m11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6c52416b26fd4a45828c8a9267688b20/2ed72ba5a3864e7380635e2910db024a.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedMassimo Dutti100% LINEN STRAIGHT-LEG TROUSERS - Chino - mottled green400,00 krOprindeligt:850,00 kr-53%Sidste laveste pris500,00 kr-20%",
+      "original_price": 850,
+      "current_price": 400,
+      "discount_percent": 52.9,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 53,
+      "price_candidates": [
+        850,
+        500,
+        400
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Mand iført olivengrønne bukser med nålestriber og brune loafers, stående mod en ensartet lys baggrund.",
+      "url": "https://www.zalando.dk/massimo-dutti-striped-linen-trousers-02865392-bukser-dark-green-m3i22e0s9-m11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/290b753323e84881b5d903101bd149b6/e37be18603d04dec82a1ebbabf7603c8.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedMassimo DuttiSTRIPED LINEN TROUSERS - Bukser - dark green400,00 krOprindeligt:850,00 kr-53%Sidste laveste pris500,00 krSpar op til-20%",
+      "original_price": 850,
+      "current_price": 400,
+      "discount_percent": 52.9,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 53,
+      "price_candidates": [
+        850,
+        500,
+        400
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
+    },
+    {
+      "title": "Beige skræddersyede bukser lavet af letvægtsstof, med lige pasform, glat front og bæltestropper. Bruges med brune ruskinds-sneakers.",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-beige-ti522e06v-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6ee9c6c011af4201bffc01eab5b960fd/02b509d362db4ba1a92479242919d973.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENUTA - Bukser - beige972,00 krNormalpris:1.495,00 kr-35%",
+      "original_price": 972,
+      "current_price": 495,
+      "discount_percent": 49.1,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        972,
+        495
+      ],
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Lysegrå linnedragt med en enkeltknaps blazer, klaplapeller og to knapper. Parret med sorte sko med spænde detaljer.",
@@ -3814,34 +3479,7 @@
         637,
         467
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
-    },
-    {
-      "title": "Mand iført beige linnedbukser med sort bælte og sorte læder mokkasiner med kvaster, stående med hænder delvist i lommerne.",
-      "url": "https://www.zalando.dk/matinique-bukser-winter-twig-m6022e085-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/117bce1c963d4b02a5edcf28e02cc0e7/64bf0152421647ac989f8b6068668fd1.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "target_size": "46",
-      "size_46_available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedMatiniqueMAWESLEY - Bukser - winter twig699,30 krOprindeligt:999,00 kr-30%Sidste laveste pris899,10 kr-22%",
-      "original_price": 999,
-      "current_price": 699.3,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        999,
-        899.1,
-        699.3
-      ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     },
     {
       "title": "Matinique, MAHART HERITAGE - Cargobukser - caribou",
@@ -3867,20 +3505,20 @@
         999,
         699.3
       ],
-      "checked_at": "2026-07-18T05:49:42.200Z"
+      "checked_at": "2026-07-19T06:13:59.813Z"
     }
   ],
   "debug": {
     "pages": [
       {
         "url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-        "product_count": 131,
+        "product_count": 116,
         "error": null
       }
     ],
-    "products_with_discount": 30,
-    "products_below_minimum_discount": 8,
-    "products_without_discount": 101,
+    "products_with_discount": 33,
+    "products_below_minimum_discount": 11,
+    "products_without_discount": 83,
     "products_without_price": 15
   }
 }
