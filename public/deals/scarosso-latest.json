@@ -3,10 +3,10 @@
   "scan_mode": "listing-pages-only",
   "target_size": "42",
   "min_discount_percent": 30,
-  "checked_at": "2026-08-06T06:02:26.905Z",
+  "checked_at": "2026-08-07T05:00:12.007Z",
   "scanned_page_count": 6,
-  "scanned_product_count": 74,
-  "product_count": 74,
+  "scanned_product_count": 68,
+  "product_count": 68,
   "products": [
     {
       "title": "Tom Black Velvet",
@@ -22,7 +22,7 @@
         465,
         275
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "flats"
@@ -33,75 +33,27 @@
       ]
     },
     {
-      "title": "Gino Brown Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/gino-brown-suede-GINOBOOTBROSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw425a8b48/images/grid/GINOBOOT_BROSUED_01.jpg?sw=275&sh=375&strip=false",
+      "title": "Raffaello Olive Grain",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/raffaello-olive-grain-RAFFAELLOLOAFOGRCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwf6d8ac4a/images/grid/RAFFAELLOLOAF_OGRCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 490,
-      "current_price": 290,
-      "discount_percent": 40.8,
-      "discount_status": "calculated",
-      "price_candidates": [
-        490,
-        290
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots",
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Scott Brown Grain",
-      "url": "https://www.scarosso.com/en-us/men/shoes/driving-shoes/scott-brown-grain-SCOTTDRIVBROCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw70db483f/images/grid/SCOTTDRIV_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 320,
-      "current_price": 190,
-      "discount_percent": 40.6,
-      "discount_status": "calculated",
-      "price_candidates": [
-        320,
-        190
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Joseph White Grain",
-      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/joseph-white-grain-JOSEPHSNEAWHICALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw5cef8413/images/grid/JOSEPHSNEA_WHICALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 425,
-      "current_price": 255,
+      "original_price": 475,
+      "current_price": 285,
       "discount_percent": 40,
       "discount_status": "calculated",
       "price_candidates": [
-        425,
-        255
+        475,
+        285
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "last-pairs"
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -118,16 +70,14 @@
         410,
         250
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
-        "sneakers",
-        "last-pairs"
+        "sneakers"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -146,108 +96,12 @@
         335,
         205
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "sneakers"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Lino Taupe Nubuck",
-      "url": "https://www.scarosso.com/en-us/men/shoes/espadrilles/lino-taupe-nubuck-LINOESPATAUNUBU.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwa5041e3c/images/grid/LINOESPA_TAUNUBU_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 335,
-      "current_price": 205,
-      "discount_percent": 38.8,
-      "discount_status": "calculated",
-      "price_candidates": [
-        335,
-        205
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Antonio Beige Suede",
-      "url": "https://www.scarosso.com/en-us/men/shoes/sandals/antonio-beige-suede-ANTONIOSANDBEISUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd4508a30/images/grid/ANTONIOSAND_BEISUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 260,
-      "current_price": 160,
-      "discount_percent": 38.5,
-      "discount_status": "calculated",
-      "price_candidates": [
-        260,
-        160
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Black calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/sandals/antonio-black-ANTONIOSANDBLACALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd4508a30/images/grid/ANTONIOSAND_BEISUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 260,
-      "current_price": 160,
-      "discount_percent": 38.5,
-      "discount_status": "calculated",
-      "price_candidates": [
-        260,
-        160
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Felipe Beige Suede",
-      "url": "https://www.scarosso.com/en-us/men/shoes/espadrilles/felipe-beige-suede-FELIPEESPABEISUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw7279ed06/images/grid/FELIPEESPA_BEISUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 225,
-      "current_price": 140,
-      "discount_percent": 37.8,
-      "discount_status": "calculated",
-      "price_candidates": [
-        225,
-        140
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -264,146 +118,14 @@
         385,
         240
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
-        "sneakers",
-        "last-pairs"
+        "sneakers"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Black Pony - Calf",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-black-pony-DAMIANODERBBLAPONY.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Black Woven - Calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/derbies/damiano-black-woven-DAMIANODERBWBLCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Brown - Calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/derbies/damiano-dark-brown-woven-DAMIANODERBWOBCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Damiano Tobacco Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-tobacco-suede-DAMIANODERBTOBSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Light Sand - Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-light-sand-suede-DAMIANODERBLSASUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -422,7 +144,7 @@
         285,
         195
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -446,7 +168,7 @@
         285,
         195
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -470,12 +192,36 @@
         285,
         195
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Eyes & Roses Brown - Calf",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/eyes-and-roses-for-him-TOILETMLOAFEYESBROCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwfcd8846c/images/grid/TOILETMLOAF_TRUMPETBLACALF_05.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 600,
+      "current_price": 415,
+      "discount_percent": 30.8,
+      "discount_status": "calculated",
+      "price_candidates": [
+        600,
+        415
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -494,7 +240,7 @@
         260,
         180
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -518,7 +264,7 @@
         260,
         180
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -527,51 +273,27 @@
       ]
     },
     {
-      "title": "Jackie Grain Black",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/jackie-grain-black-JACKIEBOOTBLGCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw60da91c0/images/grid/JACKIEBOOT_BLGCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Trumpet for Him",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/trumpet-for-him-TOILETMLOAFTRUMPETBLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwfcd8846c/images/grid/TOILETMLOAF_TRUMPETBLACALF_05.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 475,
-      "current_price": 330,
-      "discount_percent": 30.5,
+      "original_price": 600,
+      "current_price": 415,
+      "discount_percent": 30.8,
       "discount_status": "calculated",
       "price_candidates": [
-        475,
-        330
+        600,
+        415
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Jackie Grain Brown",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/jackie-grain-brown-JACKIEBOOTBRWCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw3be5769f/images/grid/JACKIEBOOT_BRWCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 475,
-      "current_price": 330,
-      "discount_percent": 30.5,
-      "discount_status": "calculated",
-      "price_candidates": [
-        475,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -590,12 +312,60 @@
         410,
         285
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Aaron Black Pony",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/aaron-black-pony-AARONLOAFBLAPONY.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw0b06a94c/images/grid/AARONLOAF_BLAPONY_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 460,
+      "current_price": 320,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        460,
+        320
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Intense Black - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/tommaso-intense-black-TOMMASOSNEABLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe94c8941/images/grid/TOMMASOSNEA_GRYSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 395,
+      "current_price": 275,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        395,
+        275
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -612,7 +382,7 @@
         460,
         320
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "flats"
@@ -623,35 +393,81 @@
       ]
     },
     {
-      "title": "Loris Tan Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/loris-tan-suede-LORISCHELTANSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw480526eb/images/grid/LORISCHEL_TANSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Tommaso Black",
+      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/tommaso-black-TOMMASOSNEABLCCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw037d027a/images/grid/TOMMASOSNEA_BLCCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 510,
-      "current_price": 355,
+      "original_price": 395,
+      "current_price": 275,
       "discount_percent": 30.4,
       "discount_status": "calculated",
       "price_candidates": [
-        510,
-        355
+        395,
+        275
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Tommaso Grey Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/tommaso-grey-suede-TOMMASOSNEAGRYSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe94c8941/images/grid/TOMMASOSNEA_GRYSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 395,
+      "current_price": 275,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        395,
+        275
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Wash your Mouth for Him",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/wash-your-mouth-for-him-TOILETMLOAFMOUTHBLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe9020263/images/grid/TOILETMLOAF_MOUTHBLACALF_05.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 625,
+      "current_price": 435,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        625,
+        435
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Black - Calf",
       "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/leggera-black-edit-LEGGERASNEABLACALF.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe7f3b588/images/grid/LEGGERASNEA_BRONYLO_01.jpg?sw=275&sh=375&strip=false",
-      "category": "men",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 430,
@@ -662,20 +478,20 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "men"
+        "men",
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Black - Nylon",
       "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/leggera-black-LEGGERASNEABLANYLO.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe7f3b588/images/grid/LEGGERASNEA_BRONYLO_01.jpg?sw=275&sh=375&strip=false",
-      "category": "men",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 430,
@@ -686,12 +502,14 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "men"
+        "men",
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -708,7 +526,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -716,54 +534,6 @@
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
         "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Federico Tan Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/federico-tan-suede-FEDERICOBOOTTANSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwab9b7712/images/grid/FEDERICOBOOT_TANSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 530,
-      "current_price": 370,
-      "discount_percent": 30.2,
-      "discount_status": "calculated",
-      "price_candidates": [
-        530,
-        370
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Federico Taupe Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/federico-taupe-suede-FEDERICOBOOTTAUSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw011d9c5c/images/grid/FEDERICOBOOT_TAUSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 530,
-      "current_price": 370,
-      "discount_percent": 30.2,
-      "discount_status": "calculated",
-      "price_candidates": [
-        530,
-        370
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -780,7 +550,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -804,7 +574,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -828,7 +598,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -839,33 +609,59 @@
       ]
     },
     {
-      "title": "Paolo Caramel",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/paolo-caramel-PAOLOBOOTBROCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw15ced7c0/images/grid/PAOLOBOOT_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Black - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/fabio-black-FABIOSNEABLCCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw1666d1cc/images/grid/FABIOSNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 480,
-      "current_price": 335,
-      "discount_percent": 30.2,
+      "original_price": 365,
+      "current_price": 255,
+      "discount_percent": 30.1,
       "discount_status": "calculated",
       "price_candidates": [
-        480,
-        335
+        365,
+        255
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Black black - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/fabio-intense-black-FABIOSNEABLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw1666d1cc/images/grid/FABIOSNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 365,
+      "current_price": 255,
+      "discount_percent": 30.1,
+      "discount_status": "calculated",
+      "price_candidates": [
+        365,
+        255
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Davide Blue Suede",
       "url": "https://www.scarosso.com/en-us/sales/men/sneakers/davide-blue-suede-DAVIDESNEABLUSUED.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw37a80d32/images/grid/DAVIDESNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 415,
@@ -876,14 +672,12 @@
         415,
         290
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "sneakers",
-        "last-pairs"
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -902,12 +696,276 @@
         415,
         290
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "sneakers"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Fabio Blue Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/fabio-blue-suede-FABIOSNEABLUSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw1666d1cc/images/grid/FABIOSNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 365,
+      "current_price": 255,
+      "discount_percent": 30.1,
+      "discount_status": "calculated",
+      "price_candidates": [
+        365,
+        255
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Beige - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-beige-suede-LUDOVICOLOAFBEISUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Black - calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/renato-black-RENATOLOAFBLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwbc94da8b/images/grid/RENATOLOAF_TANSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Black - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-black-suede-LUDOVICOLOAFBLASUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Black - Suede Edit",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-black-suede-edit-LUDOVICOLOAFBLKSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Blue - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-blue-suede-LUDOVICOLOAFBLUSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Blue Edit - Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/ludovico-blue-suede-edit-LUDOVICOLOAFBLESUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Brown - Calf",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/ludovico-dark-brown-LUDOVICOLOAFBROCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Brown - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-brown-suede-LUDOVICOLOAFBROSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Dark Brown - suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-dark-brown-suede-LUDOVICOLOAFBRWSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Deep Taupe - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-deep-taupe-suede-LUDOVICOLOAFDTASUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -924,7 +982,7 @@
         385,
         270
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "flats"
@@ -932,6 +990,102 @@
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
         "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Green - Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/ludovico-green-suede-LUDOVICOLOAFGRNSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Grey - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-grey-suede-LUDOVICOLOAFGRESUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Ice - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-ice-suede-LUDOVICOLOAFGRYSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Ludovico Blue",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/ludovico-blue-LUDOVICOLOAFBLUCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -948,7 +1102,7 @@
         385,
         270
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -972,7 +1126,7 @@
         385,
         270
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -983,27 +1137,75 @@
       ]
     },
     {
-      "title": "Paolo Caramel Lux",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/paolo-caramel-lux-PAOLOBOOTBRWCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw4ba23d0a/images/grid/PAOLOBOOT_BRWCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Olive - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-olive-suede-LUDOVICOLOAFOGRSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 520,
-      "current_price": 365,
-      "discount_percent": 29.8,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
       "discount_status": "calculated",
       "price_candidates": [
-        520,
-        365
+        385,
+        270
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Renato Tan Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/renato-tan-suede-RENATOLOAFTANSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwbc94da8b/images/grid/RENATOLOAF_TANSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Sage - Suede",
+      "url": "https://www.scarosso.com/en-us/men/shoes/loafers/ludovico-sage-suede-LUDOVICOLOAFSAGSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 385,
+      "current_price": 270,
+      "discount_percent": 29.9,
+      "discount_status": "calculated",
+      "price_candidates": [
+        385,
+        270
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -1022,7 +1224,7 @@
         320,
         225
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -1046,7 +1248,7 @@
         320,
         225
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -1070,7 +1272,7 @@
         320,
         225
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -1094,108 +1296,12 @@
         320,
         225
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Black - Calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/derbies/harry-black-HARRYDERBBLACALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw2bf6f636/images/grid/HARRYDERB_WOBCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "flats",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 540,
-      "current_price": 380,
-      "discount_percent": 29.6,
-      "discount_status": "calculated",
-      "price_candidates": [
-        540,
-        380
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Brown - Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/harry-snuff-suede-HARRYDERBBROSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw2bf6f636/images/grid/HARRYDERB_WOBCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "flats",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 540,
-      "current_price": 380,
-      "discount_percent": 29.6,
-      "discount_status": "calculated",
-      "price_candidates": [
-        540,
-        380
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Gino Beige Nubuck",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/gino-beige-nubuck-GINOBOOTBEINUBU.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwa9f4431f/images/grid/GINOBOOT_BEINUBU_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 490,
-      "current_price": 345,
-      "discount_percent": 29.6,
-      "discount_status": "calculated",
-      "price_candidates": [
-        490,
-        345
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Harry Brown Woven",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/harry-brown-woven-HARRYDERBWOBCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw2bf6f636/images/grid/HARRYDERB_WOBCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "flats",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 540,
-      "current_price": 380,
-      "discount_percent": 29.6,
-      "discount_status": "calculated",
-      "price_candidates": [
-        540,
-        380
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -1212,7 +1318,7 @@
         355,
         250
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -1226,6 +1332,8 @@
       "title": "Raffaello Black Grain",
       "url": "https://www.scarosso.com/en-us/sales/men/loafers/raffaello-black-grain-RAFFAELLOLOAFBLKCALF.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwceadf58f/images/grid/RAFFAELLOLOAF_BLKCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 475,
@@ -1236,22 +1344,42 @@
         475,
         335
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "loafers",
-        "last-pairs"
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Andrea Dark Brown",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/andrea-dark-brown-ANDREALOAFBRDCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw0df10cde/images/grid/ANDREALOAF_BRDCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 495,
+      "current_price": 350,
+      "discount_percent": 29.3,
+      "discount_status": "calculated",
+      "price_candidates": [
+        495,
+        350
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Black - Calf",
       "url": "https://www.scarosso.com/en-us/men/shoes/loafers/william-black-WILLIAMLOAFBLACALF.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw280ee5f7/images/grid/WILLIAMLOAF_TANSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "men",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 445,
@@ -1262,20 +1390,20 @@
         445,
         315
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "men"
+        "men",
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Brown - Calf",
       "url": "https://www.scarosso.com/en-us/men/shoes/loafers/william-brown-WILLIAMLOAFBROCALF.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw280ee5f7/images/grid/WILLIAMLOAF_TANSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "men",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 445,
@@ -1286,12 +1414,14 @@
         445,
         315
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "men"
+        "men",
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -1308,7 +1438,7 @@
         445,
         315
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "loafers"
@@ -1319,11 +1449,9 @@
       ]
     },
     {
-      "title": "Black - Croco-printed calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/chelsea-boots/giancarlo-black-croco-GIANCARLOCHELBLACROC.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Black Pony - Calf",
+      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-black-pony-DAMIANODERBBLAPONY.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 465,
@@ -1332,22 +1460,25 @@
       "discount_status": "calculated",
       "price_candidates": [
         465,
+        365,
         330
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "men",
+        "flats"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
       ]
     },
     {
-      "title": "Black - suede",
-      "url": "https://www.scarosso.com/en-us/men/shoes/chelsea-boots/giancarlo-black-suede-GIANCARLOCHELBLASUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Black Woven - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/derbies/damiano-black-woven-DAMIANODERBWBLCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "men",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 465,
@@ -1358,20 +1489,20 @@
         465,
         330
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "men"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
       ]
     },
     {
-      "title": "Black Calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/chelsea-boots/giancarlo-black-GIANCARLOCHELBLACALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Brown - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/derbies/damiano-dark-brown-woven-DAMIANODERBWOBCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "men",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 465,
@@ -1382,20 +1513,18 @@
         465,
         330
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "men"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
       ]
     },
     {
-      "title": "Brown Suede",
-      "url": "https://www.scarosso.com/en-us/men/shoes/chelsea-boots/giancarlo-dark-brown-suede-GIANCARLOCHELBRDSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Damiano Tobacco Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-tobacco-suede-DAMIANODERBTOBSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 465,
@@ -1406,20 +1535,20 @@
         465,
         330
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "men",
+        "flats"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
       ]
     },
     {
-      "title": "Chestnut Calf",
-      "url": "https://www.scarosso.com/en-us/sales/men/last-pairs/giancarlo-chestnut-GIANCARLOCHELBRCCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Light Sand - Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-light-sand-suede-DAMIANODERBLSASUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 465,
@@ -1430,92 +1559,20 @@
         465,
         330
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "men",
+        "flats"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Dark Brown Calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/chelsea-boots/giancarlo-dark-brown-GIANCARLOCHELBRMCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 465,
-      "current_price": 330,
-      "discount_percent": 29,
-      "discount_status": "calculated",
-      "price_candidates": [
-        465,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Giancarlo Brown",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/giancarlo-brown-GIANCARLOCHELBROCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 465,
-      "current_price": 330,
-      "discount_percent": 29,
-      "discount_status": "calculated",
-      "price_candidates": [
-        465,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Tobacco Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/last-pairs/giancarlo-tobacco-GIANCARLOCHELBROSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwcd62c3a3/images/grid/GIANCARLOCHEL_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 465,
-      "current_price": 330,
-      "discount_percent": 29,
-      "discount_status": "calculated",
-      "price_candidates": [
-        465,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Blue - Suede",
       "url": "https://www.scarosso.com/en-us/men/shoes/loafers/leandro-blue-suede-LEANDROLOAFBLUSUED.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc4184959/images/grid/LEANDROLOAF_BEISUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "men",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 400,
@@ -1526,12 +1583,14 @@
         400,
         285
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "men"
+        "men",
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -1548,7 +1607,7 @@
         400,
         285
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "loafers"
@@ -1559,237 +1618,30 @@
       ]
     },
     {
-      "title": "Aaron Black Pony",
-      "url": "https://www.scarosso.com/en-us/sales/men/loafers/aaron-black-pony-AARONLOAFBLAPONY.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw0b06a94c/images/grid/AARONLOAF_BLAPONY_01.jpg?sw=275&sh=375&strip=false",
-      "category": "loafers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "title": "Harry Brown Woven",
+      "url": "https://www.scarosso.com/en-us/sales/men/flats/harry-brown-woven-HARRYDERBWOBCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw2bf6f636/images/grid/HARRYDERB_WOBCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "flats",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": null,
-      "current_price": 320,
+      "current_price": 380,
       "discount_percent": null,
       "discount_status": "single-price",
       "price_candidates": [
-        320
+        380
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "loafers"
+        "flats"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Andrea Dark Brown",
-      "url": "https://www.scarosso.com/en-us/sales/men/loafers/andrea-dark-brown-ANDREALOAFBRDCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw0df10cde/images/grid/ANDREALOAF_BRDCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "loafers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 350,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        350
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "loafers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Fabio Blue Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/fabio-blue-suede-FABIOSNEABLUSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw1666d1cc/images/grid/FABIOSNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "sneakers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 255,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        255
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "sneakers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Ludovico Blue",
-      "url": "https://www.scarosso.com/en-us/sales/men/loafers/ludovico-blue-LUDOVICOLOAFBLUCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwc7b66312/images/grid/LUDOVICOLOAF_BLUCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "loafers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 270,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        270
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "loafers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Raffaello Olive Grain",
-      "url": "https://www.scarosso.com/en-us/sales/men/loafers/raffaello-olive-grain-RAFFAELLOLOAFOGRCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwf6d8ac4a/images/grid/RAFFAELLOLOAF_OGRCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "loafers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 285,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        285
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "loafers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Renato Tan Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/loafers/renato-tan-suede-RENATOLOAFTANSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwbc94da8b/images/grid/RENATOLOAF_TANSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "loafers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 270,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        270
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "loafers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Tommaso Black",
-      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/tommaso-black-TOMMASOSNEABLCCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw037d027a/images/grid/TOMMASOSNEA_BLCCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "sneakers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 275,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        275
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "sneakers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Tommaso Grey Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/tommaso-grey-suede-TOMMASOSNEAGRYSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe94c8941/images/grid/TOMMASOSNEA_GRYSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "sneakers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 275,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        275
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "sneakers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Trumpet for Him",
-      "url": "https://www.scarosso.com/en-us/sales/men/loafers/trumpet-for-him-TOILETMLOAFTRUMPETBLACALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwfcd8846c/images/grid/TOILETMLOAF_TRUMPETBLACALF_05.jpg?sw=275&sh=375&strip=false",
-      "category": "loafers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 415,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        415
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "loafers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Wash your Mouth for Him",
-      "url": "https://www.scarosso.com/en-us/sales/men/loafers/wash-your-mouth-for-him-TOILETMLOAFMOUTHBLACALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe9020263/images/grid/TOILETMLOAF_MOUTHBLACALF_05.jpg?sw=275&sh=375&strip=false",
-      "category": "loafers",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": null,
-      "current_price": 435,
-      "discount_percent": null,
-      "discount_status": "single-price",
-      "price_candidates": [
-        435
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "loafers"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
       ]
     }
   ],
-  "match_count": 37,
+  "match_count": 30,
   "matches": [
     {
       "title": "Tom Black Velvet",
@@ -1805,7 +1657,7 @@
         465,
         275
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "flats"
@@ -1816,75 +1668,27 @@
       ]
     },
     {
-      "title": "Gino Brown Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/gino-brown-suede-GINOBOOTBROSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw425a8b48/images/grid/GINOBOOT_BROSUED_01.jpg?sw=275&sh=375&strip=false",
+      "title": "Raffaello Olive Grain",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/raffaello-olive-grain-RAFFAELLOLOAFOGRCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwf6d8ac4a/images/grid/RAFFAELLOLOAF_OGRCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 490,
-      "current_price": 290,
-      "discount_percent": 40.8,
-      "discount_status": "calculated",
-      "price_candidates": [
-        490,
-        290
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots",
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Scott Brown Grain",
-      "url": "https://www.scarosso.com/en-us/men/shoes/driving-shoes/scott-brown-grain-SCOTTDRIVBROCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw70db483f/images/grid/SCOTTDRIV_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 320,
-      "current_price": 190,
-      "discount_percent": 40.6,
-      "discount_status": "calculated",
-      "price_candidates": [
-        320,
-        190
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Joseph White Grain",
-      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/joseph-white-grain-JOSEPHSNEAWHICALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw5cef8413/images/grid/JOSEPHSNEA_WHICALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 425,
-      "current_price": 255,
+      "original_price": 475,
+      "current_price": 285,
       "discount_percent": 40,
       "discount_status": "calculated",
       "price_candidates": [
-        425,
-        255
+        475,
+        285
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "last-pairs"
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -1901,16 +1705,14 @@
         410,
         250
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
-        "sneakers",
-        "last-pairs"
+        "sneakers"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -1929,108 +1731,12 @@
         335,
         205
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "sneakers"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Lino Taupe Nubuck",
-      "url": "https://www.scarosso.com/en-us/men/shoes/espadrilles/lino-taupe-nubuck-LINOESPATAUNUBU.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwa5041e3c/images/grid/LINOESPA_TAUNUBU_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 335,
-      "current_price": 205,
-      "discount_percent": 38.8,
-      "discount_status": "calculated",
-      "price_candidates": [
-        335,
-        205
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Antonio Beige Suede",
-      "url": "https://www.scarosso.com/en-us/men/shoes/sandals/antonio-beige-suede-ANTONIOSANDBEISUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd4508a30/images/grid/ANTONIOSAND_BEISUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 260,
-      "current_price": 160,
-      "discount_percent": 38.5,
-      "discount_status": "calculated",
-      "price_candidates": [
-        260,
-        160
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Black calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/sandals/antonio-black-ANTONIOSANDBLACALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd4508a30/images/grid/ANTONIOSAND_BEISUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 260,
-      "current_price": 160,
-      "discount_percent": 38.5,
-      "discount_status": "calculated",
-      "price_candidates": [
-        260,
-        160
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Felipe Beige Suede",
-      "url": "https://www.scarosso.com/en-us/men/shoes/espadrilles/felipe-beige-suede-FELIPEESPABEISUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw7279ed06/images/grid/FELIPEESPA_BEISUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "last-pairs",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 225,
-      "current_price": 140,
-      "discount_percent": 37.8,
-      "discount_status": "calculated",
-      "price_candidates": [
-        225,
-        140
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "last-pairs"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2047,146 +1753,14 @@
         385,
         240
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
-        "sneakers",
-        "last-pairs"
+        "sneakers"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Black Pony - Calf",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-black-pony-DAMIANODERBBLAPONY.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Black Woven - Calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/derbies/damiano-black-woven-DAMIANODERBWBLCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Brown - Calf",
-      "url": "https://www.scarosso.com/en-us/men/shoes/derbies/damiano-dark-brown-woven-DAMIANODERBWOBCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Damiano Tobacco Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-tobacco-suede-DAMIANODERBTOBSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Light Sand - Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/flats/damiano-light-sand-suede-DAMIANODERBLSASUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwd0e1c4e0/images/grid/DAMIANODERB_TOBSUED_01.jpg?sw=275&sh=375&strip=false",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 525,
-      "current_price": 330,
-      "discount_percent": 37.1,
-      "discount_status": "calculated",
-      "price_candidates": [
-        525,
-        465,
-        365,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "men",
-        "flats"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2205,7 +1779,7 @@
         285,
         195
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -2229,7 +1803,7 @@
         285,
         195
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -2253,12 +1827,36 @@
         285,
         195
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Eyes & Roses Brown - Calf",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/eyes-and-roses-for-him-TOILETMLOAFEYESBROCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwfcd8846c/images/grid/TOILETMLOAF_TRUMPETBLACALF_05.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 600,
+      "current_price": 415,
+      "discount_percent": 30.8,
+      "discount_status": "calculated",
+      "price_candidates": [
+        600,
+        415
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2277,7 +1875,7 @@
         260,
         180
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -2301,7 +1899,7 @@
         260,
         180
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
@@ -2310,51 +1908,27 @@
       ]
     },
     {
-      "title": "Jackie Grain Black",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/jackie-grain-black-JACKIEBOOTBLGCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw60da91c0/images/grid/JACKIEBOOT_BLGCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Trumpet for Him",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/trumpet-for-him-TOILETMLOAFTRUMPETBLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwfcd8846c/images/grid/TOILETMLOAF_TRUMPETBLACALF_05.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 475,
-      "current_price": 330,
-      "discount_percent": 30.5,
+      "original_price": 600,
+      "current_price": 415,
+      "discount_percent": 30.8,
       "discount_status": "calculated",
       "price_candidates": [
-        475,
-        330
+        600,
+        415
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "loafers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Jackie Grain Brown",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/jackie-grain-brown-JACKIEBOOTBRWCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw3be5769f/images/grid/JACKIEBOOT_BRWCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 475,
-      "current_price": 330,
-      "discount_percent": 30.5,
-      "discount_status": "calculated",
-      "price_candidates": [
-        475,
-        330
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2373,12 +1947,60 @@
         410,
         285
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men"
       ],
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Aaron Black Pony",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/aaron-black-pony-AARONLOAFBLAPONY.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw0b06a94c/images/grid/AARONLOAF_BLAPONY_01.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 460,
+      "current_price": 320,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        460,
+        320
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Intense Black - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/tommaso-intense-black-TOMMASOSNEABLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe94c8941/images/grid/TOMMASOSNEA_GRYSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 395,
+      "current_price": 275,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        395,
+        275
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2395,7 +2017,7 @@
         460,
         320
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "flats"
@@ -2406,35 +2028,81 @@
       ]
     },
     {
-      "title": "Loris Tan Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/loris-tan-suede-LORISCHELTANSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw480526eb/images/grid/LORISCHEL_TANSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Tommaso Black",
+      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/tommaso-black-TOMMASOSNEABLCCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw037d027a/images/grid/TOMMASOSNEA_BLCCALF_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 510,
-      "current_price": 355,
+      "original_price": 395,
+      "current_price": 275,
       "discount_percent": 30.4,
       "discount_status": "calculated",
       "price_candidates": [
-        510,
-        355
+        395,
+        275
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Tommaso Grey Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/tommaso-grey-suede-TOMMASOSNEAGRYSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe94c8941/images/grid/TOMMASOSNEA_GRYSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 395,
+      "current_price": 275,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        395,
+        275
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Wash your Mouth for Him",
+      "url": "https://www.scarosso.com/en-us/sales/men/loafers/wash-your-mouth-for-him-TOILETMLOAFMOUTHBLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe9020263/images/grid/TOILETMLOAF_MOUTHBLACALF_05.jpg?sw=275&sh=375&strip=false",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 625,
+      "current_price": 435,
+      "discount_percent": 30.4,
+      "discount_status": "calculated",
+      "price_candidates": [
+        625,
+        435
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "loafers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Black - Calf",
       "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/leggera-black-edit-LEGGERASNEABLACALF.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe7f3b588/images/grid/LEGGERASNEA_BRONYLO_01.jpg?sw=275&sh=375&strip=false",
-      "category": "men",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 430,
@@ -2445,20 +2113,20 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "men"
+        "men",
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Black - Nylon",
       "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/leggera-black-LEGGERASNEABLANYLO.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwe7f3b588/images/grid/LEGGERASNEA_BRONYLO_01.jpg?sw=275&sh=375&strip=false",
-      "category": "men",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 430,
@@ -2469,12 +2137,14 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "men"
+        "men",
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2491,7 +2161,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -2499,54 +2169,6 @@
       "source_urls": [
         "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
         "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Federico Tan Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/federico-tan-suede-FEDERICOBOOTTANSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dwab9b7712/images/grid/FEDERICOBOOT_TANSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 530,
-      "current_price": 370,
-      "discount_percent": 30.2,
-      "discount_status": "calculated",
-      "price_candidates": [
-        530,
-        370
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
-      ]
-    },
-    {
-      "title": "Federico Taupe Suede",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/federico-taupe-suede-FEDERICOBOOTTAUSUED.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw011d9c5c/images/grid/FEDERICOBOOT_TAUSUED_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-      "available_sizes": [],
-      "size_42_available": null,
-      "original_price": 530,
-      "current_price": 370,
-      "discount_percent": 30.2,
-      "discount_status": "calculated",
-      "price_candidates": [
-        530,
-        370
-      ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
-      "categories": [
-        "boots"
-      ],
-      "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2563,7 +2185,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -2587,7 +2209,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -2611,7 +2233,7 @@
         430,
         300
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "men",
         "sneakers"
@@ -2622,33 +2244,59 @@
       ]
     },
     {
-      "title": "Paolo Caramel",
-      "url": "https://www.scarosso.com/en-us/sales/men/boots/paolo-caramel-PAOLOBOOTBROCALF.html",
-      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw15ced7c0/images/grid/PAOLOBOOT_BROCALF_01.jpg?sw=275&sh=375&strip=false",
-      "category": "boots",
-      "source_url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "title": "Black - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/fabio-black-FABIOSNEABLCCALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw1666d1cc/images/grid/FABIOSNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
-      "original_price": 480,
-      "current_price": 335,
-      "discount_percent": 30.2,
+      "original_price": 365,
+      "current_price": 255,
+      "discount_percent": 30.1,
       "discount_status": "calculated",
       "price_candidates": [
-        480,
-        335
+        365,
+        255
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "boots"
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Black black - Calf",
+      "url": "https://www.scarosso.com/en-us/men/shoes/sneakers/fabio-intense-black-FABIOSNEABLACALF.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw1666d1cc/images/grid/FABIOSNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 365,
+      "current_price": 255,
+      "discount_percent": 30.1,
+      "discount_status": "calculated",
+      "price_candidates": [
+        365,
+        255
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
       "title": "Davide Blue Suede",
       "url": "https://www.scarosso.com/en-us/sales/men/sneakers/davide-blue-suede-DAVIDESNEABLUSUED.html",
       "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw37a80d32/images/grid/DAVIDESNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
       "available_sizes": [],
       "size_42_available": null,
       "original_price": 415,
@@ -2659,14 +2307,12 @@
         415,
         290
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
-        "sneakers",
-        "last-pairs"
+        "sneakers"
       ],
       "source_urls": [
-        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
       ]
     },
     {
@@ -2685,7 +2331,31 @@
         415,
         290
       ],
-      "checked_at": "2026-08-06T06:02:26.905Z",
+      "checked_at": "2026-08-07T05:00:12.007Z",
+      "categories": [
+        "sneakers"
+      ],
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42"
+      ]
+    },
+    {
+      "title": "Fabio Blue Suede",
+      "url": "https://www.scarosso.com/en-us/sales/men/sneakers/fabio-blue-suede-FABIOSNEABLUSUED.html",
+      "image": "https://www.scarosso.com/dw/image/v2/BGDG_PRD/on/demandware.static/-/Sites-17/default/dw1666d1cc/images/grid/FABIOSNEA_BLUSUED_01.jpg?sw=275&sh=375&strip=false",
+      "category": "sneakers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": 365,
+      "current_price": 255,
+      "discount_percent": 30.1,
+      "discount_status": "calculated",
+      "price_candidates": [
+        365,
+        255
+      ],
+      "checked_at": "2026-08-07T05:00:12.007Z",
       "categories": [
         "sneakers"
       ],
@@ -2703,34 +2373,34 @@
       },
       {
         "url": "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "product_count": 15,
+        "product_count": 20,
         "error": null
       },
       {
         "url": "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-        "product_count": 10,
+        "product_count": 29,
         "error": null
       },
       {
         "url": "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42",
-        "product_count": 11,
+        "product_count": 7,
         "error": null
       },
       {
         "url": "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-        "product_count": 17,
-        "error": null
+        "product_count": 0,
+        "error": "ScrapingAnt failed for https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42: 500 {\"detail\":\"Internal server error. Try again later or contact us support@scrapingant.com\"}"
       },
       {
         "url": "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
-        "product_count": 11,
-        "error": null
+        "product_count": 0,
+        "error": "ScrapingAnt failed for https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42: 502 Bad Gateway"
       }
     ],
-    "products_with_discount": 64,
-    "products_below_minimum_discount": 27,
-    "products_without_discount": 10,
+    "products_with_discount": 67,
+    "products_below_minimum_discount": 37,
+    "products_without_discount": 1,
     "products_without_price": 0,
-    "products_without_size_information": 74
+    "products_without_size_information": 68
   }
 }
