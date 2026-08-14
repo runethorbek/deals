@@ -9,7 +9,7 @@ if (!API_KEY) {
   throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
 }
 
-const BASE_URL = "https://www.vinted.com";
+const BASE_URL = "https://www.vinted.dk";
 
 const START_URLS = [
   "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
@@ -82,7 +82,7 @@ function isVintedItemUrl(url) {
     const parsed = new URL(url);
 
     return (
-      parsed.hostname.endsWith("vinted.com") &&
+      parsed.hostname.endsWith("vinted.dk") &&
       (
         parsed.pathname.includes("/items/") ||
         /^\/items\/\d+/.test(parsed.pathname)
