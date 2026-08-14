@@ -12,9 +12,9 @@ if (!API_KEY) {
 const BASE_URL = "https://www.vinted.com";
 
 const START_URLS = [
-  "https://www.vinted.com/catalog?catalog[]=1786&size_ids[]=207&page=1",
-  "https://www.vinted.com/catalog?catalog[]=1786&size_ids[]=207&page=2",
-  "https://www.vinted.com/catalog?catalog[]=1786&size_ids[]=207&page=3"
+  "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
+  "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=2",
+  "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=3"
 ];
 
 const TARGET_SIZE_ID = "207";
