@@ -57,6 +57,7 @@ jobs:
 
       - name: Trigger DealRadar import
         run: |
+          REF=$(git rev-parse HEAD)
           curl --fail-with-body -X POST \
             -H "Authorization: Bearer ${{ secrets.DEALRADAR_INGEST_API_KEY }}" \
-            https://dealradar-rouge.vercel.app/api/import-deals
+            "https://dealradar-rouge.vercel.app/api/import-deals?ref=$REF"
