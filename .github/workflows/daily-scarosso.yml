@@ -57,6 +57,6 @@ jobs:
 
       - name: Trigger DealRadar import
         run: |
-          curl -X POST \
+          curl --fail-with-body -X POST \
             -H "Authorization: Bearer ${{ secrets.DEALRADAR_INGEST_API_KEY }}" \
             https://dealradar-rouge.vercel.app/api/import-deals
