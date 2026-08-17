@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import * as cheerio from "cheerio";
 import fetch from "node-fetch";
+import { extractPriceInfo } from "./lib/zalando-price.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
@@ -157,84 +158,6 @@ function extractTitle($, anchor, container) {
 
   const text = visibleText($, container);
   return text.split(" kr")[0]?.slice(0, 140) || "Unknown product";
-}
-
-function extractExplicitDiscount(text) {
-  const matches = [
-    ...text.matchAll(/(?:-|−)\s?(\d{1,2})\s?%/g),
-    ...text.matchAll(/(\d{1,2})\s?%\s?(?:rabat|off)/gi)
-  ];
-
-  const discounts = matches
-    .map((match) => Number.parseInt(match[1], 10))
-    .filter((value) => Number.isFinite(value) && value > 0 && value < 95);
-
-  return discounts.length ? Math.max(...discounts) : null;
-}
-
-function extractDkkPriceCandidates(text) {
-  const values = [];
-
-  const patterns = [
-    /(?:DKK|kr\.?|kr)\s?(\d{1,5}(?:[.,]\d{2})?)/gi,
-    /(\d{1,5}(?:[.,]\d{2})?)\s?(?:DKK|kr\.?|kr)/gi
-  ];
-
-  for (const regex of patterns) {
-    for (const match of text.matchAll(regex)) {
-      const numeric = match[1].replace(".", "").replace(",", ".");
-      const value = Number.parseFloat(numeric);
-
-      if (Number.isFinite(value) && value > 20 && value < 20000) {
-        values.push(value);
-      }
-    }
-  }
-
-  return [...new Set(values)].sort((a, b) => b - a);
-}
-
-function extractPriceInfo(text) {
-  const priceCandidates = extractDkkPriceCandidates(text);
-  const explicitDiscount = extractExplicitDiscount(text);
-
-  if (priceCandidates.length >= 2) {
-    const original = Math.max(...priceCandidates);
-    const current = Math.min(...priceCandidates);
-    const calculated = ((original - current) / original) * 100;
-
-    return {
-      original_price: original,
-      current_price: current,
-      discount_percent: Math.round(calculated * 10) / 10,
-      discount_status: "calculated-from-prices",
-      explicit_discount_percent: explicitDiscount,
-      price_candidates: priceCandidates
-    };
-  }
-
-  if (priceCandidates.length === 1 && explicitDiscount !== null) {
-    const current = priceCandidates[0];
-    const original = current / (1 - explicitDiscount / 100);
-
-    return {
-      original_price: Math.round(original * 100) / 100,
-      current_price: current,
-      discount_percent: explicitDiscount,
-      discount_status: "explicit-discount",
-      explicit_discount_percent: explicitDiscount,
-      price_candidates: priceCandidates
-    };
-  }
-
-  return {
-    original_price: null,
-    current_price: priceCandidates[0] ?? null,
-    discount_percent: explicitDiscount,
-    discount_status: explicitDiscount !== null ? "explicit-discount-no-price" : "no-discount-found",
-    explicit_discount_percent: explicitDiscount,
-    price_candidates: priceCandidates
-  };
 }
 
 function scoreProduct(product) {
