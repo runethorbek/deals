@@ -42,15 +42,8 @@ async function getRenderedHtml(url) {
   });
 
   if (!res.ok) {
-    const text = await res.text().catch(() => "");
-
     throw new Error(
-      "ScrapingAnt failed for " +
-        url +
-        ": " +
-        res.status +
-        " " +
-        text.slice(0, 300)
+      "ScrapingAnt request failed with HTTP " + res.status
     );
   }
 
@@ -71,6 +64,44 @@ function absoluteUrl(value) {
 
 function normalizeText(value) {
   return value?.replace(/\s+/g, " ").trim() ?? "";
+}
+
+export function safeErrorSummary(error) {
+  const rawMessage = error instanceof Error
+    ? error.message
+    : String(error ?? "Unknown error");
+
+  const summary = normalizeText(rawMessage)
+    .replace(
+      /([?&](?:x-api-key|api[_-]?key|access[_-]?token|token|key)=)[^&\s]*/gi,
+      "$1[REDACTED]"
+    )
+    .replace(/\bBearer\s+\S+/gi, "Bearer [REDACTED]")
+    .slice(0, 300);
+
+  return summary || "Unknown error";
+}
+
+export function createScanStatus({
+  pageResults,
+  scannedProductCount,
+  publishedProductCount
+}) {
+  const failures = pageResults
+    .filter((page) => page.error !== null)
+    .map((page) => ({
+      url: page.url,
+      error_summary: safeErrorSummary(page.error)
+    }));
+
+  return {
+    attempted_pages: pageResults.length,
+    successful_pages: pageResults.length - failures.length,
+    failed_pages: failures.length,
+    failures,
+    scanned_product_count: scannedProductCount,
+    published_product_count: publishedProductCount
+  };
 }
 
 function normalizeProductUrl(href) {
@@ -306,15 +337,17 @@ async function scan() {
         );
       }
     } catch (error) {
+      const errorSummary = safeErrorSummary(error);
+
       console.error(
         `Failed listing ${url}:`,
-        error.message
+        errorSummary
       );
 
       pageResults.push({
         url,
         product_count: 0,
-        error: error.message
+        error: errorSummary
       });
     }
 
@@ -350,6 +383,12 @@ async function scan() {
     );
   });
 
+  const scanStatus = createScanStatus({
+    pageResults,
+    scannedProductCount: products.length,
+    publishedProductCount: matches.length
+  });
+
   const output = {
     site: "scarosso.com",
     scan_mode: "listing-pages-only",
@@ -364,6 +403,8 @@ async function scan() {
 
     match_count: matches.length,
     matches,
+
+    scan_status: scanStatus,
 
     debug: {
       pages: pageResults,
