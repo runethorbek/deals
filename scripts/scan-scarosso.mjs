@@ -1,13 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import * as cheerio from "cheerio";
 import fetch from "node-fetch";
+import {
+  extractPricesAndDiscountFromText
+} from "./lib/scarosso-price.mjs";
+import { mergeProduct } from "./lib/scarosso-product.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
-
-if (!API_KEY) {
-  throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
-}
 
 const BASE_URL = "https://www.scarosso.com";
 
@@ -130,76 +131,6 @@ function extractSizesFromText(text) {
   return [...sizes].sort((a, b) => Number(a) - Number(b));
 }
 
-function extractPriceCandidatesFromText(text) {
-  const regex =
-    /(?:[$€£]\s?\d+(?:[.,]\d{2})?|\b(?:EUR|USD|GBP)\s?\d+(?:[.,]\d{2})?|\b\d+(?:[.,]\d{2})?\s?(?:€|EUR|USD|GBP)\b)/gi;
-
-  const values = [];
-
-  for (const match of text.matchAll(regex)) {
-    const raw = match[0];
-
-    const numeric = raw
-      .replace(/[^\d.,]/g, "")
-      .replace(",", ".");
-
-    const value = Number.parseFloat(numeric);
-
-    if (Number.isFinite(value) && value > 20 && value < 2000) {
-      values.push(value);
-    }
-  }
-
-  return [...new Set(values)].sort((a, b) => b - a);
-}
-
-function extractPricesAndDiscountFromText(text) {
-  const prices = extractPriceCandidatesFromText(text);
-
-  if (prices.length === 0) {
-    return {
-      original_price: null,
-      current_price: null,
-      discount_percent: null,
-      discount_status: "no-price-found",
-      price_candidates: []
-    };
-  }
-
-  if (prices.length === 1) {
-    return {
-      original_price: null,
-      current_price: prices[0],
-      discount_percent: null,
-      discount_status: "single-price",
-      price_candidates: prices
-    };
-  }
-
-  const original = Math.max(...prices);
-  const current = Math.min(...prices);
-
-  if (original <= current) {
-    return {
-      original_price: null,
-      current_price: current,
-      discount_percent: null,
-      discount_status: "no-valid-discount",
-      price_candidates: prices
-    };
-  }
-
-  const discount = ((original - current) / original) * 100;
-
-  return {
-    original_price: original,
-    current_price: current,
-    discount_percent: Math.round(discount * 10) / 10,
-    discount_status: "calculated",
-    price_candidates: prices
-  };
-}
-
 function findProductContainer($, anchor) {
   const selectors = [
     "[data-product-id]",
@@ -286,24 +217,7 @@ function extractProductImage($, container) {
   return absoluteUrl(lastCandidate);
 }
 
-function scoreProduct(product) {
-  let score = 0;
-
-  if (product.title && product.title !== "Unknown product") {
-    score += 2;
-  }
-
-  if (product.image) {
-    score += 2;
-  }
-
-  score += product.price_candidates.length * 10;
-  score += product.available_sizes.length;
-
-  return score;
-}
-
-function extractProductsFromListing(html, sourceUrl, checkedAt) {
+export function extractProductsFromListing(html, sourceUrl, checkedAt) {
   const $ = cheerio.load(html);
   const products = new Map();
   const category = extractCategoryFromStartUrl(sourceUrl);
@@ -339,84 +253,20 @@ function extractProductsFromListing(html, sourceUrl, checkedAt) {
 
     const existing = products.get(productUrl);
 
-    if (!existing || scoreProduct(product) > scoreProduct(existing)) {
-      products.set(productUrl, product);
-    }
+    products.set(
+      productUrl,
+      existing ? mergeProduct(existing, product) : product
+    );
   });
 
   return [...products.values()];
 }
 
-function mergeProduct(existing, incoming) {
-  if (!existing) {
-    return {
-      ...incoming,
-      categories: incoming.category ? [incoming.category] : [],
-      source_urls: incoming.source_url ? [incoming.source_url] : []
-    };
+async function scan() {
+  if (!API_KEY) {
+    throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
   }
 
-  const categories = new Set([
-    ...(existing.categories ?? []),
-    existing.category,
-    ...(incoming.categories ?? []),
-    incoming.category
-  ]);
-
-  const sourceUrls = new Set([
-    ...(existing.source_urls ?? []),
-    existing.source_url,
-    ...(incoming.source_urls ?? []),
-    incoming.source_url
-  ]);
-
-  const availableSizes = new Set([
-    ...(existing.available_sizes ?? []),
-    ...(incoming.available_sizes ?? [])
-  ]);
-
-  const priceCandidates = new Set([
-    ...(existing.price_candidates ?? []),
-    ...(incoming.price_candidates ?? [])
-  ]);
-
-  const mergedSizes = [...availableSizes].sort(
-    (a, b) => Number(a) - Number(b)
-  );
-
-  const mergedPriceCandidates = [...priceCandidates].sort(
-    (a, b) => b - a
-  );
-
-  const best =
-    scoreProduct(incoming) > scoreProduct(existing)
-      ? incoming
-      : existing;
-
-  const mergedPriceInfo =
-    extractPricesAndDiscountFromText(
-      mergedPriceCandidates
-        .map((price) => `$${price}`)
-        .join(" ")
-    );
-
-  return {
-    ...best,
-    category: undefined,
-    source_url: undefined,
-    categories: [...categories].filter(Boolean),
-    source_urls: [...sourceUrls].filter(Boolean),
-    available_sizes: mergedSizes,
-    size_42_available:
-      mergedSizes.length > 0
-        ? mergedSizes.includes(TARGET_SIZE)
-        : null,
-    ...mergedPriceInfo,
-    checked_at: existing.checked_at
-  };
-}
-
-async function scan() {
   const checkedAt = new Date().toISOString();
   const productMap = new Map();
   const pageResults = [];
@@ -566,7 +416,13 @@ async function scan() {
   );
 }
 
-scan().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+const entryPointUrl = process.argv[1]
+  ? pathToFileURL(path.resolve(process.argv[1])).href
+  : null;
+
+if (import.meta.url === entryPointUrl) {
+  scan().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

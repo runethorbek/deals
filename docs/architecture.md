@@ -41,9 +41,12 @@ separate authenticated service boundary.
 ## Output contracts
 
 The three sources currently have related but different product shapes. Vinted
-uses `price` and `currency`; Scarosso and Zalando expose original price, current
-price, and discount fields. These differences must be documented and tested
-before treating the formats as a single schema.
+uses `price` and `currency`. Scarosso exposes original price, current price,
+discount fields, and a normalized `currency` of `USD`, `EUR`, `GBP`, or `null`.
+Its `conflicting-currencies` status means numeric candidates were retained but
+prices were not compared across currencies. Zalando exposes original price,
+current price, and discount fields. These differences must be documented and
+tested before treating the formats as a single schema.
 
 Contract changes require explicit approval and coordination with DealRadar.
 Counts must match their arrays, product URLs must be unique HTTPS URLs for the
