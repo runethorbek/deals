@@ -2,6 +2,11 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import * as cheerio from "cheerio";
 import fetch from "node-fetch";
+import {
+  createScrapingAntHttpError,
+  createScanStatus,
+  safeErrorDiagnostic
+} from "./lib/scan-status.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
@@ -65,11 +70,7 @@ async function getRenderedHtml(url) {
   });
 
   if (!res.ok) {
-    const text = await res.text().catch(() => "");
-
-    throw new Error(
-      `ScrapingAnt failed for ${url}: ${res.status} ${text.slice(0, 300)}`
-    );
+    throw await createScrapingAntHttpError(res, url);
   }
 
   return await res.text();
@@ -407,13 +408,15 @@ async function scan() {
         productMap.set(product.url, mergeProduct(existing, product));
       }
     } catch (error) {
-      console.error(`Failed listing ${url}:`, error.message);
+      const errorDiagnostic = safeErrorDiagnostic(error);
+
+      console.error(`Failed listing ${url}:`, errorDiagnostic);
 
       pageResults.push({
         url,
         product_count: 0,
         json_ld_blocks: 0,
-        error: error.message
+        error: errorDiagnostic
       });
     }
 
@@ -430,6 +433,12 @@ async function scan() {
     return a.title.localeCompare(b.title);
   });
 
+  const scanStatus = createScanStatus({
+    pageResults,
+    scannedProductCount: products.length,
+    publishedProductCount: products.length
+  });
+
   const output = {
     site: "vinted.com",
     scan_mode: "vinted-listing-pages-only",
@@ -443,6 +452,8 @@ async function scan() {
 
     product_count: products.length,
     products,
+
+    scan_status: scanStatus,
 
     debug: {
       pages: pageResults,

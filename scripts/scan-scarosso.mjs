@@ -7,6 +7,12 @@ import {
   extractPricesAndDiscountFromText
 } from "./lib/scarosso-price.mjs";
 import { mergeProduct } from "./lib/scarosso-product.mjs";
+import {
+  createScanStatus,
+  safeErrorSummary
+} from "./lib/scan-status.mjs";
+
+export { createScanStatus, safeErrorSummary };
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
@@ -64,44 +70,6 @@ function absoluteUrl(value) {
 
 function normalizeText(value) {
   return value?.replace(/\s+/g, " ").trim() ?? "";
-}
-
-export function safeErrorSummary(error) {
-  const rawMessage = error instanceof Error
-    ? error.message
-    : String(error ?? "Unknown error");
-
-  const summary = normalizeText(rawMessage)
-    .replace(
-      /([?&](?:x-api-key|api[_-]?key|access[_-]?token|token|key)=)[^&\s]*/gi,
-      "$1[REDACTED]"
-    )
-    .replace(/\bBearer\s+\S+/gi, "Bearer [REDACTED]")
-    .slice(0, 300);
-
-  return summary || "Unknown error";
-}
-
-export function createScanStatus({
-  pageResults,
-  scannedProductCount,
-  publishedProductCount
-}) {
-  const failures = pageResults
-    .filter((page) => page.error !== null)
-    .map((page) => ({
-      url: page.url,
-      error_summary: safeErrorSummary(page.error)
-    }));
-
-  return {
-    attempted_pages: pageResults.length,
-    successful_pages: pageResults.length - failures.length,
-    failed_pages: failures.length,
-    failures,
-    scanned_product_count: scannedProductCount,
-    published_product_count: publishedProductCount
-  };
 }
 
 function normalizeProductUrl(href) {

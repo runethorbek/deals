@@ -2,6 +2,11 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import * as cheerio from "cheerio";
 import fetch from "node-fetch";
+import {
+  createScrapingAntHttpError,
+  createScanStatus,
+  safeErrorDiagnostic
+} from "./lib/scan-status.mjs";
 import { extractPriceInfo } from "./lib/zalando-price.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
@@ -83,10 +88,7 @@ async function getRenderedHtml(url) {
   });
 
   if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(
-      `ScrapingAnt failed for ${url}: ${res.status} ${text.slice(0, 300)}`
-    );
+    throw await createScrapingAntHttpError(res, url);
   }
 
   return await res.text();
@@ -237,11 +239,13 @@ async function scan() {
         }
       }
     } catch (error) {
-      console.error(`Failed listing ${url}:`, error.message);
+      const errorDiagnostic = safeErrorDiagnostic(error);
+
+      console.error(`Failed listing ${url}:`, errorDiagnostic);
       pageResults.push({
         url,
         product_count: 0,
-        error: error.message
+        error: errorDiagnostic
       });
     }
 
@@ -264,6 +268,12 @@ async function scan() {
     );
   });
 
+  const scanStatus = createScanStatus({
+    pageResults,
+    scannedProductCount: products.length,
+    publishedProductCount: matches.length
+  });
+
   const output = {
     site: SITE,
     scan_mode: "zalando-listing-page-only",
@@ -277,6 +287,7 @@ async function scan() {
     products,
     match_count: matches.length,
     matches,
+    scan_status: scanStatus,
     debug: {
       pages: pageResults,
       products_with_discount: products.filter(
