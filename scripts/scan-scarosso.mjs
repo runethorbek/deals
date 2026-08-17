@@ -182,13 +182,7 @@ function extractProductTitle($, anchor, container) {
   return "Unknown product";
 }
 
-function extractProductImage($, container) {
-  const image = container.find("img").first();
-
-  if (!image.length) {
-    return null;
-  }
-
+function extractImageUrl(image) {
   const directSource =
     image.attr("data-src") ||
     image.attr("data-original") ||
@@ -216,6 +210,71 @@ function extractProductImage($, container) {
   return absoluteUrl(lastCandidate);
 }
 
+function extractFirstUsableImage($, images) {
+  for (const imageElement of images.toArray()) {
+    const imageUrl = extractImageUrl($(imageElement));
+
+    if (imageUrl) {
+      return imageUrl;
+    }
+  }
+
+  return null;
+}
+
+function extractProductImage($, anchor, container, productUrl) {
+  const directImage = extractFirstUsableImage(
+    $,
+    $(anchor).find("img")
+  );
+
+  if (directImage) {
+    return directImage;
+  }
+
+  const matchingAnchorImages = container
+    .find("a[href]")
+    .filter((_, candidate) => {
+      return normalizeProductUrl($(candidate).attr("href")) === productUrl;
+    })
+    .find("img");
+  const matchingAnchorImage = extractFirstUsableImage(
+    $,
+    matchingAnchorImages
+  );
+
+  if (matchingAnchorImage) {
+    return matchingAnchorImage;
+  }
+
+  const containerProductUrls = new Set();
+
+  container.find("a[href]").each((_, candidate) => {
+    const candidateUrl = normalizeProductUrl($(candidate).attr("href"));
+
+    if (isProductUrl(candidateUrl)) {
+      containerProductUrls.add(candidateUrl);
+    }
+  });
+
+  if (
+    containerProductUrls.size !== 1 ||
+    !containerProductUrls.has(productUrl)
+  ) {
+    return null;
+  }
+
+  const unanchoredImages = container.find("img").filter((_, image) => {
+    return $(image).closest("a[href]").length === 0;
+  });
+
+  if (unanchoredImages.length !== 1) {
+    return null;
+  }
+
+  return extractFirstUsableImage($, unanchoredImages);
+}
+
 export function extractProductsFromListing(html, sourceUrl, checkedAt) {
   const $ = cheerio.load(html);
   const products = new Map();
@@ -238,7 +297,7 @@ export function extractProductsFromListing(html, sourceUrl, checkedAt) {
     const product = {
       title: extractProductTitle($, anchor, container),
       url: productUrl,
-      image: extractProductImage($, container),
+      image: extractProductImage($, anchor, container, productUrl),
       category,
       source_url: sourceUrl,
       available_sizes: availableSizes,
