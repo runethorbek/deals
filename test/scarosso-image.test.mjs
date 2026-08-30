@@ -62,3 +62,32 @@ test("uses a sole unanchored image only for a single-product card", () => {
     "https://www.scarosso.com/images/single-product.jpg"
   );
 });
+
+test("prefers a usable srcset image over a placeholder src", async () => {
+  const html = await readFile(
+    new URL("fixtures/scarosso-placeholder-image.html", import.meta.url),
+    "utf8"
+  );
+  const products = extractProductsFromListing(
+    html,
+    SOURCE_URL,
+    CHECKED_AT
+  );
+  const byUrl = new Map(products.map((product) => [product.url, product]));
+  const product = byUrl.get(
+    "https://www.scarosso.com/en-us/placeholder-shoe.html"
+  );
+  const placeholderOnlyProduct = byUrl.get(
+    "https://www.scarosso.com/en-us/placeholder-only-shoe.html"
+  );
+  const dataSrcsetProduct = byUrl.get(
+    "https://www.scarosso.com/en-us/data-srcset-shoe.html"
+  );
+
+  assert.equal(
+    product.image,
+    "https://cdn.scarosso.com/images/placeholder-shoe-large.jpg"
+  );
+  assert.equal(placeholderOnlyProduct.image, null);
+  assert.equal(dataSrcsetProduct.image, null);
+});

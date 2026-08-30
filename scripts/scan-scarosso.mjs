@@ -182,32 +182,57 @@ function extractProductTitle($, anchor, container) {
   return "Unknown product";
 }
 
-function extractImageUrl(image) {
-  const directSource =
-    image.attr("data-src") ||
-    image.attr("data-original") ||
-    image.attr("data-lazy-src") ||
-    image.attr("src");
+function usableImageUrl(value) {
+  const url = absoluteUrl(value);
 
-  if (directSource) {
-    return absoluteUrl(directSource);
-  }
-
-  const srcset =
-    image.attr("data-srcset") ||
-    image.attr("srcset");
-
-  if (!srcset) {
+  if (!url) {
     return null;
   }
 
-  const lastCandidate = srcset
+  const { protocol } = new URL(url);
+
+  return protocol === "http:" || protocol === "https:" ? url : null;
+}
+
+function imageUrlsFromSrcset(srcset) {
+  if (!srcset || /(?:^|,)\s*data:/i.test(srcset)) {
+    return [];
+  }
+
+  return srcset
     .split(",")
     .map((entry) => entry.trim().split(/\s+/)[0])
     .filter(Boolean)
-    .at(-1);
+    .map(usableImageUrl)
+    .filter(Boolean)
+    .reverse();
+}
 
-  return absoluteUrl(lastCandidate);
+function extractImageUrl(image) {
+  const lazySources = [
+    image.attr("data-src"),
+    image.attr("data-original"),
+    image.attr("data-lazy-src")
+  ];
+
+  for (const source of lazySources) {
+    const imageUrl = usableImageUrl(source);
+
+    if (imageUrl) {
+      return imageUrl;
+    }
+  }
+
+  const srcsetCandidates = [
+    ...imageUrlsFromSrcset(image.attr("data-srcset")),
+    ...imageUrlsFromSrcset(image.attr("srcset"))
+  ];
+
+  if (srcsetCandidates.length) {
+    return srcsetCandidates[0];
+  }
+
+  return usableImageUrl(image.attr("src"));
 }
 
 function extractFirstUsableImage($, images) {
