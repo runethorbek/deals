@@ -8,6 +8,12 @@ import {
 } from "./lib/scarosso-price.mjs";
 import { mergeProduct } from "./lib/scarosso-product.mjs";
 import {
+  normalizeScarossoProductUrl,
+  validateScarossoImageUrl
+} from "./lib/scarosso-image.mjs";
+import { loadPreviousImageIndex } from "./lib/scarosso-image-snapshot.mjs";
+import { enrichMissingProductImages } from "./lib/scarosso-image-enrichment.mjs";
+import {
   createScanStatus,
   safeErrorSummary
 } from "./lib/scan-status.mjs";
@@ -15,8 +21,6 @@ import {
 export { createScanStatus, safeErrorSummary };
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
-
-const BASE_URL = "https://www.scarosso.com";
 
 const START_URLS = [
   "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
@@ -34,14 +38,14 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function getRenderedHtml(url) {
+async function getRenderedHtml(url, fetchImpl, apiKey) {
   const endpoint = new URL("https://api.scrapingant.com/v2/general");
 
   endpoint.searchParams.set("url", url);
-  endpoint.searchParams.set("x-api-key", API_KEY);
+  endpoint.searchParams.set("x-api-key", apiKey);
   endpoint.searchParams.set("browser", "true");
 
-  const res = await fetch(endpoint.toString(), {
+  const res = await fetchImpl(endpoint.toString(), {
     headers: {
       "user-agent": "scarosso-deal-watch/2.0"
     }
@@ -56,53 +60,8 @@ async function getRenderedHtml(url) {
   return await res.text();
 }
 
-function absoluteUrl(value) {
-  if (!value) {
-    return null;
-  }
-
-  try {
-    return new URL(value, BASE_URL).toString();
-  } catch {
-    return null;
-  }
-}
-
 function normalizeText(value) {
   return value?.replace(/\s+/g, " ").trim() ?? "";
-}
-
-function normalizeProductUrl(href) {
-  const url = absoluteUrl(href);
-
-  if (!url) {
-    return null;
-  }
-
-  const parsed = new URL(url);
-
-  parsed.search = "";
-  parsed.hash = "";
-
-  return parsed.toString();
-}
-
-function isProductUrl(url) {
-  if (!url) {
-    return false;
-  }
-
-  try {
-    const parsed = new URL(url);
-
-    return (
-      parsed.hostname.endsWith("scarosso.com") &&
-      parsed.pathname.includes("/en-us/") &&
-      parsed.pathname.endsWith(".html")
-    );
-  } catch {
-    return false;
-  }
 }
 
 function extractCategoryFromStartUrl(url) {
@@ -183,15 +142,7 @@ function extractProductTitle($, anchor, container) {
 }
 
 function usableImageUrl(value) {
-  const url = absoluteUrl(value);
-
-  if (!url) {
-    return null;
-  }
-
-  const { protocol } = new URL(url);
-
-  return protocol === "http:" || protocol === "https:" ? url : null;
+  return validateScarossoImageUrl(value);
 }
 
 function imageUrlsFromSrcset(srcset) {
@@ -260,7 +211,10 @@ function extractProductImage($, anchor, container, productUrl) {
   const matchingAnchorImages = container
     .find("a[href]")
     .filter((_, candidate) => {
-      return normalizeProductUrl($(candidate).attr("href")) === productUrl;
+      return (
+        normalizeScarossoProductUrl($(candidate).attr("href")) ===
+        productUrl
+      );
     })
     .find("img");
   const matchingAnchorImage = extractFirstUsableImage(
@@ -275,9 +229,11 @@ function extractProductImage($, anchor, container, productUrl) {
   const containerProductUrls = new Set();
 
   container.find("a[href]").each((_, candidate) => {
-    const candidateUrl = normalizeProductUrl($(candidate).attr("href"));
+    const candidateUrl = normalizeScarossoProductUrl(
+      $(candidate).attr("href")
+    );
 
-    if (isProductUrl(candidateUrl)) {
+    if (candidateUrl) {
       containerProductUrls.add(candidateUrl);
     }
   });
@@ -307,9 +263,9 @@ export function extractProductsFromListing(html, sourceUrl, checkedAt) {
 
   $("a[href]").each((_, anchor) => {
     const href = $(anchor).attr("href");
-    const productUrl = normalizeProductUrl(href);
+    const productUrl = normalizeScarossoProductUrl(href);
 
-    if (!isProductUrl(productUrl)) {
+    if (!productUrl) {
       return;
     }
 
@@ -345,8 +301,20 @@ export function extractProductsFromListing(html, sourceUrl, checkedAt) {
   return [...products.values()];
 }
 
-async function scan() {
-  if (!API_KEY) {
+export async function scan({
+  apiKey = API_KEY,
+  fetchImpl = fetch,
+  fsImpl = fs,
+  sleepImpl = sleep,
+  logger = console,
+  outputPath = path.join(
+    process.cwd(),
+    "public",
+    "deals",
+    "scarosso-latest.json"
+  )
+} = {}) {
+  if (!apiKey) {
     throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
   }
 
@@ -354,15 +322,15 @@ async function scan() {
   const productMap = new Map();
   const pageResults = [];
 
-  console.log("Fetching listing pages...");
+  logger.log("Fetching listing pages...");
 
   for (let i = 0; i < START_URLS.length; i++) {
     const url = START_URLS[i];
 
-    console.log(`[${i + 1}/${START_URLS.length}] ${url}`);
+    logger.log(`[${i + 1}/${START_URLS.length}] ${url}`);
 
     try {
-      const html = await getRenderedHtml(url);
+      const html = await getRenderedHtml(url, fetchImpl, apiKey);
 
       const products = extractProductsFromListing(
         html,
@@ -370,7 +338,7 @@ async function scan() {
         checkedAt
       );
 
-      console.log(
+      logger.log(
         `Found ${products.length} products on listing page`
       );
 
@@ -391,7 +359,7 @@ async function scan() {
     } catch (error) {
       const errorSummary = safeErrorSummary(error);
 
-      console.error(
+      logger.error(
         `Failed listing ${url}:`,
         errorSummary
       );
@@ -404,11 +372,20 @@ async function scan() {
     }
 
     if (i < START_URLS.length - 1) {
-      await sleep(1000);
+      await sleepImpl(1000);
     }
   }
 
-  const products = [...productMap.values()].sort((a, b) => {
+  const previousImages = await loadPreviousImageIndex(
+    outputPath,
+    fsImpl.readFile.bind(fsImpl)
+  );
+  const enrichment = await enrichMissingProductImages(
+    [...productMap.values()],
+    previousImages,
+    fetchImpl
+  );
+  const products = enrichment.products.sort((a, b) => {
     const discountA =
       typeof a.discount_percent === "number"
         ? a.discount_percent
@@ -426,7 +403,13 @@ async function scan() {
     return a.title.localeCompare(b.title);
   });
 
-  console.log(`Total unique products: ${products.length}`);
+  logger.log(
+    `Image enrichment: reused ${enrichment.reusedCount}, ` +
+      `fetched ${enrichment.fetchedPageCount}, ` +
+      `found ${enrichment.fetchedImageCount}, ` +
+      `remaining ${enrichment.missingCount}`
+  );
+  logger.log(`Total unique products: ${products.length}`);
 
   const matches = products.filter((product) => {
     return (
@@ -486,25 +469,18 @@ async function scan() {
     }
   };
 
-  const outputPath = path.join(
-    process.cwd(),
-    "public",
-    "deals",
-    "scarosso-latest.json"
-  );
-
-  await fs.mkdir(path.dirname(outputPath), {
+  await fsImpl.mkdir(path.dirname(outputPath), {
     recursive: true
   });
 
-  await fs.writeFile(
+  await fsImpl.writeFile(
     outputPath,
     JSON.stringify(output, null, 2)
   );
 
-  console.log(`Wrote ${outputPath}`);
-  console.log(`All products: ${products.length}`);
-  console.log(
+  logger.log(`Wrote ${outputPath}`);
+  logger.log(`All products: ${products.length}`);
+  logger.log(
     `Products over ${MIN_DISCOUNT_PERCENT}% discount: ${matches.length}`
   );
 }

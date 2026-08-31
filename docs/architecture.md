@@ -8,13 +8,20 @@ DealRadar application, database, ingestion logic, or user-facing rendering.
 ## Data flow
 
 1. A scheduled or manually dispatched GitHub Actions workflow starts a scan.
-2. A source-specific Node.js scraper calls ScrapingAnt with a fixed retailer
-   listing URL.
+2. A source-specific Node.js scraper calls ScrapingAnt with fixed retailer
+   listing URLs.
 3. ScrapingAnt returns rendered retailer HTML.
 4. The scraper extracts and normalizes products into a source-specific JSON
    document under `public/deals/`.
 5. The workflow commits a changed document and calls the authenticated
    DealRadar import endpoint with the resulting Git revision.
+
+The Scarosso scanner discovers products only through its six listing-page
+ScrapingAnt requests. As best-effort image enrichment, it reuses validated
+images from the previous snapshot by exact normalized product URL, then fetches
+still-missing product pages directly from Scarosso with bounded concurrency.
+Those product-page requests never go through ScrapingAnt and do not affect
+listing scan status.
 
 ## Responsibilities
 

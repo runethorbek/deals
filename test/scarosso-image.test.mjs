@@ -86,7 +86,7 @@ test("prefers a usable srcset image over a placeholder src", async () => {
 
   assert.equal(
     product.image,
-    "https://cdn.scarosso.com/images/placeholder-shoe-large.jpg"
+    "https://www.scarosso.com/images/placeholder-shoe-large.jpg"
   );
   assert.equal(placeholderOnlyProduct.image, null);
   assert.equal(dataSrcsetProduct.image, null);
