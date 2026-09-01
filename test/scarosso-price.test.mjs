@@ -264,7 +264,8 @@ test("listing extraction emits normalized currency", () => {
   const products = extractProductsFromListing(
     html,
     "https://www.scarosso.com/en-us/sales/men/sneakers/",
-    "2026-08-17T00:00:00.000Z"
+    "2026-08-17T00:00:00.000Z",
+    { targetSize: "42" }
   );
 
   assert.equal(products.length, 1);

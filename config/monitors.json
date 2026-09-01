@@ -8,5 +8,21 @@
       "sizeIds": ["207"]
     },
     "pages": 3
+  },
+  {
+    "id": "scarosso-dk-mens-sale-size-42",
+    "source": "scarosso",
+    "enabled": true,
+    "filters": {
+      "listingUrls": [
+        "/sales/men/?prefn1=c_size&prefv1=42",
+        "/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+        "/sales/men/loafers/?prefn1=c_size&prefv1=42",
+        "/sales/men/flats/?prefn1=c_size&prefv1=42",
+        "/sales/men/boots/?prefn1=c_size&prefv1=42",
+        "/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+      ],
+      "minDiscountPercent": 30
+    }
   }
 ]

@@ -17,22 +17,14 @@ import {
   createScanStatus,
   safeErrorSummary
 } from "./lib/scan-status.mjs";
+import {
+  buildScarossoScanPlan,
+  loadEnabledScarossoMonitor
+} from "./lib/scarosso-monitor.mjs";
 
 export { createScanStatus, safeErrorSummary };
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
-
-const START_URLS = [
-  "https://www.scarosso.com/en-us/sales/men/?prefn1=c_size&prefv1=42",
-  "https://www.scarosso.com/en-us/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-  "https://www.scarosso.com/en-us/sales/men/loafers/?prefn1=c_size&prefv1=42",
-  "https://www.scarosso.com/en-us/sales/men/flats/?prefn1=c_size&prefv1=42",
-  "https://www.scarosso.com/en-us/sales/men/boots/?prefn1=c_size&prefv1=42",
-  "https://www.scarosso.com/en-us/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-];
-
-const TARGET_SIZE = "42";
-const MIN_DISCOUNT_PERCENT = 30;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -256,7 +248,12 @@ function extractProductImage($, anchor, container, productUrl) {
   return extractFirstUsableImage($, unanchoredImages);
 }
 
-export function extractProductsFromListing(html, sourceUrl, checkedAt) {
+export function extractProductsFromListing(
+  html,
+  sourceUrl,
+  checkedAt,
+  { targetSize }
+) {
   const $ = cheerio.load(html);
   const products = new Map();
   const category = extractCategoryFromStartUrl(sourceUrl);
@@ -284,7 +281,7 @@ export function extractProductsFromListing(html, sourceUrl, checkedAt) {
       available_sizes: availableSizes,
       size_42_available:
         availableSizes.length > 0
-          ? availableSizes.includes(TARGET_SIZE)
+          ? availableSizes.includes(targetSize)
           : null,
       ...priceInfo,
       checked_at: checkedAt
@@ -307,6 +304,7 @@ export async function scan({
   fsImpl = fs,
   sleepImpl = sleep,
   logger = console,
+  loadMonitor = loadEnabledScarossoMonitor,
   outputPath = path.join(
     process.cwd(),
     "public",
@@ -318,16 +316,22 @@ export async function scan({
     throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
   }
 
+  const monitor = await loadMonitor();
+  const {
+    listingUrls: startUrls,
+    targetSize,
+    minDiscountPercent
+  } = buildScarossoScanPlan(monitor);
   const checkedAt = new Date().toISOString();
   const productMap = new Map();
   const pageResults = [];
 
   logger.log("Fetching listing pages...");
 
-  for (let i = 0; i < START_URLS.length; i++) {
-    const url = START_URLS[i];
+  for (let i = 0; i < startUrls.length; i++) {
+    const url = startUrls[i];
 
-    logger.log(`[${i + 1}/${START_URLS.length}] ${url}`);
+    logger.log(`[${i + 1}/${startUrls.length}] ${url}`);
 
     try {
       const html = await getRenderedHtml(url, fetchImpl, apiKey);
@@ -335,7 +339,8 @@ export async function scan({
       const products = extractProductsFromListing(
         html,
         url,
-        checkedAt
+        checkedAt,
+        { targetSize }
       );
 
       logger.log(
@@ -371,7 +376,7 @@ export async function scan({
       });
     }
 
-    if (i < START_URLS.length - 1) {
+    if (i < startUrls.length - 1) {
       await sleepImpl(1000);
     }
   }
@@ -414,7 +419,7 @@ export async function scan({
   const matches = products.filter((product) => {
     return (
       typeof product.discount_percent === "number" &&
-      product.discount_percent >= MIN_DISCOUNT_PERCENT
+      product.discount_percent >= minDiscountPercent
     );
   });
 
@@ -427,10 +432,10 @@ export async function scan({
   const output = {
     site: "scarosso.com",
     scan_mode: "listing-pages-only",
-    target_size: TARGET_SIZE,
-    min_discount_percent: MIN_DISCOUNT_PERCENT,
+    target_size: targetSize,
+    min_discount_percent: minDiscountPercent,
     checked_at: checkedAt,
-    scanned_page_count: START_URLS.length,
+    scanned_page_count: startUrls.length,
     scanned_product_count: products.length,
 
     product_count: products.length,
@@ -452,7 +457,7 @@ export async function scan({
       products_below_minimum_discount: products.filter(
         (product) =>
           typeof product.discount_percent === "number" &&
-          product.discount_percent < MIN_DISCOUNT_PERCENT
+          product.discount_percent < minDiscountPercent
       ).length,
 
       products_without_discount: products.filter(
@@ -481,7 +486,7 @@ export async function scan({
   logger.log(`Wrote ${outputPath}`);
   logger.log(`All products: ${products.length}`);
   logger.log(
-    `Products over ${MIN_DISCOUNT_PERCENT}% discount: ${matches.length}`
+    `Products over ${minDiscountPercent}% discount: ${matches.length}`
   );
 }
 

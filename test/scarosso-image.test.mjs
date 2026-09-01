@@ -15,7 +15,8 @@ test("associates shared-card images by exact product URL", async () => {
   const products = extractProductsFromListing(
     html,
     SOURCE_URL,
-    CHECKED_AT
+    CHECKED_AT,
+    { targetSize: "42" }
   );
   const byUrl = new Map(products.map((product) => [product.url, product]));
 
@@ -54,7 +55,8 @@ test("uses a sole unanchored image only for a single-product card", () => {
   const [product] = extractProductsFromListing(
     html,
     SOURCE_URL,
-    CHECKED_AT
+    CHECKED_AT,
+    { targetSize: "42" }
   );
 
   assert.equal(
@@ -71,7 +73,8 @@ test("prefers a usable srcset image over a placeholder src", async () => {
   const products = extractProductsFromListing(
     html,
     SOURCE_URL,
-    CHECKED_AT
+    CHECKED_AT,
+    { targetSize: "42" }
   );
   const byUrl = new Map(products.map((product) => [product.url, product]));
   const product = byUrl.get(

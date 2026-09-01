@@ -9,8 +9,8 @@ DealRadar application, database, ingestion logic, or user-facing rendering.
 
 1. A scheduled or manually dispatched GitHub Actions workflow starts a scan.
 2. A source-specific Node.js scraper translates monitoring intent into retailer
-   listing URLs and calls ScrapingAnt. Vinted currently loads that intent from
-   `config/monitors.json`; the other sources still use fixed values.
+   listing URLs and calls ScrapingAnt. Vinted and Scarosso load that intent from
+   the shared `config/monitors.json`; Zalando still uses fixed values.
 3. ScrapingAnt returns rendered retailer HTML.
 4. The scraper extracts and normalizes products into a source-specific JSON
    document under `public/deals/`.
@@ -32,6 +32,9 @@ listing scan status.
   source parsing, and scan-level failure handling.
 - **Monitoring configuration:** source selection and source-specific filter
   values describing what should be monitored.
+- **Monitor configuration loader:** JSON-backed storage adapter and shared
+  monitor envelope validation. Source-specific validation and request
+  construction remain in each retailer adapter.
 - **Source parsers:** retailer-specific selectors and normalization rules.
 - **Shared contract validation:** common invariants such as valid URLs, counts,
   numeric ranges, uniqueness, and timestamps.

@@ -255,7 +255,8 @@ test("listing extraction skips non-canonical product URLs", () => {
   const products = extractProductsFromListing(
     html,
     "https://www.scarosso.com/en-us/sales/men/sneakers/",
-    "2026-08-31T00:00:00.000Z"
+    "2026-08-31T00:00:00.000Z",
+    { targetSize: "42" }
   );
 
   assert.equal(products.length, 1);
@@ -376,11 +377,22 @@ test("scanner keeps six ScrapingAnt calls and isolates enrichment outcomes", asy
   const scrapingAntCalls = requestedUrls.filter((url) =>
     url.startsWith("https://api.scrapingant.com/")
   );
+  const configuredListingUrls = scrapingAntCalls.map((url) => (
+    new URL(url).searchParams.get("url")
+  ));
   const directCalls = requestedUrls.filter((url) =>
     url.startsWith("https://www.scarosso.com/")
   );
 
   assert.equal(scrapingAntCalls.length, 6);
+  assert.deepEqual(configuredListingUrls, [
+    "https://www.scarosso.com/en-dk/sales/men/?prefn1=c_size&prefv1=42",
+    "https://www.scarosso.com/en-dk/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+    "https://www.scarosso.com/en-dk/sales/men/loafers/?prefn1=c_size&prefv1=42",
+    "https://www.scarosso.com/en-dk/sales/men/flats/?prefn1=c_size&prefv1=42",
+    "https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42",
+    "https://www.scarosso.com/en-dk/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+  ]);
   assert.deepEqual(
     directCalls.sort(),
     [
@@ -389,6 +401,9 @@ test("scanner keeps six ScrapingAnt calls and isolates enrichment outcomes", asy
     ]
   );
   assert.equal(writtenOutput.scan_mode, "listing-pages-only");
+  assert.equal(writtenOutput.target_size, "42");
+  assert.equal(writtenOutput.min_discount_percent, 30);
+  assert.equal(writtenOutput.scanned_page_count, 6);
   assert.equal(writtenOutput.scan_status.successful_pages, 6);
   assert.equal(writtenOutput.scan_status.failed_pages, 0);
 
@@ -423,4 +438,45 @@ test("scanner keeps six ScrapingAnt calls and isolates enrichment outcomes", asy
     matchesByUrl.get(fetchedUrl).image,
     "https://www.scarosso.com/images/fetched-from-product-page.jpg"
   );
+});
+
+test("invalid Scarosso configuration stops before requests or output", async () => {
+  let requestCount = 0;
+  let writeCount = 0;
+
+  await assert.rejects(
+    scan({
+      apiKey: "test-key",
+      fetchImpl: async () => {
+        requestCount++;
+        throw new Error("unexpected request");
+      },
+      fsImpl: {
+        async readFile() {
+          throw new Error("unexpected read");
+        },
+        async mkdir() {},
+        async writeFile() {
+          writeCount++;
+        }
+      },
+      loadMonitor: async () => ({
+        id: "invalid-scarosso-monitor",
+        source: "scarosso",
+        enabled: true,
+        filters: {
+          listingUrls: [
+            "/sales/men/?prefn1=c_size&prefv1=43"
+          ],
+          minDiscountPercent: 30
+        }
+      }),
+      logger: { log() {}, error() {} },
+      outputPath: "memory/scarosso-latest.json"
+    }),
+    /Invalid enabled Scarosso monitor configuration/
+  );
+
+  assert.equal(requestCount, 0);
+  assert.equal(writeCount, 0);
 });

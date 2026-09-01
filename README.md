@@ -49,14 +49,25 @@ the DealRadar import endpoint.
 
 ## Monitoring configuration
 
-Vinted reads its monitoring intent from `config/monitors.json`. The checked-in
-monitor preserves the current catalog, size, and three-page scan. Vinted's base
-URL and query construction remain implementation details of the scraper.
+Vinted and Scarosso read their monitoring intent from the shared
+`config/monitors.json` file. Source-specific modules validate each monitor and
+translate it into retailer listing requests.
+
+The checked-in Vinted monitor preserves the current catalog, size, and
+three-page scan. Vinted's base URL and query construction remain implementation
+details of the scraper.
 
 Slice 1 supports exactly one enabled Vinted monitor containing one numeric
 `catalogIds` value, one numeric `sizeIds` value, and a `pages` value from 1 to
 100. Invalid or ambiguous Vinted configuration stops the scanner before it
 makes retailer requests or writes output.
+
+The checked-in Scarosso monitor preserves the six current men's sale listings,
+size 42, and the 30 percent match threshold. Its relative listing URLs include
+the Scarosso size query. The Scarosso adapter owns the
+`https://www.scarosso.com/en-dk/` storefront base URL, safely resolves the
+configured listings against it, and currently accepts size 42 only to preserve
+the published `size_42_available` field.
 
 Vinted ScrapingAnt requests time out after 30 seconds and transient failures
 are attempted at most three times with bounded backoff. If any required listing

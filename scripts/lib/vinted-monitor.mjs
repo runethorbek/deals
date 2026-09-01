@@ -1,9 +1,5 @@
-import fs from "node:fs/promises";
+import { loadEnabledMonitor } from "./monitor-config.mjs";
 
-const DEFAULT_CONFIG_URL = new URL(
-  "../../config/monitors.json",
-  import.meta.url
-);
 const MAX_PAGES = 100;
 
 function isSingleVintedId(values) {
@@ -17,13 +13,8 @@ function isSingleVintedId(values) {
 
 function isValidVintedMonitor(monitor) {
   return (
-    typeof monitor.id === "string" &&
-    monitor.id.trim().length > 0 &&
-    monitor.id.length <= 100 &&
     monitor.source === "vinted" &&
     monitor.enabled === true &&
-    monitor.filters !== null &&
-    typeof monitor.filters === "object" &&
     isSingleVintedId(monitor.filters.catalogIds) &&
     isSingleVintedId(monitor.filters.sizeIds) &&
     Number.isSafeInteger(monitor.pages) &&
@@ -32,25 +23,8 @@ function isValidVintedMonitor(monitor) {
   );
 }
 
-export async function loadEnabledVintedMonitor({
-  configPath = DEFAULT_CONFIG_URL,
-  readFile = fs.readFile
-} = {}) {
-  const contents = await readFile(configPath, "utf8");
-  const monitors = JSON.parse(contents);
-  const enabledVintedMonitors = Array.isArray(monitors)
-    ? monitors.filter((monitor) => (
-      monitor?.source === "vinted" && monitor.enabled === true
-    ))
-    : [];
-
-  if (enabledVintedMonitors.length !== 1) {
-    throw new Error(
-      "Monitor configuration must contain exactly one enabled Vinted monitor"
-    );
-  }
-
-  const monitor = enabledVintedMonitors[0];
+export async function loadEnabledVintedMonitor(options = {}) {
+  const monitor = await loadEnabledMonitor("vinted", options);
 
   if (!isValidVintedMonitor(monitor)) {
     throw new Error("Invalid enabled Vinted monitor configuration");
