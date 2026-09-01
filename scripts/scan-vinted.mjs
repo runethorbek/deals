@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import * as cheerio from "cheerio";
 import fetch from "node-fetch";
 import {
@@ -7,23 +8,17 @@ import {
   createScanStatus,
   safeErrorDiagnostic
 } from "./lib/scan-status.mjs";
+import {
+  buildVintedListingUrls,
+  loadEnabledVintedMonitor
+} from "./lib/vinted-monitor.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
-if (!API_KEY) {
-  throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
-}
-
 const BASE_URL = "https://www.vinted.dk";
-
-const START_URLS = [
-  "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
-  "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=2",
-  "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=3"
-];
-
-const TARGET_SIZE_ID = "207";
-const TARGET_CATALOG_ID = "1786";
+const MAX_REQUEST_ATTEMPTS = 3;
+const REQUEST_TIMEOUT_MS = 30_000;
+const RETRY_BASE_DELAY_MS = 500;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -56,24 +51,85 @@ function normalizeProductUrl(href) {
   return parsed.toString();
 }
 
-async function getRenderedHtml(url) {
+async function getRenderedHtmlOnce(
+  url,
+  fetchImpl,
+  apiKey,
+  requestTimeoutMs
+) {
   const endpoint = new URL("https://api.scrapingant.com/v2/general");
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
 
   endpoint.searchParams.set("url", url);
-  endpoint.searchParams.set("x-api-key", API_KEY);
+  endpoint.searchParams.set("x-api-key", apiKey);
   endpoint.searchParams.set("browser", "true");
 
-  const res = await fetch(endpoint.toString(), {
-    headers: {
-      "user-agent": "vinted-deal-watch/1.0"
-    }
-  });
+  try {
+    const res = await fetchImpl(endpoint.toString(), {
+      headers: {
+        "user-agent": "vinted-deal-watch/1.0"
+      },
+      signal: controller.signal
+    });
 
-  if (!res.ok) {
-    throw await createScrapingAntHttpError(res, url);
+    if (!res.ok) {
+      const error = await createScrapingAntHttpError(res, url);
+      error.retryable = (
+        res.status === 408 ||
+        res.status === 429 ||
+        res.status >= 500
+      );
+      throw error;
+    }
+
+    return await res.text();
+  } catch (error) {
+    if (controller.signal.aborted) {
+      const timeoutError = new Error(
+        `ScrapingAnt request timed out for ${url} after ` +
+        `${requestTimeoutMs}ms`
+      );
+      timeoutError.retryable = true;
+      throw timeoutError;
+    }
+
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function getRenderedHtml(
+  url,
+  fetchImpl,
+  apiKey,
+  sleepImpl,
+  requestTimeoutMs
+) {
+  for (let attempt = 1; attempt <= MAX_REQUEST_ATTEMPTS; attempt++) {
+    try {
+      return await getRenderedHtmlOnce(
+        url,
+        fetchImpl,
+        apiKey,
+        requestTimeoutMs
+      );
+    } catch (error) {
+      const shouldRetry = (
+        error?.retryable !== false &&
+        attempt < MAX_REQUEST_ATTEMPTS
+      );
+
+      if (!shouldRetry) {
+        throw error;
+      }
+
+      await sleepImpl(RETRY_BASE_DELAY_MS * 2 ** (attempt - 1));
+    }
   }
 
-  return await res.text();
+  throw new Error(`ScrapingAnt failed for ${url}`);
 }
 
 function isVintedItemUrl(url) {
@@ -295,7 +351,12 @@ function extractMetadataFromJsonLd(html) {
   return items;
 }
 
-function extractProductsFromListing(html, sourceUrl, checkedAt) {
+function extractProductsFromListing(
+  html,
+  sourceUrl,
+  checkedAt,
+  { catalogId, sizeId }
+) {
   const $ = cheerio.load(html);
   const products = new Map();
 
@@ -317,9 +378,9 @@ function extractProductsFromListing(html, sourceUrl, checkedAt) {
       image: extractImage($, container, anchor),
       site: "vinted.com",
       source_url: sourceUrl,
-      catalog_id: TARGET_CATALOG_ID,
-      target_size_id: TARGET_SIZE_ID,
-      size_assumption: "listing-url-filtered-by-size-id-207",
+      catalog_id: catalogId,
+      target_size_id: sizeId,
+      size_assumption: `listing-url-filtered-by-size-id-${sizeId}`,
       brand: extractBrandGuess(title, rawCardText),
       size_guess: extractSizeGuess(rawCardText),
       ...priceInfo,
@@ -377,24 +438,119 @@ function mergeProduct(existing, incoming) {
   };
 }
 
-async function scan() {
-  const checkedAt = new Date().toISOString();
+function validateVintedOutput(output) {
+  if (
+    output.site !== "vinted.com" ||
+    output.scan_mode !== "vinted-listing-pages-only" ||
+    !Array.isArray(output.start_urls) ||
+    output.start_urls.length === 0 ||
+    output.scanned_page_count !== output.start_urls.length ||
+    !Array.isArray(output.products) ||
+    output.products.length === 0 ||
+    output.scanned_product_count !== output.products.length ||
+    output.product_count !== output.products.length ||
+    !Number.isFinite(Date.parse(output.checked_at))
+  ) {
+    throw new Error("Invalid Vinted scan output");
+  }
+
+  if (
+    output.scan_status.attempted_pages !== output.start_urls.length ||
+    output.scan_status.failed_pages !== 0 ||
+    output.scan_status.scanned_product_count !== output.products.length ||
+    output.scan_status.published_product_count !== output.products.length
+  ) {
+    throw new Error("Inconsistent Vinted scan output status");
+  }
+
+  const productUrls = new Set();
+
+  for (const product of output.products) {
+    if (!isVintedItemUrl(product.url) || productUrls.has(product.url)) {
+      throw new Error("Invalid or duplicate Vinted product URL in scan output");
+    }
+
+    productUrls.add(product.url);
+  }
+}
+
+async function publishOutput(outputPath, output, fsImpl) {
+  validateVintedOutput(output);
+
+  const temporaryOutputPath = `${outputPath}.tmp`;
+
+  await fsImpl.mkdir(path.dirname(outputPath), {
+    recursive: true
+  });
+
+  try {
+    await fsImpl.writeFile(
+      temporaryOutputPath,
+      JSON.stringify(output, null, 2)
+    );
+    await fsImpl.rename(temporaryOutputPath, outputPath);
+  } catch (error) {
+    await fsImpl.rm?.(temporaryOutputPath, { force: true }).catch(() => {});
+    throw error;
+  }
+}
+
+export async function scan({
+  apiKey = API_KEY,
+  fetchImpl = fetch,
+  fsImpl = fs,
+  sleepImpl = sleep,
+  logger = console,
+  now = () => new Date(),
+  loadMonitor = loadEnabledVintedMonitor,
+  requestTimeoutMs = REQUEST_TIMEOUT_MS,
+  outputPath = path.join(
+    process.cwd(),
+    "public",
+    "deals",
+    "vinted-latest.json"
+  )
+} = {}) {
+  if (!apiKey) {
+    throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
+  }
+
+  if (!Number.isSafeInteger(requestTimeoutMs) || requestTimeoutMs < 1) {
+    throw new Error("Invalid Vinted request timeout");
+  }
+
+  const monitor = await loadMonitor();
+  const startUrls = buildVintedListingUrls(monitor);
+  const catalogId = monitor.filters.catalogIds[0];
+  const sizeId = monitor.filters.sizeIds[0];
+  const checkedAt = now().toISOString();
   const productMap = new Map();
   const pageResults = [];
 
-  console.log("Fetching Vinted listing pages...");
+  logger.log("Fetching Vinted listing pages...");
 
-  for (let i = 0; i < START_URLS.length; i++) {
-    const url = START_URLS[i];
+  for (let i = 0; i < startUrls.length; i++) {
+    const url = startUrls[i];
 
-    console.log(`[${i + 1}/${START_URLS.length}] ${url}`);
+    logger.log(`[${i + 1}/${startUrls.length}] ${url}`);
 
     try {
-      const html = await getRenderedHtml(url);
-      const products = extractProductsFromListing(html, url, checkedAt);
+      const html = await getRenderedHtml(
+        url,
+        fetchImpl,
+        apiKey,
+        sleepImpl,
+        requestTimeoutMs
+      );
+      const products = extractProductsFromListing(
+        html,
+        url,
+        checkedAt,
+        { catalogId, sizeId }
+      );
       const jsonLd = extractMetadataFromJsonLd(html);
 
-      console.log(`Found ${products.length} products on listing page`);
+      logger.log(`Found ${products.length} products on listing page`);
 
       pageResults.push({
         url,
@@ -410,7 +566,7 @@ async function scan() {
     } catch (error) {
       const errorDiagnostic = safeErrorDiagnostic(error);
 
-      console.error(`Failed listing ${url}:`, errorDiagnostic);
+      logger.error(`Failed listing ${url}:`, errorDiagnostic);
 
       pageResults.push({
         url,
@@ -420,8 +576,8 @@ async function scan() {
       });
     }
 
-    if (i < START_URLS.length - 1) {
-      await sleep(1500);
+    if (i < startUrls.length - 1) {
+      await sleepImpl(1500);
     }
   }
 
@@ -439,15 +595,26 @@ async function scan() {
     publishedProductCount: products.length
   });
 
+  if (scanStatus.failed_pages > 0) {
+    throw new Error(
+      `Vinted scan failed: ${scanStatus.failed_pages} of ` +
+      `${scanStatus.attempted_pages} required pages failed`
+    );
+  }
+
+  if (products.length === 0) {
+    throw new Error("Vinted scan produced no products");
+  }
+
   const output = {
     site: "vinted.com",
     scan_mode: "vinted-listing-pages-only",
-    start_urls: START_URLS,
-    catalog_id: TARGET_CATALOG_ID,
-    target_size_id: TARGET_SIZE_ID,
+    start_urls: startUrls,
+    catalog_id: catalogId,
+    target_size_id: sizeId,
     checked_at: checkedAt,
 
-    scanned_page_count: START_URLS.length,
+    scanned_page_count: startUrls.length,
     scanned_product_count: products.length,
 
     product_count: products.length,
@@ -472,29 +639,21 @@ async function scan() {
     }
   };
 
-  const outputPath = path.join(
-    process.cwd(),
-    "public",
-    "deals",
-    "vinted-latest.json"
-  );
+  await publishOutput(outputPath, output, fsImpl);
 
-  await fs.mkdir(path.dirname(outputPath), {
-    recursive: true
-  });
-
-  await fs.writeFile(
-    outputPath,
-    JSON.stringify(output, null, 2)
-  );
-
-  console.log(`Wrote ${outputPath}`);
-  console.log(`Products: ${products.length}`);
-  console.log(`Products with price: ${output.debug.products_with_price}`);
-  console.log(`Products with brand: ${output.debug.products_with_brand}`);
+  logger.log(`Wrote ${outputPath}`);
+  logger.log(`Products: ${products.length}`);
+  logger.log(`Products with price: ${output.debug.products_with_price}`);
+  logger.log(`Products with brand: ${output.debug.products_with_brand}`);
 }
 
-scan().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+const entryPointUrl = process.argv[1]
+  ? pathToFileURL(path.resolve(process.argv[1])).href
+  : null;
+
+if (import.meta.url === entryPointUrl) {
+  scan().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

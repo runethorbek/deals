@@ -47,6 +47,29 @@ Running a scraper writes directly to its file in `public/deals/`. Review the
 generated diff before keeping or committing it. Local scraper runs do not call
 the DealRadar import endpoint.
 
+## Monitoring configuration
+
+Vinted reads its monitoring intent from `config/monitors.json`. The checked-in
+monitor preserves the current catalog, size, and three-page scan. Vinted's base
+URL and query construction remain implementation details of the scraper.
+
+Slice 1 supports exactly one enabled Vinted monitor containing one numeric
+`catalogIds` value, one numeric `sizeIds` value, and a `pages` value from 1 to
+100. Invalid or ambiguous Vinted configuration stops the scanner before it
+makes retailer requests or writes output.
+
+Vinted ScrapingAnt requests time out after 30 seconds and transient failures
+are attempted at most three times with bounded backoff. If any required listing
+page still fails, or successful pages produce no products, the scan exits
+without replacing the last known-good output. Valid snapshots are written to a
+temporary file and atomically renamed into place.
+
+Run the deterministic test suite with:
+
+```sh
+npm test
+```
+
 ## Development workflow
 
 1. Read `AGENTS.md` and the relevant scraper, workflow, and output sample.

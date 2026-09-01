@@ -8,8 +8,9 @@ DealRadar application, database, ingestion logic, or user-facing rendering.
 ## Data flow
 
 1. A scheduled or manually dispatched GitHub Actions workflow starts a scan.
-2. A source-specific Node.js scraper calls ScrapingAnt with fixed retailer
-   listing URLs.
+2. A source-specific Node.js scraper translates monitoring intent into retailer
+   listing URLs and calls ScrapingAnt. Vinted currently loads that intent from
+   `config/monitors.json`; the other sources still use fixed values.
 3. ScrapingAnt returns rendered retailer HTML.
 4. The scraper extracts and normalizes products into a source-specific JSON
    document under `public/deals/`.
@@ -29,6 +30,8 @@ listing scan status.
   validated output, and triggering import.
 - **Scraper entry points:** network orchestration, timeout and retry policy,
   source parsing, and scan-level failure handling.
+- **Monitoring configuration:** source selection and source-specific filter
+  values describing what should be monitored.
 - **Source parsers:** retailer-specific selectors and normalization rules.
 - **Shared contract validation:** common invariants such as valid URLs, counts,
   numeric ranges, uniqueness, and timestamps.
@@ -73,4 +76,6 @@ The intended publication policy is fail closed:
 - Errors must contain useful context without exposing credentials.
 
 The current scrapers do not yet enforce all of these rules; they describe the
-direction for future implementation.
+direction for future implementation. Vinted now fails closed on required-page
+failures and empty successful scans, validates its output, atomically publishes
+validated snapshots, and uses bounded request timeouts and retries.
