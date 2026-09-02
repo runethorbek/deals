@@ -1,5 +1,3 @@
-import { loadEnabledMonitor } from "./monitor-config.mjs";
-
 const SCAROSSO_BASE_URL = new URL("https://www.scarosso.com/en-dk/");
 const SUPPORTED_TARGET_SIZE = "42";
 const MAX_LISTING_URLS = 100;
@@ -84,12 +82,15 @@ function createScarossoScanPlan(monitor) {
   };
 }
 
+export function validateScarossoMonitor(monitor) {
+  createScarossoScanPlan({ ...monitor, enabled: true });
+}
+
 export async function loadEnabledScarossoMonitor(options = {}) {
-  const monitor = await loadEnabledMonitor("scarosso", options);
-
-  createScarossoScanPlan(monitor);
-
-  return monitor;
+  const { loadValidatedEnabledMonitor } = await import(
+    "./validated-monitor-loader.mjs"
+  );
+  return loadValidatedEnabledMonitor("scarosso", options);
 }
 
 export function buildScarossoScanPlan(monitor) {

@@ -27,6 +27,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Validate monitor configuration
+        id: monitor
+        run: node scripts/monitor-enabled.mjs scarosso
+
       - name: Debug environment
         run: |
           node --version
@@ -39,11 +43,13 @@ jobs:
           SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
 
       - name: Run Scarosso scanner
+        if: steps.monitor.outputs.enabled == 'true'
         env:
           SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
         run: npm run scan:scarosso
 
       - name: Commit updated deals JSON
+        if: steps.monitor.outputs.enabled == 'true'
         run: |
           if [[ -n "$(git status --porcelain public/deals/scarosso-latest.json)" ]]; then
             git config user.name "github-actions[bot]"
@@ -56,6 +62,7 @@ jobs:
           fi
 
       - name: Trigger DealRadar import
+        if: steps.monitor.outputs.enabled == 'true'
         run: |
           REF=$(git rev-parse HEAD)
           curl --fail-with-body -X POST \

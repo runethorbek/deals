@@ -50,14 +50,22 @@ the DealRadar import endpoint.
 ## Monitoring configuration
 
 Vinted, Scarosso, and Zalando read their monitoring intent from the shared
-`config/monitors.json` file. Source-specific modules validate each monitor and
-translate it into retailer listing requests.
+`config/monitors.json` file. Before a scanner selects a monitor, the loader
+parses and validates the complete document: known sources, unique non-empty
+IDs, boolean `enabled`, object `filters`, and the supported source-specific
+fields. Scanners receive the resulting validated monitor object rather than
+depending on file-reading behavior.
+
+Each source may have at most one enabled monitor. A scheduled workflow with no
+enabled monitor for its source exits successfully and skips scanning, publishing,
+committing, and DealRadar import. Disabled monitors are still validated so an
+invalid document cannot be partially used.
 
 The checked-in Vinted monitor preserves the current catalog, size, and
 three-page scan. Vinted's base URL and query construction remain implementation
 details of the scraper.
 
-Slice 1 supports exactly one enabled Vinted monitor containing one numeric
+Slice 1 supports at most one enabled Vinted monitor containing one numeric
 `catalogIds` value, one numeric `sizeIds` value, and a `pages` value from 1 to
 100. Invalid or ambiguous Vinted configuration stops the scanner before it
 makes retailer requests or writes output.

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { loadEnabledMonitor } from "../scripts/lib/monitor-config.mjs";
+import { loadValidatedEnabledMonitor } from "../scripts/lib/validated-monitor-loader.mjs";
 
 const vintedMonitor = {
   id: "vinted-monitor",
@@ -44,23 +45,23 @@ test("selects source monitors from one shared configuration", async () => {
   assert.deepEqual(await load("zalando", monitors), zalandoMonitor);
 });
 
-test("requires a JSON array and exactly one enabled monitor per source", async () => {
+test("requires a JSON array and at most one enabled monitor per source", async () => {
   await assert.rejects(
     loadEnabledMonitor("scarosso", {
       readFile: async () => JSON.stringify({ monitors: [] })
     }),
     /must be a JSON array/
   );
-  await assert.rejects(
-    load("scarosso", [{ ...scarossoMonitor, enabled: false }]),
-    /exactly one enabled Scarosso monitor/
+  assert.equal(
+    await load("scarosso", [{ ...scarossoMonitor, enabled: false }]),
+    null
   );
   await assert.rejects(
     load("scarosso", [
       scarossoMonitor,
       { ...scarossoMonitor, id: "another-scarosso-monitor" }
     ]),
-    /exactly one enabled Scarosso monitor/
+    /at most one enabled Scarosso monitor/
   );
 });
 
@@ -72,7 +73,44 @@ test("validates the shared monitor envelope", async () => {
   ]) {
     await assert.rejects(
       load("scarosso", [monitor]),
-      /Invalid enabled Scarosso monitor configuration/
+      /Invalid monitor configuration envelope/
     );
   }
+});
+
+test("validates every monitor before selecting a source", async () => {
+  const invalidMonitors = [
+    [{ ...vintedMonitor, source: "unknown" }],
+    [{ ...vintedMonitor, id: "" }],
+    [vintedMonitor, { ...scarossoMonitor, id: vintedMonitor.id }],
+    [{ ...vintedMonitor, enabled: "true" }],
+    [{ ...vintedMonitor, filters: null }],
+    [{ ...zalandoMonitor, filters: null }],
+    [{ ...scarossoMonitor, enabled: "false" }]
+  ];
+
+  for (const monitors of invalidMonitors) {
+    await assert.rejects(load("vinted", monitors), /Invalid monitor configuration envelope/);
+  }
+
+  await assert.rejects(
+    loadEnabledMonitor("vinted", { readFile: async () => "{" }),
+    /malformed JSON/
+  );
+});
+
+test("validates source-specific fields across the complete document", async () => {
+  await assert.rejects(
+    loadValidatedEnabledMonitor("vinted", {
+      readFile: async () => JSON.stringify([
+        vintedMonitor,
+        {
+          ...zalandoMonitor,
+          enabled: false,
+          filters: { ...zalandoMonitor.filters, size: "48" }
+        }
+      ])
+    }),
+    /Invalid zalando monitor configuration/
+  );
 });

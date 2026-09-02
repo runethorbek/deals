@@ -11,6 +11,27 @@ const LISTING_HTML = `
   </article>
 `;
 
+test("disabled monitor skips before credentials, requests, or output", async () => {
+  let requestCount = 0;
+  let writeCount = 0;
+
+  const result = await scan({
+    loadMonitor: async () => null,
+    fetchImpl: async () => {
+      requestCount++;
+    },
+    fsImpl: {
+      async mkdir() {},
+      async writeFile() { writeCount++; }
+    },
+    logger: { log() {}, error() {} }
+  });
+
+  assert.deepEqual(result, { skipped: true });
+  assert.equal(requestCount, 0);
+  assert.equal(writeCount, 0);
+});
+
 test("scanner uses configured Vinted pages and writes the existing output contract", async () => {
   const requestedListingUrls = [];
   let writtenOutput = null;

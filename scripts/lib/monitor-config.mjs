@@ -1,59 +1,65 @@
 import fs from "node:fs/promises";
 
-const DEFAULT_CONFIG_URL = new URL(
-  "../../config/monitors.json",
-  import.meta.url
-);
+const DEFAULT_CONFIG_URL = new URL("../../config/monitors.json", import.meta.url);
+const KNOWN_SOURCES = new Set(["vinted", "scarosso", "zalando"]);
 
-function hasValidEnvelope(monitor, source) {
+function isObject(value) {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function hasValidMonitor(monitor) {
   return (
-    monitor !== null &&
-    typeof monitor === "object" &&
+    isObject(monitor) &&
     typeof monitor.id === "string" &&
     monitor.id.trim().length > 0 &&
+    monitor.id === monitor.id.trim() &&
     monitor.id.length <= 100 &&
-    monitor.source === source &&
-    monitor.enabled === true &&
-    monitor.filters !== null &&
-    typeof monitor.filters === "object" &&
-    !Array.isArray(monitor.filters)
+    KNOWN_SOURCES.has(monitor.source) &&
+    typeof monitor.enabled === "boolean" &&
+    isObject(monitor.filters)
   );
 }
 
-export async function loadEnabledMonitor(
-  source,
-  {
-    configPath = DEFAULT_CONFIG_URL,
-    readFile = fs.readFile
-  } = {}
-) {
-  if (typeof source !== "string" || source.length === 0) {
-    throw new Error("Monitor source must be a non-empty string");
-  }
-
+export async function loadMonitorConfiguration({
+  configPath = DEFAULT_CONFIG_URL,
+  readFile = fs.readFile
+} = {}) {
   const contents = await readFile(configPath, "utf8");
-  const monitors = JSON.parse(contents);
-  const sourceLabel = source[0].toUpperCase() + source.slice(1);
-
+  let monitors;
+  try {
+    monitors = JSON.parse(contents);
+  } catch {
+    throw new Error("Monitor configuration contains malformed JSON");
+  }
   if (!Array.isArray(monitors)) {
     throw new Error("Monitor configuration must be a JSON array");
   }
 
-  const enabledMonitors = monitors.filter((monitor) => (
-    monitor?.source === source && monitor.enabled === true
-  ));
-
-  if (enabledMonitors.length !== 1) {
-    throw new Error(
-      `Monitor configuration must contain exactly one enabled ${sourceLabel} monitor`
-    );
+  const ids = new Set();
+  for (const monitor of monitors) {
+    if (!hasValidMonitor(monitor) || ids.has(monitor.id)) {
+      throw new Error("Invalid monitor configuration envelope");
+    }
+    ids.add(monitor.id);
   }
 
-  const monitor = enabledMonitors[0];
+  return monitors;
+}
 
-  if (!hasValidEnvelope(monitor, source)) {
-    throw new Error(`Invalid enabled ${sourceLabel} monitor configuration`);
+export function selectEnabledMonitor(source, monitors) {
+  if (!KNOWN_SOURCES.has(source)) {
+    throw new Error("Monitor source must be a known non-empty string");
   }
 
-  return monitor;
+  const sourceLabel = source[0].toUpperCase() + source.slice(1);
+
+  const enabledMonitors = monitors.filter((monitor) => monitor.source === source && monitor.enabled);
+  if (enabledMonitors.length > 1) {
+    throw new Error(`Monitor configuration must contain at most one enabled ${sourceLabel} monitor`);
+  }
+  return enabledMonitors[0] ?? null;
+}
+
+export async function loadEnabledMonitor(source, options = {}) {
+  return selectEnabledMonitor(source, await loadMonitorConfiguration(options));
 }

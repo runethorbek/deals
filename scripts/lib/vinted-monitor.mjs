@@ -1,5 +1,3 @@
-import { loadEnabledMonitor } from "./monitor-config.mjs";
-
 const MAX_PAGES = 100;
 
 function isSingleVintedId(values) {
@@ -11,20 +9,35 @@ function isSingleVintedId(values) {
   );
 }
 
+export function validateVintedMonitor(monitor) {
+  if (
+    monitor?.source !== "vinted" ||
+    !isSingleVintedId(monitor.filters?.catalogIds) ||
+    !isSingleVintedId(monitor.filters?.sizeIds) ||
+    !Number.isSafeInteger(monitor.pages) ||
+    monitor.pages < 1 ||
+    monitor.pages > MAX_PAGES
+  ) {
+    throw new Error("Invalid Vinted monitor configuration");
+  }
+}
+
 function isValidVintedMonitor(monitor) {
-  return (
-    monitor.source === "vinted" &&
-    monitor.enabled === true &&
-    isSingleVintedId(monitor.filters.catalogIds) &&
-    isSingleVintedId(monitor.filters.sizeIds) &&
-    Number.isSafeInteger(monitor.pages) &&
-    monitor.pages >= 1 &&
-    monitor.pages <= MAX_PAGES
-  );
+  try {
+    validateVintedMonitor(monitor);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export async function loadEnabledVintedMonitor(options = {}) {
-  const monitor = await loadEnabledMonitor("vinted", options);
+  const { loadValidatedEnabledMonitor } = await import(
+    "./validated-monitor-loader.mjs"
+  );
+  const monitor = await loadValidatedEnabledMonitor("vinted", options);
+
+  if (monitor === null) return null;
 
   if (!isValidVintedMonitor(monitor)) {
     throw new Error("Invalid enabled Vinted monitor configuration");

@@ -282,11 +282,17 @@ export async function scan({
     "zalando-latest.json"
   )
 } = {}) {
+  const monitor = await loadMonitor();
+
+  if (monitor === null) {
+    logger.log("No enabled Zalando monitor; skipping scan.");
+    return { skipped: true };
+  }
+
   if (!apiKey) {
     throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
   }
 
-  const monitor = await loadMonitor();
   const {
     listingUrls: startUrls,
     targetSize,
@@ -411,6 +417,7 @@ export async function scan({
   logger.log(`Wrote ${outputPath}`);
   logger.log(`All products: ${products.length}`);
   logger.log(`Matches over ${minDiscountPercent}% discount: ${matches.length}`);
+  return { skipped: false };
 }
 
 const entryPointUrl = process.argv[1]

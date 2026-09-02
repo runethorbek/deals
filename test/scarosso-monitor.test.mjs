@@ -38,18 +38,15 @@ test("repository configuration preserves the configured Scarosso scan", async ()
   });
 });
 
-test("configuration requires exactly one enabled Scarosso monitor", async () => {
+test("configuration skips when no Scarosso monitor is enabled and rejects multiples", async () => {
   const load = (monitors) => loadEnabledScarossoMonitor({
     readFile: async () => JSON.stringify(monitors)
   });
 
-  await assert.rejects(
-    load([{ ...validMonitor, enabled: false }]),
-    /exactly one enabled Scarosso monitor/
-  );
+  assert.equal(await load([{ ...validMonitor, enabled: false }]), null);
   await assert.rejects(
     load([validMonitor, { ...validMonitor, id: "another-monitor" }]),
-    /exactly one enabled Scarosso monitor/
+    /at most one enabled Scarosso monitor/
   );
 });
 
@@ -139,7 +136,7 @@ test("rejects unsafe or unsupported Scarosso monitoring intent", async () => {
   for (const monitor of invalidMonitors) {
     await assert.rejects(
       load(monitor),
-      /Invalid enabled Scarosso monitor configuration/
+      /Invalid scarosso monitor configuration/
     );
   }
 });

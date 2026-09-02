@@ -40,18 +40,15 @@ test("repository configuration preserves the current Zalando scan URL", async ()
   });
 });
 
-test("configuration requires exactly one enabled Zalando monitor", async () => {
+test("configuration skips when no Zalando monitor is enabled and rejects multiples", async () => {
   const load = (monitors) => loadEnabledZalandoMonitor({
     readFile: async () => JSON.stringify(monitors)
   });
 
-  await assert.rejects(
-    load([{ ...validMonitor, enabled: false }]),
-    /exactly one enabled Zalando monitor/
-  );
+  assert.equal(await load([{ ...validMonitor, enabled: false }]), null);
   await assert.rejects(
     load([validMonitor, { ...validMonitor, id: "another-monitor" }]),
-    /exactly one enabled Zalando monitor/
+    /at most one enabled Zalando monitor/
   );
 });
 
@@ -103,7 +100,7 @@ test("rejects unsafe or unsupported Zalando monitoring intent", async () => {
   for (const monitor of invalidMonitors) {
     await assert.rejects(
       load(monitor),
-      /Invalid enabled Zalando monitor configuration/
+      /Invalid zalando monitor configuration/
     );
   }
 });

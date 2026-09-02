@@ -1,5 +1,3 @@
-import { loadEnabledMonitor } from "./monitor-config.mjs";
-
 const ZALANDO_BASE_URL = new URL("https://www.zalando.dk/");
 const SUPPORTED_CATEGORY_SLUG = "herretoej-bukser";
 const SUPPORTED_TARGET_SIZE = "46";
@@ -48,12 +46,15 @@ function createZalandoScanPlan(monitor) {
   };
 }
 
+export function validateZalandoMonitor(monitor) {
+  createZalandoScanPlan({ ...monitor, enabled: true });
+}
+
 export async function loadEnabledZalandoMonitor(options = {}) {
-  const monitor = await loadEnabledMonitor("zalando", options);
-
-  createZalandoScanPlan(monitor);
-
-  return monitor;
+  const { loadValidatedEnabledMonitor } = await import(
+    "./validated-monitor-loader.mjs"
+  );
+  return loadValidatedEnabledMonitor("zalando", options);
 }
 
 export function buildZalandoScanPlan(monitor) {

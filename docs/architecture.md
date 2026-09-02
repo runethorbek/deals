@@ -32,9 +32,10 @@ listing scan status.
   source parsing, and scan-level failure handling.
 - **Monitoring configuration:** source selection and source-specific filter
   values describing what should be monitored.
-- **Monitor configuration loader:** JSON-backed storage adapter and shared
-  monitor envelope validation. Source-specific validation and request
-  construction remain in each retailer adapter.
+- **Monitor configuration loader:** JSON-backed storage adapter that validates
+  the complete monitor document and returns validated monitor objects.
+  Request construction remains in each retailer adapter, so a future
+  DealRadar/Neon loader can return the same objects without changing scanners.
 - **Source parsers:** retailer-specific selectors and normalization rules.
 - **Shared contract validation:** common invariants such as valid URLs, counts,
   numeric ranges, uniqueness, and timestamps.

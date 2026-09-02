@@ -25,7 +25,7 @@ test("repository configuration preserves the current Vinted scan URLs", async ()
   ]);
 });
 
-test("configuration requires exactly one enabled Vinted monitor", async () => {
+test("configuration skips when no Vinted monitor is enabled and rejects multiples", async () => {
   const load = (monitors) => loadEnabledVintedMonitor({
     readFile: async () => JSON.stringify(monitors)
   });
@@ -40,17 +40,14 @@ test("configuration requires exactly one enabled Vinted monitor", async () => {
     pages: 3
   };
 
-  await assert.rejects(
-    load([{ ...monitor, enabled: false }]),
-    /exactly one enabled Vinted monitor/
-  );
+  assert.equal(await load([{ ...monitor, enabled: false }]), null);
   await assert.rejects(
     load([null]),
-    /exactly one enabled Vinted monitor/
+    /Invalid monitor configuration envelope/
   );
   await assert.rejects(
     load([monitor, { ...monitor, id: "another-vinted-monitor" }]),
-    /exactly one enabled Vinted monitor/
+    /at most one enabled Vinted monitor/
   );
 });
 
@@ -88,7 +85,7 @@ test("configuration rejects an invalid enabled Vinted monitor", async () => {
       loadEnabledVintedMonitor({
         readFile: async () => JSON.stringify([monitor])
       }),
-      /Invalid enabled Vinted monitor/
+      /Invalid (monitor configuration envelope|vinted monitor configuration)/
     );
   }
 });

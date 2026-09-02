@@ -511,6 +511,13 @@ export async function scan({
     "vinted-latest.json"
   )
 } = {}) {
+  const monitor = await loadMonitor();
+
+  if (monitor === null) {
+    logger.log("No enabled Vinted monitor; skipping scan.");
+    return { skipped: true };
+  }
+
   if (!apiKey) {
     throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
   }
@@ -519,7 +526,6 @@ export async function scan({
     throw new Error("Invalid Vinted request timeout");
   }
 
-  const monitor = await loadMonitor();
   const startUrls = buildVintedListingUrls(monitor);
   const catalogId = monitor.filters.catalogIds[0];
   const sizeId = monitor.filters.sizeIds[0];
@@ -645,6 +651,7 @@ export async function scan({
   logger.log(`Products: ${products.length}`);
   logger.log(`Products with price: ${output.debug.products_with_price}`);
   logger.log(`Products with brand: ${output.debug.products_with_brand}`);
+  return { skipped: false };
 }
 
 const entryPointUrl = process.argv[1]
