@@ -24,5 +24,20 @@
       ],
       "minDiscountPercent": 30
     }
+  },
+  {
+    "id": "zalando-dk-mens-trousers-size-46",
+    "source": "zalando",
+    "enabled": true,
+    "filters": {
+      "categorySlug": "herretoej-bukser",
+      "size": "46",
+      "upperMaterials": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "minDiscountPercent": 30
+    }
   }
 ]

@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import * as cheerio from "cheerio";
 import fetch from "node-fetch";
 import {
@@ -8,21 +9,15 @@ import {
   safeErrorDiagnostic
 } from "./lib/scan-status.mjs";
 import { extractPriceInfo } from "./lib/zalando-price.mjs";
+import {
+  buildZalandoScanPlan,
+  loadEnabledZalandoMonitor
+} from "./lib/zalando-monitor.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
-if (!API_KEY) {
-  throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
-}
-
 const SITE = "zalando.dk";
 const BASE_URL = "https://www.zalando.dk";
-const TARGET_SIZE = "46";
-const MIN_DISCOUNT_PERCENT = 30;
-
-const START_URLS = [
-  "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool"
-];
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -75,13 +70,13 @@ function isZalandoProductUrl(url) {
   }
 }
 
-async function getRenderedHtml(url) {
+async function getRenderedHtml(url, fetchImpl, apiKey) {
   const endpoint = new URL("https://api.scrapingant.com/v2/general");
   endpoint.searchParams.set("url", url);
-  endpoint.searchParams.set("x-api-key", API_KEY);
+  endpoint.searchParams.set("x-api-key", apiKey);
   endpoint.searchParams.set("browser", "true");
 
-  const res = await fetch(endpoint.toString(), {
+  const res = await fetchImpl(endpoint.toString(), {
     headers: {
       "user-agent": "deal-watch-zalando/1.0"
     }
@@ -171,7 +166,12 @@ function scoreProduct(product) {
   return score;
 }
 
-function extractProductsFromListing(html, sourceUrl, checkedAt) {
+export function extractProductsFromListing(
+  html,
+  sourceUrl,
+  checkedAt,
+  { targetSize, upperMaterials }
+) {
   const $ = cheerio.load(html);
   const products = new Map();
 
@@ -191,10 +191,10 @@ function extractProductsFromListing(html, sourceUrl, checkedAt) {
       image: extractImage($, container),
       site: SITE,
       source_url: sourceUrl,
-      target_size: TARGET_SIZE,
+      target_size: targetSize,
       size_46_available: true,
-      size_assumption: "listing-url-filtered-by-size-46",
-      material_filter: ["pure_cashmere", "pure_linen", "pure_wool"],
+      size_assumption: `listing-url-filtered-by-size-${targetSize}`,
+      material_filter: [...upperMaterials],
       raw_card_text: text.slice(0, 500),
       ...priceInfo,
       checked_at: checkedAt
@@ -209,22 +209,110 @@ function extractProductsFromListing(html, sourceUrl, checkedAt) {
   return [...products.values()];
 }
 
-async function scan() {
-  const checkedAt = new Date().toISOString();
+function validateZalandoOutput(output) {
+  if (
+    output?.site !== SITE ||
+    output.scan_mode !== "zalando-listing-page-only" ||
+    !Array.isArray(output.start_urls) ||
+    output.start_urls.length === 0 ||
+    output.scanned_page_count !== output.start_urls.length ||
+    !Array.isArray(output.products) ||
+    output.product_count !== output.products.length ||
+    output.scanned_product_count !== output.products.length ||
+    !Array.isArray(output.matches) ||
+    output.match_count !== output.matches.length ||
+    Number.isNaN(Date.parse(output.checked_at))
+  ) {
+    throw new Error("Invalid Zalando output contract");
+  }
+
+  const productUrls = new Set();
+
+  for (const product of output.products) {
+    if (
+      !isZalandoProductUrl(product?.url) ||
+      product.site !== SITE ||
+      product.target_size !== output.target_size ||
+      product.size_46_available !== true ||
+      product.checked_at !== output.checked_at ||
+      productUrls.has(product.url)
+    ) {
+      throw new Error("Invalid Zalando output contract");
+    }
+
+    productUrls.add(product.url);
+  }
+
+  if (output.matches.some((product) => !productUrls.has(product?.url))) {
+    throw new Error("Invalid Zalando output contract");
+  }
+}
+
+async function publishOutput(outputPath, output, fsImpl) {
+  validateZalandoOutput(output);
+
+  const temporaryOutputPath = `${outputPath}.tmp`;
+
+  await fsImpl.mkdir(path.dirname(outputPath), { recursive: true });
+
+  try {
+    await fsImpl.writeFile(
+      temporaryOutputPath,
+      JSON.stringify(output, null, 2)
+    );
+    await fsImpl.rename(temporaryOutputPath, outputPath);
+  } catch (error) {
+    await fsImpl.rm?.(temporaryOutputPath, { force: true }).catch(() => {});
+    throw error;
+  }
+}
+
+export async function scan({
+  apiKey = API_KEY,
+  fetchImpl = fetch,
+  fsImpl = fs,
+  sleepImpl = sleep,
+  logger = console,
+  now = () => new Date(),
+  loadMonitor = loadEnabledZalandoMonitor,
+  outputPath = path.join(
+    process.cwd(),
+    "public",
+    "deals",
+    "zalando-latest.json"
+  )
+} = {}) {
+  if (!apiKey) {
+    throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
+  }
+
+  const monitor = await loadMonitor();
+  const {
+    listingUrls: startUrls,
+    targetSize,
+    upperMaterials,
+    minDiscountPercent
+  } = buildZalandoScanPlan(monitor);
+  const checkedAt = now().toISOString();
   const productMap = new Map();
   const pageResults = [];
 
-  console.log("Fetching Zalando listing pages...");
+  logger.log("Fetching Zalando listing pages...");
 
-  for (let i = 0; i < START_URLS.length; i++) {
-    const url = START_URLS[i];
-    console.log(`[${i + 1}/${START_URLS.length}] ${url}`);
+  for (let i = 0; i < startUrls.length; i++) {
+    const url = startUrls[i];
+    logger.log(`[${i + 1}/${startUrls.length}] ${url}`);
 
     try {
-      const html = await getRenderedHtml(url);
-      const products = extractProductsFromListing(html, url, checkedAt);
+      const html = await getRenderedHtml(url, fetchImpl, apiKey);
+      const products = extractProductsFromListing(
+        html,
+        url,
+        checkedAt,
+        { targetSize, upperMaterials }
+      );
 
-      console.log(`Found ${products.length} product links on listing page`);
+      logger.log(`Found ${products.length} product links on listing page`);
 
       pageResults.push({
         url,
@@ -241,7 +329,7 @@ async function scan() {
     } catch (error) {
       const errorDiagnostic = safeErrorDiagnostic(error);
 
-      console.error(`Failed listing ${url}:`, errorDiagnostic);
+      logger.error(`Failed listing ${url}:`, errorDiagnostic);
       pageResults.push({
         url,
         product_count: 0,
@@ -249,7 +337,7 @@ async function scan() {
       });
     }
 
-    if (i < START_URLS.length - 1) await sleep(1000);
+    if (i < startUrls.length - 1) await sleepImpl(1000);
   }
 
   const products = [...productMap.values()].sort((a, b) => {
@@ -264,7 +352,7 @@ async function scan() {
     return (
       product.size_46_available === true &&
       typeof product.discount_percent === "number" &&
-      product.discount_percent >= MIN_DISCOUNT_PERCENT
+      product.discount_percent >= minDiscountPercent
     );
   });
 
@@ -274,14 +362,25 @@ async function scan() {
     publishedProductCount: matches.length
   });
 
+  if (scanStatus.failed_pages > 0) {
+    throw new Error(
+      `Zalando scan failed: ${scanStatus.failed_pages} of ` +
+      `${scanStatus.attempted_pages} required pages failed`
+    );
+  }
+
+  if (products.length === 0) {
+    throw new Error("Zalando scan produced no products");
+  }
+
   const output = {
     site: SITE,
     scan_mode: "zalando-listing-page-only",
-    start_urls: START_URLS,
-    target_size: TARGET_SIZE,
-    min_discount_percent: MIN_DISCOUNT_PERCENT,
+    start_urls: startUrls,
+    target_size: targetSize,
+    min_discount_percent: minDiscountPercent,
     checked_at: checkedAt,
-    scanned_page_count: START_URLS.length,
+    scanned_page_count: startUrls.length,
     scanned_product_count: products.length,
     product_count: products.length,
     products,
@@ -296,7 +395,7 @@ async function scan() {
       products_below_minimum_discount: products.filter(
         (product) =>
           typeof product.discount_percent === "number" &&
-          product.discount_percent < MIN_DISCOUNT_PERCENT
+          product.discount_percent < minDiscountPercent
       ).length,
       products_without_discount: products.filter(
         (product) => product.discount_percent === null
@@ -307,22 +406,20 @@ async function scan() {
     }
   };
 
-  const outputPath = path.join(
-    process.cwd(),
-    "public",
-    "deals",
-    "zalando-latest.json"
-  );
+  await publishOutput(outputPath, output, fsImpl);
 
-  await fs.mkdir(path.dirname(outputPath), { recursive: true });
-  await fs.writeFile(outputPath, JSON.stringify(output, null, 2));
-
-  console.log(`Wrote ${outputPath}`);
-  console.log(`All products: ${products.length}`);
-  console.log(`Matches over ${MIN_DISCOUNT_PERCENT}% discount: ${matches.length}`);
+  logger.log(`Wrote ${outputPath}`);
+  logger.log(`All products: ${products.length}`);
+  logger.log(`Matches over ${minDiscountPercent}% discount: ${matches.length}`);
 }
 
-scan().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+const entryPointUrl = process.argv[1]
+  ? pathToFileURL(path.resolve(process.argv[1])).href
+  : null;
+
+if (import.meta.url === entryPointUrl) {
+  scan().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

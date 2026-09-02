@@ -49,7 +49,7 @@ the DealRadar import endpoint.
 
 ## Monitoring configuration
 
-Vinted and Scarosso read their monitoring intent from the shared
+Vinted, Scarosso, and Zalando read their monitoring intent from the shared
 `config/monitors.json` file. Source-specific modules validate each monitor and
 translate it into retailer listing requests.
 
@@ -69,11 +69,33 @@ the Scarosso size query. The Scarosso adapter owns the
 configured listings against it, and currently accepts size 42 only to preserve
 the published `size_42_available` field.
 
+The checked-in Zalando monitor preserves the current men's trousers category,
+size 46, cashmere/linen/wool material filters, and 30 percent match threshold.
+The Zalando adapter owns its storefront base URL and taxonomy URL construction.
+This tracer bullet accepts only the `herretoej-bukser` category and the three
+listed material identifiers. Although `categorySlug` is stored as monitoring
+intent, adding another category currently requires an explicit adapter change
+so its Zalando taxonomy semantics can be validated. Size 46 is the only
+supported size because the published product contract contains
+`size_46_available`; supporting other sizes requires an approved contract
+change. Invalid or ambiguous configuration stops the scanner before it makes
+retailer requests or writes output. Broader category and size support is
+deferred rather than implied by the initial JSON model.
+
 Vinted ScrapingAnt requests time out after 30 seconds and transient failures
 are attempted at most three times with bounded backoff. If any required listing
 page still fails, or successful pages produce no products, the scan exits
 without replacing the last known-good output. Valid snapshots are written to a
 temporary file and atomically renamed into place.
+
+Zalando treats its listing page as required and preserves the last known-good
+snapshot when that request fails or a successful response contains no products.
+Validated Zalando output is published through an atomic file replacement.
+This is an intentional, approved exception to issue #1's current-behavior
+preservation baseline: Slice 3 also replaced Zalando's previous behavior of
+publishing failed or empty scans so the scanner follows the repository's
+fail-closed publication policy. The workflow therefore exits before its normal
+commit and import steps in those cases.
 
 Run the deterministic test suite with:
 

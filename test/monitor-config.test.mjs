@@ -18,6 +18,17 @@ const scarossoMonitor = {
     minDiscountPercent: 30
   }
 };
+const zalandoMonitor = {
+  id: "zalando-monitor",
+  source: "zalando",
+  enabled: true,
+  filters: {
+    categorySlug: "herretoej-bukser",
+    size: "46",
+    upperMaterials: ["pure_linen"],
+    minDiscountPercent: 30
+  }
+};
 
 function load(source, monitors) {
   return loadEnabledMonitor(source, {
@@ -26,10 +37,11 @@ function load(source, monitors) {
 }
 
 test("selects source monitors from one shared configuration", async () => {
-  const monitors = [vintedMonitor, scarossoMonitor];
+  const monitors = [vintedMonitor, scarossoMonitor, zalandoMonitor];
 
   assert.deepEqual(await load("vinted", monitors), vintedMonitor);
   assert.deepEqual(await load("scarosso", monitors), scarossoMonitor);
+  assert.deepEqual(await load("zalando", monitors), zalandoMonitor);
 });
 
 test("requires a JSON array and exactly one enabled monitor per source", async () => {

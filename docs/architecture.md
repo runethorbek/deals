@@ -8,9 +8,9 @@ DealRadar application, database, ingestion logic, or user-facing rendering.
 ## Data flow
 
 1. A scheduled or manually dispatched GitHub Actions workflow starts a scan.
-2. A source-specific Node.js scraper translates monitoring intent into retailer
-   listing URLs and calls ScrapingAnt. Vinted and Scarosso load that intent from
-   the shared `config/monitors.json`; Zalando still uses fixed values.
+2. A source-specific Node.js scraper translates monitoring intent from the
+   shared `config/monitors.json` into retailer listing URLs and calls
+   ScrapingAnt.
 3. ScrapingAnt returns rendered retailer HTML.
 4. The scraper extracts and normalizes products into a source-specific JSON
    document under `public/deals/`.
@@ -44,6 +44,16 @@ listing scan status.
 Retailer-specific DOM knowledge should remain in its source scraper. Generic
 validation and safe publication behavior may be shared. Application and
 database concerns belong in DealRadar.
+
+Configuration describes requested monitoring intent, while each retailer
+adapter defines the subset it can translate safely. The initial Zalando adapter
+supports only the `herretoej-bukser` category, size 46, and the established
+cashmere, linen, and wool material identifiers. Consequently, changing the
+configured Zalando category still requires an adapter change. This restriction
+is an explicit tracer-bullet capability boundary, not a claim that Zalando's
+full taxonomy is configurable. Supporting other sizes also requires an approved
+published-contract change because products currently expose
+`size_46_available`.
 
 ## Trust boundaries
 
@@ -79,6 +89,14 @@ The intended publication policy is fail closed:
 - Errors must contain useful context without exposing credentials.
 
 The current scrapers do not yet enforce all of these rules; they describe the
-direction for future implementation. Vinted now fails closed on required-page
+direction for future implementation. Vinted fails closed on required-page
 failures and empty successful scans, validates its output, atomically publishes
-validated snapshots, and uses bounded request timeouts and retries.
+validated snapshots, and uses bounded request timeouts and retries. Zalando now
+fails closed on its required listing-page failure and empty successful scans,
+validates its output, and atomically publishes validated snapshots.
+
+Zalando's fail-closed behavior was added as an explicitly approved Slice 3
+scope expansion. It intentionally differs from the pre-Slice 3 behavior, which
+could publish a failed or empty scan, even though issue #1 otherwise called for
+preserving existing scan behavior. A failed or empty Zalando scan now exits
+before the workflow's commit and DealRadar import steps.
