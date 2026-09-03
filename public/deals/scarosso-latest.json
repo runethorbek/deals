@@ -3,7 +3,7 @@
   "scan_mode": "listing-pages-only",
   "target_size": "42",
   "min_discount_percent": 30,
-  "checked_at": "2026-09-02T07:50:45.233Z",
+  "checked_at": "2026-09-03T07:58:27.800Z",
   "scanned_page_count": 6,
   "scanned_product_count": 0,
   "product_count": 0,
@@ -12,23 +12,15 @@
   "matches": [],
   "scan_status": {
     "attempted_pages": 6,
-    "successful_pages": 2,
-    "failed_pages": 4,
+    "successful_pages": 4,
+    "failed_pages": 2,
     "failures": [
-      {
-        "url": "https://www.scarosso.com/en-dk/sales/men/?prefn1=c_size&prefv1=42",
-        "error_summary": "ScrapingAnt request failed with HTTP 404"
-      },
-      {
-        "url": "https://www.scarosso.com/en-dk/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "error_summary": "ScrapingAnt request failed with HTTP 404"
-      },
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/loafers/?prefn1=c_size&prefv1=42",
         "error_summary": "ScrapingAnt request failed with HTTP 404"
       },
       {
-        "url": "https://www.scarosso.com/en-dk/sales/men/flats/?prefn1=c_size&prefv1=42",
+        "url": "https://www.scarosso.com/en-dk/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
         "error_summary": "ScrapingAnt request failed with HTTP 404"
       }
     ],
@@ -40,12 +32,12 @@
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": "ScrapingAnt request failed with HTTP 404"
+        "error": null
       },
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/sneakers/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": "ScrapingAnt request failed with HTTP 404"
+        "error": null
       },
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/loafers/?prefn1=c_size&prefv1=42",
@@ -55,7 +47,7 @@
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/flats/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": "ScrapingAnt request failed with HTTP 404"
+        "error": null
       },
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42",
@@ -65,7 +57,7 @@
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": null
+        "error": "ScrapingAnt request failed with HTTP 404"
       }
     ],
     "products_with_discount": 0,
