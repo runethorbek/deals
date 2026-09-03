@@ -79,6 +79,7 @@ async function getRenderedHtmlOnce(
       const error = await createScrapingAntHttpError(res, url);
       error.retryable = (
         res.status === 408 ||
+        res.status === 423 ||
         res.status === 429 ||
         res.status >= 500
       );

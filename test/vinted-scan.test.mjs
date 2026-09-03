@@ -277,6 +277,54 @@ test("scanner retries transient ScrapingAnt failures before publishing", async (
   assert.equal(writtenOutput.scan_status.failed_pages, 0);
 });
 
+test("scanner retries a ScrapingAnt 423 browser-detection response", async () => {
+  const attemptsByListingUrl = new Map();
+  let writtenOutput = null;
+
+  await scan({
+    apiKey: "test-api-key",
+    fetchImpl: async (endpoint) => {
+      const listingUrl = new URL(endpoint).searchParams.get("url");
+      const attempts = (attemptsByListingUrl.get(listingUrl) ?? 0) + 1;
+      attemptsByListingUrl.set(listingUrl, attempts);
+
+      if (listingUrl.endsWith("page=2") && attempts === 1) {
+        return {
+          ok: false,
+          status: 423,
+          async text() {
+            return "Browser detected";
+          }
+        };
+      }
+
+      return {
+        ok: true,
+        async text() {
+          return LISTING_HTML;
+        }
+      };
+    },
+    fsImpl: {
+      async mkdir() {},
+      async writeFile(_outputPath, contents) {
+        writtenOutput = JSON.parse(contents);
+      },
+      async rename() {},
+      async rm() {}
+    },
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    outputPath: "vinted-test-output.json"
+  });
+
+  const secondPageUrl =
+    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=2";
+
+  assert.equal(attemptsByListingUrl.get(secondPageUrl), 2);
+  assert.equal(writtenOutput.scan_status.failed_pages, 0);
+});
+
 test("scanner aborts timed-out ScrapingAnt requests and does not publish", async () => {
   let requestAttempts = 0;
   let abortedRequests = 0;
