@@ -34,6 +34,7 @@ test("disabled monitor skips before credentials, requests, or output", async () 
 
 test("scanner uses configured Vinted pages and writes the existing output contract", async () => {
   const requestedListingUrls = [];
+  const requestedTimeouts = [];
   let writtenOutput = null;
   const expectedUrls = [
     "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
@@ -44,7 +45,9 @@ test("scanner uses configured Vinted pages and writes the existing output contra
   await scan({
     apiKey: "test-api-key",
     fetchImpl: async (endpoint) => {
-      requestedListingUrls.push(new URL(endpoint).searchParams.get("url"));
+      const requestUrl = new URL(endpoint);
+      requestedListingUrls.push(requestUrl.searchParams.get("url"));
+      requestedTimeouts.push(requestUrl.searchParams.get("timeout"));
       return {
         ok: true,
         async text() {
@@ -67,6 +70,7 @@ test("scanner uses configured Vinted pages and writes the existing output contra
   });
 
   assert.deepEqual(requestedListingUrls, expectedUrls);
+  assert.deepEqual(requestedTimeouts, ["60", "60", "60"]);
   assert.deepEqual(
     {
       site: writtenOutput.site,

@@ -17,7 +17,8 @@ const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
 const BASE_URL = "https://www.vinted.dk";
 const MAX_REQUEST_ATTEMPTS = 3;
-const REQUEST_TIMEOUT_MS = 30_000;
+const SCRAPINGANT_TIMEOUT_SECONDS = 60;
+const REQUEST_TIMEOUT_MS = 65_000;
 const RETRY_BASE_DELAY_MS = 500;
 
 function sleep(ms) {
@@ -64,6 +65,7 @@ async function getRenderedHtmlOnce(
   endpoint.searchParams.set("url", url);
   endpoint.searchParams.set("x-api-key", apiKey);
   endpoint.searchParams.set("browser", "true");
+  endpoint.searchParams.set("timeout", String(SCRAPINGANT_TIMEOUT_SECONDS));
 
   try {
     const res = await fetchImpl(endpoint.toString(), {
