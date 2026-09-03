@@ -14,8 +14,10 @@ DealRadar application, database, ingestion logic, or user-facing rendering.
 3. ScrapingAnt returns rendered retailer HTML.
 4. The scraper extracts and normalizes products into a source-specific JSON
    document under `public/deals/`.
-5. The workflow commits a changed document and calls the authenticated
-   DealRadar import endpoint with the resulting Git revision.
+5. The source workflow commits a changed document.
+6. A separate daily import workflow checks out `main`, resolves its exact Git
+   revision, and calls the authenticated DealRadar import endpoint once for
+   that revision.
 
 The Scarosso scanner discovers products only through its six listing-page
 ScrapingAnt requests. As best-effort image enrichment, it reuses validated
@@ -26,8 +28,9 @@ listing scan status.
 
 ## Responsibilities
 
-- **GitHub Actions:** scheduling, secret injection, execution, committing
-  validated output, and triggering import.
+- **GitHub Actions:** independently schedule source scans, inject secrets,
+  execute scanners, commit validated output, and run one separate daily import
+  of the latest committed `main` revision.
 - **Scraper entry points:** network orchestration, timeout and retry policy,
   source parsing, and scan-level failure handling.
 - **Monitoring configuration:** source selection and source-specific filter
@@ -85,7 +88,9 @@ The intended publication policy is fail closed:
   good JSON file.
 - Output should be written to a temporary file, validated, and then replaced
   atomically.
-- DealRadar import should run only after validation and a successful push.
+- DealRadar imports one exact `main` revision after the source workflow window.
+  Each source snapshot at that revision is either its newly validated output or
+  its last known-good committed output when that source failed or was disabled.
 - External requests should have bounded timeouts and limited retries.
 - Errors must contain useful context without exposing credentials.
 
@@ -100,4 +105,4 @@ Zalando's fail-closed behavior was added as an explicitly approved Slice 3
 scope expansion. It intentionally differs from the pre-Slice 3 behavior, which
 could publish a failed or empty scan, even though issue #1 otherwise called for
 preserving existing scan behavior. A failed or empty Zalando scan now exits
-before the workflow's commit and DealRadar import steps.
+before the workflow's commit step.

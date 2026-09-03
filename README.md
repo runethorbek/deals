@@ -20,11 +20,18 @@ These generated JSON files are intentionally committed to the repository.
 
 ## Automated scans and import
 
-The workflows in `.github/workflows/` run each scraper on a daily schedule and
-can also be started manually with `workflow_dispatch`. When an output file
-changes, the workflow commits and pushes that source's JSON snapshot. It then
-calls the authenticated DealRadar import endpoint with the resulting Git
-revision so DealRadar can import the committed output.
+The three source workflows in `.github/workflows/` run each scraper on its own
+daily schedule and can also be started manually with `workflow_dispatch`. When
+an output file changes, its source workflow commits and pushes that source's
+JSON snapshot. This keeps scans independently observable and failure-isolated.
+
+The separate `daily-dealradar-import.yml` workflow runs at 05:00 UTC, 83
+minutes after the latest source scan is scheduled to start at 03:37 UTC. It can
+also be started manually with `workflow_dispatch`, checks out `main`, resolves
+its exact Git revision, and calls the authenticated DealRadar import endpoint
+once. DealRadar therefore imports the latest committed source snapshots at one
+specific repository revision; a failed or disabled source continues to
+contribute its last known-good committed snapshot.
 
 GitHub Actions uses these repository secrets:
 
@@ -58,7 +65,7 @@ depending on file-reading behavior.
 
 Each source may have at most one enabled monitor. A scheduled workflow with no
 enabled monitor for its source exits successfully and skips scanning, publishing,
-committing, and DealRadar import. Disabled monitors are still validated so an
+and committing. Disabled monitors are still validated so an
 invalid document cannot be partially used.
 
 The checked-in Vinted monitor preserves the current catalog, size, and
@@ -103,7 +110,7 @@ This is an intentional, approved exception to issue #1's current-behavior
 preservation baseline: Slice 3 also replaced Zalando's previous behavior of
 publishing failed or empty scans so the scanner follows the repository's
 fail-closed publication policy. The workflow therefore exits before its normal
-commit and import steps in those cases.
+commit step in those cases.
 
 Run the deterministic test suite with:
 

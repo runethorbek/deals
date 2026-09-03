@@ -1,0 +1,27 @@
+name: Daily DealRadar Import
+
+on:
+  workflow_dispatch:
+  schedule:
+    # The latest source scan starts at 03:37 UTC; this leaves an 83-minute buffer.
+    - cron: "0 5 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Trigger DealRadar import
+        run: |
+          REF=$(git rev-parse HEAD)
+          curl --fail-with-body -X POST \
+            -H "Authorization: Bearer ${{ secrets.DEALRADAR_INGEST_API_KEY }}" \
+            "https://dealradar-rouge.vercel.app/api/import-deals?ref=$REF"
