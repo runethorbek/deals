@@ -3,7 +3,7 @@
   "scan_mode": "listing-pages-only",
   "target_size": "42",
   "min_discount_percent": 30,
-  "checked_at": "2026-09-03T07:58:27.800Z",
+  "checked_at": "2026-09-04T07:59:46.423Z",
   "scanned_page_count": 6,
   "scanned_product_count": 0,
   "product_count": 0,
@@ -20,7 +20,7 @@
         "error_summary": "ScrapingAnt request failed with HTTP 404"
       },
       {
-        "url": "https://www.scarosso.com/en-dk/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
+        "url": "https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42",
         "error_summary": "ScrapingAnt request failed with HTTP 404"
       }
     ],
@@ -52,12 +52,12 @@
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": null
+        "error": "ScrapingAnt request failed with HTTP 404"
       },
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": "ScrapingAnt request failed with HTTP 404"
+        "error": null
       }
     ],
     "products_with_discount": 0,
