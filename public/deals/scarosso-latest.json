@@ -3,7 +3,7 @@
   "scan_mode": "listing-pages-only",
   "target_size": "42",
   "min_discount_percent": 30,
-  "checked_at": "2026-09-04T07:59:46.423Z",
+  "checked_at": "2026-09-05T07:36:01.571Z",
   "scanned_page_count": 6,
   "scanned_product_count": 0,
   "product_count": 0,
@@ -12,18 +12,9 @@
   "matches": [],
   "scan_status": {
     "attempted_pages": 6,
-    "successful_pages": 4,
-    "failed_pages": 2,
-    "failures": [
-      {
-        "url": "https://www.scarosso.com/en-dk/sales/men/loafers/?prefn1=c_size&prefv1=42",
-        "error_summary": "ScrapingAnt request failed with HTTP 404"
-      },
-      {
-        "url": "https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42",
-        "error_summary": "ScrapingAnt request failed with HTTP 404"
-      }
-    ],
+    "successful_pages": 6,
+    "failed_pages": 0,
+    "failures": [],
     "scanned_product_count": 0,
     "published_product_count": 0
   },
@@ -42,7 +33,7 @@
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/loafers/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": "ScrapingAnt request failed with HTTP 404"
+        "error": null
       },
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/flats/?prefn1=c_size&prefv1=42",
@@ -52,7 +43,7 @@
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42",
         "product_count": 0,
-        "error": "ScrapingAnt request failed with HTTP 404"
+        "error": null
       },
       {
         "url": "https://www.scarosso.com/en-dk/sales/men/last-pairs/?prefn1=c_size&prefv1=42",
