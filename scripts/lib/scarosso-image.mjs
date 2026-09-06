@@ -36,7 +36,7 @@ export function normalizeScarossoProductUrl(value) {
     url.username ||
     url.password ||
     url.port ||
-    !url.pathname.includes("/en-us/") ||
+    !/^\/en-(?:dk|us)\//.test(url.pathname) ||
     !url.pathname.endsWith(".html")
   ) {
     return null;

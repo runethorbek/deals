@@ -35,10 +35,18 @@ test("accepts only canonical Scarosso product URLs", () => {
     PRODUCT_URL
   );
 
+  assert.equal(
+    normalizeScarossoProductUrl(
+      "https://www.scarosso.com/en-dk/men/shoes/example-DK-SKU.html"
+    ),
+    "https://www.scarosso.com/en-dk/men/shoes/example-DK-SKU.html"
+  );
+
   for (const invalidUrl of [
     "http://www.scarosso.com/en-us/men/shoes/example-SKU.html",
     "https://user:password@www.scarosso.com/en-us/men/shoes/example-SKU.html",
-    "https://www.scarosso.com:8443/en-us/men/shoes/example-SKU.html"
+    "https://www.scarosso.com:8443/en-us/men/shoes/example-SKU.html",
+    "https://www.scarosso.com/en-gb/men/shoes/example-SKU.html"
   ]) {
     assert.equal(normalizeScarossoProductUrl(invalidUrl), null);
   }
