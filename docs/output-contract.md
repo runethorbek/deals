@@ -161,12 +161,13 @@ contract fields.
 | `debug.products_without_size_information` | Products without parsed size information |
 
 A zero-product Scarosso snapshot is diagnostically ambiguous. A successful
-page with zero recognized products is distinct from a request failure. The
-current checked-in snapshot has six configured `en-dk` routes: two 404
-failures and four successful pages with zero recognized products. This is
-documented evidence, not a parser-root-cause claim. Missing sale categories
-remain tolerated route-level observations; this contract does not change
-publication policy or request/parsing behavior.
+page with zero recognized products is distinct from a request failure. Slice 1
+captured six configured `en-dk` routes with two 404 failures and four
+successful pages with zero recognized products; see
+`docs/issue-12-slice-1.md` for that point-in-time evidence. This is documented
+evidence, not a parser-root-cause claim. Missing sale categories remain
+tolerated route-level observations; this contract does not change publication
+policy or request/parsing behavior.
 
 ### Product fields
 
@@ -184,6 +185,7 @@ publication policy or request/parsing behavior.
 | `original_price` | Parsed regular/reference price, or `null` |
 | `current_price` | Parsed current observed price, or `null` |
 | `currency` | Parsed source currency (`USD`, `EUR`, `GBP`, or `null`) |
+| `price_candidates` | Numeric prices parsed from the listing card and retained for diagnostics; they are not interchangeable across conflicting currencies |
 | `discount_percent` | Discount calculated from comparable prices, or `null` |
 | `discount_status` | Source parser status describing how the discount was determined |
 | `checked_at` | Product observation time |

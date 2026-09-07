@@ -1,6 +1,10 @@
 # Issue #12 Slice 1: contract inventory and Scarosso discovery
 
-This document records verified current behavior only. It does not change the published JSON shape, parser behavior, URLs, or publication policy.
+This document records the point-in-time inventory and route evidence captured
+for Slice 1 at commit `2c6e0fc` (2026-09-06). It does not change the
+published JSON shape, parser behavior, URLs, or publication policy. The
+authoritative current field semantics are in `docs/output-contract.md`; later
+snapshots can legitimately contain different retailer inventory.
 
 ## Scope and non-goals
 
@@ -23,7 +27,7 @@ Non-goals for this slice:
 
 ### Vinted snapshot
 
-Current checked-in snapshot: `public/deals/vinted-latest.json`
+Snapshot inspected for Slice 1: `public/deals/vinted-latest.json` at `2c6e0fc`
 
 Snapshot-level fields observed:
 
@@ -60,7 +64,7 @@ Observed semantics:
 
 ### Scarosso snapshot
 
-Current checked-in snapshot: `public/deals/scarosso-latest.json`
+Snapshot inspected for Slice 1: `public/deals/scarosso-latest.json` at `2c6e0fc`
 
 Snapshot-level fields observed:
 
@@ -78,11 +82,15 @@ Snapshot-level fields observed:
 - `scan_status`: attempted/successful/failed page counts and zero published count
 - `debug.pages`: per-page product counts and the current route-level outcomes
 
-The current checked-in Scarosso product array is empty. The page-level evidence from `debug.pages` shows two 404 failures and four successful page fetches that still produced zero recognized products. This is the current zero-product state the issue calls out explicitly.
+The Slice 1 Scarosso product array was empty. The page-level evidence from
+`debug.pages` showed two 404 failures and four successful page fetches that
+still produced zero recognized products. This is historical route evidence for
+the zero-product state the issue calls out explicitly; it is not a claim about
+later retailer inventory.
 
 ### Zalando snapshot
 
-Current checked-in snapshot: `public/deals/zalando-latest.json`
+Snapshot inspected for Slice 1: `public/deals/zalando-latest.json` at `2c6e0fc`
 
 Snapshot-level fields observed:
 
@@ -164,7 +172,8 @@ In practical terms, the current producer contract is therefore:
 
 ## Scarosso zero-product evidence
 
-The checked-in evidence from `public/deals/scarosso-latest.json` shows the configured size-filtered `en-dk` sales routes currently resolve as follows:
+The Slice 1 evidence from `public/deals/scarosso-latest.json` at `2c6e0fc`
+shows the configured size-filtered `en-dk` sales routes resolved as follows:
 
 | Route | product_count | error | observation |
 | --- | ---: | --- | --- |
@@ -175,7 +184,10 @@ The checked-in evidence from `public/deals/scarosso-latest.json` shows the confi
 | `https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42` | 0 | null | page loaded but zero products recognized |
 | `https://www.scarosso.com/en-dk/sales/men/last-pairs/?prefn1=c_size&prefv1=42` | 0 | null | page loaded but zero products recognized |
 
-This matters because the current zero-product state is not a uniform failure: two route requests 404, while the remaining four pages load and still yield zero recognized products. That combination is the strongest deterministic evidence available in the checked-in repo.
+This matters because the captured zero-product state was not a uniform failure:
+two route requests 404, while the remaining four pages loaded and still yielded
+zero recognized products. That combination is the strongest deterministic
+evidence captured for Slice 1.
 
 The repo also contains the current request plan logic, which makes the current route contract explicit:
 
@@ -192,7 +204,7 @@ The equivalent unfiltered routes are the same paths without the `?prefn1=c_size&
 - `/sales/men/boots/`
 - `/sales/men/last-pairs/`
 
-No checked-in historical `en-us` fixture or zero-product comparison exists in this repository. The repo therefore has deterministic evidence for the current `en-dk` size-filtered configuration and for the zero-product result, but it does not yet contain a verified historical `en-us` comparison, an unfiltered route response comparison, or a retailer-side response log proving the root cause. Those gaps are explicitly recorded here as follow-up items rather than being hidden as solved facts.
+No checked-in historical `en-us` fixture or zero-product comparison exists in this repository. The repo therefore has deterministic evidence for the Slice 1 `en-dk` size-filtered configuration and zero-product result, but it does not yet contain a verified historical `en-us` comparison, an unfiltered route response comparison, or a retailer-side response log proving the root cause. Those gaps are explicitly recorded here as follow-up items rather than being hidden as solved facts.
 
 ## Verified facts for this slice
 
@@ -200,6 +212,6 @@ The following facts are independently supported by the repository state:
 
 - Vinted, Scarosso, and Zalando currently publish different but internally coherent source-specific product shapes.
 - The repository already documents the need to preserve those differences without forcing a universal schema.
-- The current Scarosso snapshot is a deterministic zero-product result for all six configured `en-dk` sale routes.
+- The Slice 1 Scarosso snapshot was a deterministic zero-product result for all six configured `en-dk` sale routes.
 - No JSON field or publication-policy change is made as part of this slice.
 - Any future contract change remains subject to explicit approval and DealRadar coordination.
