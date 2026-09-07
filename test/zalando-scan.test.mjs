@@ -9,6 +9,12 @@ const LISTING_HTML = `
     </a>
     <span>Test trousers 700,00 kr Oprindeligt: 1.000,00 kr -30%</span>
   </article>
+  <article>
+    <a href="/full-price-trousers-brand-z456.html" title="Full-price trousers">
+      <img src="https://img01.ztat.net/full-price-trousers.jpg" alt="Full-price trousers">
+    </a>
+    <span>Full-price trousers 900,00 kr</span>
+  </article>
 `;
 
 const configuredMonitor = {
@@ -99,15 +105,15 @@ test("scanner uses configured Zalando intent and preserves the output contract",
       min_discount_percent: 25,
       checked_at: "2026-09-01T10:00:00.000Z",
       scanned_page_count: 1,
-      scanned_product_count: 1,
-      product_count: 1,
+      scanned_product_count: 2,
+      product_count: 2,
       match_count: 1,
       scan_status: {
         attempted_pages: 1,
         successful_pages: 1,
         failed_pages: 0,
         failures: [],
-        scanned_product_count: 1,
+        scanned_product_count: 2,
         published_product_count: 1
       }
     }

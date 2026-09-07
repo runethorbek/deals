@@ -1,0 +1,115 @@
+{
+  "site": "scarosso.com",
+  "scan_mode": "listing-pages-only",
+  "target_size": "42",
+  "min_discount_percent": 30,
+  "checked_at": "2026-09-01T10:00:00.000Z",
+  "scanned_page_count": 1,
+  "scanned_product_count": 2,
+  "product_count": 2,
+  "products": [
+    {
+      "title": "Test Penny Loafer",
+      "url": "https://www.scarosso.com/en-us/test-penny-loafer.html",
+      "image": "https://www.scarosso.com/on/demandware.static/-/Sites/default/test-loafer.jpg",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/",
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/"
+      ],
+      "categories": [
+        "loafers"
+      ],
+      "available_sizes": [
+        "41",
+        "42"
+      ],
+      "size_42_available": true,
+      "original_price": 250,
+      "current_price": 150,
+      "currency": "EUR",
+      "discount_percent": 40,
+      "discount_status": "calculated",
+      "price_candidates": [
+        250,
+        150
+      ],
+      "checked_at": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "title": "Test Oxford",
+      "url": "https://www.scarosso.com/en-us/test-oxford.html",
+      "image": null,
+      "category": null,
+      "source_url": "https://www.scarosso.com/en-us/sales/men/flats/",
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/flats/"
+      ],
+      "categories": [
+        "flats"
+      ],
+      "available_sizes": [],
+      "size_42_available": null,
+      "original_price": null,
+      "current_price": null,
+      "currency": null,
+      "discount_percent": null,
+      "discount_status": "no-price-found",
+      "price_candidates": [],
+      "checked_at": "2026-09-01T10:00:00.000Z"
+    }
+  ],
+  "match_count": 1,
+  "matches": [
+    {
+      "title": "Test Penny Loafer",
+      "url": "https://www.scarosso.com/en-us/test-penny-loafer.html",
+      "image": "https://www.scarosso.com/on/demandware.static/-/Sites/default/test-loafer.jpg",
+      "category": "loafers",
+      "source_url": "https://www.scarosso.com/en-us/sales/men/loafers/",
+      "source_urls": [
+        "https://www.scarosso.com/en-us/sales/men/loafers/"
+      ],
+      "categories": [
+        "loafers"
+      ],
+      "available_sizes": [
+        "41",
+        "42"
+      ],
+      "size_42_available": true,
+      "original_price": 250,
+      "current_price": 150,
+      "currency": "EUR",
+      "discount_percent": 40,
+      "discount_status": "calculated",
+      "price_candidates": [
+        250,
+        150
+      ],
+      "checked_at": "2026-09-01T10:00:00.000Z"
+    }
+  ],
+  "scan_status": {
+    "attempted_pages": 1,
+    "successful_pages": 1,
+    "failed_pages": 0,
+    "failures": [],
+    "scanned_product_count": 2,
+    "published_product_count": 1
+  },
+  "debug": {
+    "pages": [
+      {
+        "url": "https://www.scarosso.com/en-us/sales/men/loafers/",
+        "product_count": 2,
+        "error": null
+      }
+    ],
+    "products_with_discount": 1,
+    "products_below_minimum_discount": 0,
+    "products_without_discount": 1,
+    "products_without_price": 1,
+    "products_without_size_information": 1
+  }
+}

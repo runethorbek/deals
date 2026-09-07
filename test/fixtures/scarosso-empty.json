@@ -1,0 +1,45 @@
+{
+  "site": "scarosso.com",
+  "scan_mode": "listing-pages-only",
+  "target_size": "42",
+  "min_discount_percent": 30,
+  "checked_at": "2026-09-01T10:00:00.000Z",
+  "scanned_page_count": 2,
+  "scanned_product_count": 0,
+  "product_count": 0,
+  "products": [],
+  "match_count": 0,
+  "matches": [],
+  "scan_status": {
+    "attempted_pages": 2,
+    "successful_pages": 1,
+    "failed_pages": 1,
+    "failures": [
+      {
+        "url": "https://www.scarosso.com/en-dk/sales/men/?prefn1=c_size&prefv1=42",
+        "error_summary": "ScrapingAnt request failed with HTTP 404"
+      }
+    ],
+    "scanned_product_count": 0,
+    "published_product_count": 0
+  },
+  "debug": {
+    "pages": [
+      {
+        "url": "https://www.scarosso.com/en-dk/sales/men/?prefn1=c_size&prefv1=42",
+        "product_count": 0,
+        "error": "ScrapingAnt request failed with HTTP 404"
+      },
+      {
+        "url": "https://www.scarosso.com/en-dk/sales/men/loafers/?prefn1=c_size&prefv1=42",
+        "product_count": 0,
+        "error": null
+      }
+    ],
+    "products_with_discount": 0,
+    "products_below_minimum_discount": 0,
+    "products_without_discount": 0,
+    "products_without_price": 0,
+    "products_without_size_information": 0
+  }
+}

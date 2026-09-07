@@ -317,7 +317,7 @@ test("scanner keeps six ScrapingAnt calls and isolates enrichment outcomes", asy
     </article>
     <article data-product-id="missing-image">
       <a href="/en-us/men/shoes/missing-MISSING.html">Missing</a>
-      <div>Original $200.00 Sale $140.00 Size 42</div>
+      <div>Original $180.00 Sale $140.00 Size 42</div>
     </article>
     <article data-product-id="fetched-image">
       <a href="/en-us/men/shoes/fetched-FETCHED.html">Fetched</a>
@@ -414,6 +414,8 @@ test("scanner keeps six ScrapingAnt calls and isolates enrichment outcomes", asy
   assert.equal(writtenOutput.scanned_page_count, 6);
   assert.equal(writtenOutput.scan_status.successful_pages, 6);
   assert.equal(writtenOutput.scan_status.failed_pages, 0);
+  assert.equal(writtenOutput.scan_status.scanned_product_count, 3);
+  assert.equal(writtenOutput.scan_status.published_product_count, 2);
 
   const productsByUrl = new Map(
     writtenOutput.products.map((product) => [product.url, product])
@@ -441,7 +443,7 @@ test("scanner keeps six ScrapingAnt calls and isolates enrichment outcomes", asy
     matchesByUrl.get(existingUrl).image,
     "https://www.scarosso.com/images/existing.jpg"
   );
-  assert.equal(matchesByUrl.get(missingUrl).image, null);
+  assert.equal(matchesByUrl.has(missingUrl), false);
   assert.equal(
     matchesByUrl.get(fetchedUrl).image,
     "https://www.scarosso.com/images/fetched-from-product-page.jpg"

@@ -1,0 +1,57 @@
+{
+  "site": "vinted.com",
+  "scan_mode": "vinted-listing-pages-only",
+  "start_urls": [
+    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"
+  ],
+  "catalog_id": "1786",
+  "target_size_id": "207",
+  "checked_at": "2026-09-01T10:00:00.000Z",
+  "scanned_page_count": 1,
+  "scanned_product_count": 1,
+  "product_count": 1,
+  "products": [
+    {
+      "title": "Test blazer",
+      "url": "https://www.vinted.dk/items/123456-test-blazer",
+      "image": "https://images1.vinted.net/test-blazer.webp",
+      "site": "vinted.com",
+      "source_url": "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
+      "catalog_id": "1786",
+      "target_size_id": "207",
+      "size_assumption": "listing-url-filtered-by-size-id-207",
+      "brand": "Test Brand",
+      "size_guess": null,
+      "price": 100,
+      "currency": "DKK",
+      "raw_price": "100 DKK",
+      "raw_card_text": "Test blazer 100 DKK",
+      "checked_at": "2026-09-01T10:00:00.000Z",
+      "source_urls": [
+        "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"
+      ]
+    }
+  ],
+  "scan_status": {
+    "attempted_pages": 1,
+    "successful_pages": 1,
+    "failed_pages": 0,
+    "failures": [],
+    "scanned_product_count": 1,
+    "published_product_count": 1
+  },
+  "debug": {
+    "pages": [
+      {
+        "url": "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
+        "product_count": 1,
+        "json_ld_blocks": 0,
+        "error": null
+      }
+    ],
+    "products_with_price": 1,
+    "products_without_price": 0,
+    "products_with_brand": 1,
+    "products_with_size_guess": 0
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "site": "zalando.dk",
+  "scan_mode": "zalando-listing-page-only",
+  "start_urls": [
+    "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen"
+  ],
+  "target_size": "46",
+  "min_discount_percent": 25,
+  "checked_at": "2026-09-01T10:00:00.000Z",
+  "scanned_page_count": 1,
+  "scanned_product_count": 2,
+  "product_count": 2,
+  "products": [
+    {
+      "title": "Test trousers",
+      "url": "https://www.zalando.dk/test-trousers-brand-z123.html",
+      "image": "https://img01.ztat.net/test-trousers.jpg",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_linen"
+      ],
+      "raw_card_text": "Test trousers 700,00 kr Oprindeligt: 1.000,00 kr -30%",
+      "original_price": 1000,
+      "current_price": 700,
+      "discount_percent": 30,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 30,
+      "price_candidates": [
+        1000,
+        700
+      ],
+      "checked_at": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "title": "Full-price trousers",
+      "url": "https://www.zalando.dk/full-price-trousers-brand-z456.html",
+      "image": "https://img01.ztat.net/full-price-trousers.jpg",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_linen"
+      ],
+      "raw_card_text": "Full-price trousers 900,00 kr",
+      "original_price": null,
+      "current_price": 900,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        900
+      ],
+      "checked_at": "2026-09-01T10:00:00.000Z"
+    }
+  ],
+  "match_count": 1,
+  "matches": [
+    {
+      "title": "Test trousers",
+      "url": "https://www.zalando.dk/test-trousers-brand-z123.html",
+      "image": "https://img01.ztat.net/test-trousers.jpg",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen",
+      "target_size": "46",
+      "size_46_available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_linen"
+      ],
+      "raw_card_text": "Test trousers 700,00 kr Oprindeligt: 1.000,00 kr -30%",
+      "original_price": 1000,
+      "current_price": 700,
+      "discount_percent": 30,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 30,
+      "price_candidates": [
+        1000,
+        700
+      ],
+      "checked_at": "2026-09-01T10:00:00.000Z"
+    }
+  ],
+  "scan_status": {
+    "attempted_pages": 1,
+    "successful_pages": 1,
+    "failed_pages": 0,
+    "failures": [],
+    "scanned_product_count": 2,
+    "published_product_count": 1
+  },
+  "debug": {
+    "pages": [
+      {
+        "url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen",
+        "product_count": 2,
+        "error": null
+      }
+    ],
+    "products_with_discount": 1,
+    "products_below_minimum_discount": 0,
+    "products_without_discount": 1,
+    "products_without_price": 0
+  }
+}
