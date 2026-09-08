@@ -54,6 +54,19 @@ Running a scraper writes directly to its file in `public/deals/`. Review the
 generated diff before keeping or committing it. Local scraper runs do not call
 the DealRadar import endpoint.
 
+Issue #14's Slice 0 pagination investigation is separate from a normal scan.
+It makes six bounded rendered ScrapingAnt requests for the trousers and
+Scarosso-shoe examples (pages 1 through 3), does not publish deal output, and
+writes a sanitized, git-ignored `zalando-pagination-report.json.tmp`:
+
+```sh
+npm run investigate:zalando-pagination
+```
+
+Review the report's per-page product counts, duplicate links, adjacent-page
+overlap, requested-filter preservation, rendered filter markers, and product
+URLs. The report contains neither the ScrapingAnt API key nor raw HTML.
+
 ## Monitoring configuration
 
 Vinted, Scarosso, and Zalando read their monitoring intent from the shared

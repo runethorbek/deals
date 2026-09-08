@@ -55,7 +55,7 @@ function absoluteUrl(value) {
   }
 }
 
-function normalizeProductUrl(href) {
+export function normalizeProductUrl(href) {
   const url = absoluteUrl(href);
   if (!url) return null;
 
@@ -72,7 +72,7 @@ function normalizeProductUrl(href) {
   }
 }
 
-function isZalandoProductUrl(url) {
+export function isZalandoProductUrl(url) {
   if (!url) return false;
 
   try {
@@ -88,7 +88,7 @@ function isZalandoProductUrl(url) {
   }
 }
 
-async function getRenderedHtml(url, fetchImpl, apiKey) {
+export async function getRenderedHtml(url, fetchImpl, apiKey) {
   const endpoint = new URL("https://api.scrapingant.com/v2/general");
   endpoint.searchParams.set("url", url);
   endpoint.searchParams.set("x-api-key", apiKey);
@@ -189,6 +189,18 @@ function extractProductIdentity($, container) {
   return title && title.length <= MAX_TITLE_LENGTH
     ? { ...identity, title }
     : { title: "Unknown product" };
+}
+
+export function extractProductUrlOccurrences(html) {
+  const $ = cheerio.load(html);
+  const productUrls = [];
+
+  $("a[href]").each((_, anchor) => {
+    const url = normalizeProductUrl($(anchor).attr("href"));
+    if (isZalandoProductUrl(url)) productUrls.push(url);
+  });
+
+  return productUrls;
 }
 
 function scoreProduct(product) {

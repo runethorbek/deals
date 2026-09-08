@@ -6,6 +6,7 @@
     "node": ">=24"
   },
   "scripts": {
+    "investigate:zalando-pagination": "node scripts/investigate-zalando-pagination.mjs",
     "scan:scarosso": "node scripts/scan-scarosso.mjs",
     "test": "node --test"
   },
