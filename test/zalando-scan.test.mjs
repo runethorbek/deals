@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
+import fs from "node:fs/promises";
 import test from "node:test";
-import { scan } from "../scripts/scan-zalando.mjs";
+import {
+  extractProductsFromListing,
+  scan,
+  validateZalandoOutput
+} from "../scripts/scan-zalando.mjs";
 
 const LISTING_HTML = `
   <article>
@@ -52,6 +57,142 @@ function createFsRecorder() {
     }
   };
 }
+
+test("extracts Zalando listing-card identity instead of photo descriptions", async () => {
+  const listingHtml = await fs.readFile(
+    new URL("./fixtures/zalando-listing-card.html", import.meta.url),
+    "utf8"
+  );
+  const products = extractProductsFromListing(
+    listingHtml,
+    "https://www.zalando.dk/herretoej-bukser/",
+    "2026-09-01T10:00:00.000Z",
+    { targetSize: "46", upperMaterials: ["pure_linen"] }
+  );
+
+  const boss = products.find((product) => product.brand === "BOSS");
+  const boggi = products.find((product) => product.brand === "Boggi Milano");
+  const polo = products.find((product) => product.brand === "Polo Ralph Lauren");
+
+  assert.deepEqual(
+    {
+      brand: boss.brand,
+      product_name: boss.product_name,
+      product_type: boss.product_type,
+      color: boss.color,
+      title: boss.title,
+      url: boss.url,
+      current_price: boss.current_price
+    },
+    {
+      brand: "BOSS",
+      product_name: "LENON",
+      product_type: "Bukser",
+      color: "black",
+      title: "BOSS LENON - Bukser - black",
+      url: "https://www.zalando.dk/boss-lenon-habitbukser-black-bb122a0vj-q11.html",
+      current_price: 1496
+    }
+  );
+  assert.deepEqual(
+    {
+      brand: boggi.brand,
+      product_name: boggi.product_name,
+      product_type: boggi.product_type,
+      color: boggi.color,
+      title: boggi.title
+    },
+    {
+      brand: "Boggi Milano",
+      product_name: undefined,
+      product_type: "Chino",
+      color: "black",
+      title: "Boggi Milano - Chino - black"
+    }
+  );
+  assert.equal(polo.title, "Polo Ralph Lauren SLIM FIT WOOL TWILL TROUSER - Habitbukser - classic navy");
+  assert.doesNotMatch(polo.title, /Mand iført marineblå/);
+});
+
+test("uses Unknown product when a listing card has no structured identity", () => {
+  const products = extractProductsFromListing(
+    `<article><a href="/unidentified-z123.html"><img alt="A model wearing trousers in a studio"></a><span>700,00 kr</span></article>`,
+    "https://www.zalando.dk/herretoej-bukser/",
+    "2026-09-01T10:00:00.000Z",
+    { targetSize: "46", upperMaterials: ["pure_linen"] }
+  );
+
+  assert.equal(products[0].title, "Unknown product");
+  for (const field of ["brand", "product_name", "product_type", "color"]) {
+    assert.equal(Object.hasOwn(products[0], field), false);
+  }
+});
+
+test("splits identity descriptors from the right", () => {
+  const products = extractProductsFromListing(
+    `<article><a href="/mango-adult-slim-z123.html" aria-label="Wrong ARIA label" title="Wrong anchor title"><img alt="A model in blue chinos"></a><h3><span>Mango</span><span>ADULT - SLIM - Chino - blue</span></h3><span>700,00 kr</span></article>`,
+    "https://www.zalando.dk/herretoej-bukser/",
+    "2026-09-01T10:00:00.000Z",
+    { targetSize: "46", upperMaterials: ["pure_linen"] }
+  );
+
+  assert.deepEqual(
+    {
+      product_name: products[0].product_name,
+      product_type: products[0].product_type,
+      color: products[0].color,
+      title: products[0].title
+    },
+    {
+      product_name: "ADULT - SLIM",
+      product_type: "Chino",
+      color: "blue",
+      title: "Mango ADULT - SLIM - Chino - blue"
+    }
+  );
+});
+
+test("bounds extracted identity text and rejects invalid published identity fields", () => {
+  const oversized = "x".repeat(121);
+  const products = extractProductsFromListing(
+    `<article><a href="/oversized-identity-z123.html"><img alt="Photo description"></a><h3><span>${oversized}</span><span>${oversized} - ${oversized} - ${oversized}</span></h3><span>700,00 kr</span></article>`,
+    "https://www.zalando.dk/herretoej-bukser/",
+    "2026-09-01T10:00:00.000Z",
+    { targetSize: "46", upperMaterials: ["pure_linen"] }
+  );
+
+  assert.equal(products[0].title, "Unknown product");
+  assert.equal(Object.hasOwn(products[0], "brand"), false);
+
+  const output = {
+    site: "zalando.dk",
+    scan_mode: "zalando-listing-page-only",
+    start_urls: ["https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/"],
+    target_size: "46",
+    checked_at: "2026-09-01T10:00:00.000Z",
+    scanned_page_count: 1,
+    scanned_product_count: 1,
+    product_count: 1,
+    products: [{ ...products[0], brand: oversized }],
+    match_count: 0,
+    matches: []
+  };
+
+  assert.throws(() => validateZalandoOutput(output), /Invalid Zalando output contract/);
+});
+
+test("omits a reassembled product name that exceeds the identity field limit", () => {
+  const nameSegment = "x".repeat(120);
+  const products = extractProductsFromListing(
+    `<article><a href="/long-product-name-z123.html"><img alt="Photo description"></a><h3><span>Mango</span><span>${nameSegment} - ${nameSegment} - Chino - blue</span></h3><span>700,00 kr</span></article>`,
+    "https://www.zalando.dk/herretoej-bukser/",
+    "2026-09-01T10:00:00.000Z",
+    { targetSize: "46", upperMaterials: ["pure_linen"] }
+  );
+
+  assert.equal(Object.hasOwn(products[0], "product_name"), false);
+  assert.equal(products[0].title, "Mango - Chino - blue");
+});
 
 test("scanner uses configured Zalando intent and preserves the output contract", async () => {
   const requestedListingUrls = [];

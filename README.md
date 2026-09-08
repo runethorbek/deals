@@ -97,6 +97,13 @@ change. Invalid or ambiguous configuration stops the scanner before it makes
 retailer requests or writes output. Broader category and size support is
 deferred rather than implied by the initial JSON model.
 
+Zalando products expose listing-card identity fields when available: `brand`,
+`product_name`, `product_type`, and `color`. Their display `title` is derived
+from those fields (`brand product_name - product_type - color`, omitting
+missing parts). The primary image alt text describes the photograph and is not
+used as product identity; a card without structured identity receives the
+title `Unknown product`.
+
 Vinted ScrapingAnt requests time out after 30 seconds and transient failures
 are attempted at most three times with bounded backoff. If any required listing
 page still fails, or successful pages produce no products, the scan exits

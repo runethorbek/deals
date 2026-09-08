@@ -18,6 +18,8 @@ const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
 const SITE = "zalando.dk";
 const BASE_URL = "https://www.zalando.dk";
+const MAX_IDENTITY_FIELD_LENGTH = 120;
+const MAX_TITLE_LENGTH = 500;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -25,6 +27,22 @@ function sleep(ms) {
 
 function normalizeText(value) {
   return value?.replace(/\s+/g, " ").trim() ?? "";
+}
+
+function normalizeIdentityText(value) {
+  const text = normalizeText(value);
+  return text.length <= MAX_IDENTITY_FIELD_LENGTH ? text : "";
+}
+
+function isBoundedOptionalString(value, maximumLength) {
+  return (
+    value === undefined ||
+    isBoundedString(value, maximumLength)
+  );
+}
+
+function isBoundedString(value, maximumLength) {
+  return typeof value === "string" && value.length > 0 && value.length <= maximumLength;
 }
 
 function absoluteUrl(value) {
@@ -139,22 +157,38 @@ function extractImage($, container) {
   return absoluteUrl(lastCandidate);
 }
 
-function extractTitle($, anchor, container) {
-  const candidates = [
-    $(anchor).attr("aria-label"),
-    $(anchor).attr("title"),
-    container.find("img[alt]").first().attr("alt"),
-    container.find("h2, h3, h4").first().text(),
-    $(anchor).text()
-  ];
+function extractProductIdentity($, container) {
+  const spans = container.find("h3").first().children("span");
+  const brand = normalizeIdentityText(spans.eq(0).text());
+  const descriptor = normalizeText(spans.eq(1).text());
 
-  for (const candidate of candidates) {
-    const title = normalizeText(candidate);
-    if (title && title.length > 2) return title;
+  if (!brand && !descriptor) return { title: "Unknown product" };
+
+  const identity = {};
+  if (brand) identity.brand = brand;
+
+  const parts = descriptor.split(" - ").map(normalizeIdentityText);
+  if (parts.length >= 3 && parts.at(-1) && parts.at(-2)) {
+    const productName = normalizeIdentityText(parts.slice(0, -2).join(" - "));
+    if (productName) identity.product_name = productName;
+    identity.product_type = parts.at(-2);
+    identity.color = parts.at(-1);
+  } else if (parts.length === 2 && parts[0] && parts[1]) {
+    identity.product_type = parts[0];
+    identity.color = parts[1];
   }
 
-  const text = visibleText($, container);
-  return text.split(" kr")[0]?.slice(0, 140) || "Unknown product";
+  const title = [
+    identity.brand && [identity.brand, identity.product_name].filter(Boolean).join(" "),
+    identity.product_type,
+    identity.color
+  ]
+    .filter(Boolean)
+    .join(" - ");
+
+  return title && title.length <= MAX_TITLE_LENGTH
+    ? { ...identity, title }
+    : { title: "Unknown product" };
 }
 
 function scoreProduct(product) {
@@ -186,7 +220,7 @@ export function extractProductsFromListing(
     const priceInfo = extractPriceInfo(text);
 
     const product = {
-      title: extractTitle($, anchor, container),
+      ...extractProductIdentity($, container),
       url,
       image: extractImage($, container),
       site: SITE,
@@ -209,7 +243,7 @@ export function extractProductsFromListing(
   return [...products.values()];
 }
 
-function validateZalandoOutput(output) {
+export function validateZalandoOutput(output) {
   if (
     output?.site !== SITE ||
     output.scan_mode !== "zalando-listing-page-only" ||
@@ -235,6 +269,11 @@ function validateZalandoOutput(output) {
       product.target_size !== output.target_size ||
       product.size_46_available !== true ||
       product.checked_at !== output.checked_at ||
+      !isBoundedString(product.title, MAX_TITLE_LENGTH) ||
+      !isBoundedOptionalString(product.brand, MAX_IDENTITY_FIELD_LENGTH) ||
+      !isBoundedOptionalString(product.product_name, MAX_IDENTITY_FIELD_LENGTH) ||
+      !isBoundedOptionalString(product.product_type, MAX_IDENTITY_FIELD_LENGTH) ||
+      !isBoundedOptionalString(product.color, MAX_IDENTITY_FIELD_LENGTH) ||
       productUrls.has(product.url)
     ) {
       throw new Error("Invalid Zalando output contract");
