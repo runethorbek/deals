@@ -202,25 +202,29 @@ that distinction rather than silently treating such values as one currency.
 | --- | --- |
 | `site` | `zalando.dk` |
 | `scan_mode` | `zalando-listing-page-only` |
-| `start_urls` | The configured category, size, and material listing URL |
-| `target_size` | Configured size filter, currently `46` |
-| `min_discount_percent` | Matching threshold |
+| `start_urls` | Listing URLs for all enabled monitors |
+| `monitors` | Per-monitor ID, listing URL, target size, threshold, page count, result count, and status |
+| `target_size` | Legacy scalar retained only when exactly one monitor is active |
+| `min_discount_percent` | Legacy scalar retained only when exactly one monitor is active |
 | `checked_at` | Scan observation time |
-| `scanned_page_count` | Listing pages requested, currently one |
+| `scanned_page_count` | Total listing pages requested across monitors |
 | `scanned_product_count` | Recognized products |
 | `product_count` | Published product count |
 | `products` | Published Zalando product objects |
 | `matches` / `match_count` | Products meeting the discount threshold |
 | `scan_status` | Listing request outcome and published count metadata |
-| `debug.pages` | Per-page product counts and request errors |
+| `debug.pages` | Per-page monitor ID, product count, request URL, and error |
 | `debug.products_with_discount` | Products with a parsed discount |
 | `debug.products_below_minimum_discount` | Products with a discount below the configured threshold |
 | `debug.products_without_discount` | Products without a parsed discount |
 | `debug.products_without_price` | Products without a parsed price |
 
-The required Zalando listing request must succeed and produce products before
-publication. The configured material filter is preserved as monitoring
-provenance.
+Every required Zalando monitor request must succeed and produce products before
+publication. All enabled monitors contribute to one atomic snapshot. Products
+are deduplicated by normalized URL; a URL found through different target sizes
+fails the complete scan. Configuration validates `pages` from 1 through 10, but
+Slice 1 scans only `pages: 1` and fails before requests for a larger enabled
+value. Explicit `p=N` pagination is deferred to Slice 2.
 
 ### Product fields
 
@@ -231,9 +235,11 @@ provenance.
 | `image` | Product image |
 | `site` | `zalando.dk` |
 | `source_url` | Listing page where the product was observed |
+| `monitor_ids` | Sorted IDs of monitors that observed the product |
 | `target_size` | Size filter used for the listing |
-| `size_46_available` | Source-specific size-46 availability signal |
-| `size_assumption` | Documents that the listing URL was filtered by size 46 |
+| `available` | `true`, based on presence in the target-size-filtered listing |
+| `size_46_available` | Legacy field emitted only for size-46 observations |
+| `size_assumption` | Documents the configured size filter used by the listing |
 | `material_filter` | Material identifiers used in the request |
 | `raw_card_text` | Bounded source card text |
 | `original_price` | Regular/reference price when reliably parsed |

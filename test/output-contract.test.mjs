@@ -251,13 +251,13 @@ function assertPublishedSnapshot(source, snapshot) {
       assert.ok(product.source_urls.length > 0);
     }
   } else {
-    assertPlausibleNumber(
-      snapshot.min_discount_percent,
-      "min_discount_percent",
-      { nullable: false }
-    );
-    assert.ok(snapshot.min_discount_percent <= 100);
     if (source === "scarosso") {
+      assertPlausibleNumber(
+        snapshot.min_discount_percent,
+        "min_discount_percent",
+        { nullable: false }
+      );
+      assert.ok(snapshot.min_discount_percent <= 100);
       for (const product of snapshot.products) {
         assert.ok(Array.isArray(product.available_sizes));
         const expectedAvailability = product.available_sizes.length > 0
@@ -280,16 +280,59 @@ function assertPublishedSnapshot(source, snapshot) {
         "debug page URLs must match start_urls"
       );
       assert.equal(status.failed_pages, 0);
-      for (const product of snapshot.products) {
-        assert.equal(product.site, rules.site);
-        assert.equal(product.target_size, snapshot.target_size);
-        assert.equal(product.size_46_available, true);
-        assert.equal(typeof product.size_assumption, "string");
-        assert.ok(Array.isArray(product.material_filter));
+      if (Array.isArray(snapshot.monitors)) {
+        assert.ok(snapshot.monitors.length > 0);
+        const monitorById = new Map(
+          snapshot.monitors.map((monitor) => [monitor.id, monitor])
+        );
+        assert.equal(monitorById.size, snapshot.monitors.length);
+        if (snapshot.monitors.length > 1) {
+          assert.equal(Object.hasOwn(snapshot, "target_size"), false);
+          assert.equal(Object.hasOwn(snapshot, "min_discount_percent"), false);
+        }
+
+        for (const product of snapshot.products) {
+          assert.equal(product.site, rules.site);
+          assert.equal(product.available, true);
+          assert.ok(Array.isArray(product.monitor_ids));
+          assert.ok(product.monitor_ids.length > 0);
+          assert.ok(product.monitor_ids.every((id) => (
+            monitorById.get(id)?.target_size === product.target_size
+          )));
+          assert.equal(
+            product.target_size === "46",
+            product.size_46_available === true
+          );
+          assert.equal(typeof product.size_assumption, "string");
+          assert.ok(Array.isArray(product.material_filter));
+        }
+
+        const expectedMatches = snapshot.products.filter((product) => (
+          typeof product.discount_percent === "number" &&
+          product.monitor_ids.some((id) => (
+            product.discount_percent >= monitorById.get(id).min_discount_percent
+          ))
+        ));
+        assert.deepEqual(snapshot.matches, expectedMatches);
+      } else {
+        assertPlausibleNumber(
+          snapshot.min_discount_percent,
+          "min_discount_percent",
+          { nullable: false }
+        );
+        assert.ok(snapshot.min_discount_percent <= 100);
+        for (const product of snapshot.products) {
+          assert.equal(product.site, rules.site);
+          assert.equal(product.target_size, snapshot.target_size);
+          assert.equal(product.size_46_available, true);
+          assert.equal(typeof product.size_assumption, "string");
+          assert.ok(Array.isArray(product.material_filter));
+        }
+        assertMatchesReferenceProducts(snapshot, productUrls);
       }
     }
 
-    assertMatchesReferenceProducts(snapshot, productUrls);
+    if (source === "scarosso") assertMatchesReferenceProducts(snapshot, productUrls);
     assert.equal(status.published_product_count, snapshot.matches.length);
   }
 }
@@ -558,6 +601,33 @@ test("DealRadar mapping remains compatible for every consumed field", () => {
       rawData: zalandoProduct
     }
   );
+});
+
+test("DealRadar mapping accepts the additive Zalando multi-monitor fields", () => {
+  const snapshot = structuredClone(zalandoSnapshot);
+  delete snapshot.target_size;
+  delete snapshot.min_discount_percent;
+  snapshot.monitors = [
+    {
+      id: "zalando-scarosso-shoes-42",
+      listing_url: "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      target_size: "42",
+      min_discount_percent: 30,
+      pages: 1,
+      product_count: 1,
+      status: "success"
+    }
+  ];
+  const product = structuredClone(snapshot.products[0]);
+  product.monitor_ids = [snapshot.monitors[0].id];
+  product.target_size = "42";
+  product.available = true;
+  delete product.size_46_available;
+
+  const projected = projectForDealRadar("zalando", snapshot, product);
+  assert.equal(projected.targetSize, "42");
+  assert.equal(projected.available, true);
+  assert.deepEqual(projected.rawData.monitor_ids, [snapshot.monitors[0].id]);
 });
 
 test("DealRadar category and timestamp fallbacks remain compatible", () => {

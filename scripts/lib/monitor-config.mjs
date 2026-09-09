@@ -60,6 +60,23 @@ export function selectEnabledMonitor(source, monitors) {
   return enabledMonitors[0] ?? null;
 }
 
+export function selectEnabledMonitors(source, monitors) {
+  if (!KNOWN_SOURCES.has(source)) {
+    throw new Error("Monitor source must be a known non-empty string");
+  }
+
+  const enabledMonitors = monitors.filter(
+    (monitor) => monitor.source === source && monitor.enabled
+  );
+
+  if (source !== "zalando" && enabledMonitors.length > 1) {
+    const sourceLabel = source[0].toUpperCase() + source.slice(1);
+    throw new Error(`Monitor configuration must contain at most one enabled ${sourceLabel} monitor`);
+  }
+
+  return enabledMonitors;
+}
+
 export async function loadEnabledMonitor(source, options = {}) {
   return selectEnabledMonitor(source, await loadMonitorConfiguration(options));
 }

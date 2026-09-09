@@ -50,14 +50,19 @@ validation and safe publication behavior may be shared. Application and
 database concerns belong in DealRadar.
 
 Configuration describes requested monitoring intent, while each retailer
-adapter defines the subset it can translate safely. The initial Zalando adapter
-supports only the `herretoej-bukser` category, size 46, and the established
-cashmere, linen, and wool material identifiers. Consequently, changing the
-configured Zalando category still requires an adapter change. This restriction
-is an explicit tracer-bullet capability boundary, not a claim that Zalando's
-full taxonomy is configurable. Supporting other sizes also requires an approved
-published-contract change because products currently expose
-`size_46_available`.
+adapter defines the subset it can translate safely. Zalando monitors use a
+retailer-relative `listingPath` plus an explicit `targetSize`, avoiding a generic
+cross-retailer taxonomy model. Multiple enabled Zalando monitors form one
+source-level scan and one atomic output snapshot. Vinted and Scarosso retain
+their maximum-one-enabled-monitor constraint.
+
+The Zalando scanner builds one Slice 1 request per monitor, attempts every
+monitor for complete diagnostics, and merges products by canonical URL. Any
+required request failure, empty monitor result, or duplicate URL associated with
+different target sizes prevents publication. Product `monitor_ids` preserve
+provenance. Configuration accepts the approved `pages` range 1–10, while an
+enabled Slice 1 plan above one page fails before requests; explicit pagination
+remains Slice 2 work.
 
 ## Trust boundaries
 
@@ -106,3 +111,7 @@ scope expansion. It intentionally differs from the pre-Slice 3 behavior, which
 could publish a failed or empty scan, even though issue #1 otherwise called for
 preserving existing scan behavior. A failed or empty Zalando scan now exits
 before the workflow's commit step.
+
+For Zalando, this policy applies to the aggregate of all enabled monitors: no
+partial per-monitor snapshot is published. With zero enabled monitors, the
+workflow succeeds without retailer requests or output replacement.

@@ -11,7 +11,7 @@ import {
 import { extractPriceInfo } from "./lib/zalando-price.mjs";
 import {
   buildZalandoScanPlan,
-  loadEnabledZalandoMonitor
+  loadEnabledZalandoMonitors
 } from "./lib/zalando-monitor.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
@@ -79,9 +79,9 @@ export function isZalandoProductUrl(url) {
     const parsed = new URL(url);
 
     return (
+      parsed.protocol === "https:" &&
       parsed.hostname === "www.zalando.dk" &&
-      parsed.pathname.endsWith(".html") &&
-      !parsed.pathname.includes("/herretoej-bukser/")
+      /-[a-z0-9]{9}-[a-z0-9]{3}\.html$/i.test(parsed.pathname)
     );
   } catch {
     return false;
@@ -195,7 +195,7 @@ export function extractProductUrlOccurrences(html) {
   const $ = cheerio.load(html);
   const productUrls = [];
 
-  $("a[href]").each((_, anchor) => {
+  $("article a[data-card-type='media'][href]").each((_, anchor) => {
     const url = normalizeProductUrl($(anchor).attr("href"));
     if (isZalandoProductUrl(url)) productUrls.push(url);
   });
@@ -216,12 +216,12 @@ export function extractProductsFromListing(
   html,
   sourceUrl,
   checkedAt,
-  { targetSize, upperMaterials }
+  { monitorId, targetSize, upperMaterials = [] }
 ) {
   const $ = cheerio.load(html);
   const products = new Map();
 
-  $("a[href]").each((_, anchor) => {
+  $("article a[data-card-type='media'][href]").each((_, anchor) => {
     const href = $(anchor).attr("href");
     const url = normalizeProductUrl(href);
 
@@ -237,14 +237,17 @@ export function extractProductsFromListing(
       image: extractImage($, container),
       site: SITE,
       source_url: sourceUrl,
+      monitor_ids: monitorId ? [monitorId] : [],
       target_size: targetSize,
-      size_46_available: true,
+      available: true,
       size_assumption: `listing-url-filtered-by-size-${targetSize}`,
       material_filter: [...upperMaterials],
       raw_card_text: text.slice(0, 500),
       ...priceInfo,
       checked_at: checkedAt
     };
+
+    if (targetSize === "46") product.size_46_available = true;
 
     const existing = products.get(product.url);
     if (!existing || scoreProduct(product) > scoreProduct(existing)) {
@@ -259,6 +262,8 @@ export function validateZalandoOutput(output) {
   if (
     output?.site !== SITE ||
     output.scan_mode !== "zalando-listing-page-only" ||
+    !Array.isArray(output.monitors) ||
+    output.monitors.length === 0 ||
     !Array.isArray(output.start_urls) ||
     output.start_urls.length === 0 ||
     output.scanned_page_count !== output.start_urls.length ||
@@ -272,14 +277,56 @@ export function validateZalandoOutput(output) {
     throw new Error("Invalid Zalando output contract");
   }
 
+  const monitorById = new Map();
+  for (const monitor of output.monitors) {
+    if (
+      typeof monitor?.id !== "string" ||
+      monitor.id.length === 0 ||
+      monitorById.has(monitor.id) ||
+      !isBoundedString(monitor.target_size, 20) ||
+      !Number.isSafeInteger(monitor.min_discount_percent) ||
+      monitor.min_discount_percent < 0 ||
+      monitor.min_discount_percent > 100 ||
+      monitor.pages !== 1 ||
+      monitor.status !== "success" ||
+      !Number.isSafeInteger(monitor.product_count) ||
+      monitor.product_count <= 0 ||
+      !output.start_urls.includes(monitor.listing_url)
+    ) {
+      throw new Error("Invalid Zalando output contract");
+    }
+    monitorById.set(monitor.id, monitor);
+  }
+
+  if (
+    output.monitors.length === 1
+      ? output.target_size !== output.monitors[0].target_size ||
+        output.min_discount_percent !== output.monitors[0].min_discount_percent
+      : Object.hasOwn(output, "target_size") ||
+        Object.hasOwn(output, "min_discount_percent")
+  ) {
+    throw new Error("Invalid Zalando output contract");
+  }
+
   const productUrls = new Set();
 
   for (const product of output.products) {
+    const productMonitors = Array.isArray(product?.monitor_ids)
+      ? product.monitor_ids.map((id) => monitorById.get(id))
+      : [];
     if (
       !isZalandoProductUrl(product?.url) ||
+      normalizeProductUrl(product.url) !== product.url ||
       product.site !== SITE ||
-      product.target_size !== output.target_size ||
-      product.size_46_available !== true ||
+      product.available !== true ||
+      productMonitors.length === 0 ||
+      productMonitors.some((monitor) => !monitor) ||
+      new Set(product.monitor_ids).size !== product.monitor_ids.length ||
+      product.monitor_ids.some((id, index, ids) => index > 0 && ids[index - 1] > id) ||
+      productMonitors.some((monitor) => monitor.target_size !== product.target_size) ||
+      (product.target_size === "46"
+        ? product.size_46_available !== true
+        : Object.hasOwn(product, "size_46_available")) ||
       product.checked_at !== output.checked_at ||
       !isBoundedString(product.title, MAX_TITLE_LENGTH) ||
       !isBoundedOptionalString(product.brand, MAX_IDENTITY_FIELD_LENGTH) ||
@@ -294,7 +341,21 @@ export function validateZalandoOutput(output) {
     productUrls.add(product.url);
   }
 
-  if (output.matches.some((product) => !productUrls.has(product?.url))) {
+  const expectedMatchUrls = output.products
+    .filter((product) => (
+      typeof product.discount_percent === "number" &&
+      product.monitor_ids.some((id) => (
+        product.discount_percent >= monitorById.get(id).min_discount_percent
+      ))
+    ))
+    .map((product) => product.url)
+    .sort();
+  const actualMatchUrls = output.matches.map((product) => product?.url).sort();
+
+  if (
+    output.matches.some((product) => !productUrls.has(product?.url)) ||
+    JSON.stringify(actualMatchUrls) !== JSON.stringify(expectedMatchUrls)
+  ) {
     throw new Error("Invalid Zalando output contract");
   }
 }
@@ -325,7 +386,7 @@ export async function scan({
   sleepImpl = sleep,
   logger = console,
   now = () => new Date(),
-  loadMonitor = loadEnabledZalandoMonitor,
+  loadMonitors = loadEnabledZalandoMonitors,
   outputPath = path.join(
     process.cwd(),
     "public",
@@ -333,9 +394,9 @@ export async function scan({
     "zalando-latest.json"
   )
 } = {}) {
-  const monitor = await loadMonitor();
+  const monitors = await loadMonitors();
 
-  if (monitor === null) {
+  if (monitors.length === 0) {
     logger.log("No enabled Zalando monitor; skipping scan.");
     return { skipped: true };
   }
@@ -344,21 +405,23 @@ export async function scan({
     throw new Error("Missing SCRAPINGANT_API_KEY environment variable");
   }
 
-  const {
-    listingUrls: startUrls,
-    targetSize,
-    upperMaterials,
-    minDiscountPercent
-  } = buildZalandoScanPlan(monitor);
+  const plans = monitors
+    .map(buildZalandoScanPlan)
+    .sort((left, right) => left.monitorId.localeCompare(right.monitorId));
+  const startUrls = plans.flatMap((plan) => plan.listingUrls);
   const checkedAt = now().toISOString();
   const productMap = new Map();
+  const matchingProductUrls = new Set();
+  const conflictingProductUrls = new Set();
   const pageResults = [];
+  const monitorSummaries = [];
 
   logger.log("Fetching Zalando listing pages...");
 
-  for (let i = 0; i < startUrls.length; i++) {
-    const url = startUrls[i];
-    logger.log(`[${i + 1}/${startUrls.length}] ${url}`);
+  for (let i = 0; i < plans.length; i++) {
+    const plan = plans[i];
+    const url = plan.listingUrls[0];
+    logger.log(`[${i + 1}/${plans.length}] ${plan.monitorId} ${url}`);
 
     try {
       const html = await getRenderedHtml(url, fetchImpl, apiKey);
@@ -366,12 +429,17 @@ export async function scan({
         html,
         url,
         checkedAt,
-        { targetSize, upperMaterials }
+        {
+          monitorId: plan.monitorId,
+          targetSize: plan.targetSize,
+          upperMaterials: plan.upperMaterials
+        }
       );
 
       logger.log(`Found ${products.length} product links on listing page`);
 
       pageResults.push({
+        monitor_id: plan.monitorId,
         url,
         product_count: products.length,
         error: null
@@ -379,22 +447,65 @@ export async function scan({
 
       for (const product of products) {
         const existing = productMap.get(product.url);
-        if (!existing || scoreProduct(product) > scoreProduct(existing)) {
-          productMap.set(product.url, product);
+        if (existing && existing.target_size !== product.target_size) {
+          conflictingProductUrls.add(product.url);
+          continue;
+        }
+
+        const monitorIds = [
+          ...(existing?.monitor_ids ?? []),
+          ...product.monitor_ids
+        ].sort();
+        const preferred = !existing || scoreProduct(product) > scoreProduct(existing)
+          ? product
+          : existing;
+        productMap.set(product.url, {
+          ...preferred,
+          monitor_ids: [...new Set(monitorIds)]
+        });
+
+        if (
+          typeof product.discount_percent === "number" &&
+          product.discount_percent >= plan.minDiscountPercent
+        ) {
+          matchingProductUrls.add(product.url);
         }
       }
+
+      monitorSummaries.push({
+        id: plan.monitorId,
+        listing_url: url,
+        target_size: plan.targetSize,
+        min_discount_percent: plan.minDiscountPercent,
+        pages: plan.pages,
+        product_count: products.length,
+        status: "success"
+      });
     } catch (error) {
       const errorDiagnostic = safeErrorDiagnostic(error);
 
-      logger.error(`Failed listing ${url}:`, errorDiagnostic);
+      logger.error(
+        `Failed monitor ${plan.monitorId} listing ${url}:`,
+        errorDiagnostic
+      );
       pageResults.push({
+        monitor_id: plan.monitorId,
         url,
         product_count: 0,
         error: errorDiagnostic
       });
+      monitorSummaries.push({
+        id: plan.monitorId,
+        listing_url: url,
+        target_size: plan.targetSize,
+        min_discount_percent: plan.minDiscountPercent,
+        pages: plan.pages,
+        product_count: 0,
+        status: "failed"
+      });
     }
 
-    if (i < startUrls.length - 1) await sleepImpl(1000);
+    if (i < plans.length - 1) await sleepImpl(1000);
   }
 
   const products = [...productMap.values()].sort((a, b) => {
@@ -405,13 +516,7 @@ export async function scan({
     return a.title.localeCompare(b.title);
   });
 
-  const matches = products.filter((product) => {
-    return (
-      product.size_46_available === true &&
-      typeof product.discount_percent === "number" &&
-      product.discount_percent >= minDiscountPercent
-    );
-  });
+  const matches = products.filter((product) => matchingProductUrls.has(product.url));
 
   const scanStatus = createScanStatus({
     pageResults,
@@ -426,16 +531,26 @@ export async function scan({
     );
   }
 
-  if (products.length === 0) {
-    throw new Error("Zalando scan produced no products");
+  const emptyMonitor = monitorSummaries.find((monitor) => monitor.product_count === 0);
+  if (emptyMonitor) {
+    throw new Error(`Zalando monitor ${emptyMonitor.id} produced no products`);
+  }
+
+  if (conflictingProductUrls.size > 0) {
+    throw new Error(
+      "Zalando scan found the same product through monitors with conflicting target sizes"
+    );
   }
 
   const output = {
     site: SITE,
     scan_mode: "zalando-listing-page-only",
     start_urls: startUrls,
-    target_size: targetSize,
-    min_discount_percent: minDiscountPercent,
+    monitors: monitorSummaries,
+    ...(plans.length === 1 ? {
+      target_size: plans[0].targetSize,
+      min_discount_percent: plans[0].minDiscountPercent
+    } : {}),
     checked_at: checkedAt,
     scanned_page_count: startUrls.length,
     scanned_product_count: products.length,
@@ -450,9 +565,8 @@ export async function scan({
         (product) => typeof product.discount_percent === "number"
       ).length,
       products_below_minimum_discount: products.filter(
-        (product) =>
-          typeof product.discount_percent === "number" &&
-          product.discount_percent < minDiscountPercent
+        (product) => typeof product.discount_percent === "number" &&
+          !matchingProductUrls.has(product.url)
       ).length,
       products_without_discount: products.filter(
         (product) => product.discount_percent === null
@@ -467,7 +581,7 @@ export async function scan({
 
   logger.log(`Wrote ${outputPath}`);
   logger.log(`All products: ${products.length}`);
-  logger.log(`Matches over ${minDiscountPercent}% discount: ${matches.length}`);
+  logger.log(`Matches: ${matches.length}`);
   return { skipped: false };
 }
 

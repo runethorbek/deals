@@ -76,9 +76,10 @@ IDs, boolean `enabled`, object `filters`, and the supported source-specific
 fields. Scanners receive the resulting validated monitor object rather than
 depending on file-reading behavior.
 
-Each source may have at most one enabled monitor. A scheduled workflow with no
-enabled monitor for its source exits successfully and skips scanning, publishing,
-and committing. Disabled monitors are still validated so an
+Zalando may have multiple enabled monitors; Vinted and Scarosso may each have at
+most one. A scheduled workflow with no enabled monitor for its source exits
+successfully and skips scanning, publishing, and committing. Disabled monitors
+are still validated so an
 invalid document cannot be partially used.
 
 The checked-in Vinted monitor preserves the current catalog, size, and
@@ -97,18 +98,25 @@ the Scarosso size query. The Scarosso adapter owns the
 configured listings against it, and currently accepts size 42 only to preserve
 the published `size_42_available` field.
 
-The checked-in Zalando monitor preserves the current men's trousers category,
-size 46, cashmere/linen/wool material filters, and 30 percent match threshold.
-The Zalando adapter owns its storefront base URL and taxonomy URL construction.
-This tracer bullet accepts only the `herretoej-bukser` category and the three
-listed material identifiers. Although `categorySlug` is stored as monitoring
-intent, adding another category currently requires an explicit adapter change
-so its Zalando taxonomy semantics can be validated. Size 46 is the only
-supported size because the published product contract contains
-`size_46_available`; supporting other sizes requires an approved contract
-change. Invalid or ambiguous configuration stops the scanner before it makes
-retailer requests or writes output. Broader category and size support is
-deferred rather than implied by the initial JSON model.
+Each Zalando monitor stores a stable `id`, a Zalando-relative `listingPath`, an
+explicit `targetSize`, a `minDiscountPercent`, and `pages`. The adapter owns the
+`https://www.zalando.dk/` storefront base URL and safely resolves the configured
+path, so categories, brands, sizes, and Zalando query filters do not require
+dedicated scraper code. Absolute/cross-host paths, fragments, configured `p`
+parameters, missing target sizes, and invalid thresholds are rejected. `pages`
+is validated from 1 through 10; in Slice 1, an enabled value above 1 fails before
+requests rather than under-scanning it. Slice 2 will add explicit `p=N`
+pagination.
+
+All enabled Zalando monitors are scanned and merged into one
+`public/deals/zalando-latest.json`. Products are deduplicated by normalized URL
+and carry sorted `monitor_ids`, their configured `target_size`, and
+`available: true`. Size-46 observations retain `size_46_available`; other sizes
+do not emit that legacy field. A duplicate URL observed through different target
+sizes fails the complete scan instead of publishing ambiguous data. A failed or
+empty monitor also prevents publication, although remaining monitors are still
+attempted for diagnostics. Monitor configuration remains repository-owned;
+moving it to DealRadar is a possible future change, not part of this slice.
 
 Zalando products expose listing-card identity fields when available: `brand`,
 `product_name`, `product_type`, and `color`. Their display `title` is derived

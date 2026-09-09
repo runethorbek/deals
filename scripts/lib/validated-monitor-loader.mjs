@@ -1,6 +1,7 @@
 import {
   loadMonitorConfiguration,
-  selectEnabledMonitor
+  selectEnabledMonitor,
+  selectEnabledMonitors
 } from "./monitor-config.mjs";
 import { validateVintedMonitor } from "./vinted-monitor.mjs";
 import { validateScarossoMonitor } from "./scarosso-monitor.mjs";
@@ -28,4 +29,14 @@ export async function loadValidatedEnabledMonitor(source, options = {}) {
   }
 
   return selectEnabledMonitor(source, monitors);
+}
+
+export async function loadValidatedEnabledMonitors(source, options = {}) {
+  const monitors = await loadMonitorConfiguration(options);
+
+  for (const monitor of monitors) {
+    validateMonitor(monitor);
+  }
+
+  return selectEnabledMonitors(source, monitors);
 }

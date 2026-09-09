@@ -9,13 +9,13 @@ import {
 
 const LISTING_HTML = `
   <article>
-    <a href="/test-trousers-brand-z123.html" title="Test trousers">
+    <a data-card-type="media" href="/test-trousers-brand-tt123a456-q11.html" title="Test trousers">
       <img src="https://img01.ztat.net/test-trousers.jpg" alt="Test trousers">
     </a>
     <span>Test trousers 700,00 kr Oprindeligt: 1.000,00 kr -30%</span>
   </article>
   <article>
-    <a href="/full-price-trousers-brand-z456.html" title="Full-price trousers">
+    <a data-card-type="media" href="/full-price-trousers-brand-ff123a456-q11.html" title="Full-price trousers">
       <img src="https://img01.ztat.net/full-price-trousers.jpg" alt="Full-price trousers">
     </a>
     <span>Full-price trousers 900,00 kr</span>
@@ -27,11 +27,11 @@ const configuredMonitor = {
   source: "zalando",
   enabled: true,
   filters: {
-    categorySlug: "herretoej-bukser",
-    size: "46",
-    upperMaterials: ["pure_linen"],
+    listingPath: "/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen",
+    targetSize: "46",
     minDiscountPercent: 25
-  }
+  },
+  pages: 1
 };
 
 function createFsRecorder() {
@@ -67,7 +67,7 @@ test("extracts Zalando listing-card identity instead of photo descriptions", asy
     listingHtml,
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
-    { targetSize: "46", upperMaterials: ["pure_linen"] }
+    { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
   const boss = products.find((product) => product.brand === "BOSS");
@@ -116,10 +116,10 @@ test("extracts Zalando listing-card identity instead of photo descriptions", asy
 
 test("uses Unknown product when a listing card has no structured identity", () => {
   const products = extractProductsFromListing(
-    `<article><a href="/unidentified-z123.html"><img alt="A model wearing trousers in a studio"></a><span>700,00 kr</span></article>`,
+    `<article><a data-card-type="media" href="/unidentified-zz123a456-q11.html"><img alt="A model wearing trousers in a studio"></a><span>700,00 kr</span></article>`,
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
-    { targetSize: "46", upperMaterials: ["pure_linen"] }
+    { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
   assert.equal(products[0].title, "Unknown product");
@@ -130,10 +130,10 @@ test("uses Unknown product when a listing card has no structured identity", () =
 
 test("splits identity descriptors from the right", () => {
   const products = extractProductsFromListing(
-    `<article><a href="/mango-adult-slim-z123.html" aria-label="Wrong ARIA label" title="Wrong anchor title"><img alt="A model in blue chinos"></a><h3><span>Mango</span><span>ADULT - SLIM - Chino - blue</span></h3><span>700,00 kr</span></article>`,
+    `<article><a data-card-type="media" href="/mango-adult-slim-mm123a456-q11.html" aria-label="Wrong ARIA label" title="Wrong anchor title"><img alt="A model in blue chinos"></a><h3><span>Mango</span><span>ADULT - SLIM - Chino - blue</span></h3><span>700,00 kr</span></article>`,
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
-    { targetSize: "46", upperMaterials: ["pure_linen"] }
+    { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
   assert.deepEqual(
@@ -155,10 +155,10 @@ test("splits identity descriptors from the right", () => {
 test("bounds extracted identity text and rejects invalid published identity fields", () => {
   const oversized = "x".repeat(121);
   const products = extractProductsFromListing(
-    `<article><a href="/oversized-identity-z123.html"><img alt="Photo description"></a><h3><span>${oversized}</span><span>${oversized} - ${oversized} - ${oversized}</span></h3><span>700,00 kr</span></article>`,
+    `<article><a data-card-type="media" href="/oversized-identity-oo123a456-q11.html"><img alt="Photo description"></a><h3><span>${oversized}</span><span>${oversized} - ${oversized} - ${oversized}</span></h3><span>700,00 kr</span></article>`,
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
-    { targetSize: "46", upperMaterials: ["pure_linen"] }
+    { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
   assert.equal(products[0].title, "Unknown product");
@@ -168,7 +168,17 @@ test("bounds extracted identity text and rejects invalid published identity fiel
     site: "zalando.dk",
     scan_mode: "zalando-listing-page-only",
     start_urls: ["https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/"],
+    monitors: [{
+      id: configuredMonitor.id,
+      listing_url: "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/",
+      target_size: "46",
+      min_discount_percent: 25,
+      pages: 1,
+      product_count: 1,
+      status: "success"
+    }],
     target_size: "46",
+    min_discount_percent: 25,
     checked_at: "2026-09-01T10:00:00.000Z",
     scanned_page_count: 1,
     scanned_product_count: 1,
@@ -184,10 +194,10 @@ test("bounds extracted identity text and rejects invalid published identity fiel
 test("omits a reassembled product name that exceeds the identity field limit", () => {
   const nameSegment = "x".repeat(120);
   const products = extractProductsFromListing(
-    `<article><a href="/long-product-name-z123.html"><img alt="Photo description"></a><h3><span>Mango</span><span>${nameSegment} - ${nameSegment} - Chino - blue</span></h3><span>700,00 kr</span></article>`,
+    `<article><a data-card-type="media" href="/long-product-name-ll123a456-q11.html"><img alt="Photo description"></a><h3><span>Mango</span><span>${nameSegment} - ${nameSegment} - Chino - blue</span></h3><span>700,00 kr</span></article>`,
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
-    { targetSize: "46", upperMaterials: ["pure_linen"] }
+    { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
   assert.equal(Object.hasOwn(products[0], "product_name"), false);
@@ -214,7 +224,7 @@ test("scanner uses configured Zalando intent and preserves the output contract",
     sleepImpl: async () => {},
     logger: { log() {}, error() {} },
     now: () => new Date("2026-09-01T10:00:00.000Z"),
-    loadMonitor: async () => configuredMonitor,
+    loadMonitors: async () => [configuredMonitor],
     outputPath
   });
 
@@ -229,6 +239,7 @@ test("scanner uses configured Zalando intent and preserves the output contract",
       site: output.site,
       scan_mode: output.scan_mode,
       start_urls: output.start_urls,
+      monitors: output.monitors,
       target_size: output.target_size,
       min_discount_percent: output.min_discount_percent,
       checked_at: output.checked_at,
@@ -242,6 +253,15 @@ test("scanner uses configured Zalando intent and preserves the output contract",
       site: "zalando.dk",
       scan_mode: "zalando-listing-page-only",
       start_urls: [expectedListingUrl],
+      monitors: [{
+        id: configuredMonitor.id,
+        listing_url: expectedListingUrl,
+        target_size: "46",
+        min_discount_percent: 25,
+        pages: 1,
+        product_count: 2,
+        status: "success"
+      }],
       target_size: "46",
       min_discount_percent: 25,
       checked_at: "2026-09-01T10:00:00.000Z",
@@ -262,12 +282,16 @@ test("scanner uses configured Zalando intent and preserves the output contract",
   assert.deepEqual(
     {
       target_size: output.products[0].target_size,
+      monitor_ids: output.products[0].monitor_ids,
+      available: output.products[0].available,
       size_46_available: output.products[0].size_46_available,
       size_assumption: output.products[0].size_assumption,
       material_filter: output.products[0].material_filter
     },
     {
       target_size: "46",
+      monitor_ids: [configuredMonitor.id],
+      available: true,
       size_46_available: true,
       size_assumption: "listing-url-filtered-by-size-46",
       material_filter: ["pure_linen"]
@@ -294,10 +318,10 @@ test("invalid configuration stops before requests or output", async () => {
       },
       fsImpl: fsRecorder.implementation,
       logger: { log() {}, error() {} },
-      loadMonitor: async () => ({
+      loadMonitors: async () => [{
         ...configuredMonitor,
-        filters: { ...configuredMonitor.filters, size: "48" }
-      }),
+        filters: { ...configuredMonitor.filters, listingPath: "/shoes/?p=2" }
+      }],
       outputPath: "zalando-test-output.json"
     }),
     /Invalid enabled Zalando monitor configuration/
@@ -323,7 +347,7 @@ test("required-page failures preserve the previous Zalando output", async () => 
       }),
       fsImpl: fsRecorder.implementation,
       logger: { log() {}, error() {} },
-      loadMonitor: async () => configuredMonitor,
+      loadMonitors: async () => [configuredMonitor],
       outputPath: "zalando-test-output.json"
     }),
     /Zalando scan failed: 1 of 1 required pages failed/
@@ -347,12 +371,172 @@ test("empty successful scans preserve the previous Zalando output", async () => 
       }),
       fsImpl: fsRecorder.implementation,
       logger: { log() {}, error() {} },
-      loadMonitor: async () => configuredMonitor,
+      loadMonitors: async () => [configuredMonitor],
       outputPath: "zalando-test-output.json"
     }),
-    /Zalando scan produced no products/
+    /Zalando monitor zalando-test-monitor produced no products/
   );
 
   assert.equal(fsRecorder.writes.length, 0);
   assert.equal(fsRecorder.renames.length, 0);
+});
+
+test("extracts only genuine Zalando result-card product links", () => {
+  const products = extractProductsFromListing(
+    `<a href="/help/faq.html">FAQ</a>
+     <article><a href="/recommendation-rr123a456-q11.html">Recommendation</a></article>
+     <article><a data-card-type="media" href="/real-product-rp123a456-q11.html"><h3><span>Real</span><span>Product - blue</span></h3><span>500,00 kr</span></a></article>`,
+    "https://www.zalando.dk/herresko/",
+    "2026-09-01T10:00:00.000Z",
+    { monitorId: "shoes", targetSize: "42" }
+  );
+
+  assert.deepEqual(products.map((product) => product.url), [
+    "https://www.zalando.dk/real-product-rp123a456-q11.html"
+  ]);
+  assert.equal(products[0].available, true);
+  assert.equal(Object.hasOwn(products[0], "size_46_available"), false);
+});
+
+test("combines multiple monitors into one snapshot with truthful provenance", async () => {
+  const fsRecorder = createFsRecorder();
+  const shoesMonitor = {
+    id: "zalando-shoes-size-42",
+    source: "zalando",
+    enabled: true,
+    filters: {
+      listingPath: "/herresko/scarosso__stoerrelse-42/",
+      targetSize: "42",
+      minDiscountPercent: 30
+    },
+    pages: 1
+  };
+  const shoeHtml = `<article><a data-card-type="media" href="/scarosso-shoe-ss123a456-q11.html"><h3><span>Scarosso</span><span>Oxford - brown</span></h3><span>600,00 kr Oprindeligt: 1.000,00 kr -40%</span></a></article>`;
+
+  await scan({
+    apiKey: "test-api-key",
+    fetchImpl: async (endpoint) => ({
+      ok: true,
+      async text() {
+        const listingUrl = new URL(endpoint).searchParams.get("url");
+        return listingUrl.includes("herresko") ? shoeHtml : LISTING_HTML;
+      }
+    }),
+    fsImpl: fsRecorder.implementation,
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    now: () => new Date("2026-09-01T10:00:00.000Z"),
+    loadMonitors: async () => [configuredMonitor, shoesMonitor],
+    outputPath: "zalando-test-output.json"
+  });
+
+  const output = JSON.parse(fsRecorder.writes[0].contents);
+  assert.equal(output.monitors.length, 2);
+  assert.equal(output.products.length, 3);
+  assert.equal(output.matches.length, 2);
+  assert.equal(Object.hasOwn(output, "target_size"), false);
+  assert.equal(Object.hasOwn(output, "min_discount_percent"), false);
+
+  const shoe = output.products.find((product) => product.target_size === "42");
+  assert.deepEqual(shoe.monitor_ids, [shoesMonitor.id]);
+  assert.equal(shoe.available, true);
+  assert.equal(Object.hasOwn(shoe, "size_46_available"), false);
+  assert.ok(output.debug.pages.every((page) => typeof page.monitor_id === "string"));
+});
+
+test("merges duplicate same-size product provenance deterministically", async () => {
+  const fsRecorder = createFsRecorder();
+  const secondMonitor = {
+    ...configuredMonitor,
+    id: "zalando-a-second-monitor",
+    filters: { ...configuredMonitor.filters, listingPath: "/another-listing/" }
+  };
+
+  await scan({
+    apiKey: "test-api-key",
+    fetchImpl: async () => ({ ok: true, async text() { return LISTING_HTML; } }),
+    fsImpl: fsRecorder.implementation,
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    loadMonitors: async () => [configuredMonitor, secondMonitor],
+    outputPath: "zalando-test-output.json"
+  });
+
+  const output = JSON.parse(fsRecorder.writes[0].contents);
+  assert.equal(output.products.length, 2);
+  assert.deepEqual(output.products[0].monitor_ids, [
+    secondMonitor.id,
+    configuredMonitor.id
+  ].sort());
+});
+
+test("conflicting target sizes fail after all monitors are attempted", async () => {
+  const fsRecorder = createFsRecorder();
+  let requestCount = 0;
+  const secondMonitor = {
+    ...configuredMonitor,
+    id: "zalando-size-42",
+    filters: {
+      ...configuredMonitor.filters,
+      listingPath: "/herresko/scarosso__stoerrelse-42/",
+      targetSize: "42"
+    }
+  };
+
+  await assert.rejects(scan({
+    apiKey: "test-api-key",
+    fetchImpl: async () => {
+      requestCount++;
+      return { ok: true, async text() { return LISTING_HTML; } };
+    },
+    fsImpl: fsRecorder.implementation,
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    loadMonitors: async () => [configuredMonitor, secondMonitor],
+    outputPath: "zalando-test-output.json"
+  }), /conflicting target sizes/);
+
+  assert.equal(requestCount, 2);
+  assert.equal(fsRecorder.writes.length, 0);
+});
+
+test("a failed monitor does not prevent remaining monitor attempts or publish", async () => {
+  const fsRecorder = createFsRecorder();
+  let requestCount = 0;
+  const failingMonitor = { ...configuredMonitor, id: "zalando-a-failing" };
+  const succeedingMonitor = {
+    ...configuredMonitor,
+    id: "zalando-b-succeeding",
+    filters: { ...configuredMonitor.filters, listingPath: "/another-listing/" }
+  };
+
+  await assert.rejects(scan({
+    apiKey: "test-api-key",
+    fetchImpl: async () => {
+      requestCount++;
+      if (requestCount === 1) return { ok: false, status: 502, async text() { return "Bad Gateway"; } };
+      return { ok: true, async text() { return LISTING_HTML; } };
+    },
+    fsImpl: fsRecorder.implementation,
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    loadMonitors: async () => [failingMonitor, succeedingMonitor],
+    outputPath: "zalando-test-output.json"
+  }), /1 of 2 required pages failed/);
+
+  assert.equal(requestCount, 2);
+  assert.equal(fsRecorder.writes.length, 0);
+});
+
+test("zero enabled monitors is a successful no-op", async () => {
+  let requestCount = 0;
+  const result = await scan({
+    apiKey: null,
+    fetchImpl: async () => { requestCount++; },
+    logger: { log() {}, error() {} },
+    loadMonitors: async () => []
+  });
+
+  assert.deepEqual(result, { skipped: true });
+  assert.equal(requestCount, 0);
 });

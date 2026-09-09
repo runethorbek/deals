@@ -22,7 +22,8 @@ const LISTINGS = [
 
 function htmlFor(...productIds) {
   return productIds.map((id) => (
-    `<article><a href="/${id}.html">${id} product listing text</a></article>`
+    `<article><a data-card-type="media" href="/${id}-aa123a456-q11.html">` +
+    `${id} product listing text</a></article>`
   )).join("");
 }
 

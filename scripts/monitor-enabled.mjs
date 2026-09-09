@@ -1,8 +1,8 @@
 import fs from "node:fs/promises";
-import { loadValidatedEnabledMonitor } from "./lib/validated-monitor-loader.mjs";
+import { loadValidatedEnabledMonitors } from "./lib/validated-monitor-loader.mjs";
 
 const source = process.argv[2];
-const enabled = (await loadValidatedEnabledMonitor(source)) !== null;
+const enabled = (await loadValidatedEnabledMonitors(source)).length > 0;
 
 if (process.env.GITHUB_OUTPUT) {
   await fs.appendFile(process.env.GITHUB_OUTPUT, `enabled=${enabled}\n`);

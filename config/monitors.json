@@ -30,14 +30,21 @@
     "source": "zalando",
     "enabled": true,
     "filters": {
-      "categorySlug": "herretoej-bukser",
-      "size": "46",
-      "upperMaterials": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
+      "listingPath": "/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "targetSize": "46",
       "minDiscountPercent": 30
-    }
+    },
+    "pages": 1
+  },
+  {
+    "id": "zalando-scarosso-shoes-42",
+    "source": "zalando",
+    "enabled": true,
+    "filters": {
+      "listingPath": "/herresko/scarosso__stoerrelse-42/",
+      "targetSize": "42",
+      "minDiscountPercent": 30
+    },
+    "pages": 1
   }
 ]

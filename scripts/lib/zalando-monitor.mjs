@@ -1,60 +1,105 @@
 const ZALANDO_BASE_URL = new URL("https://www.zalando.dk/");
-const SUPPORTED_CATEGORY_SLUG = "herretoej-bukser";
-const SUPPORTED_TARGET_SIZE = "46";
-const SUPPORTED_UPPER_MATERIALS = new Set([
-  "pure_cashmere",
-  "pure_linen",
-  "pure_wool"
-]);
+const MAX_TARGET_SIZE_LENGTH = 20;
 
-function createZalandoScanPlan(monitor) {
-  const categorySlug = monitor?.filters?.categorySlug;
-  const targetSize = monitor?.filters?.size;
-  const upperMaterials = monitor?.filters?.upperMaterials;
-  const minDiscountPercent = monitor?.filters?.minDiscountPercent;
+function resolveListingUrl(listingPath) {
+  let decodedListingPath;
+  try {
+    decodedListingPath = decodeURI(listingPath);
+  } catch {
+    throw new Error("Invalid enabled Zalando monitor configuration");
+  }
 
   if (
-    monitor?.source !== "zalando" ||
-    monitor.enabled !== true ||
-    categorySlug !== SUPPORTED_CATEGORY_SLUG ||
-    targetSize !== SUPPORTED_TARGET_SIZE ||
-    !Array.isArray(upperMaterials) ||
-    upperMaterials.length === 0 ||
-    upperMaterials.some((material) => (
-      typeof material !== "string" ||
-      !SUPPORTED_UPPER_MATERIALS.has(material)
-    )) ||
-    new Set(upperMaterials).size !== upperMaterials.length ||
-    !Number.isSafeInteger(minDiscountPercent) ||
-    minDiscountPercent < 0 ||
-    minDiscountPercent > 100
+    typeof listingPath !== "string" ||
+    listingPath !== listingPath.trim() ||
+    !listingPath.startsWith("/") ||
+    listingPath.startsWith("//") ||
+    listingPath.includes("\\") ||
+    /[\u0000-\u001f\u007f]/.test(listingPath) ||
+    decodedListingPath.split("?")[0].split("/").some(
+      (segment) => segment === "." || segment === ".."
+    )
   ) {
     throw new Error("Invalid enabled Zalando monitor configuration");
   }
 
-  const listingUrl = new URL(
-    `${categorySlug}/__stoerrelse-${targetSize}/`,
-    ZALANDO_BASE_URL
-  );
-  listingUrl.searchParams.set("upper_material", upperMaterials.join("."));
+  let listingUrl;
+  try {
+    listingUrl = new URL(listingPath, ZALANDO_BASE_URL);
+  } catch {
+    throw new Error("Invalid enabled Zalando monitor configuration");
+  }
+
+  if (
+    listingUrl.origin !== ZALANDO_BASE_URL.origin ||
+    listingUrl.pathname === "/" ||
+    listingUrl.hash ||
+    [...listingUrl.searchParams.keys()].some((key) => key.toLowerCase() === "p")
+  ) {
+    throw new Error("Invalid enabled Zalando monitor configuration");
+  }
+
+  return listingUrl;
+}
+
+function validateZalandoConfiguration(monitor) {
+  const listingPath = monitor?.filters?.listingPath;
+  const targetSize = monitor?.filters?.targetSize;
+  const minDiscountPercent = monitor?.filters?.minDiscountPercent;
+  const pages = monitor?.pages;
+
+  if (
+    monitor?.source !== "zalando" ||
+    monitor.enabled !== true ||
+    typeof monitor.id !== "string" ||
+    monitor.id.length === 0 ||
+    typeof targetSize !== "string" ||
+    targetSize !== targetSize.trim() ||
+    targetSize.length === 0 ||
+    targetSize.length > MAX_TARGET_SIZE_LENGTH ||
+    !Number.isSafeInteger(minDiscountPercent) ||
+    minDiscountPercent < 0 ||
+    minDiscountPercent > 100 ||
+    !Number.isSafeInteger(pages) ||
+    pages < 1 ||
+    pages > 10
+  ) {
+    throw new Error("Invalid enabled Zalando monitor configuration");
+  }
+
+  const listingUrl = resolveListingUrl(listingPath);
+  return { listingUrl, targetSize, minDiscountPercent, pages };
+}
+
+function createZalandoScanPlan(monitor) {
+  const { listingUrl, targetSize, minDiscountPercent, pages } =
+    validateZalandoConfiguration(monitor);
+
+  if (pages !== 1) {
+    throw new Error("Zalando pagination beyond page 1 requires Slice 2");
+  }
+
+  const upperMaterial = listingUrl.searchParams.get("upper_material");
 
   return {
+    monitorId: monitor.id,
     listingUrls: [listingUrl.toString()],
     targetSize,
-    upperMaterials: [...upperMaterials],
-    minDiscountPercent
+    upperMaterials: upperMaterial ? upperMaterial.split(".").filter(Boolean) : [],
+    minDiscountPercent,
+    pages
   };
 }
 
 export function validateZalandoMonitor(monitor) {
-  createZalandoScanPlan({ ...monitor, enabled: true });
+  validateZalandoConfiguration({ ...monitor, enabled: true });
 }
 
-export async function loadEnabledZalandoMonitor(options = {}) {
-  const { loadValidatedEnabledMonitor } = await import(
+export async function loadEnabledZalandoMonitors(options = {}) {
+  const { loadValidatedEnabledMonitors } = await import(
     "./validated-monitor-loader.mjs"
   );
-  return loadValidatedEnabledMonitor("zalando", options);
+  return loadValidatedEnabledMonitors("zalando", options);
 }
 
 export function buildZalandoScanPlan(monitor) {

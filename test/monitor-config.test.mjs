@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { loadEnabledMonitor } from "../scripts/lib/monitor-config.mjs";
-import { loadValidatedEnabledMonitor } from "../scripts/lib/validated-monitor-loader.mjs";
+import {
+  loadValidatedEnabledMonitor,
+  loadValidatedEnabledMonitors
+} from "../scripts/lib/validated-monitor-loader.mjs";
 
 const vintedMonitor = {
   id: "vinted-monitor",
@@ -24,11 +27,11 @@ const zalandoMonitor = {
   source: "zalando",
   enabled: true,
   filters: {
-    categorySlug: "herretoej-bukser",
-    size: "46",
-    upperMaterials: ["pure_linen"],
+    listingPath: "/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen",
+    targetSize: "46",
     minDiscountPercent: 30
-  }
+  },
+  pages: 1
 };
 
 function load(source, monitors) {
@@ -62,6 +65,31 @@ test("requires a JSON array and at most one enabled monitor per source", async (
       { ...scarossoMonitor, id: "another-scarosso-monitor" }
     ]),
     /at most one enabled Scarosso monitor/
+  );
+
+  await assert.rejects(
+    load("vinted", [vintedMonitor, { ...vintedMonitor, id: "another-vinted-monitor" }]),
+    /at most one enabled Vinted monitor/
+  );
+});
+
+test("validated plural selection allows multiple Zalando monitors only", async () => {
+  const secondZalando = {
+    ...zalandoMonitor,
+    id: "zalando-shoes",
+    filters: {
+      ...zalandoMonitor.filters,
+      listingPath: "/herresko/scarosso__stoerrelse-42/",
+      targetSize: "42"
+    }
+  };
+  const options = {
+    readFile: async () => JSON.stringify([zalandoMonitor, secondZalando])
+  };
+
+  assert.deepEqual(
+    await loadValidatedEnabledMonitors("zalando", options),
+    [zalandoMonitor, secondZalando]
   );
 });
 
@@ -107,7 +135,7 @@ test("validates source-specific fields across the complete document", async () =
         {
           ...zalandoMonitor,
           enabled: false,
-          filters: { ...zalandoMonitor.filters, size: "48" }
+          filters: { ...zalandoMonitor.filters, listingPath: "/shoes/?p=2" }
         }
       ])
     }),
