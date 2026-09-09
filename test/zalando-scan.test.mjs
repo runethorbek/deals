@@ -22,6 +22,10 @@ const LISTING_HTML = `
   </article>
 `;
 
+function listingCard(pathname, title, priceText = "500,00 kr") {
+  return `<article><a data-card-type="media" href="${pathname}"><h3><span>Test</span><span>${title} - blue</span></h3><span>${priceText}</span></a></article>`;
+}
+
 const configuredMonitor = {
   id: "zalando-test-monitor",
   source: "zalando",
@@ -306,6 +310,70 @@ test("scanner uses configured Zalando intent and preserves the output contract",
   ]);
 });
 
+test("scans and deduplicates pages while rejecting incoherent pagination metadata", async () => {
+  const requestedListingUrls = [];
+  const fsRecorder = createFsRecorder();
+  const paginatedMonitor = { ...configuredMonitor, pages: 3 };
+  const duplicate = listingCard(
+    "/shared-trousers-sh123a456-q11.html",
+    "Shared trousers",
+    "700,00 kr Oprindeligt: 1.000,00 kr -30%"
+  );
+  const second = listingCard(
+    "/second-trousers-se123a456-q11.html",
+    "Second trousers"
+  );
+
+  await scan({
+    apiKey: "test-api-key",
+    fetchImpl: async (endpoint) => {
+      const listingUrl = new URL(endpoint).searchParams.get("url");
+      requestedListingUrls.push(listingUrl);
+      const page = new URL(listingUrl).searchParams.get("p");
+      return {
+        ok: true,
+        async text() {
+          return page === "2" ? duplicate + second : duplicate;
+        }
+      };
+    },
+    fsImpl: fsRecorder.implementation,
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    now: () => new Date("2026-09-01T10:00:00.000Z"),
+    loadMonitors: async () => [paginatedMonitor],
+    outputPath: "zalando-test-output.json"
+  });
+
+  const baseUrl =
+    "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
+    "?upper_material=pure_linen";
+  const output = JSON.parse(fsRecorder.writes[0].contents);
+
+  assert.deepEqual(requestedListingUrls, [
+    baseUrl,
+    `${baseUrl}&p=2`,
+    `${baseUrl}&p=3`
+  ]);
+  assert.equal(output.scanned_page_count, 3);
+  assert.equal(output.scan_status.attempted_pages, 3);
+  assert.deepEqual(output.debug.pages.map((page) => page.product_count), [1, 2, 1]);
+  assert.equal(output.monitors[0].pages, 3);
+  assert.equal(output.monitors[0].product_count, 2);
+  assert.equal(output.products.length, 2);
+  assert.equal(
+    output.products.filter((product) => product.url.includes("shared-trousers")).length,
+    1
+  );
+
+  const incoherentOutput = structuredClone(output);
+  incoherentOutput.monitors[0].pages = 10;
+  assert.throws(
+    () => validateZalandoOutput(incoherentOutput),
+    /Invalid Zalando output contract/
+  );
+});
+
 test("invalid configuration stops before requests or output", async () => {
   let requestCount = 0;
   const fsRecorder = createFsRecorder();
@@ -353,6 +421,34 @@ test("required-page failures preserve the previous Zalando output", async () => 
     /Zalando scan failed: 1 of 1 required pages failed/
   );
 
+  assert.equal(fsRecorder.writes.length, 0);
+  assert.equal(fsRecorder.renames.length, 0);
+});
+
+test("a failed page does not prevent later page attempts or publication failure", async () => {
+  const requestedListingUrls = [];
+  const fsRecorder = createFsRecorder();
+  const paginatedMonitor = { ...configuredMonitor, pages: 3 };
+
+  await assert.rejects(scan({
+    apiKey: "test-api-key",
+    fetchImpl: async (endpoint) => {
+      const listingUrl = new URL(endpoint).searchParams.get("url");
+      requestedListingUrls.push(listingUrl);
+      if (new URL(listingUrl).searchParams.get("p") === "2") {
+        return { ok: false, status: 502, async text() { return "Bad Gateway"; } };
+      }
+      return { ok: true, async text() { return LISTING_HTML; } };
+    },
+    fsImpl: fsRecorder.implementation,
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    loadMonitors: async () => [paginatedMonitor],
+    outputPath: "zalando-test-output.json"
+  }), /Zalando scan failed: 1 of 3 required pages failed/);
+
+  assert.equal(requestedListingUrls.length, 3);
+  assert.equal(new URL(requestedListingUrls[2]).searchParams.get("p"), "3");
   assert.equal(fsRecorder.writes.length, 0);
   assert.equal(fsRecorder.renames.length, 0);
 });

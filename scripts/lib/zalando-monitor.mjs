@@ -75,15 +75,17 @@ function createZalandoScanPlan(monitor) {
   const { listingUrl, targetSize, minDiscountPercent, pages } =
     validateZalandoConfiguration(monitor);
 
-  if (pages !== 1) {
-    throw new Error("Zalando pagination beyond page 1 requires Slice 2");
-  }
-
   const upperMaterial = listingUrl.searchParams.get("upper_material");
+  const listingUrls = Array.from({ length: pages }, (_, index) => {
+    const pageUrl = new URL(listingUrl);
+    const pageNumber = index + 1;
+    if (pageNumber > 1) pageUrl.searchParams.set("p", String(pageNumber));
+    return pageUrl.toString();
+  });
 
   return {
     monitorId: monitor.id,
-    listingUrls: [listingUrl.toString()],
+    listingUrls,
     targetSize,
     upperMaterials: upperMaterial ? upperMaterial.split(".").filter(Boolean) : [],
     minDiscountPercent,

@@ -219,12 +219,13 @@ that distinction rather than silently treating such values as one currency.
 | `debug.products_without_discount` | Products without a parsed discount |
 | `debug.products_without_price` | Products without a parsed price |
 
-Every required Zalando monitor request must succeed and produce products before
-publication. All enabled monitors contribute to one atomic snapshot. Products
-are deduplicated by normalized URL; a URL found through different target sizes
-fails the complete scan. Configuration validates `pages` from 1 through 10, but
-Slice 1 scans only `pages: 1` and fails before requests for a larger enabled
-value. Explicit `p=N` pagination is deferred to Slice 2.
+Every required Zalando page request must succeed, and every monitor must produce
+at least one product across its pages, before publication. All enabled monitors
+contribute to one atomic snapshot. Products are deduplicated by normalized URL
+across pages and monitors; a URL found through different target sizes fails the
+complete scan. Configuration validates `pages` from 1 through 10. Page 1 uses
+the configured listing URL, and later pages preserve its query parameters while
+adding `p=N`.
 
 ### Product fields
 

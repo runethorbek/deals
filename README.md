@@ -104,18 +104,20 @@ explicit `targetSize`, a `minDiscountPercent`, and `pages`. The adapter owns the
 path, so categories, brands, sizes, and Zalando query filters do not require
 dedicated scraper code. Absolute/cross-host paths, fragments, configured `p`
 parameters, missing target sizes, and invalid thresholds are rejected. `pages`
-is validated from 1 through 10; in Slice 1, an enabled value above 1 fails before
-requests rather than under-scanning it. Slice 2 will add explicit `p=N`
-pagination.
+is validated from 1 through 10. Each monitor requests its base listing as page 1
+and adds `p=N` with URL search-parameter handling for pages 2 through `pages`,
+preserving existing listing filters.
 
 All enabled Zalando monitors are scanned and merged into one
 `public/deals/zalando-latest.json`. Products are deduplicated by normalized URL
 and carry sorted `monitor_ids`, their configured `target_size`, and
 `available: true`. Size-46 observations retain `size_46_available`; other sizes
 do not emit that legacy field. A duplicate URL observed through different target
-sizes fails the complete scan instead of publishing ambiguous data. A failed or
-empty monitor also prevents publication, although remaining monitors are still
-attempted for diagnostics. Monitor configuration remains repository-owned;
+sizes fails the complete scan instead of publishing ambiguous data. A failed
+required page or empty monitor also prevents publication, although remaining
+pages and monitors are still attempted for diagnostics. Products are
+deduplicated across pagination pages before the monitors are combined. Monitor
+configuration remains repository-owned;
 moving it to DealRadar is a possible future change, not part of this slice.
 
 Zalando products expose listing-card identity fields when available: `brand`,
@@ -131,8 +133,9 @@ page still fails, or successful pages produce no products, the scan exits
 without replacing the last known-good output. Valid snapshots are written to a
 temporary file and atomically renamed into place.
 
-Zalando treats its listing page as required and preserves the last known-good
-snapshot when that request fails or a successful response contains no products.
+Zalando treats every configured listing page as required and preserves the
+last known-good snapshot when any request fails or a monitor's successful pages
+collectively contain no products.
 Validated Zalando output is published through an atomic file replacement.
 This is an intentional, approved exception to issue #1's current-behavior
 preservation baseline: Slice 3 also replaced Zalando's previous behavior of

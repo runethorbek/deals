@@ -16,7 +16,7 @@ const validMonitor = {
     targetSize: "46",
     minDiscountPercent: 30
   },
-  pages: 1
+  pages: 2
 };
 
 const shoesMonitor = {
@@ -28,7 +28,7 @@ const shoesMonitor = {
     targetSize: "42",
     minDiscountPercent: 30
   },
-  pages: 1
+  pages: 2
 };
 
 const load = (monitors) => loadEnabledZalandoMonitors({
@@ -43,12 +43,14 @@ test("repository configuration preserves the current Zalando scan URL", async ()
     monitorId: validMonitor.id,
     listingUrls: [
       "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
-        "?upper_material=pure_cashmere.pure_linen.pure_wool"
+        "?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
+        "?upper_material=pure_cashmere.pure_linen.pure_wool&p=2"
     ],
     targetSize: "46",
     upperMaterials: ["pure_cashmere", "pure_linen", "pure_wool"],
     minDiscountPercent: 30,
-    pages: 1
+    pages: 2
   });
 });
 
@@ -64,11 +66,14 @@ test("loads multiple enabled Zalando monitors and ignores disabled ones", async 
 test("builds arbitrary safe Zalando listing paths and target sizes", () => {
   assert.deepEqual(buildZalandoScanPlan(shoesMonitor), {
     monitorId: shoesMonitor.id,
-    listingUrls: ["https://www.zalando.dk/herresko/scarosso__stoerrelse-42/"],
+    listingUrls: [
+      "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2"
+    ],
     targetSize: "42",
     upperMaterials: [],
     minDiscountPercent: 30,
-    pages: 1
+    pages: 2
   });
 });
 
@@ -96,12 +101,16 @@ test("rejects unsafe or ambiguous Zalando monitoring intent", async () => {
   }
 });
 
-test("accepts bounded future pagination intent but does not under-scan it", async () => {
-  const futureMonitor = { ...validMonitor, pages: 2 };
+test("builds every configured page while preserving existing query parameters", async () => {
+  const paginatedMonitor = { ...validMonitor, pages: 3 };
 
-  assert.deepEqual(await load([futureMonitor]), [futureMonitor]);
-  assert.throws(
-    () => buildZalandoScanPlan(futureMonitor),
-    /requires Slice 2/
-  );
+  assert.deepEqual(await load([paginatedMonitor]), [paginatedMonitor]);
+  assert.deepEqual(buildZalandoScanPlan(paginatedMonitor).listingUrls, [
+    "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
+      "?upper_material=pure_cashmere.pure_linen.pure_wool",
+    "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
+      "?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
+    "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
+      "?upper_material=pure_cashmere.pure_linen.pure_wool&p=3"
+  ]);
 });

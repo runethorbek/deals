@@ -56,13 +56,13 @@ cross-retailer taxonomy model. Multiple enabled Zalando monitors form one
 source-level scan and one atomic output snapshot. Vinted and Scarosso retain
 their maximum-one-enabled-monitor constraint.
 
-The Zalando scanner builds one Slice 1 request per monitor, attempts every
-monitor for complete diagnostics, and merges products by canonical URL. Any
-required request failure, empty monitor result, or duplicate URL associated with
+The Zalando scanner builds page 1 through the configured `pages` value for every
+monitor, using URL search parameters to add `p=N` while preserving listing
+filters. It attempts every required page for complete diagnostics, deduplicates
+products across pages, and then merges monitors by canonical URL. Any required
+request failure, empty monitor result, or duplicate URL associated with
 different target sizes prevents publication. Product `monitor_ids` preserve
-provenance. Configuration accepts the approved `pages` range 1–10, while an
-enabled Slice 1 plan above one page fails before requests; explicit pagination
-remains Slice 2 work.
+provenance. Configuration accepts the approved `pages` range 1–10.
 
 ## Trust boundaries
 
