@@ -590,7 +590,24 @@ test("conflicting target sizes fail after all monitors are attempted", async () 
     logger: { log() {}, error() {} },
     loadMonitors: async () => [configuredMonitor, secondMonitor],
     outputPath: "zalando-test-output.json"
-  }), /conflicting target sizes/);
+  }), (error) => {
+    assert.match(error.message, /conflicting target sizes/);
+    assert.match(
+      error.message,
+      /https:\/\/www\.zalando\.dk\/test-trousers-brand-tt123a456-q11\.html/
+    );
+    assert.match(error.message, /zalando-test-monitor target_size=46/);
+    assert.match(error.message, /zalando-size-42 target_size=42/);
+    assert.match(
+      error.message,
+      /page=https:\/\/www\.zalando\.dk\/herretoej-bukser\/__stoerrelse-46\//
+    );
+    assert.match(
+      error.message,
+      /page=https:\/\/www\.zalando\.dk\/herresko\/scarosso__stoerrelse-42\//
+    );
+    return true;
+  });
 
   assert.equal(requestCount, 2);
   assert.equal(fsRecorder.writes.length, 0);

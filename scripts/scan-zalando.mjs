@@ -20,6 +20,9 @@ const SITE = "zalando.dk";
 const BASE_URL = "https://www.zalando.dk";
 const MAX_IDENTITY_FIELD_LENGTH = 120;
 const MAX_TITLE_LENGTH = 500;
+const MAX_CONFLICTS_IN_DIAGNOSTIC = 5;
+const MAX_OBSERVATIONS_IN_DIAGNOSTIC = 6;
+const MAX_DIAGNOSTIC_VALUE_LENGTH = 300;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -57,6 +60,44 @@ function buildExpectedPaginationUrls(listingUrl, pages) {
   } catch {
     return null;
   }
+}
+
+function boundedDiagnosticValue(value) {
+  return safeErrorDiagnostic(value).slice(0, MAX_DIAGNOSTIC_VALUE_LENGTH);
+}
+
+function createConflictingTargetSizeError(
+  conflictingProductUrls,
+  productObservations
+) {
+  const urls = [...conflictingProductUrls].sort();
+  const details = urls
+    .slice(0, MAX_CONFLICTS_IN_DIAGNOSTIC)
+    .map((productUrl) => {
+      const observations = (productObservations.get(productUrl) ?? [])
+        .toSorted((left, right) => (
+          left.monitorId.localeCompare(right.monitorId) ||
+          left.targetSize.localeCompare(right.targetSize) ||
+          left.pageUrl.localeCompare(right.pageUrl)
+        ))
+        .slice(0, MAX_OBSERVATIONS_IN_DIAGNOSTIC)
+        .map((observation) => (
+          `${boundedDiagnosticValue(observation.monitorId)} ` +
+          `target_size=${boundedDiagnosticValue(observation.targetSize)} ` +
+          `page=${boundedDiagnosticValue(observation.pageUrl)}`
+        ));
+
+      return `${boundedDiagnosticValue(productUrl)} [${observations.join("; ")}]`;
+    });
+  const omittedCount = urls.length - details.length;
+  const omittedSuffix = omittedCount > 0
+    ? `; ${omittedCount} additional conflict(s) omitted`
+    : "";
+
+  return new Error(
+    "Zalando scan found the same product through monitors with conflicting " +
+    `target sizes: ${details.join(" | ")}${omittedSuffix}`
+  );
 }
 
 function absoluteUrl(value) {
@@ -453,6 +494,7 @@ export async function scan({
   const startUrls = plans.flatMap((plan) => plan.listingUrls);
   const checkedAt = now().toISOString();
   const productMap = new Map();
+  const productObservations = new Map();
   const matchingProductUrls = new Set();
   const conflictingProductUrls = new Set();
   const pageResults = [];
@@ -495,6 +537,14 @@ export async function scan({
 
         for (const product of products) {
           monitorProductUrls.add(product.url);
+          const observations = productObservations.get(product.url) ?? [];
+          observations.push({
+            monitorId: plan.monitorId,
+            targetSize: plan.targetSize,
+            pageUrl: url
+          });
+          productObservations.set(product.url, observations);
+
           const existing = productMap.get(product.url);
           if (existing && existing.target_size !== product.target_size) {
             conflictingProductUrls.add(product.url);
@@ -579,8 +629,9 @@ export async function scan({
   }
 
   if (conflictingProductUrls.size > 0) {
-    throw new Error(
-      "Zalando scan found the same product through monitors with conflicting target sizes"
+    throw createConflictingTargetSizeError(
+      conflictingProductUrls,
+      productObservations
     );
   }
 
