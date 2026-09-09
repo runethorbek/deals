@@ -95,7 +95,7 @@ function intersection(left, right) {
 }
 
 function summarizePage({ item, html, previousProductUrls, checkedAt }) {
-  const occurrences = extractProductUrlOccurrences(html);
+  const occurrences = extractProductUrlOccurrences(html, item.targetSize);
   const products = extractProductsFromListing(
     html,
     item.requestedUrl,

@@ -21,10 +21,11 @@ const LISTINGS = [
 ];
 
 function htmlFor(...productIds) {
-  return productIds.map((id) => (
+  const cards = productIds.map((id) => (
     `<article><a data-card-type="media" href="/${id}-aa123a456-q11.html">` +
     `${id} product listing text</a></article>`
   )).join("");
+  return `<main id="main-content"><ul role="list"><li>${cards}</li></ul></main>`;
 }
 
 test("builds bounded page URLs while preserving configured filters", () => {

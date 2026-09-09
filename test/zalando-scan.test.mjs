@@ -7,7 +7,11 @@ import {
   validateZalandoOutput
 } from "../scripts/scan-zalando.mjs";
 
-const LISTING_HTML = `
+function listingGrid(cards) {
+  return `<main id="main-content"><ul role="list"><li>${cards}</li></ul></main>`;
+}
+
+const LISTING_HTML = listingGrid(`
   <article>
     <a data-card-type="media" href="/test-trousers-brand-tt123a456-q11.html" title="Test trousers">
       <img src="https://img01.ztat.net/test-trousers.jpg" alt="Test trousers">
@@ -20,7 +24,7 @@ const LISTING_HTML = `
     </a>
     <span>Full-price trousers 900,00 kr</span>
   </article>
-`;
+`);
 
 function listingCard(pathname, title, priceText = "500,00 kr") {
   return `<article><a data-card-type="media" href="${pathname}"><h3><span>Test</span><span>${title} - blue</span></h3><span>${priceText}</span></a></article>`;
@@ -63,10 +67,10 @@ function createFsRecorder() {
 }
 
 test("extracts Zalando listing-card identity instead of photo descriptions", async () => {
-  const listingHtml = await fs.readFile(
+  const listingHtml = listingGrid(await fs.readFile(
     new URL("./fixtures/zalando-listing-card.html", import.meta.url),
     "utf8"
-  );
+  ));
   const products = extractProductsFromListing(
     listingHtml,
     "https://www.zalando.dk/herretoej-bukser/",
@@ -120,7 +124,7 @@ test("extracts Zalando listing-card identity instead of photo descriptions", asy
 
 test("uses Unknown product when a listing card has no structured identity", () => {
   const products = extractProductsFromListing(
-    `<article><a data-card-type="media" href="/unidentified-zz123a456-q11.html"><img alt="A model wearing trousers in a studio"></a><span>700,00 kr</span></article>`,
+    listingGrid(`<article><a data-card-type="media" href="/unidentified-zz123a456-q11.html"><img alt="A model wearing trousers in a studio"></a><span>700,00 kr</span></article>`),
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
@@ -134,7 +138,7 @@ test("uses Unknown product when a listing card has no structured identity", () =
 
 test("splits identity descriptors from the right", () => {
   const products = extractProductsFromListing(
-    `<article><a data-card-type="media" href="/mango-adult-slim-mm123a456-q11.html" aria-label="Wrong ARIA label" title="Wrong anchor title"><img alt="A model in blue chinos"></a><h3><span>Mango</span><span>ADULT - SLIM - Chino - blue</span></h3><span>700,00 kr</span></article>`,
+    listingGrid(`<article><a data-card-type="media" href="/mango-adult-slim-mm123a456-q11.html" aria-label="Wrong ARIA label" title="Wrong anchor title"><img alt="A model in blue chinos"></a><h3><span>Mango</span><span>ADULT - SLIM - Chino - blue</span></h3><span>700,00 kr</span></article>`),
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
@@ -159,7 +163,7 @@ test("splits identity descriptors from the right", () => {
 test("bounds extracted identity text and rejects invalid published identity fields", () => {
   const oversized = "x".repeat(121);
   const products = extractProductsFromListing(
-    `<article><a data-card-type="media" href="/oversized-identity-oo123a456-q11.html"><img alt="Photo description"></a><h3><span>${oversized}</span><span>${oversized} - ${oversized} - ${oversized}</span></h3><span>700,00 kr</span></article>`,
+    listingGrid(`<article><a data-card-type="media" href="/oversized-identity-oo123a456-q11.html"><img alt="Photo description"></a><h3><span>${oversized}</span><span>${oversized} - ${oversized} - ${oversized}</span></h3><span>700,00 kr</span></article>`),
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
@@ -198,7 +202,7 @@ test("bounds extracted identity text and rejects invalid published identity fiel
 test("omits a reassembled product name that exceeds the identity field limit", () => {
   const nameSegment = "x".repeat(120);
   const products = extractProductsFromListing(
-    `<article><a data-card-type="media" href="/long-product-name-ll123a456-q11.html"><img alt="Photo description"></a><h3><span>Mango</span><span>${nameSegment} - ${nameSegment} - Chino - blue</span></h3><span>700,00 kr</span></article>`,
+    listingGrid(`<article><a data-card-type="media" href="/long-product-name-ll123a456-q11.html"><img alt="Photo description"></a><h3><span>Mango</span><span>${nameSegment} - ${nameSegment} - Chino - blue</span></h3><span>700,00 kr</span></article>`),
     "https://www.zalando.dk/herretoej-bukser/",
     "2026-09-01T10:00:00.000Z",
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
@@ -333,7 +337,7 @@ test("scans and deduplicates pages while rejecting incoherent pagination metadat
       return {
         ok: true,
         async text() {
-          return page === "2" ? duplicate + second : duplicate;
+          return listingGrid(page === "2" ? duplicate + second : duplicate);
         }
       };
     },
@@ -479,9 +483,16 @@ test("empty successful scans preserve the previous Zalando output", async () => 
 
 test("extracts only genuine Zalando result-card product links", () => {
   const products = extractProductsFromListing(
-    `<a href="/help/faq.html">FAQ</a>
-     <article><a href="/recommendation-rr123a456-q11.html">Recommendation</a></article>
-     <article><a data-card-type="media" href="/real-product-rp123a456-q11.html"><h3><span>Real</span><span>Product - blue</span></h3><span>500,00 kr</span></a></article>`,
+    `<main id="main-content">
+       <a href="/help/faq.html">FAQ</a>
+       <ul role="list">
+         <li><article><a data-card-type="media" href="/real-product-rp123a456-q11.html?size=42"><h3><span>Real</span><span>Product - blue</span></h3><span>500,00 kr</span></a></article></li>
+         <li><article><a data-card-type="media" href="/gant-bukser-shadow-brown-ga322e05w-o11.html?size=46"><h3><span>GANT</span><span>Trousers - brown</span></h3><span>700,00 kr</span></a></article></li>
+       </ul>
+       <section aria-label="Recommendations">
+         <article><a data-card-type="media" href="/outside-grid-oo123a456-q11.html?size=42"><h3><span>Outside</span><span>Grid - black</span></h3><span>600,00 kr</span></a></article>
+       </section>
+     </main>`,
     "https://www.zalando.dk/herresko/",
     "2026-09-01T10:00:00.000Z",
     { monitorId: "shoes", targetSize: "42" }
@@ -507,7 +518,7 @@ test("combines multiple monitors into one snapshot with truthful provenance", as
     },
     pages: 1
   };
-  const shoeHtml = `<article><a data-card-type="media" href="/scarosso-shoe-ss123a456-q11.html"><h3><span>Scarosso</span><span>Oxford - brown</span></h3><span>600,00 kr Oprindeligt: 1.000,00 kr -40%</span></a></article>`;
+  const shoeHtml = listingGrid(`<article><a data-card-type="media" href="/scarosso-shoe-ss123a456-q11.html"><h3><span>Scarosso</span><span>Oxford - brown</span></h3><span>600,00 kr Oprindeligt: 1.000,00 kr -40%</span></a></article>`);
 
   await scan({
     apiKey: "test-api-key",

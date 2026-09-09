@@ -23,6 +23,8 @@ const MAX_TITLE_LENGTH = 500;
 const MAX_CONFLICTS_IN_DIAGNOSTIC = 5;
 const MAX_OBSERVATIONS_IN_DIAGNOSTIC = 6;
 const MAX_DIAGNOSTIC_VALUE_LENGTH = 300;
+const PRODUCT_ANCHOR_SELECTOR =
+  "article a[data-card-type='media'][href]";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -246,12 +248,36 @@ function extractProductIdentity($, container) {
     : { title: "Unknown product" };
 }
 
-export function extractProductUrlOccurrences(html) {
+function findListingProductAnchors($) {
+  const productList = $("main#main-content ul[role='list']")
+    .filter((_, list) => (
+      $(list).children("li").find(PRODUCT_ANCHOR_SELECTOR).length > 0
+    ))
+    .first();
+
+  if (!productList.length) return $([]);
+  return productList.children("li").find(PRODUCT_ANCHOR_SELECTOR);
+}
+
+function productLinkMatchesTargetSize(href, targetSize) {
+  if (!targetSize) return true;
+
+  const url = absoluteUrl(href);
+  if (!url) return false;
+  const linkedSizes = new URL(url).searchParams.getAll("size");
+  return linkedSizes.length === 0 || (
+    linkedSizes.length === 1 && linkedSizes[0] === targetSize
+  );
+}
+
+export function extractProductUrlOccurrences(html, targetSize) {
   const $ = cheerio.load(html);
   const productUrls = [];
 
-  $("article a[data-card-type='media'][href]").each((_, anchor) => {
-    const url = normalizeProductUrl($(anchor).attr("href"));
+  findListingProductAnchors($).each((_, anchor) => {
+    const href = $(anchor).attr("href");
+    if (!productLinkMatchesTargetSize(href, targetSize)) return;
+    const url = normalizeProductUrl(href);
     if (isZalandoProductUrl(url)) productUrls.push(url);
   });
 
@@ -276,8 +302,9 @@ export function extractProductsFromListing(
   const $ = cheerio.load(html);
   const products = new Map();
 
-  $("article a[data-card-type='media'][href]").each((_, anchor) => {
+  findListingProductAnchors($).each((_, anchor) => {
     const href = $(anchor).attr("href");
+    if (!productLinkMatchesTargetSize(href, targetSize)) return;
     const url = normalizeProductUrl(href);
 
     if (!isZalandoProductUrl(url)) return;
