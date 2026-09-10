@@ -69,7 +69,7 @@ export function selectEnabledMonitors(source, monitors) {
     (monitor) => monitor.source === source && monitor.enabled
   );
 
-  if (source !== "zalando" && enabledMonitors.length > 1) {
+  if (source === "scarosso" && enabledMonitors.length > 1) {
     const sourceLabel = source[0].toUpperCase() + source.slice(1);
     throw new Error(`Monitor configuration must contain at most one enabled ${sourceLabel} monitor`);
   }

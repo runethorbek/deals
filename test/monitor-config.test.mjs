@@ -67,9 +67,14 @@ test("requires a JSON array and at most one enabled monitor per source", async (
     /at most one enabled Scarosso monitor/
   );
 
-  await assert.rejects(
-    load("vinted", [vintedMonitor, { ...vintedMonitor, id: "another-vinted-monitor" }]),
-    /at most one enabled Vinted monitor/
+  assert.deepEqual(
+    await loadValidatedEnabledMonitors("vinted", {
+      readFile: async () => JSON.stringify([
+        vintedMonitor,
+        { ...vintedMonitor, id: "another-vinted-monitor" }
+      ])
+    }),
+    [vintedMonitor, { ...vintedMonitor, id: "another-vinted-monitor" }]
   );
 });
 

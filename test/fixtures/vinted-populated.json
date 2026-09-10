@@ -10,6 +10,16 @@
   "scanned_page_count": 1,
   "scanned_product_count": 1,
   "product_count": 1,
+  "monitors": [
+    {
+      "id": "vinted-mens-shoes-42",
+      "catalog_id": "1786",
+      "size_id": "207",
+      "pages": 1,
+      "product_count": 1,
+      "status": "success"
+    }
+  ],
   "products": [
     {
       "title": "Test blazer",
@@ -19,6 +29,9 @@
       "source_url": "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
       "catalog_id": "1786",
       "target_size_id": "207",
+      "monitor_ids": [
+        "vinted-mens-shoes-42"
+      ],
       "size_assumption": "listing-url-filtered-by-size-id-207",
       "brand": "Test Brand",
       "size_guess": null,

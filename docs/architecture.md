@@ -55,9 +55,9 @@ database concerns belong in DealRadar.
 Configuration describes requested monitoring intent, while each retailer
 adapter defines the subset it can translate safely. Zalando monitors use a
 retailer-relative `listingPath` plus an explicit `targetSize`, avoiding a generic
-cross-retailer taxonomy model. Multiple enabled Zalando monitors form one
-source-level scan and one atomic output snapshot. Vinted and Scarosso retain
-their maximum-one-enabled-monitor constraint.
+cross-retailer taxonomy model. Multiple enabled Vinted and Zalando monitors
+form one source-level scan and one atomic output snapshot. Scarosso retains its
+maximum-one-enabled-monitor constraint.
 
 The Zalando scanner builds page 1 through the configured `pages` value for every
 monitor, using URL search parameters to add `p=N` while preserving listing

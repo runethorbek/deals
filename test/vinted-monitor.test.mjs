@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   buildVintedListingUrls,
-  loadEnabledVintedMonitor
+  loadEnabledVintedMonitor,
+  loadEnabledVintedMonitors
 } from "../scripts/lib/vinted-monitor.mjs";
 
 test("repository configuration preserves the current Vinted scan URLs", async () => {
@@ -25,8 +26,8 @@ test("repository configuration preserves the current Vinted scan URLs", async ()
   ]);
 });
 
-test("configuration skips when no Vinted monitor is enabled and rejects multiples", async () => {
-  const load = (monitors) => loadEnabledVintedMonitor({
+test("configuration skips when no Vinted monitor is enabled and permits multiples", async () => {
+  const load = (monitors) => loadEnabledVintedMonitors({
     readFile: async () => JSON.stringify(monitors)
   });
   const monitor = {
@@ -40,14 +41,14 @@ test("configuration skips when no Vinted monitor is enabled and rejects multiple
     pages: 3
   };
 
-  assert.equal(await load([{ ...monitor, enabled: false }]), null);
+  assert.deepEqual(await load([{ ...monitor, enabled: false }]), []);
   await assert.rejects(
     load([null]),
     /Invalid monitor configuration envelope/
   );
-  await assert.rejects(
-    load([monitor, { ...monitor, id: "another-vinted-monitor" }]),
-    /at most one enabled Vinted monitor/
+  assert.deepEqual(
+    await load([monitor, { ...monitor, id: "another-vinted-monitor" }]),
+    [monitor, { ...monitor, id: "another-vinted-monitor" }]
   );
 });
 

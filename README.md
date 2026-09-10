@@ -76,7 +76,7 @@ IDs, boolean `enabled`, object `filters`, and the supported source-specific
 fields. Scanners receive the resulting validated monitor object rather than
 depending on file-reading behavior.
 
-Zalando may have multiple enabled monitors; Vinted and Scarosso may each have at
+Vinted and Zalando may have multiple enabled monitors; Scarosso may have at
 most one. A scheduled workflow with no enabled monitor for its source exits
 successfully and skips scanning, publishing, and committing. Disabled monitors
 are still validated so an
@@ -86,10 +86,11 @@ The checked-in Vinted monitor preserves the current catalog, size, and
 three-page scan. Vinted's base URL and query construction remain implementation
 details of the scraper.
 
-Slice 1 supports at most one enabled Vinted monitor containing one numeric
-`catalogIds` value, one numeric `sizeIds` value, and a `pages` value from 1 to
-100. Invalid or ambiguous Vinted configuration stops the scanner before it
-makes retailer requests or writes output.
+Each Vinted monitor contains one numeric `catalogIds` value, one numeric
+`sizeIds` value, and a `pages` value from 1 to 100. All enabled Vinted monitors
+are scanned in ID order and merged into one atomic snapshot. Invalid
+configuration stops the scanner before it makes retailer requests or writes
+output.
 
 The checked-in direct Scarosso monitor is disabled: current Scarosso monitoring
 has moved to Zalando. The direct scanner, workflow, tests, and its last
@@ -133,9 +134,10 @@ title `Unknown product`.
 
 Vinted ScrapingAnt requests time out after 30 seconds and transient failures
 are attempted at most three times with bounded backoff. If any required listing
-page still fails, or successful pages produce no products, the scan exits
-without replacing the last known-good output. Valid snapshots are written to a
-temporary file and atomically renamed into place.
+page still fails, or any successful monitor produces no products, the scan exits
+without replacing the last known-good output. Products are deduplicated by
+canonical item URL and include sorted `monitor_ids` provenance. Valid snapshots
+are written to a temporary file and atomically renamed into place.
 
 Zalando treats every configured listing page as required and preserves the
 last known-good snapshot when any request fails or a monitor's successful pages

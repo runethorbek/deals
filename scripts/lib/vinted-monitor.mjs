@@ -46,6 +46,19 @@ export async function loadEnabledVintedMonitor(options = {}) {
   return monitor;
 }
 
+export async function loadEnabledVintedMonitors(options = {}) {
+  const { loadValidatedEnabledMonitors } = await import(
+    "./validated-monitor-loader.mjs"
+  );
+  const monitors = await loadValidatedEnabledMonitors("vinted", options);
+
+  if (!monitors.every(isValidVintedMonitor)) {
+    throw new Error("Invalid enabled Vinted monitor configuration");
+  }
+
+  return monitors;
+}
+
 export function buildVintedListingUrls(monitor) {
   const catalogQuery = monitor.filters.catalogIds
     .map((id) => `catalog[]=${encodeURIComponent(id)}`)

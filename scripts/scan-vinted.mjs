@@ -10,7 +10,7 @@ import {
 } from "./lib/scan-status.mjs";
 import {
   buildVintedListingUrls,
-  loadEnabledVintedMonitor
+  loadEnabledVintedMonitors
 } from "./lib/vinted-monitor.mjs";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
@@ -358,7 +358,7 @@ function extractProductsFromListing(
   html,
   sourceUrl,
   checkedAt,
-  { catalogId, sizeId }
+  { catalogId, sizeId, monitorId }
 ) {
   const $ = cheerio.load(html);
   const products = new Map();
@@ -383,6 +383,7 @@ function extractProductsFromListing(
       source_url: sourceUrl,
       catalog_id: catalogId,
       target_size_id: sizeId,
+      monitor_ids: [monitorId],
       size_assumption: `listing-url-filtered-by-size-id-${sizeId}`,
       brand: extractBrandGuess(title, rawCardText),
       size_guess: extractSizeGuess(rawCardText),
@@ -418,7 +419,8 @@ function mergeProduct(existing, incoming) {
   if (!existing) {
     return {
       ...incoming,
-      source_urls: incoming.source_url ? [incoming.source_url] : []
+      source_urls: incoming.source_url ? [incoming.source_url] : [],
+      monitor_ids: [...new Set(incoming.monitor_ids ?? [])].sort()
     };
   }
 
@@ -437,6 +439,10 @@ function mergeProduct(existing, incoming) {
     ...best,
     source_url: undefined,
     source_urls: [...sourceUrls].filter(Boolean),
+    monitor_ids: [...new Set([
+      ...(existing.monitor_ids ?? []),
+      ...(incoming.monitor_ids ?? [])
+    ])].sort(),
     checked_at: incoming.checked_at
   };
 }
@@ -448,6 +454,8 @@ function validateVintedOutput(output) {
     !Array.isArray(output.start_urls) ||
     output.start_urls.length === 0 ||
     output.scanned_page_count !== output.start_urls.length ||
+    !Array.isArray(output.monitors) ||
+    output.monitors.length === 0 ||
     !Array.isArray(output.products) ||
     output.products.length === 0 ||
     output.scanned_product_count !== output.products.length ||
@@ -467,10 +475,46 @@ function validateVintedOutput(output) {
   }
 
   const productUrls = new Set();
+  const monitorIds = new Set();
+
+  for (const monitor of output.monitors) {
+    if (
+      typeof monitor.id !== "string" ||
+      monitorIds.has(monitor.id) ||
+      (monitorIds.size > 0 && [...monitorIds].at(-1) > monitor.id) ||
+      typeof monitor.catalog_id !== "string" ||
+      !/^\d+$/.test(monitor.catalog_id) ||
+      typeof monitor.size_id !== "string" ||
+      !/^\d+$/.test(monitor.size_id) ||
+      !Number.isSafeInteger(monitor.pages) ||
+      monitor.pages < 1 ||
+      !Number.isSafeInteger(monitor.product_count) ||
+      monitor.product_count < 1 ||
+      monitor.status !== "success"
+    ) {
+      throw new Error("Invalid Vinted monitor summary in scan output");
+    }
+    monitorIds.add(monitor.id);
+  }
+
+  if (output.monitors.reduce((count, monitor) => count + monitor.pages, 0) !== output.start_urls.length) {
+    throw new Error("Inconsistent Vinted monitor page counts in scan output");
+  }
 
   for (const product of output.products) {
     if (!isVintedItemUrl(product.url) || productUrls.has(product.url)) {
       throw new Error("Invalid or duplicate Vinted product URL in scan output");
+    }
+
+    if (
+      !Array.isArray(product.monitor_ids) ||
+      product.monitor_ids.length === 0 ||
+      new Set(product.monitor_ids).size !== product.monitor_ids.length ||
+      product.monitor_ids.some((id, index, ids) => (
+        !monitorIds.has(id) || (index > 0 && ids[index - 1] > id)
+      ))
+    ) {
+      throw new Error("Invalid Vinted product provenance in scan output");
     }
 
     productUrls.add(product.url);
@@ -505,7 +549,7 @@ export async function scan({
   sleepImpl = sleep,
   logger = console,
   now = () => new Date(),
-  loadMonitor = loadEnabledVintedMonitor,
+  loadMonitors = loadEnabledVintedMonitors,
   requestTimeoutMs = REQUEST_TIMEOUT_MS,
   outputPath = path.join(
     process.cwd(),
@@ -514,9 +558,11 @@ export async function scan({
     "vinted-latest.json"
   )
 } = {}) {
-  const monitor = await loadMonitor();
+  const monitors = (await loadMonitors()).sort((a, b) => (
+    a.id.localeCompare(b.id)
+  ));
 
-  if (monitor === null) {
+  if (monitors.length === 0) {
     logger.log("No enabled Vinted monitor; skipping scan.");
     return { skipped: true };
   }
@@ -529,19 +575,26 @@ export async function scan({
     throw new Error("Invalid Vinted request timeout");
   }
 
-  const startUrls = buildVintedListingUrls(monitor);
-  const catalogId = monitor.filters.catalogIds[0];
-  const sizeId = monitor.filters.sizeIds[0];
+  const monitorPages = monitors.flatMap((monitor) => (
+    buildVintedListingUrls(monitor).map((url) => ({ monitor, url }))
+  ));
+  const startUrls = monitorPages.map(({ url }) => url);
   const checkedAt = now().toISOString();
   const productMap = new Map();
   const pageResults = [];
+  const monitorProductUrls = new Map(monitors.map((monitor) => [
+    monitor.id,
+    new Set()
+  ]));
 
   logger.log("Fetching Vinted listing pages...");
 
-  for (let i = 0; i < startUrls.length; i++) {
-    const url = startUrls[i];
+  for (let i = 0; i < monitorPages.length; i++) {
+    const { monitor, url } = monitorPages[i];
+    const catalogId = monitor.filters.catalogIds[0];
+    const sizeId = monitor.filters.sizeIds[0];
 
-    logger.log(`[${i + 1}/${startUrls.length}] ${url}`);
+    logger.log(`[${i + 1}/${monitorPages.length}] ${url}`);
 
     try {
       const html = await getRenderedHtml(
@@ -555,13 +608,14 @@ export async function scan({
         html,
         url,
         checkedAt,
-        { catalogId, sizeId }
+        { catalogId, sizeId, monitorId: monitor.id }
       );
       const jsonLd = extractMetadataFromJsonLd(html);
 
       logger.log(`Found ${products.length} products on listing page`);
 
       pageResults.push({
+        monitor_id: monitor.id,
         url,
         product_count: products.length,
         json_ld_blocks: jsonLd.length,
@@ -569,6 +623,7 @@ export async function scan({
       });
 
       for (const product of products) {
+        monitorProductUrls.get(monitor.id).add(product.url);
         const existing = productMap.get(product.url);
         productMap.set(product.url, mergeProduct(existing, product));
       }
@@ -578,6 +633,7 @@ export async function scan({
       logger.error(`Failed listing ${url}:`, errorDiagnostic);
 
       pageResults.push({
+        monitor_id: monitor.id,
         url,
         product_count: 0,
         json_ld_blocks: 0,
@@ -585,7 +641,7 @@ export async function scan({
       });
     }
 
-    if (i < startUrls.length - 1) {
+    if (i < monitorPages.length - 1) {
       await sleepImpl(1500);
     }
   }
@@ -615,12 +671,32 @@ export async function scan({
     throw new Error("Vinted scan produced no products");
   }
 
+  const emptyMonitor = monitors.find((monitor) => (
+    monitorProductUrls.get(monitor.id).size === 0
+  ));
+  if (emptyMonitor) {
+    throw new Error(`Vinted monitor ${emptyMonitor.id} produced no products`);
+  }
+
+  const monitorSummaries = monitors.map((monitor) => ({
+    id: monitor.id,
+    catalog_id: monitor.filters.catalogIds[0],
+    size_id: monitor.filters.sizeIds[0],
+    pages: monitor.pages,
+    product_count: monitorProductUrls.get(monitor.id).size,
+    status: "success"
+  }));
+
   const output = {
     site: "vinted.com",
     scan_mode: "vinted-listing-pages-only",
     start_urls: startUrls,
-    catalog_id: catalogId,
-    target_size_id: sizeId,
+    ...(monitors.length === 1
+      ? {
+          catalog_id: monitors[0].filters.catalogIds[0],
+          target_size_id: monitors[0].filters.sizeIds[0]
+        }
+      : {}),
     checked_at: checkedAt,
 
     scanned_page_count: startUrls.length,
@@ -628,6 +704,8 @@ export async function scan({
 
     product_count: products.length,
     products,
+
+    monitors: monitorSummaries,
 
     scan_status: scanStatus,
 

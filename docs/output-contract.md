@@ -95,14 +95,15 @@ plausible for the source.
 | --- | --- |
 | `site` | `vinted.com` |
 | `scan_mode` | `vinted-listing-pages-only` |
-| `start_urls` | Listing URLs requested for the configured catalog, size, and pages |
-| `catalog_id` | Retailer catalog identifier used in the listing filter |
-| `target_size_id` | Retailer size identifier used in the listing filter |
+| `start_urls` | Listing URLs requested across all enabled monitors |
+| `catalog_id` | Retailer catalog identifier used in the listing filter; present only for one enabled monitor |
+| `target_size_id` | Retailer size identifier used in the listing filter; present only for one enabled monitor |
 | `checked_at` | Scan observation time |
 | `scanned_page_count` | Number of requested listing pages |
 | `scanned_product_count` | Recognized products |
 | `product_count` | Published product count |
 | `products` | Published Vinted product objects |
+| `monitors` | Successful monitor summaries: ID, catalog ID, size ID, required pages, and unique observed product count |
 | `scan_status` | Required-page outcome and published count metadata |
 | `debug.pages` | Per-page product counts, JSON-LD counts, and request errors |
 | `debug.products_with_price` | Recognized products with a parsed price |
@@ -110,10 +111,10 @@ plausible for the source.
 | `debug.products_with_brand` | Recognized products with a parsed brand |
 | `debug.products_with_size_guess` | Recognized products with an inferred size |
 
-Vinted requires all configured pages to succeed and a non-empty recognized
-product set before publication. The checked-in monitor uses catalog `1786`,
-size `207`, and three pages; those values are monitoring intent, not universal
-contract fields.
+Vinted requires all configured pages to succeed, every enabled monitor to
+observe products, and a non-empty combined recognized product set before
+publication. The checked-in monitor uses catalog `1786`, size `207`, and three
+pages; those values are monitoring intent, not universal contract fields.
 
 ### Product fields
 
@@ -125,6 +126,7 @@ contract fields.
 | `site` | `vinted.com` |
 | `source_url` | Listing page where this observation was found |
 | `source_urls` | Listing pages retained when duplicate observations are merged |
+| `monitor_ids` | Sorted, unique IDs of monitors that observed the item |
 | `catalog_id` | Catalog filter used for the observation |
 | `target_size_id` | Size filter used for the observation |
 | `size_assumption` | Documents that the listing URL was filtered by the size ID |

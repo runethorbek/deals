@@ -11,12 +11,40 @@ const LISTING_HTML = `
   </article>
 `;
 
+function listingHtml(itemId, title = "Test blazer") {
+  return `
+    <article>
+      <a href="/items/${itemId}-${title.toLowerCase().replaceAll(" ", "-")}" title="${title}">
+        <img src="/images/${itemId}.webp" alt="${title}">
+      </a>
+      <span>Test Brand, Size: S, 100 kr.</span>
+    </article>
+  `;
+}
+
+const MULTI_MONITORS = [
+  {
+    id: "vinted-zeta",
+    source: "vinted",
+    enabled: true,
+    filters: { catalogIds: ["1786"], sizeIds: ["207"] },
+    pages: 1
+  },
+  {
+    id: "vinted-alpha",
+    source: "vinted",
+    enabled: true,
+    filters: { catalogIds: ["1234"], sizeIds: ["208"] },
+    pages: 2
+  }
+];
+
 test("disabled monitor skips before credentials, requests, or output", async () => {
   let requestCount = 0;
   let writeCount = 0;
 
   const result = await scan({
-    loadMonitor: async () => null,
+    loadMonitors: async () => [],
     fetchImpl: async () => {
       requestCount++;
     },
@@ -82,6 +110,7 @@ test("scanner uses configured Vinted pages and writes the existing output contra
       scanned_page_count: writtenOutput.scanned_page_count,
       scanned_product_count: writtenOutput.scanned_product_count,
       product_count: writtenOutput.product_count,
+      monitors: writtenOutput.monitors,
       scan_status: writtenOutput.scan_status
     },
     {
@@ -94,6 +123,14 @@ test("scanner uses configured Vinted pages and writes the existing output contra
       scanned_page_count: 3,
       scanned_product_count: 1,
       product_count: 1,
+      monitors: [{
+        id: "vinted-mens-shoes-42",
+        catalog_id: "1786",
+        size_id: "207",
+        pages: 3,
+        product_count: 1,
+        status: "success"
+      }],
       scan_status: {
         attempted_pages: 3,
         successful_pages: 3,
@@ -113,6 +150,7 @@ test("scanner uses configured Vinted pages and writes the existing output contra
       catalog_id: writtenOutput.products[0].catalog_id,
       target_size_id: writtenOutput.products[0].target_size_id,
       size_assumption: writtenOutput.products[0].size_assumption,
+      monitor_ids: writtenOutput.products[0].monitor_ids,
       source_urls: writtenOutput.products[0].source_urls
     },
     {
@@ -123,9 +161,55 @@ test("scanner uses configured Vinted pages and writes the existing output contra
       catalog_id: "1786",
       target_size_id: "207",
       size_assumption: "listing-url-filtered-by-size-id-207",
+      monitor_ids: ["vinted-mens-shoes-42"],
       source_urls: expectedUrls
     }
   );
+});
+
+test("scanner combines sorted Vinted monitors with deduplicated provenance", async () => {
+  const requestedListingUrls = [];
+  let writtenOutput = null;
+
+  await scan({
+    apiKey: "test-api-key",
+    loadMonitors: async () => MULTI_MONITORS,
+    fetchImpl: async (endpoint) => {
+      const listingUrl = new URL(endpoint).searchParams.get("url");
+      requestedListingUrls.push(listingUrl);
+      const page = new URL(listingUrl).searchParams.get("page");
+      const catalog = new URL(listingUrl).searchParams.get("catalog[]");
+      const html = catalog === "1234"
+        ? (page === "1" ? listingHtml("shared") : listingHtml("alpha-only"))
+        : listingHtml("shared");
+      return { ok: true, async text() { return html; } };
+    },
+    fsImpl: {
+      async mkdir() {},
+      async writeFile(_outputPath, contents) { writtenOutput = JSON.parse(contents); },
+      async rename() {},
+      async rm() {}
+    },
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    outputPath: "vinted-test-output.json"
+  });
+
+  assert.deepEqual(requestedListingUrls, [
+    "https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=1",
+    "https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=2",
+    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"
+  ]);
+  assert.equal("catalog_id" in writtenOutput, false);
+  assert.equal("target_size_id" in writtenOutput, false);
+  assert.deepEqual(writtenOutput.monitors, [
+    { id: "vinted-alpha", catalog_id: "1234", size_id: "208", pages: 2, product_count: 2, status: "success" },
+    { id: "vinted-zeta", catalog_id: "1786", size_id: "207", pages: 1, product_count: 1, status: "success" }
+  ]);
+  assert.equal(writtenOutput.products.length, 2);
+  const shared = writtenOutput.products.find((product) => product.url.includes("shared"));
+  assert.deepEqual(shared.monitor_ids, ["vinted-alpha", "vinted-zeta"]);
+  assert.equal(shared.source_urls.length, 2);
 });
 
 test("scanner writes a validated snapshot through an atomic replacement", async () => {
@@ -207,6 +291,35 @@ test("scanner preserves the last good output when a required page fails", async 
   assert.equal(outputWrites, 0);
 });
 
+test("scanner attempts remaining monitor pages but does not publish after any failure", async () => {
+  const attemptedUrls = [];
+  let outputWrites = 0;
+
+  await assert.rejects(
+    scan({
+      apiKey: "test-api-key",
+      loadMonitors: async () => MULTI_MONITORS,
+      fetchImpl: async (endpoint) => {
+        const listingUrl = new URL(endpoint).searchParams.get("url");
+        attemptedUrls.push(listingUrl);
+        if (listingUrl.includes("catalog[]=1234") && listingUrl.endsWith("page=1")) {
+          return { ok: false, status: 502, async text() { return "Bad Gateway"; } };
+        }
+        return { ok: true, async text() { return LISTING_HTML; } };
+      },
+      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; } },
+      sleepImpl: async () => {},
+      logger: { log() {}, error() {} },
+      outputPath: "vinted-test-output.json"
+    }),
+    /Vinted scan failed: 1 of 3 required pages failed/
+  );
+
+  assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=2"));
+  assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"));
+  assert.equal(outputWrites, 0);
+});
+
 test("scanner preserves the last good output when successful pages contain no products", async () => {
   let outputWrites = 0;
 
@@ -230,6 +343,35 @@ test("scanner preserves the last good output when successful pages contain no pr
       outputPath: "vinted-test-output.json"
     }),
     /Vinted scan produced no products/
+  );
+
+  assert.equal(outputWrites, 0);
+});
+
+test("scanner fails closed when one successful monitor is empty", async () => {
+  let outputWrites = 0;
+
+  await assert.rejects(
+    scan({
+      apiKey: "test-api-key",
+      loadMonitors: async () => MULTI_MONITORS,
+      fetchImpl: async (endpoint) => {
+        const listingUrl = new URL(endpoint).searchParams.get("url");
+        return {
+          ok: true,
+          async text() {
+            return listingUrl.includes("catalog[]=1234")
+              ? LISTING_HTML
+              : "<html><body>No items</body></html>";
+          }
+        };
+      },
+      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; } },
+      sleepImpl: async () => {},
+      logger: { log() {}, error() {} },
+      outputPath: "vinted-test-output.json"
+    }),
+    /Vinted monitor vinted-zeta produced no products/
   );
 
   assert.equal(outputWrites, 0);

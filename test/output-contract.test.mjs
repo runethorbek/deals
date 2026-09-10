@@ -239,6 +239,16 @@ function assertPublishedSnapshot(source, snapshot) {
       "debug page URLs must match start_urls"
     );
     assert.equal(status.failed_pages, 0);
+    assert.ok(Array.isArray(snapshot.monitors));
+    assert.ok(snapshot.monitors.length > 0);
+    const monitorById = new Map(
+      snapshot.monitors.map((monitor) => [monitor.id, monitor])
+    );
+    assert.equal(monitorById.size, snapshot.monitors.length);
+    if (snapshot.monitors.length > 1) {
+      assert.equal(Object.hasOwn(snapshot, "catalog_id"), false);
+      assert.equal(Object.hasOwn(snapshot, "target_size_id"), false);
+    }
 
     for (const product of snapshot.products) {
       assert.equal(product.site, rules.site);
@@ -249,6 +259,9 @@ function assertPublishedSnapshot(source, snapshot) {
       assert.equal(typeof product.size_assumption, "string");
       assert.ok(Array.isArray(product.source_urls));
       assert.ok(product.source_urls.length > 0);
+      assert.ok(Array.isArray(product.monitor_ids));
+      assert.ok(product.monitor_ids.length > 0);
+      assert.ok(product.monitor_ids.every((id) => monitorById.has(id)));
     }
   } else {
     if (source === "scarosso") {
