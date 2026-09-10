@@ -256,7 +256,13 @@ function findListingProductAnchors($) {
     .first();
 
   if (!productList.length) return $([]);
-  return productList.children("li").find(PRODUCT_ANCHOR_SELECTOR);
+
+  return productList.children("li")
+    .filter((_, item) => $(item).find("#view-tracker-wrapper").length === 0)
+    .map((_, item) => $(item).find(PRODUCT_ANCHOR_SELECTOR)
+      .filter((_, anchor) => $(anchor).closest("li").is(item))
+      .toArray()
+    );
 }
 
 function productLinkMatchesTargetSize(href, targetSize) {

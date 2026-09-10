@@ -3,6 +3,8 @@ import fs from "node:fs/promises";
 import test from "node:test";
 import {
   extractProductsFromListing,
+  extractProductUrlOccurrences,
+  isZalandoProductUrl,
   scan,
   validateZalandoOutput
 } from "../scripts/scan-zalando.mjs";
@@ -503,6 +505,36 @@ test("extracts only genuine Zalando result-card product links", () => {
   ]);
   assert.equal(products[0].available, true);
   assert.equal(Object.hasOwn(products[0], "size_46_available"), false);
+});
+
+test("excludes embedded Zalando content blocks and their nested carousel products", async () => {
+  const html = await fs.readFile(
+    new URL("./fixtures/zalando-listing-content-blocks.html", import.meta.url),
+    "utf8"
+  );
+  const products = extractProductsFromListing(
+    html,
+    "https://www.zalando.dk/herretoej-bukser/",
+    "2026-09-01T10:00:00.000Z",
+    { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
+  );
+
+  const expectedUrls = [
+    "https://www.zalando.dk/normal-one-no123a456-q11.html",
+    "https://www.zalando.dk/normal-two-nt123a456-q11.html"
+  ];
+  const excludedProductUrls = [
+    "https://www.zalando.dk/outfit-card-oc123a456-q11.html",
+    "https://www.zalando.dk/campaign-one-co123a456-q11.html",
+    "https://www.zalando.dk/campaign-two-ct123a456-q11.html",
+    "https://www.zalando.dk/campaign-three-ch123a456-q11.html",
+    "https://www.zalando.dk/pagination-product-pp123a456-q11.html",
+    "https://www.zalando.dk/collection-product-cp123a456-q11.html"
+  ];
+
+  assert.deepEqual(products.map((product) => product.url), expectedUrls);
+  assert.deepEqual(extractProductUrlOccurrences(html, "46"), expectedUrls);
+  for (const url of excludedProductUrls) assert.equal(isZalandoProductUrl(url), true);
 });
 
 test("combines multiple monitors into one snapshot with truthful provenance", async () => {
