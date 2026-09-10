@@ -5,6 +5,7 @@ import scarossoSnapshot from "./fixtures/scarosso-empty.json" with { type: "json
 import scarossoFixture from "./fixtures/scarosso-populated.json" with { type: "json" };
 import vintedSnapshot from "./fixtures/vinted-populated.json" with { type: "json" };
 import zalandoSnapshot from "./fixtures/zalando-populated.json" with { type: "json" };
+import publishedZalandoSnapshot from "../public/deals/zalando-latest.json" with { type: "json" };
 
 const MAX_REASONABLE_AMOUNT = 1_000_000;
 const SOURCE_RULES = {
@@ -109,6 +110,12 @@ function assertPriceRelationships(source, product) {
         "Scarosso discount requires calculated price relationship"
       );
     }
+  }
+
+  if (source === "zalando") {
+    assert.ok(Object.hasOwn(product, "currency"), "Zalando products require currency");
+    assert.ok(["DKK", null].includes(product.currency));
+    assert.equal(current === null, product.currency === null);
   }
 
   if (
@@ -405,6 +412,10 @@ test("representative source outputs satisfy the producer contract", () => {
   assertPublishedSnapshot("zalando", zalandoSnapshot);
 });
 
+test("the checked-in Zalando snapshot satisfies the currency contract", () => {
+  assertPublishedSnapshot("zalando", publishedZalandoSnapshot);
+});
+
 test("the empty Scarosso snapshot remains a separate snapshot-level case", () => {
   assert.equal(scarossoSnapshot.products.length, 0);
   assertPublishedSnapshot("scarosso", scarossoSnapshot);
@@ -604,7 +615,7 @@ test("DealRadar mapping remains compatible for every consumed field", () => {
       imageUrl: zalandoProduct.image,
       currentPrice: zalandoProduct.current_price,
       originalPrice: zalandoProduct.original_price,
-      currency: null,
+      currency: zalandoProduct.currency,
       discountPercent: zalandoProduct.discount_percent,
       targetSize: zalandoProduct.target_size,
       available: zalandoProduct.size_46_available,

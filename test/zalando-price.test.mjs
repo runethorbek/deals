@@ -12,6 +12,29 @@ test("extracts current and normal price from a Zalando card", () => {
   assert.equal(result.original_price, 1595);
   assert.equal(result.discount_percent, 35);
   assert.equal(result.explicit_discount_percent, 35);
+  assert.equal(result.currency, "DKK");
+});
+
+test("marks a kr price as DKK", () => {
+  const result = extractPriceInfo("Product 700,00 kr");
+
+  assert.equal(result.current_price, 700);
+  assert.equal(result.currency, "DKK");
+});
+
+test("marks an explicit DKK price as DKK", () => {
+  const result = extractPriceInfo("Product 700,00 DKK");
+
+  assert.equal(result.current_price, 700);
+  assert.equal(result.currency, "DKK");
+});
+
+test("does not guess a currency from bare or unsupported price text", () => {
+  for (const text of ["Product 700,00", "Product 700,00 EUR"]) {
+    const result = extractPriceInfo(text);
+    assert.equal(result.currency, null);
+    assert.notEqual(result.currency, "DKK");
+  }
 });
 
 test("extracts current and original price from a Zalando card", () => {

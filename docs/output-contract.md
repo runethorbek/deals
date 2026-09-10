@@ -247,6 +247,7 @@ adding `p=N`.
 | `raw_card_text` | Bounded source card text |
 | `original_price` | Regular/reference price when reliably parsed |
 | `current_price` | Current observed sale price |
+| `currency` | `DKK` only when `current_price` was parsed from a supported explicit `DKK` or `kr` representation; otherwise `null`. This is source evidence, not an app-wide normalized currency: no conversion is performed and unknown currency is never guessed. |
 | `discount_percent` | Calculated discount or reliable explicit discount |
 | `discount_status` | Indicates how the discount was determined |
 | `explicit_discount_percent` | Retailer-displayed discount, when present |

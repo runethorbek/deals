@@ -92,7 +92,8 @@ test("extracts Zalando listing-card identity instead of photo descriptions", asy
       color: boss.color,
       title: boss.title,
       url: boss.url,
-      current_price: boss.current_price
+      current_price: boss.current_price,
+      currency: boss.currency
     },
     {
       brand: "BOSS",
@@ -101,7 +102,8 @@ test("extracts Zalando listing-card identity instead of photo descriptions", asy
       color: "black",
       title: "BOSS LENON - Bukser - black",
       url: "https://www.zalando.dk/boss-lenon-habitbukser-black-bb122a0vj-q11.html",
-      current_price: 1496
+      current_price: 1496,
+      currency: "DKK"
     }
   );
   assert.deepEqual(
@@ -306,6 +308,13 @@ test("scanner uses configured Zalando intent and preserves the output contract",
       size_assumption: "listing-url-filtered-by-size-46",
       material_filter: ["pure_linen"]
     }
+  );
+  assert.deepEqual(output.products.map((product) => product.currency), ["DKK", "DKK"]);
+  const missingCurrency = structuredClone(output);
+  missingCurrency.products[0].currency = null;
+  assert.throws(
+    () => validateZalandoOutput(missingCurrency),
+    /Invalid Zalando output contract/
   );
   assert.deepEqual(
     fsRecorder.writes.map(({ pathname }) => pathname),

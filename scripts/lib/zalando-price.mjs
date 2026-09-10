@@ -92,7 +92,8 @@ export function extractPriceInfo(text) {
       discount_percent: explicitDiscount,
       discount_status: "explicit-discount",
       explicit_discount_percent: explicitDiscount,
-      price_candidates: priceCandidates
+      price_candidates: priceCandidates,
+      currency: "DKK"
     };
   }
 
@@ -102,7 +103,8 @@ export function extractPriceInfo(text) {
     discount_percent: explicitDiscount,
     discount_status: explicitDiscount !== null ? "explicit-discount-no-price" : "no-discount-found",
     explicit_discount_percent: explicitDiscount,
-    price_candidates: priceCandidates
+    price_candidates: priceCandidates,
+    currency: comparablePrices.length ? "DKK" : null
   };
 }
 
@@ -114,7 +116,8 @@ function priceResult(original, current, explicitDiscount, priceCandidates) {
     discount_percent: Math.round(calculated * 10) / 10,
     discount_status: "calculated-from-prices",
     explicit_discount_percent: explicitDiscount,
-    price_candidates: priceCandidates
+    price_candidates: priceCandidates,
+    currency: "DKK"
   };
 }
 
@@ -125,6 +128,7 @@ function currentPriceOnlyResult(current, priceCandidates) {
     discount_percent: null,
     discount_status: "no-discount-found",
     explicit_discount_percent: null,
-    price_candidates: priceCandidates
+    price_candidates: priceCandidates,
+    currency: "DKK"
   };
 }

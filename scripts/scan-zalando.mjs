@@ -449,6 +449,10 @@ export function validateZalandoOutput(output) {
       !isBoundedOptionalString(product.product_name, MAX_IDENTITY_FIELD_LENGTH) ||
       !isBoundedOptionalString(product.product_type, MAX_IDENTITY_FIELD_LENGTH) ||
       !isBoundedOptionalString(product.color, MAX_IDENTITY_FIELD_LENGTH) ||
+      !["DKK", null].includes(product.currency) ||
+      (product.current_price === null
+        ? product.currency !== null
+        : product.currency !== "DKK") ||
       productUrls.has(product.url)
     ) {
       throw new Error("Invalid Zalando output contract");
