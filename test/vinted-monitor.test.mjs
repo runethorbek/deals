@@ -7,22 +7,19 @@ import {
 } from "../scripts/lib/vinted-monitor.mjs";
 
 test("repository configuration preserves the current Vinted scan URLs", async () => {
-  const monitor = await loadEnabledVintedMonitor();
+  const monitors = await loadEnabledVintedMonitors();
 
-  assert.deepEqual(monitor, {
-    id: "vinted-mens-shoes-42",
-    source: "vinted",
-    enabled: true,
-    filters: {
-      catalogIds: ["1786"],
-      sizeIds: ["207"]
-    },
-    pages: 3
-  });
-  assert.deepEqual(buildVintedListingUrls(monitor), [
+  assert.deepEqual(monitors.map((monitor) => monitor.id), [
+    "vinted-mens-blazers-size-s",
+    "vinted-mens-pants-size-46"
+  ]);
+  assert.deepEqual(monitors.flatMap(buildVintedListingUrls), [
     "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
     "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=2",
-    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=3"
+    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=3",
+    "https://www.vinted.dk/catalog?catalog[]=34&size_ids[]=1637&page=1",
+    "https://www.vinted.dk/catalog?catalog[]=34&size_ids[]=1637&page=2",
+    "https://www.vinted.dk/catalog?catalog[]=34&size_ids[]=1637&page=3"
   ]);
 });
 

@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
+import fs from "node:fs/promises";
 import test from "node:test";
 
 import monitorConfig from "../config/monitors.json" with { type: "json" };
-import scarossoSnapshot from "../public/deals/scarosso-latest.json" with { type: "json" };
 import vintedSnapshot from "../public/deals/vinted-latest.json" with { type: "json" };
 import zalandoSnapshot from "../public/deals/zalando-latest.json" with { type: "json" };
 
@@ -15,18 +15,20 @@ test("slice 1 inventory stays grounded in the checked-in source snapshots", () =
   assert.equal(vintedSnapshot.products[0].currency, "DKK");
   assert.equal(typeof vintedSnapshot.products[0].price, "number");
 
-  assert.equal(scarossoSnapshot.product_count, scarossoSnapshot.products.length);
-  assert.equal(
-    scarossoSnapshot.scan_status.failed_pages,
-    scarossoSnapshot.debug.pages.filter((page) => page.error !== null).length
-  );
-  assert.equal(scarossoSnapshot.debug.pages.length, 6);
-
   assert.equal(typeof zalandoSnapshot.site, "string");
   assert.ok(Array.isArray(zalandoSnapshot.products));
   assert.ok(zalandoSnapshot.products.length > 0);
   assert.equal(typeof zalandoSnapshot.products[0].current_price, "number");
   assert.equal(typeof zalandoSnapshot.products[0].original_price, "number");
+});
+
+test("disabled Scarosso monitoring has no checked-in snapshot", async () => {
+  assert.ok(scarossoMonitor);
+  assert.equal(scarossoMonitor.enabled, false);
+  await assert.rejects(
+    fs.access(new URL("../public/deals/scarosso-latest.json", import.meta.url)),
+    { code: "ENOENT" }
+  );
 });
 
 test("slice 1 records the checked-in Scarosso route inventory and denmark-only base URL", () => {

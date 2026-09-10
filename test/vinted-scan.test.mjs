@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import monitorConfig from "../config/monitors.json" with { type: "json" };
+import { buildVintedListingUrls } from "../scripts/lib/vinted-monitor.mjs";
 import { scan } from "../scripts/scan-vinted.mjs";
 
 const LISTING_HTML = `
@@ -64,11 +66,11 @@ test("scanner uses configured Vinted pages and writes the existing output contra
   const requestedListingUrls = [];
   const requestedTimeouts = [];
   let writtenOutput = null;
-  const expectedUrls = [
-    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1",
-    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=2",
-    "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=3"
-  ];
+  const configuredMonitors = monitorConfig
+    .filter((monitor) => monitor.source === "vinted" && monitor.enabled)
+    .sort((left, right) => left.id.localeCompare(right.id));
+  const expectedUrls = configuredMonitors.flatMap(buildVintedListingUrls);
+  const primaryMonitor = configuredMonitors[0];
 
   await scan({
     apiKey: "test-api-key",
@@ -98,7 +100,7 @@ test("scanner uses configured Vinted pages and writes the existing output contra
   });
 
   assert.deepEqual(requestedListingUrls, expectedUrls);
-  assert.deepEqual(requestedTimeouts, ["60", "60", "60"]);
+  assert.deepEqual(requestedTimeouts, expectedUrls.map(() => "60"));
   assert.deepEqual(
     {
       site: writtenOutput.site,
@@ -117,23 +119,23 @@ test("scanner uses configured Vinted pages and writes the existing output contra
       site: "vinted.com",
       scan_mode: "vinted-listing-pages-only",
       start_urls: expectedUrls,
-      catalog_id: "1786",
-      target_size_id: "207",
+      catalog_id: undefined,
+      target_size_id: undefined,
       checked_at: "2026-09-01T10:00:00.000Z",
-      scanned_page_count: 3,
+      scanned_page_count: expectedUrls.length,
       scanned_product_count: 1,
       product_count: 1,
-      monitors: [{
-        id: "vinted-mens-shoes-42",
-        catalog_id: "1786",
-        size_id: "207",
-        pages: 3,
+      monitors: configuredMonitors.map((monitor) => ({
+        id: monitor.id,
+        catalog_id: monitor.filters.catalogIds[0],
+        size_id: monitor.filters.sizeIds[0],
+        pages: monitor.pages,
         product_count: 1,
         status: "success"
-      }],
+      })),
       scan_status: {
-        attempted_pages: 3,
-        successful_pages: 3,
+        attempted_pages: expectedUrls.length,
+        successful_pages: expectedUrls.length,
         failed_pages: 0,
         failures: [],
         scanned_product_count: 1,
@@ -158,10 +160,10 @@ test("scanner uses configured Vinted pages and writes the existing output contra
       url: "https://www.vinted.dk/items/123456-test-blazer",
       price: 100,
       currency: "DKK",
-      catalog_id: "1786",
-      target_size_id: "207",
+      catalog_id: primaryMonitor.filters.catalogIds[0],
+      target_size_id: primaryMonitor.filters.sizeIds[0],
       size_assumption: "listing-url-filtered-by-size-id-207",
-      monitor_ids: ["vinted-mens-shoes-42"],
+      monitor_ids: configuredMonitors.map((monitor) => monitor.id),
       source_urls: expectedUrls
     }
   );
@@ -285,7 +287,7 @@ test("scanner preserves the last good output when a required page fails", async 
       logger: { log() {}, error() {} },
       outputPath: "vinted-test-output.json"
     }),
-    /Vinted scan failed: 1 of 3 required pages failed/
+    /Vinted scan failed: 2 of 6 required pages failed/
   );
 
   assert.equal(outputWrites, 0);
@@ -501,10 +503,10 @@ test("scanner aborts timed-out ScrapingAnt requests and does not publish", async
       requestTimeoutMs: 5,
       outputPath: "vinted-test-output.json"
     }),
-    /Vinted scan failed: 3 of 3 required pages failed/
+    /Vinted scan failed: 6 of 6 required pages failed/
   );
 
-  assert.equal(requestAttempts, 9);
-  assert.equal(abortedRequests, 9);
+  assert.equal(requestAttempts, 18);
+  assert.equal(abortedRequests, 18);
   assert.equal(outputWrites, 0);
 });
