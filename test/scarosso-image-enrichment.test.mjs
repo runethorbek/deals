@@ -21,6 +21,46 @@ import {
 const PRODUCT_URL =
   "https://www.scarosso.com/en-us/men/shoes/example-SKU.html";
 
+const enabledScarossoMonitor = {
+  id: "scarosso-test-monitor",
+  source: "scarosso",
+  enabled: true,
+  filters: {
+    listingUrls: [
+      "/sales/men/?prefn1=c_size&prefv1=42",
+      "/sales/men/sneakers/?prefn1=c_size&prefv1=42",
+      "/sales/men/loafers/?prefn1=c_size&prefv1=42",
+      "/sales/men/flats/?prefn1=c_size&prefv1=42",
+      "/sales/men/boots/?prefn1=c_size&prefv1=42",
+      "/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
+    ],
+    minDiscountPercent: 30
+  }
+};
+
+test("disabled Scarosso monitor skips before credentials, requests, or output", async () => {
+  let requestCount = 0;
+  let writeCount = 0;
+
+  const result = await scan({
+    loadMonitor: async () => null,
+    fetchImpl: async () => {
+      requestCount++;
+    },
+    fsImpl: {
+      async mkdir() {},
+      async writeFile() {
+        writeCount++;
+      }
+    },
+    logger: { log() {}, error() {} }
+  });
+
+  assert.deepEqual(result, { skipped: true });
+  assert.equal(requestCount, 0);
+  assert.equal(writeCount, 0);
+});
+
 test("normalizes product identity without changing its pathname", () => {
   assert.equal(
     normalizeProductUrl("/en-us/men/shoes/example-SKU.html?size=42#details"),
@@ -379,6 +419,7 @@ test("scanner keeps six ScrapingAnt calls and isolates enrichment outcomes", asy
     fsImpl,
     sleepImpl: async () => {},
     logger,
+    loadMonitor: async () => enabledScarossoMonitor,
     outputPath: "memory/scarosso-latest.json"
   });
 

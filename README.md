@@ -3,7 +3,7 @@
 This repository collects deal data for the separate DealRadar application. It
 contains listing-page scrapers for:
 
-- Scarosso
+- Scarosso (deprecated/inactive direct source)
 - Vinted
 - Zalando
 
@@ -91,9 +91,13 @@ Slice 1 supports at most one enabled Vinted monitor containing one numeric
 100. Invalid or ambiguous Vinted configuration stops the scanner before it
 makes retailer requests or writes output.
 
-The checked-in Scarosso monitor preserves the six current men's sale listings,
-size 42, and the 30 percent match threshold. Its relative listing URLs include
-the Scarosso size query. The Scarosso adapter owns the
+The checked-in direct Scarosso monitor is disabled: current Scarosso monitoring
+has moved to Zalando. The direct scanner, workflow, tests, and its last
+known-good `public/deals/scarosso-latest.json` snapshot are retained temporarily
+as a fallback and for compatibility with existing consumers. Its preserved
+configuration covers the six current men's sale listings, size 42, and the 30
+percent match threshold. Its relative listing URLs include the Scarosso size
+query. The Scarosso adapter owns the
 `https://www.scarosso.com/en-dk/` storefront base URL, safely resolves the
 configured listings against it, and currently accepts size 42 only to preserve
 the published `size_42_available` field.

@@ -19,12 +19,15 @@ DealRadar application, database, ingestion logic, or user-facing rendering.
    revision, and calls the authenticated DealRadar import endpoint once for
    that revision.
 
-The Scarosso scanner discovers products only through its six listing-page
-ScrapingAnt requests. As best-effort image enrichment, it reuses validated
-images from the previous snapshot by exact normalized product URL, then fetches
-still-missing product pages directly from Scarosso with bounded concurrency.
-Those product-page requests never go through ScrapingAnt and do not affect
-listing scan status.
+The direct Scarosso scanner is deprecated and inactive because current Scarosso
+monitoring has moved to Zalando. Its implementation, workflow, tests, and last
+known-good published snapshot remain temporarily as a fallback and for existing
+consumer compatibility. When reactivated, the Scarosso scanner discovers
+products only through its six listing-page ScrapingAnt requests. As best-effort
+image enrichment, it reuses validated images from the previous snapshot by
+exact normalized product URL, then fetches still-missing product pages directly
+from Scarosso with bounded concurrency. Those product-page requests never go
+through ScrapingAnt and do not affect listing scan status.
 
 ## Responsibilities
 

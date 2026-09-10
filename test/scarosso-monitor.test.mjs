@@ -27,11 +27,11 @@ const validMonitor = {
   }
 };
 
-test("repository configuration preserves the configured Scarosso scan", async () => {
+test("repository configuration keeps the Scarosso monitor disabled", async () => {
   const monitor = await loadEnabledScarossoMonitor();
 
-  assert.deepEqual(monitor, validMonitor);
-  assert.deepEqual(buildScarossoScanPlan(monitor), {
+  assert.equal(monitor, null);
+  assert.deepEqual(buildScarossoScanPlan(validMonitor), {
     listingUrls: expectedListingUrls,
     targetSize: "42",
     minDiscountPercent: 30
