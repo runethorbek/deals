@@ -14,7 +14,7 @@
       "target_size": "46",
       "min_discount_percent": 30,
       "pages": 2,
-      "product_count": 84,
+      "product_count": 86,
       "status": "success"
     },
     {
@@ -27,10 +27,10 @@
       "status": "success"
     }
   ],
-  "checked_at": "2026-09-10T08:21:56.929Z",
+  "checked_at": "2026-09-10T13:23:08.351Z",
   "scanned_page_count": 4,
-  "scanned_product_count": 175,
-  "product_count": 175,
+  "scanned_product_count": 177,
+  "product_count": 177,
   "products": [
     {
       "brand": "BOSS",
@@ -64,9 +64,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -100,9 +100,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -136,9 +136,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -172,9 +172,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -208,9 +208,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -243,20 +243,20 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
       "product_name": "ADULT",
       "product_type": "Bukser",
-      "color": "off-white",
-      "title": "Mango ADULT - Bukser - off-white",
-      "url": "https://www.zalando.dk/mango-adult-chino-off-white-m9122e1fe-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c29aabb75a6646b389d49313112995b9/8c44536422764d8d99273f4faeccabf9.jpg?imwidth=300",
+      "color": "mottled light grey",
+      "title": "Mango ADULT - Bukser - mottled light grey",
+      "url": "https://www.zalando.dk/mango-bukser-mottled-light-grey-m9122e1fe-c12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6346cd16db9b4b698f23de7dd0555f04/a2a8f9ed8ad14cbf81780b5c693dc039.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -268,7 +268,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Bukser - off-white399,00 krOprindeligt:599,00 kr-33%",
+      "raw_card_text": "Dealheart_outlinedMangoADULT - Bukser - mottled light grey399,00 krOprindeligt:599,00 kr-33%",
       "original_price": 599,
       "current_price": 399,
       "discount_percent": 33.4,
@@ -278,9 +278,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -313,9 +313,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -348,44 +348,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Chino",
-      "color": "green",
-      "title": "Mango ADULT - Chino - green",
-      "url": "https://www.zalando.dk/mango-adult-chino-emerald-green-m9122e1g4-m11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/345046b332fc4673abf4234668040fb0/f010daacaa024a34bdb9087b43714208.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Chino - green399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -396,7 +361,7 @@
       "url": "https://www.zalando.dk/mango-adult-chino-sky-blue-m9122e1g4-k12.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/691b24c8f2ad4498be24dc577992feaf/c94b482f40d1425eac5960ea066dff78.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -418,79 +383,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Chino",
-      "color": "light heather grey",
-      "title": "Mango ADULT - Chino - light heather grey",
-      "url": "https://www.zalando.dk/mango-adult-chino-light-heather-grey-m9122e1g4-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/cb5093734cd9480f87df0371bc47c7dd/1e4047453e0f4487a61ff5a9c2ee8b96.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Chino - light heather grey399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Chino",
-      "color": "off-white",
-      "title": "Mango ADULT - Chino - off-white",
-      "url": "https://www.zalando.dk/mango-adult-chino-off-white-m9122e1g4-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/52242653d1534d018ba25356761283b2/2b30c23d40df4103ad3c17cdd31af0bc.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Chino - off-white399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -523,9 +418,9 @@
         1595,
         1117
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -558,9 +453,9 @@
         1595,
         1117
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -593,9 +488,9 @@
         1595,
         1117
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -628,9 +523,9 @@
         1699,
         1189
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Scarosso",
@@ -659,8 +554,8 @@
         2750,
         1935
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Bläck",
@@ -683,7 +578,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedBläckNINO LINEN CHINOS - Chino - dark navy519,00 krOprindeligt:699,00 kr-26%Sidste laveste pris589,00 kr-12%",
+      "raw_card_text": "Dealheart_outlinedSponsoreretBläckNINO LINEN CHINOS - Chino - dark navy519,00 krOprindeligt:699,00 kr-26%Sidste laveste pris589,00 kr-12%",
       "original_price": 699,
       "current_price": 519,
       "discount_percent": 25.8,
@@ -694,9 +589,9 @@
         589,
         519
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -729,9 +624,9 @@
         1595,
         1196
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -765,9 +660,9 @@
         2246,
         1871
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -800,9 +695,44 @@
         1595,
         1196
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_name": "H LENON",
+      "product_type": "Habitbukser",
+      "color": "black",
+      "title": "BOSS H LENON - Habitbukser - black",
+      "url": "https://www.zalando.dk/boss-h-lenon-bukser-black-bb122e0k2-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/b17d8d2512f9450f89041701496fd773/aab6c6c2d9554a7b9be4d6ae6ff1cbb5.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DealPlus sizeheart_outlinedBOSSH LENON - Habitbukser - blackfra1.196,00 krNormalpris:1.595,00 krSpar op til-25%",
+      "original_price": 1595,
+      "current_price": 1196,
+      "discount_percent": 25,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 25,
+      "price_candidates": [
+        1595,
+        1196
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -835,9 +765,9 @@
         1595,
         1196
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -870,9 +800,9 @@
         1995,
         1496
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -905,9 +835,9 @@
         1595,
         1196
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Calvin Klein",
@@ -940,9 +870,9 @@
         1295,
         971
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Calvin Klein",
@@ -975,9 +905,9 @@
         1295,
         971
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Calvin Klein",
@@ -1010,17 +940,18 @@
         1345,
         1009
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
-      "brand": "BOSS",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "BOSS - Bukser - black",
-      "url": "https://www.zalando.dk/boss-bukser-black-bb122e0lu-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c4ae3e8587d14ebf89f6f6c115fe0b3a/3a9b7041dee94b24b4ec897a4bbad529.jpg?imwidth=300",
+      "brand": "Bläck",
+      "product_name": "NINO LINEN CHINOS",
+      "product_type": "Chino",
+      "color": "ecru",
+      "title": "Bläck NINO LINEN CHINOS - Chino - ecru",
+      "url": "https://www.zalando.dk/blaeck-chino-ecru-b2o22e00t-a12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/a695b4bd20c1461e9b2a33c25448d910/7abe7f2b77ba4c098dc8943439546887.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
@@ -1034,19 +965,19 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedBOSSBukser - black1.798,90 krOprindeligt:1.999,00 kr-10%",
-      "original_price": 1999,
-      "current_price": 1798.9,
-      "discount_percent": 10,
+      "raw_card_text": "Dealheart_outlinedBläckNINO LINEN CHINOS - Chino - ecru559,00 krOprindeligt:699,00 kr-20%",
+      "original_price": 699,
+      "current_price": 559,
+      "discount_percent": 20,
       "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 10,
+      "explicit_discount_percent": 20,
       "price_candidates": [
-        1999,
-        1798.9
+        699,
+        559
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Calvin Klein",
@@ -1079,9 +1010,9 @@
         1345,
         1211
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Lacoste",
@@ -1113,9 +1044,9 @@
         1695,
         1526
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "ARKET",
@@ -1146,9 +1077,9 @@
       "price_candidates": [
         950
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Boggi Milano",
@@ -1179,9 +1110,9 @@
       "price_candidates": [
         1649
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Boggi Milano",
@@ -1212,9 +1143,9 @@
       "price_candidates": [
         2299
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Boggi Milano",
@@ -1245,9 +1176,75 @@
       "price_candidates": [
         2299
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_type": "Bukser",
+      "color": "black one",
+      "title": "BOSS - Bukser - black one",
+      "url": "https://www.zalando.dk/boss-bukser-black-one-bb122e1em-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/721d2cf3ca524db2acc990a1e0ad8a98/2c3c04f1d9ef46e786cb377bfe69db4d.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedSponsoreretBOSSBukser - black one1.799,00 kr",
+      "original_price": null,
+      "current_price": 1799,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1799
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_type": "Bukser",
+      "color": "dark blue five",
+      "title": "BOSS - Bukser - dark blue five",
+      "url": "https://www.zalando.dk/boss-bukser-dark-blue-five-bb122e1ez-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/69adfb9888014ad197353c3648c3188a/9da522c07de34f09b6cd4a6dade352a7.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedBOSSBukser - dark blue five1.299,00 kr",
+      "original_price": null,
+      "current_price": 1299,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1299
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1278,9 +1275,9 @@
       "price_candidates": [
         2195
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1311,9 +1308,75 @@
       "price_candidates": [
         3095
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_type": "Bukser",
+      "color": "open brown eight",
+      "title": "BOSS - Bukser - open brown eight",
+      "url": "https://www.zalando.dk/boss-bukser-open-brown-eight-bb122e1f1-o11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/0bc8d44b970f47e3a1d4003e3a01d097/432aea67ea4c4ce8a7cd93a0f696f58f.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedBOSSBukser - open brown eight2.199,00 kr",
+      "original_price": null,
+      "current_price": 2199,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2199
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_type": "Habitbukser",
+      "color": "black one",
+      "title": "BOSS - Habitbukser - black one",
+      "url": "https://www.zalando.dk/boss-bukser-black-one-bb122a19j-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/fed2c37a7f3b4858b8c9ee9931760a66/9f985859222946c3875414396e0a557c.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedSponsoreretBOSSHabitbukser - black one1.799,00 kr",
+      "original_price": null,
+      "current_price": 1799,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1799
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1345,9 +1408,9 @@
       "price_candidates": [
         1795
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1379,9 +1442,9 @@
       "price_candidates": [
         1795
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1413,9 +1476,9 @@
       "price_candidates": [
         1595
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1447,9 +1510,9 @@
       "price_candidates": [
         2495
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1481,9 +1544,9 @@
       "price_candidates": [
         1999
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1515,9 +1578,9 @@
       "price_candidates": [
         2795
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1549,9 +1612,9 @@
       "price_candidates": [
         2195
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -1583,9 +1646,9 @@
       "price_candidates": [
         1799
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Emporio Armani",
@@ -1617,9 +1680,9 @@
       "price_candidates": [
         3495
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Emporio Armani",
@@ -1651,9 +1714,9 @@
       "price_candidates": [
         3245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Falconeri",
@@ -1685,9 +1748,9 @@
       "price_candidates": [
         2779
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Falconeri",
@@ -1719,9 +1782,9 @@
       "price_candidates": [
         2439
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Falconeri",
@@ -1753,9 +1816,9 @@
       "price_candidates": [
         2439
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Falconeri",
@@ -1787,9 +1850,9 @@
       "price_candidates": [
         2439
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "GANT",
@@ -1820,9 +1883,9 @@
       "price_candidates": [
         2295
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "J.LINDEBERG",
@@ -1854,9 +1917,9 @@
       "price_candidates": [
         1245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "KARL LAGERFELD",
@@ -1888,9 +1951,9 @@
       "price_candidates": [
         2495
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "KARL LAGERFELD",
@@ -1922,9 +1985,9 @@
       "price_candidates": [
         2295
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -1955,9 +2018,9 @@
       "price_candidates": [
         699
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -1988,9 +2051,9 @@
       "price_candidates": [
         899
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -2022,9 +2085,9 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -2056,9 +2119,9 @@
       "price_candidates": [
         599
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -2090,9 +2153,9 @@
       "price_candidates": [
         799
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Next",
@@ -2123,9 +2186,9 @@
       "price_candidates": [
         511
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Next",
@@ -2157,9 +2220,9 @@
       "price_candidates": [
         830
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Next",
@@ -2191,9 +2254,9 @@
       "price_candidates": [
         830
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Next",
@@ -2225,9 +2288,9 @@
       "price_candidates": [
         830
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Next",
@@ -2259,9 +2322,9 @@
       "price_candidates": [
         830
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Next",
@@ -2293,9 +2356,9 @@
       "price_candidates": [
         912
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2327,9 +2390,9 @@
       "price_candidates": [
         1799
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2361,9 +2424,9 @@
       "price_candidates": [
         1799
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2395,9 +2458,9 @@
       "price_candidates": [
         1699
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2429,9 +2492,9 @@
       "price_candidates": [
         1699
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2463,9 +2526,9 @@
       "price_candidates": [
         1999
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2497,9 +2560,9 @@
       "price_candidates": [
         1999
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2531,9 +2594,9 @@
       "price_candidates": [
         1799
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -2565,9 +2628,9 @@
       "price_candidates": [
         1799
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Scarosso",
@@ -2594,8 +2657,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2622,8 +2685,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2650,8 +2713,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2678,8 +2741,8 @@
       "price_candidates": [
         2865
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2706,8 +2769,8 @@
       "price_candidates": [
         2245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2734,8 +2797,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2762,8 +2825,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2790,8 +2853,8 @@
       "price_candidates": [
         2050
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2818,8 +2881,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2846,8 +2909,8 @@
       "price_candidates": [
         2130
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2874,8 +2937,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2902,8 +2965,8 @@
       "price_candidates": [
         2205
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2930,8 +2993,8 @@
       "price_candidates": [
         1625
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2958,8 +3021,8 @@
       "price_candidates": [
         2285
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -2986,8 +3049,8 @@
       "price_candidates": [
         2785
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3014,8 +3077,8 @@
       "price_candidates": [
         2940
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3042,8 +3105,8 @@
       "price_candidates": [
         2285
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3070,8 +3133,8 @@
       "price_candidates": [
         2245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3099,8 +3162,8 @@
       "price_candidates": [
         1160
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3128,8 +3191,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3157,8 +3220,8 @@
       "price_candidates": [
         2515
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3186,8 +3249,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3215,8 +3278,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3244,8 +3307,8 @@
       "price_candidates": [
         2670
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3273,37 +3336,8 @@
       "price_candidates": [
         2440
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "ARTHUR BLACK - Sejlersko",
-      "product_type": "brown",
-      "color": "nubuck",
-      "title": "Scarosso ARTHUR BLACK - Sejlersko - brown - nubuck",
-      "url": "https://www.zalando.dk/scarosso-arthur-black-sejlersko-brown-nubuck-sr612c077-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/2ae318d066dd4ef09dc88cf4e500046d/cbe49ef57f9d44bab1ee6c23551a91f1.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "Nyhedheart_outlinedScarossoARTHUR BLACK - Sejlersko - brown - nubuck2.440,00 kr",
-      "original_price": null,
-      "current_price": 2440,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2440
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3331,8 +3365,8 @@
       "price_candidates": [
         1160
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3360,8 +3394,8 @@
       "price_candidates": [
         2865
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3389,8 +3423,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3418,8 +3452,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3447,8 +3481,8 @@
       "price_candidates": [
         1240
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3476,8 +3510,8 @@
       "price_candidates": [
         2245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3505,8 +3539,8 @@
       "price_candidates": [
         2245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3534,8 +3568,8 @@
       "price_candidates": [
         2785
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3563,8 +3597,8 @@
       "price_candidates": [
         2940
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3592,8 +3626,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3621,8 +3655,8 @@
       "price_candidates": [
         2630
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3650,8 +3684,8 @@
       "price_candidates": [
         2630
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3679,8 +3713,8 @@
       "price_candidates": [
         2170
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3708,8 +3742,8 @@
       "price_candidates": [
         2170
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3737,8 +3771,8 @@
       "price_candidates": [
         1935
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3766,8 +3800,8 @@
       "price_candidates": [
         2285
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3795,8 +3829,8 @@
       "price_candidates": [
         2285
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3824,8 +3858,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3853,8 +3887,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3882,8 +3916,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3911,8 +3945,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3940,8 +3974,8 @@
       "price_candidates": [
         2170
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3969,8 +4003,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -3998,8 +4032,8 @@
       "price_candidates": [
         2015
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4027,8 +4061,8 @@
       "price_candidates": [
         2480
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4056,8 +4090,8 @@
       "price_candidates": [
         2515
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4085,8 +4119,8 @@
       "price_candidates": [
         2285
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4114,8 +4148,8 @@
       "price_candidates": [
         2555
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4143,8 +4177,8 @@
       "price_candidates": [
         2785
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4172,8 +4206,8 @@
       "price_candidates": [
         2245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4201,8 +4235,8 @@
       "price_candidates": [
         2440
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4230,8 +4264,8 @@
       "price_candidates": [
         2090
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4259,8 +4293,8 @@
       "price_candidates": [
         3060
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4288,8 +4322,8 @@
       "price_candidates": [
         2440
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4317,8 +4351,8 @@
       "price_candidates": [
         2050
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4346,8 +4380,8 @@
       "price_candidates": [
         2050
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4375,8 +4409,8 @@
       "price_candidates": [
         2050
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4404,8 +4438,8 @@
       "price_candidates": [
         970
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4433,8 +4467,8 @@
       "price_candidates": [
         970
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4462,8 +4496,8 @@
       "price_candidates": [
         1935
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4491,8 +4525,8 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4520,8 +4554,37 @@
       "price_candidates": [
         1895
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "RENATO",
+      "product_type": "Loafers",
+      "color": "brown suede",
+      "title": "Scarosso RENATO - Loafers - brown suede",
+      "url": "https://www.zalando.dk/scarosso-renato-loafers-brown-suede-sr612c019-o12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/8a11bad5ba7c433da3627ddc229a4700/3752037c1c9f4e6e9f95d712651d9164.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoRENATO - Loafers - brown suede2.050,00 kr",
+      "original_price": null,
+      "current_price": 2050,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2050
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4549,8 +4612,8 @@
       "price_candidates": [
         2440
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4578,8 +4641,8 @@
       "price_candidates": [
         2865
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4607,37 +4670,8 @@
       "price_candidates": [
         2905
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "SCAROSSO - Klassiske ankelboots",
-      "product_type": "dark brown",
-      "color": "suede",
-      "title": "Scarosso SCAROSSO - Klassiske ankelboots - dark brown - suede",
-      "url": "https://www.zalando.dk/scarosso-scarosso-klassiske-ankelboots-dark-brown-suede-sr612k032-o12.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/0cbecd558f3549e8ac59cc62561572c0/6de5d2fd65fc4be68a1b8a0e6e2ff06e.png?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "Nyhedheart_outlinedScarossoSCAROSSO - Klassiske ankelboots - dark brown - suede2.905,00 kr",
-      "original_price": null,
-      "current_price": 2905,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2905
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4665,8 +4699,8 @@
       "price_candidates": [
         1470
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4694,8 +4728,8 @@
       "price_candidates": [
         2905
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4723,8 +4757,8 @@
       "price_candidates": [
         2205
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4752,8 +4786,8 @@
       "price_candidates": [
         2205
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4781,8 +4815,8 @@
       "price_candidates": [
         2245
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4810,8 +4844,8 @@
       "price_candidates": [
         2750
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4839,8 +4873,8 @@
       "price_candidates": [
         2630
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4868,8 +4902,8 @@
       "price_candidates": [
         2090
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4897,8 +4931,8 @@
       "price_candidates": [
         2630
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4926,8 +4960,8 @@
       "price_candidates": [
         1895
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4955,8 +4989,8 @@
       "price_candidates": [
         850
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -4984,8 +5018,8 @@
       "price_candidates": [
         2170
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -5013,8 +5047,8 @@
       "price_candidates": [
         2710
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -5042,8 +5076,8 @@
       "price_candidates": [
         2710
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -5071,8 +5105,8 @@
       "price_candidates": [
         2750
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -5100,8 +5134,37 @@
       "price_candidates": [
         2360
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "WILLIAM IV POKER - Loafers",
+      "product_type": "blue",
+      "color": "velvet",
+      "title": "Scarosso WILLIAM IV POKER - Loafers - blue - velvet",
+      "url": "https://www.zalando.dk/scarosso-loafers-blue-velvet-sr612c076-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/880b02eaada947c09c1dcc999629b3c6/26422f5dd271440e8e9f26f4405917d4.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoWILLIAM IV POKER - Loafers - blue - velvet930,00 kr",
+      "original_price": null,
+      "current_price": 930,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        930
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -5129,8 +5192,8 @@
       "price_candidates": [
         930
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Scarosso",
@@ -5158,8 +5221,8 @@
       "price_candidates": [
         930
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z"
     },
     {
       "brand": "Tiger of Sweden",
@@ -5191,9 +5254,9 @@
       "price_candidates": [
         1495
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5225,9 +5288,9 @@
       "price_candidates": [
         2995
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5259,9 +5322,9 @@
       "price_candidates": [
         1695
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5293,9 +5356,9 @@
       "price_candidates": [
         1695
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5327,9 +5390,9 @@
       "price_candidates": [
         2295
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5361,9 +5424,9 @@
       "price_candidates": [
         1495
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5395,9 +5458,9 @@
       "price_candidates": [
         1495
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5429,9 +5492,9 @@
       "price_candidates": [
         2295
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5463,9 +5526,9 @@
       "price_candidates": [
         2595
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5497,9 +5560,9 @@
       "price_candidates": [
         2295
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
@@ -5531,12 +5594,12 @@
       "price_candidates": [
         2295
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     }
   ],
-  "match_count": 17,
+  "match_count": 14,
   "matches": [
     {
       "brand": "BOSS",
@@ -5570,9 +5633,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -5606,9 +5669,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -5642,9 +5705,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -5678,9 +5741,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -5714,9 +5777,9 @@
         1817,
         1687
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -5749,20 +5812,20 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
       "product_name": "ADULT",
       "product_type": "Bukser",
-      "color": "off-white",
-      "title": "Mango ADULT - Bukser - off-white",
-      "url": "https://www.zalando.dk/mango-adult-chino-off-white-m9122e1fe-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c29aabb75a6646b389d49313112995b9/8c44536422764d8d99273f4faeccabf9.jpg?imwidth=300",
+      "color": "mottled light grey",
+      "title": "Mango ADULT - Bukser - mottled light grey",
+      "url": "https://www.zalando.dk/mango-bukser-mottled-light-grey-m9122e1fe-c12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/6346cd16db9b4b698f23de7dd0555f04/a2a8f9ed8ad14cbf81780b5c693dc039.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -5774,7 +5837,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Bukser - off-white399,00 krOprindeligt:599,00 kr-33%",
+      "raw_card_text": "Dealheart_outlinedMangoADULT - Bukser - mottled light grey399,00 krOprindeligt:599,00 kr-33%",
       "original_price": 599,
       "current_price": 399,
       "discount_percent": 33.4,
@@ -5784,9 +5847,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -5819,9 +5882,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -5854,44 +5917,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Chino",
-      "color": "green",
-      "title": "Mango ADULT - Chino - green",
-      "url": "https://www.zalando.dk/mango-adult-chino-emerald-green-m9122e1g4-m11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/345046b332fc4673abf4234668040fb0/f010daacaa024a34bdb9087b43714208.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Chino - green399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Mango",
@@ -5902,7 +5930,7 @@
       "url": "https://www.zalando.dk/mango-adult-chino-sky-blue-m9122e1g4-k12.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/691b24c8f2ad4498be24dc577992feaf/c94b482f40d1425eac5960ea066dff78.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -5924,79 +5952,9 @@
         599,
         399
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Chino",
-      "color": "light heather grey",
-      "title": "Mango ADULT - Chino - light heather grey",
-      "url": "https://www.zalando.dk/mango-adult-chino-light-heather-grey-m9122e1g4-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/cb5093734cd9480f87df0371bc47c7dd/1e4047453e0f4487a61ff5a9c2ee8b96.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Chino - light heather grey399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Chino",
-      "color": "off-white",
-      "title": "Mango ADULT - Chino - off-white",
-      "url": "https://www.zalando.dk/mango-adult-chino-off-white-m9122e1g4-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/52242653d1534d018ba25356761283b2/2b30c23d40df4103ad3c17cdd31af0bc.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Chino - off-white399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -6029,9 +5987,9 @@
         1595,
         1117
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -6064,9 +6022,9 @@
         1595,
         1117
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "BOSS",
@@ -6099,9 +6057,9 @@
         1595,
         1117
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     },
     {
       "brand": "Oscar Jacobson",
@@ -6134,9 +6092,9 @@
         1699,
         1189
       ],
-      "checked_at": "2026-09-10T08:21:56.929Z",
-      "size_46_available": true,
-      "currency": "DKK"
+      "currency": "DKK",
+      "checked_at": "2026-09-10T13:23:08.351Z",
+      "size_46_available": true
     }
   ],
   "scan_status": {
@@ -6144,8 +6102,8 @@
     "successful_pages": 4,
     "failed_pages": 0,
     "failures": [],
-    "scanned_product_count": 175,
-    "published_product_count": 17
+    "scanned_product_count": 177,
+    "published_product_count": 14
   },
   "debug": {
     "pages": [
@@ -6158,7 +6116,7 @@
       {
         "monitor_id": "zalando-dk-mens-trousers-size-46",
         "url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-        "product_count": 1,
+        "product_count": 6,
         "error": null
       },
       {
@@ -6170,13 +6128,13 @@
       {
         "monitor_id": "zalando-scarosso-shoes-42",
         "url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
-        "product_count": 40,
+        "product_count": 41,
         "error": null
       }
     ],
-    "products_with_discount": 31,
-    "products_below_minimum_discount": 14,
-    "products_without_discount": 144,
+    "products_with_discount": 29,
+    "products_below_minimum_discount": 15,
+    "products_without_discount": 148,
     "products_without_price": 0
   }
 }
