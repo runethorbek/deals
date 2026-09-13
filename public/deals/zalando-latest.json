@@ -14,7 +14,7 @@
       "target_size": "46",
       "min_discount_percent": 30,
       "pages": 2,
-      "product_count": 99,
+      "product_count": 96,
       "status": "success"
     },
     {
@@ -27,11 +27,47 @@
       "status": "success"
     }
   ],
-  "checked_at": "2026-09-13T10:08:34.635Z",
+  "checked_at": "2026-09-13T11:43:40.666Z",
   "scanned_page_count": 4,
-  "scanned_product_count": 189,
-  "product_count": 189,
+  "scanned_product_count": 186,
+  "product_count": 186,
   "products": [
+    {
+      "brand": "BOSS",
+      "product_name": "PERIN",
+      "product_type": "Bukser",
+      "color": "dark blue",
+      "title": "BOSS PERIN - Bukser - dark blue",
+      "url": "https://www.zalando.dk/boss-perin-bukser-dark-blue-bb122e1c7-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/382dbae0ce2e419a807ecf80b1ed4106/3c937b1dac1347e3a4f708f6816541ad.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Plus DaysDealheart_outlinedBOSSPERIN - Bukser - dark blue1.298,00 krOprindeligt:2.595,00 kr-50%Sidste laveste pris1.687,00 kr-23%",
+      "original_price": 2595,
+      "current_price": 1298,
+      "discount_percent": 50,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 50,
+      "price_candidates": [
+        2595,
+        1687,
+        1298
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
     {
       "brand": "BOSS",
       "product_name": "PERIN",
@@ -65,7 +101,7 @@
         1298
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -101,42 +137,7 @@
         1687
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Bukser",
-      "color": "beige",
-      "title": "Mango ADULT - Bukser - beige",
-      "url": "https://www.zalando.dk/mango-adult-bukser-beige-m9122e1fe-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/46385ba003ad4e10aba1329a790fbce5/f8063fd404fc4fc8a391b920c714d2a1.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Bukser - beige399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -171,7 +172,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -206,7 +207,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -218,7 +219,7 @@
       "url": "https://www.zalando.dk/mango-adult-chino-beige-m9122e1g4-b11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/21457435bc0a459b92cd9660d635076f/92978598f7744dee929f95ae690d2246.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -241,7 +242,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -276,7 +277,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -311,7 +312,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -346,7 +347,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -381,7 +382,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -416,7 +417,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -451,7 +452,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -486,7 +487,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -521,7 +522,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -556,7 +557,7 @@
         907
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -591,7 +592,7 @@
         907
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -626,7 +627,7 @@
         1187
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -661,7 +662,7 @@
         1189
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -692,7 +693,7 @@
         1935
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Bläck",
@@ -727,7 +728,7 @@
         519
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -763,7 +764,7 @@
         1871
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -798,7 +799,7 @@
         1196
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -833,7 +834,7 @@
         1196
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -868,7 +869,7 @@
         1496
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -903,42 +904,7 @@
         1009
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "LINEN SUIT TROUSERS",
-      "product_type": "Habitbukser",
-      "color": "beige",
-      "title": "Massimo Dutti LINEN SUIT TROUSERS - Habitbukser - beige",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-beige-m3i22a0aq-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/21b510bef8634e3e97459bac1d6febcf/0e35e60ad3aa4429b89c6b9fce09c4d1.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealMix & matchheart_outlinedMassimo DuttiLINEN SUIT TROUSERS - Habitbukser - beige700,00 krOprindeligt:900,00 kr-22%",
-      "original_price": 900,
-      "current_price": 700,
-      "discount_percent": 22.2,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 22,
-      "price_candidates": [
-        900,
-        700
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -962,7 +928,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedSponsoreretBläckNINO LINEN CHINOS - Chino - ecru559,00 krOprindeligt:699,00 kr-20%",
+      "raw_card_text": "Dealheart_outlinedBläckNINO LINEN CHINOS - Chino - ecru559,00 krOprindeligt:699,00 kr-20%",
       "original_price": 699,
       "current_price": 559,
       "discount_percent": 20,
@@ -973,7 +939,7 @@
         559
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1008,7 +974,41 @@
         1276
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_type": "Bukser",
+      "color": "black",
+      "title": "BOSS - Bukser - black",
+      "url": "https://www.zalando.dk/boss-bukser-black-bb122e0lu-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/c4ae3e8587d14ebf89f6f6c115fe0b3a/3a9b7041dee94b24b4ec897a4bbad529.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedBOSSBukser - black1.798,90 krOprindeligt:1.999,00 kr-10%",
+      "original_price": 1999,
+      "current_price": 1798.9,
+      "discount_percent": 10,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 10,
+      "price_candidates": [
+        1999,
+        1798.9
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1043,7 +1043,7 @@
         1436
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1078,7 +1078,7 @@
         1211
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1113,7 +1113,7 @@
         2921
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1146,7 +1146,7 @@
         950
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1179,7 +1179,7 @@
         1649
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1212,7 +1212,7 @@
         2299
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1245,7 +1245,7 @@
         2299
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1278,7 +1278,40 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_type": "Bukser",
+      "color": "dark blue one",
+      "title": "BOSS - Bukser - dark blue one",
+      "url": "https://www.zalando.dk/boss-bukser-dark-blue-one-bb122e1em-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/99ac57ff211e408391a2e0a547b5aefe/b10c56f93d2e44b894fb5f95f8758dcb.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedSponsoreretBOSSBukser - dark blue one1.799,00 kr",
+      "original_price": null,
+      "current_price": 1799,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1799
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1311,7 +1344,7 @@
         2195
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1344,7 +1377,7 @@
         3095
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1377,7 +1410,7 @@
         2199
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1410,7 +1443,41 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_name": "BOSS P-PERIN-IDS-263F",
+      "product_type": "Chino",
+      "color": "light beige one",
+      "title": "BOSS BOSS P-PERIN-IDS-263F - Chino - light beige one",
+      "url": "https://www.zalando.dk/boss-habitbukser-light-beige-one-bb122a187-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/2d44e24123d64fb1b46b72155764ab08/d4768ca434c247818a3744fc120f804b.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedBOSSBOSS P-PERIN-IDS-263F - Chino - light beige one1.599,00 kr",
+      "original_price": null,
+      "current_price": 1599,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1599
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1444,7 +1511,7 @@
         1795
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1478,7 +1545,7 @@
         1795
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1512,7 +1579,7 @@
         1595
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1546,7 +1613,7 @@
         2495
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1580,7 +1647,41 @@
         1999
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_name": "H-PERINO-B1-263",
+      "product_type": "Habitbukser",
+      "color": "dark blue one",
+      "title": "BOSS H-PERINO-B1-263 - Habitbukser - dark blue one",
+      "url": "https://www.zalando.dk/boss-h-perino-b1-263-bukser-dark-blue-one-bb122a15q-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/858df7fc744f4118abb3bcde7ff0a7e8/69f121a2d58e423c9e9e3e924fa1124b.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedBOSSH-PERINO-B1-263 - Habitbukser - dark blue one1.799,00 kr",
+      "original_price": null,
+      "current_price": 1799,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1799
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1614,7 +1715,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1648,7 +1749,7 @@
         2795
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1682,7 +1783,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1716,7 +1817,7 @@
         2195
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1750,7 +1851,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1784,7 +1885,7 @@
         3495
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1818,7 +1919,7 @@
         2779
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1852,7 +1953,7 @@
         2439
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1886,7 +1987,7 @@
         2439
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1920,7 +2021,7 @@
         2439
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1953,7 +2054,109 @@
         2295
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "HUGO",
+      "product_name": "HUGO GATUR263X",
+      "product_type": "Bukser",
+      "color": "open blue thirtyeight",
+      "title": "HUGO HUGO GATUR263X - Bukser - open blue thirtyeight",
+      "url": "https://www.zalando.dk/hugo-bukser-open-blue-thirtyeight-hu722e0mx-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/9a8068b79c2c446e91dc3d6d703c5b48/590f2730d6c441e59cb4c49e15ede7b9.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedHUGOHUGO GATUR263X - Bukser - open blue thirtyeight1.249,00 kr",
+      "original_price": null,
+      "current_price": 1249,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1249
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "HUGO",
+      "product_name": "HUGO GATUR264",
+      "product_type": "Bukser",
+      "color": "brown melange three",
+      "title": "HUGO HUGO GATUR264 - Bukser - brown melange three",
+      "url": "https://www.zalando.dk/hugo-hugo-gatur264-habitbukser-brown-melange-three-hu722e0ne-o11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/3152bdd24f9b43d5968e117a23157f55/390a9204e3bd47df8908d7642244cb85.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedHUGOHUGO GATUR264 - Bukser - brown melange three1.499,00 kr",
+      "original_price": null,
+      "current_price": 1499,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1499
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "HUGO",
+      "product_name": "HUGO HOGAN263X",
+      "product_type": "Habitbukser",
+      "color": "dark blue five",
+      "title": "HUGO HUGO HOGAN263X - Habitbukser - dark blue five",
+      "url": "https://www.zalando.dk/hugo-hugo-hogan263x-bukser-dark-blue-five-hu722a0sc-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/8e436941a364446c87e66cd1169c41c1/8629314a03754639bda3c5b7b0352609.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedHUGOHUGO HOGAN263X - Habitbukser - dark blue five1.299,00 kr",
+      "original_price": null,
+      "current_price": 1299,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1299
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -1987,41 +2190,7 @@
         1245
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "KARL LAGERFELD",
-      "product_name": "TROUSERS",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "KARL LAGERFELD TROUSERS - Bukser - black",
-      "url": "https://www.zalando.dk/karl-lagerfeld-trousers-bukser-black-k4822a046-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/7e69ea5e5e1a4515b9d5fcfbb9abf994/676572840aef458b8c67e0ae3eb843a9.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedKARL LAGERFELDTROUSERS - Bukser - black2.495,00 kr",
-      "original_price": null,
-      "current_price": 2495,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2495
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2055,7 +2224,41 @@
         2295
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "KARL LAGERFELD",
+      "product_name": "TROUSERS",
+      "product_type": "Bukser",
+      "color": "black",
+      "title": "KARL LAGERFELD TROUSERS - Bukser - black",
+      "url": "https://www.zalando.dk/karl-lagerfeld-trousers-bukser-black-k4822a046-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/7e69ea5e5e1a4515b9d5fcfbb9abf994/676572840aef458b8c67e0ae3eb843a9.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Nyhedheart_outlinedKARL LAGERFELDTROUSERS - Bukser - black2.495,00 kr",
+      "original_price": null,
+      "current_price": 2495,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2495
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2066,7 +2269,7 @@
       "url": "https://www.zalando.dk/mango-bukser-gray-m9122e1dr-c11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/b6eff11988344a3a912a4b0f5e4ce0c0/4efdabd418fe40fa826e0c74d47f6bc8.png?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -2088,7 +2291,7 @@
         699
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2121,7 +2324,7 @@
         899
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2155,7 +2358,7 @@
         799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2189,7 +2392,7 @@
         599
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2223,7 +2426,7 @@
         799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2257,346 +2460,7 @@
         799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "Massimo Dutti - Bukser - black",
-      "url": "https://www.zalando.dk/massimo-dutti-chinos-black-m3i22e0uz-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/9ac4f7a1a7d142b99e2ea5e7dd0902d1/79f91c3f2b37401c9b3c186b05f844bb.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedMassimo DuttiBukser - black1.000,00 kr",
-      "original_price": null,
-      "current_price": 1000,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1000
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "100% WOOL STRIPED SUIT TROUSERS",
-      "product_type": "Habitbukser",
-      "color": "dark grey",
-      "title": "Massimo Dutti 100% WOOL STRIPED SUIT TROUSERS - Habitbukser - dark grey",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-dark-grey-m3i22a0be-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/96d26016e6584bf39dc9b86c48ebd007/aeffe1c24ced4454935a91fddd5e2fe8.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Mix & matchheart_outlinedMassimo Dutti100% WOOL STRIPED SUIT TROUSERS - Habitbukser - dark grey1.200,00 kr",
-      "original_price": null,
-      "current_price": 1200,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1200
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "100% WOOL SUIT TROUSERS",
-      "product_type": "Bukser",
-      "color": "light brown",
-      "title": "Massimo Dutti 100% WOOL SUIT TROUSERS - Bukser - light brown",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-light-brown-m3i22e0us-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ceaf5d009f6d40f6ab526f9fb905a061/c68834de27c74120b4bc63176b522ef8.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "NyhedMix & matchheart_outlinedMassimo Dutti100% WOOL SUIT TROUSERS - Bukser - light brown1.000,00 kr",
-      "original_price": null,
-      "current_price": 1000,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1000
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "100% WOOL SUIT TROUSERS",
-      "product_type": "Habitbukser",
-      "color": "dark grey",
-      "title": "Massimo Dutti 100% WOOL SUIT TROUSERS - Habitbukser - dark grey",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-dark-grey-m3i22a0bv-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ae6a8aab039e4c89b1a2f4f40a821bd7/ee48a28914144708895b59e452e1864b.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "NyhedMix & matchheart_outlinedMassimo Dutti100% WOOL SUIT TROUSERS - Habitbukser - dark grey1.200,00 kr",
-      "original_price": null,
-      "current_price": 1200,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1200
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "STRUCTURED SUIT TROUSERS",
-      "product_type": "Habitbukser",
-      "color": "mottled dark blue",
-      "title": "Massimo Dutti STRUCTURED SUIT TROUSERS - Habitbukser - mottled dark blue",
-      "url": "https://www.zalando.dk/massimo-dutti-textured-suit-pants-bukser-mottled-dark-blue-m3i22a0bu-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/b407467398cd4e8c9317feb7d97e5c10/4accf6dd18a346b5a4bb940daef805e2.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedMassimo DuttiSTRUCTURED SUIT TROUSERS - Habitbukser - mottled dark blue1.200,00 kr",
-      "original_price": null,
-      "current_price": 1200,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1200
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "TAPERED FIT LINEN TROUSERS",
-      "product_type": "Bukser",
-      "color": "beige",
-      "title": "Massimo Dutti TAPERED FIT LINEN TROUSERS - Bukser - beige",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-beige-m3i22e0s3-b12.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/2ed4889f084342e7a2f90d3d45d90a64/177d63e2c0f14287a478454f5cec8073.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedMassimo DuttiTAPERED FIT LINEN TROUSERS - Bukser - beige900,00 kr",
-      "original_price": null,
-      "current_price": 900,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        900
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "TAPERED FIT LINEN TROUSERS",
-      "product_type": "Bukser",
-      "color": "mottled dark blue",
-      "title": "Massimo Dutti TAPERED FIT LINEN TROUSERS - Bukser - mottled dark blue",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-mottled-dark-blue-m3i22e0s3-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/b90b804f596c4789858fa447066fb44a/1100ddb39ca44cf8b51e8a58e3e49908.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedMassimo DuttiTAPERED FIT LINEN TROUSERS - Bukser - mottled dark blue900,00 kr",
-      "original_price": null,
-      "current_price": 900,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        900
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "TAPERED FIT LINEN TROUSERS",
-      "product_type": "Bukser",
-      "color": "white",
-      "title": "Massimo Dutti TAPERED FIT LINEN TROUSERS - Bukser - white",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-white-m3i22e0s3-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/639a3287f9714912aa3c376b4a140dea/b496eef8da644f9d9e2c92a6534449a4.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedMassimo DuttiTAPERED FIT LINEN TROUSERS - Bukser - white900,00 kr",
-      "original_price": null,
-      "current_price": 900,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        900
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "TEXTURED 100% COOL WOOL TROUSERS",
-      "product_type": "Bukser",
-      "color": "dark blue",
-      "title": "Massimo Dutti TEXTURED 100% COOL WOOL TROUSERS - Bukser - dark blue",
-      "url": "https://www.zalando.dk/massimo-dutti-bukser-dark-blue-m3i22e0ug-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/f712a25ce062482ab564161ec14d0a2f/8b8a3c877d8d4fc48180c0776483a39d.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Mix & matchheart_outlinedMassimo DuttiTEXTURED 100% COOL WOOL TROUSERS - Bukser - dark blue1.000,00 kr",
-      "original_price": null,
-      "current_price": 1000,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1000
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Massimo Dutti",
-      "product_name": "TOTAL LOOK PANTS",
-      "product_type": "Bukser",
-      "color": "dark blue",
-      "title": "Massimo Dutti TOTAL LOOK PANTS - Bukser - dark blue",
-      "url": "https://www.zalando.dk/massimo-dutti-total-look-pants-bukser-dark-blue-m3i22e0uy-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/eb50bd0d4f67480cb6e582d964e628dd/90c84c5e747e4dda93d11ca402213b22.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "NyhedMix & matchheart_outlinedMassimo DuttiTOTAL LOOK PANTS - Bukser - dark blue1.000,00 kr",
-      "original_price": null,
-      "current_price": 1000,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1000
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2629,7 +2493,7 @@
         511
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2663,7 +2527,7 @@
         830
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2697,7 +2561,7 @@
         830
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2731,7 +2595,7 @@
         830
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2765,7 +2629,7 @@
         830
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2799,7 +2663,7 @@
         912
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2833,7 +2697,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2867,7 +2731,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2901,7 +2765,7 @@
         1699
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2935,7 +2799,7 @@
         1699
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -2969,7 +2833,7 @@
         1999
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -3003,7 +2867,41 @@
         1999
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Oscar Jacobson",
+      "product_name": "DENZ",
+      "product_type": "Bukser",
+      "color": "dark grey",
+      "title": "Oscar Jacobson DENZ - Bukser - dark grey",
+      "url": "https://www.zalando.dk/oscar-jacobson-denz-jakkesat-bukser-dark-grey-sj322e00l-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/3ff3c782ad2d4fa5a4a2c8c6dab49969/852c1eaae4e241b196902e9250ef5aa8.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedOscar JacobsonDENZ - Bukser - dark grey1.799,00 kr",
+      "original_price": null,
+      "current_price": 1799,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1799
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -3037,7 +2935,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -3066,7 +2964,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3094,7 +2992,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3122,7 +3020,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3150,7 +3048,7 @@
         2865
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3178,7 +3076,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3206,7 +3104,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3234,7 +3132,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3262,7 +3160,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3290,7 +3188,7 @@
         2130
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3318,7 +3216,7 @@
         2090
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3346,7 +3244,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3374,7 +3272,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3402,7 +3300,7 @@
         2205
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3430,7 +3328,7 @@
         1625
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3458,7 +3356,7 @@
         1705
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3486,7 +3384,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3514,7 +3412,7 @@
         2785
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3542,7 +3440,7 @@
         2940
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3570,7 +3468,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3598,7 +3496,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3627,7 +3525,7 @@
         1160
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3656,7 +3554,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3685,7 +3583,7 @@
         2515
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3714,7 +3612,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3743,7 +3641,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3772,7 +3670,7 @@
         2670
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3801,7 +3699,7 @@
         1395
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3830,7 +3728,7 @@
         2440
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3859,7 +3757,7 @@
         1240
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3888,7 +3786,7 @@
         2865
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3917,7 +3815,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3946,7 +3844,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -3975,7 +3873,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4004,7 +3902,7 @@
         2785
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4033,7 +3931,7 @@
         2940
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4062,7 +3960,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4091,7 +3989,7 @@
         2630
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4120,7 +4018,7 @@
         2630
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4149,7 +4047,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4178,7 +4076,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4207,7 +4105,7 @@
         1935
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4236,7 +4134,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4265,7 +4163,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4294,7 +4192,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4323,7 +4221,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4352,7 +4250,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4381,7 +4279,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4410,7 +4308,7 @@
         2015
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4439,7 +4337,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4468,7 +4366,7 @@
         2515
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4497,7 +4395,7 @@
         3135
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4526,7 +4424,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4555,7 +4453,7 @@
         2785
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4584,7 +4482,7 @@
         2130
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4613,7 +4511,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4642,7 +4540,7 @@
         2440
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4671,7 +4569,7 @@
         2090
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4700,7 +4598,7 @@
         3060
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4729,7 +4627,7 @@
         2440
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4758,7 +4656,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4787,7 +4685,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4816,7 +4714,7 @@
         970
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4845,7 +4743,7 @@
         970
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4874,7 +4772,7 @@
         1935
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4903,7 +4801,7 @@
         1510
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4932,7 +4830,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4961,7 +4859,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -4990,7 +4888,7 @@
         2865
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5019,7 +4917,7 @@
         2905
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5048,7 +4946,7 @@
         2905
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5077,7 +4975,7 @@
         1470
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5106,7 +5004,7 @@
         2905
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5135,7 +5033,7 @@
         2205
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5164,7 +5062,7 @@
         2205
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5193,7 +5091,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5222,7 +5120,7 @@
         2750
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5251,7 +5149,7 @@
         2630
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5280,7 +5178,7 @@
         2090
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5309,7 +5207,7 @@
         2630
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5338,7 +5236,7 @@
         1895
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5367,7 +5265,7 @@
         1895
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5396,7 +5294,7 @@
         850
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5425,7 +5323,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5454,7 +5352,7 @@
         2710
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5483,7 +5381,7 @@
         2710
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5512,7 +5410,7 @@
         2750
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5541,7 +5439,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5570,7 +5468,7 @@
         930
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Scarosso",
@@ -5599,7 +5497,7 @@
         930
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z"
+      "checked_at": "2026-09-13T11:43:40.666Z"
     },
     {
       "brand": "Tiger of Sweden",
@@ -5632,7 +5530,7 @@
         1495
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5666,7 +5564,7 @@
         2995
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5700,7 +5598,7 @@
         1695
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5734,7 +5632,7 @@
         1695
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5768,7 +5666,7 @@
         2295
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5802,7 +5700,7 @@
         1495
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5836,7 +5734,7 @@
         1495
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5870,7 +5768,7 @@
         1495
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5904,7 +5802,7 @@
         2295
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5938,7 +5836,7 @@
         2595
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5962,7 +5860,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Plus DaysDesignerheart_outlinedTiger of SwedenTOMMIE - Bukser - black2.295,00 kr",
+      "raw_card_text": "Plus DaysDesignerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - black2.295,00 kr",
       "original_price": null,
       "current_price": 2295,
       "discount_percent": null,
@@ -5972,7 +5870,7 @@
         2295
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -5996,7 +5894,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Plus DaysDesignerheart_outlinedTiger of SwedenTOMMIE - Bukser - phantom2.295,00 kr",
+      "raw_card_text": "Plus DaysDesignerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - phantom2.295,00 kr",
       "original_price": null,
       "current_price": 2295,
       "discount_percent": null,
@@ -6006,12 +5904,48 @@
         2295
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     }
   ],
   "match_count": 18,
   "matches": [
+    {
+      "brand": "BOSS",
+      "product_name": "PERIN",
+      "product_type": "Bukser",
+      "color": "dark blue",
+      "title": "BOSS PERIN - Bukser - dark blue",
+      "url": "https://www.zalando.dk/boss-perin-bukser-dark-blue-bb122e1c7-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/382dbae0ce2e419a807ecf80b1ed4106/3c937b1dac1347e3a4f708f6816541ad.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Plus DaysDealheart_outlinedBOSSPERIN - Bukser - dark blue1.298,00 krOprindeligt:2.595,00 kr-50%Sidste laveste pris1.687,00 kr-23%",
+      "original_price": 2595,
+      "current_price": 1298,
+      "discount_percent": 50,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 50,
+      "price_candidates": [
+        2595,
+        1687,
+        1298
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-09-13T11:43:40.666Z",
+      "size_46_available": true
+    },
     {
       "brand": "BOSS",
       "product_name": "PERIN",
@@ -6045,7 +5979,7 @@
         1298
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6081,42 +6015,7 @@
         1687
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Bukser",
-      "color": "beige",
-      "title": "Mango ADULT - Bukser - beige",
-      "url": "https://www.zalando.dk/mango-adult-bukser-beige-m9122e1fe-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/46385ba003ad4e10aba1329a790fbce5/f8063fd404fc4fc8a391b920c714d2a1.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Dealheart_outlinedMangoADULT - Bukser - beige399,00 krOprindeligt:599,00 kr-33%",
-      "original_price": 599,
-      "current_price": 399,
-      "discount_percent": 33.4,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 33,
-      "price_candidates": [
-        599,
-        399
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6151,7 +6050,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6186,7 +6085,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6198,7 +6097,7 @@
       "url": "https://www.zalando.dk/mango-adult-chino-beige-m9122e1g4-b11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/21457435bc0a459b92cd9660d635076f/92978598f7744dee929f95ae690d2246.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -6221,7 +6120,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6256,7 +6155,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6291,7 +6190,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6326,7 +6225,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6361,7 +6260,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6396,7 +6295,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6431,7 +6330,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6466,7 +6365,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6501,7 +6400,7 @@
         1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6536,7 +6435,7 @@
         907
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6571,7 +6470,7 @@
         907
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6606,7 +6505,7 @@
         1187
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     },
     {
@@ -6641,7 +6540,7 @@
         1189
       ],
       "currency": "DKK",
-      "checked_at": "2026-09-13T10:08:34.635Z",
+      "checked_at": "2026-09-13T11:43:40.666Z",
       "size_46_available": true
     }
   ],
@@ -6650,7 +6549,7 @@
     "successful_pages": 4,
     "failed_pages": 0,
     "failures": [],
-    "scanned_product_count": 189,
+    "scanned_product_count": 186,
     "published_product_count": 18
   },
   "debug": {
@@ -6664,7 +6563,7 @@
       {
         "monitor_id": "zalando-dk-mens-trousers-size-46",
         "url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-        "product_count": 18,
+        "product_count": 13,
         "error": null
       },
       {
@@ -6682,7 +6581,7 @@
     ],
     "products_with_discount": 31,
     "products_below_minimum_discount": 13,
-    "products_without_discount": 158,
+    "products_without_discount": 155,
     "products_without_price": 0
   }
 }
