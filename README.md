@@ -142,15 +142,13 @@ configuration or execution failures preserve the last known-good output.
 Products are deduplicated by canonical item URL and include sorted
 `monitor_ids` provenance.
 
-Zalando treats every configured listing page as required and preserves the
-last known-good snapshot when any request fails or a monitor's successful pages
-collectively contain no products.
-Validated Zalando output is published through an atomic file replacement.
-This is an intentional, approved exception to issue #1's current-behavior
-preservation baseline: Slice 3 also replaced Zalando's previous behavior of
-publishing failed or empty scans so the scanner follows the repository's
-fail-closed publication policy. The workflow therefore exits before its normal
-commit step in those cases.
+Zalando also records a retailer request failure and continues with every
+remaining configured page. A mixed-success scan is atomically published as a
+degraded snapshot when its successful pages satisfy the existing Zalando
+validation: at least one page succeeded and every enabled monitor still
+observed products. `scan_status` retains the failure diagnostics for DealRadar.
+All-page failure, an empty or implausible monitor, and configuration or
+execution failure preserve the last known-good snapshot.
 
 Run the deterministic test suite with:
 

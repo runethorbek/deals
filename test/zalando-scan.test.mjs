@@ -44,25 +44,31 @@ const configuredMonitor = {
   pages: 1
 };
 
-function createFsRecorder() {
+function createFsRecorder(initialFiles = {}) {
   const writes = [];
   const renames = [];
   const removals = [];
+  const files = new Map(Object.entries(initialFiles));
 
   return {
     writes,
     renames,
     removals,
+    files,
     implementation: {
       async mkdir() {},
       async writeFile(pathname, contents) {
         writes.push({ pathname, contents });
+        files.set(pathname, contents);
       },
       async rename(from, to) {
         renames.push({ from, to });
+        files.set(to, files.get(from));
+        files.delete(from);
       },
       async rm(pathname, options) {
         removals.push({ pathname, options });
+        files.delete(pathname);
       }
     }
   };
@@ -415,8 +421,50 @@ test("invalid configuration stops before requests or output", async () => {
   assert.equal(fsRecorder.renames.length, 0);
 });
 
-test("required-page failures preserve the previous Zalando output", async () => {
+test("missing credentials remain a hard failure before requests or output", async () => {
+  let requestCount = 0;
   const fsRecorder = createFsRecorder();
+
+  await assert.rejects(
+    scan({
+      apiKey: null,
+      fetchImpl: async () => { requestCount++; },
+      fsImpl: fsRecorder.implementation,
+      logger: { log() {}, error() {} },
+      loadMonitors: async () => [configuredMonitor],
+      outputPath: "zalando-test-output.json"
+    }),
+    /Missing SCRAPINGANT_API_KEY environment variable/
+  );
+
+  assert.equal(requestCount, 0);
+  assert.equal(fsRecorder.writes.length, 0);
+  assert.equal(fsRecorder.renames.length, 0);
+});
+
+test("unexpected execution failures remain fatal without publishing", async () => {
+  const fsRecorder = createFsRecorder();
+
+  await assert.rejects(
+    scan({
+      apiKey: "test-api-key",
+      fetchImpl: async () => ({ ok: true, text: null }),
+      fsImpl: fsRecorder.implementation,
+      logger: { log() {}, error() {} },
+      loadMonitors: async () => [configuredMonitor],
+      outputPath: "zalando-test-output.json"
+    }),
+    /Invalid ScrapingAnt response/
+  );
+
+  assert.equal(fsRecorder.writes.length, 0);
+  assert.equal(fsRecorder.renames.length, 0);
+});
+
+test("all-page failures preserve the previous Zalando output", async () => {
+  const outputPath = "zalando-test-output.json";
+  const previousOutput = "{\"previous\":true}";
+  const fsRecorder = createFsRecorder({ [outputPath]: previousOutput });
 
   await assert.rejects(
     scan({
@@ -431,27 +479,28 @@ test("required-page failures preserve the previous Zalando output", async () => 
       fsImpl: fsRecorder.implementation,
       logger: { log() {}, error() {} },
       loadMonitors: async () => [configuredMonitor],
-      outputPath: "zalando-test-output.json"
+      outputPath
     }),
-    /Zalando scan failed: 1 of 1 required pages failed/
+    /Zalando scan produced no successful listing pages/
   );
 
   assert.equal(fsRecorder.writes.length, 0);
   assert.equal(fsRecorder.renames.length, 0);
+  assert.equal(fsRecorder.files.get(outputPath), previousOutput);
 });
 
-test("a failed page does not prevent later page attempts or publication failure", async () => {
+test("a failed page does not prevent later page attempts and publishes a degraded scan", async () => {
   const requestedListingUrls = [];
   const fsRecorder = createFsRecorder();
   const paginatedMonitor = { ...configuredMonitor, pages: 3 };
 
-  await assert.rejects(scan({
+  await scan({
     apiKey: "test-api-key",
     fetchImpl: async (endpoint) => {
       const listingUrl = new URL(endpoint).searchParams.get("url");
       requestedListingUrls.push(listingUrl);
       if (new URL(listingUrl).searchParams.get("p") === "2") {
-        return { ok: false, status: 502, async text() { return "Bad Gateway"; } };
+        return { ok: false, status: 502, async text() { return "x".repeat(500); } };
       }
       return { ok: true, async text() { return LISTING_HTML; } };
     },
@@ -460,12 +509,30 @@ test("a failed page does not prevent later page attempts or publication failure"
     logger: { log() {}, error() {} },
     loadMonitors: async () => [paginatedMonitor],
     outputPath: "zalando-test-output.json"
-  }), /Zalando scan failed: 1 of 3 required pages failed/);
+  });
 
   assert.equal(requestedListingUrls.length, 3);
   assert.equal(new URL(requestedListingUrls[2]).searchParams.get("p"), "3");
-  assert.equal(fsRecorder.writes.length, 0);
-  assert.equal(fsRecorder.renames.length, 0);
+  assert.equal(fsRecorder.writes.length, 1);
+  assert.deepEqual(fsRecorder.renames, [{
+    from: "zalando-test-output.json.tmp",
+    to: "zalando-test-output.json"
+  }]);
+  const output = JSON.parse(fsRecorder.writes[0].contents);
+  assert.deepEqual(output.scan_status, {
+    attempted_pages: 3,
+    successful_pages: 2,
+    failed_pages: 1,
+    failures: [{
+      url: requestedListingUrls[1],
+      error_summary: output.debug.pages[1].error
+    }],
+    scanned_product_count: 2,
+    published_product_count: 1
+  });
+  assert.equal(output.debug.pages[1].error.length, 300);
+  assert.equal(output.monitors[0].status, "success");
+  assert.doesNotThrow(() => validateZalandoOutput(output));
 });
 
 test("empty successful scans preserve the previous Zalando output", async () => {
@@ -665,7 +732,7 @@ test("conflicting target sizes fail after all monitors are attempted", async () 
   assert.equal(fsRecorder.writes.length, 0);
 });
 
-test("a failed monitor does not prevent remaining monitor attempts or publish", async () => {
+test("a failed monitor does not prevent remaining monitor attempts but remains implausible", async () => {
   const fsRecorder = createFsRecorder();
   let requestCount = 0;
   const failingMonitor = { ...configuredMonitor, id: "zalando-a-failing" };
@@ -687,7 +754,7 @@ test("a failed monitor does not prevent remaining monitor attempts or publish", 
     logger: { log() {}, error() {} },
     loadMonitors: async () => [failingMonitor, succeedingMonitor],
     outputPath: "zalando-test-output.json"
-  }), /1 of 2 required pages failed/);
+  }), /Zalando monitor zalando-a-failing produced no products/);
 
   assert.equal(requestCount, 2);
   assert.equal(fsRecorder.writes.length, 0);

@@ -94,9 +94,9 @@ Scans distinguish complete, degraded, and fatal outcomes:
 
 - A complete scan has no listing-page failures and publishes its validated
   output.
-- Vinted records a retailer request failure, continues attempting remaining
-  pages, and may atomically publish a validated degraded snapshot. Its
-  `scan_status` makes the failure observable to DealRadar.
+- Vinted and Zalando record a retailer request failure, continue attempting
+  remaining pages, and may atomically publish a validated degraded snapshot.
+  Their `scan_status` makes the failure observable to DealRadar.
 - A fatal or implausible result preserves the last known-good JSON file.
 - Output should be written to a temporary file, validated, and then replaced
   atomically.
@@ -106,18 +106,9 @@ Scans distinguish complete, degraded, and fatal outcomes:
 - External requests should have bounded timeouts and limited retries.
 - Errors must contain useful context without exposing credentials.
 
-Vinted implements this model for request failures while retaining its existing
-monitor and output validation, bounded retries, and atomic publication.
-Zalando currently fails closed on required listing-page failures and empty
-successful scans; its separate implementation slice will establish the same
-high-level outcome model without changing its source-specific validation.
-
-Zalando's fail-closed behavior was added as an explicitly approved Slice 3
-scope expansion. It intentionally differs from the pre-Slice 3 behavior, which
-could publish a failed or empty scan, even though issue #1 otherwise called for
-preserving existing scan behavior. A failed or empty Zalando scan now exits
-before the workflow's commit step.
-
-For Zalando, this policy applies to the aggregate of all enabled monitors: no
-partial per-monitor snapshot is published. With zero enabled monitors, the
-workflow succeeds without retailer requests or output replacement.
+Vinted and Zalando retain their source-specific monitor and output validation
+while sharing this outcome model. Zalando publishes a degraded result only
+when at least one listing page succeeds and every enabled monitor still has
+products; all-page failure and an empty or implausible monitor remain fatal.
+With zero enabled monitors, the workflow succeeds without retailer requests or
+output replacement.

@@ -6,7 +6,8 @@ import fetch from "node-fetch";
 import {
   createScrapingAntHttpError,
   createScanStatus,
-  safeErrorDiagnostic
+  safeErrorDiagnostic,
+  safeErrorSummary
 } from "./lib/scan-status.mjs";
 import { extractPriceInfo } from "./lib/zalando-price.mjs";
 import {
@@ -28,6 +29,18 @@ const PRODUCT_ANCHOR_SELECTOR =
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function markRetailerRequestFailure(error) {
+  const requestError = error instanceof Error
+    ? error
+    : new Error(String(error ?? "Unknown retailer request failure"));
+  requestError.retailerRequestFailure = true;
+  return requestError;
+}
+
+function isRetailerRequestFailure(error) {
+  return error?.retailerRequestFailure === true;
 }
 
 function normalizeText(value) {
@@ -151,17 +164,32 @@ export async function getRenderedHtml(url, fetchImpl, apiKey) {
   endpoint.searchParams.set("x-api-key", apiKey);
   endpoint.searchParams.set("browser", "true");
 
-  const res = await fetchImpl(endpoint.toString(), {
-    headers: {
-      "user-agent": "deal-watch-zalando/1.0"
-    }
-  });
-
-  if (!res.ok) {
-    throw await createScrapingAntHttpError(res, url);
+  let res;
+  try {
+    res = await fetchImpl(endpoint.toString(), {
+      headers: {
+        "user-agent": "deal-watch-zalando/1.0"
+      }
+    });
+  } catch (error) {
+    throw markRetailerRequestFailure(error);
   }
 
-  return await res.text();
+  if (!res || typeof res.ok !== "boolean" || typeof res.text !== "function") {
+    throw new Error("Invalid ScrapingAnt response");
+  }
+
+  if (!res.ok) {
+    throw markRetailerRequestFailure(
+      await createScrapingAntHttpError(res, url)
+    );
+  }
+
+  try {
+    return await res.text();
+  } catch (error) {
+    throw markRetailerRequestFailure(error);
+  }
 }
 
 function visibleText($, node) {
@@ -362,7 +390,7 @@ export function validateZalandoOutput(output) {
       typeof page.monitor_id !== "string" ||
       !Number.isSafeInteger(page.product_count) ||
       page.product_count < 0 ||
-      page.error !== null
+      (page.error !== null && !isBoundedString(page.error, 300))
     )) ||
     !Array.isArray(output.products) ||
     output.product_count !== output.products.length ||
@@ -407,9 +435,29 @@ export function validateZalandoOutput(output) {
     expectedPageCount += monitor.pages;
   }
 
+  const expectedFailures = output.debug.pages
+    .filter((page) => page.error !== null)
+    .map((page) => ({
+      url: page.url,
+      error_summary: safeErrorDiagnostic(page.error).slice(0, 300)
+    }));
+
   if (
     expectedPageCount !== output.start_urls.length ||
-    output.debug.pages.some((page) => !monitorById.has(page.monitor_id))
+    output.debug.pages.some((page) => !monitorById.has(page.monitor_id)) ||
+    !Number.isSafeInteger(output.scan_status?.attempted_pages) ||
+    !Number.isSafeInteger(output.scan_status?.successful_pages) ||
+    !Number.isSafeInteger(output.scan_status?.failed_pages) ||
+    output.scan_status.attempted_pages !== output.start_urls.length ||
+    output.scan_status.successful_pages < 0 ||
+    output.scan_status.failed_pages < 0 ||
+    output.scan_status.successful_pages + output.scan_status.failed_pages !==
+      output.scan_status.attempted_pages ||
+    !Array.isArray(output.scan_status.failures) ||
+    output.scan_status.failures.length !== output.scan_status.failed_pages ||
+    output.scan_status.scanned_product_count !== output.products.length ||
+    output.scan_status.published_product_count !== output.matches.length ||
+    JSON.stringify(output.scan_status.failures) !== JSON.stringify(expectedFailures)
   ) {
     throw new Error("Invalid Zalando output contract");
   }
@@ -542,7 +590,6 @@ export async function scan({
   let requestIndex = 0;
   for (const plan of plans) {
     const monitorProductUrls = new Set();
-    let monitorFailed = false;
 
     for (const url of plan.listingUrls) {
       requestIndex++;
@@ -550,8 +597,26 @@ export async function scan({
         `[${requestIndex}/${startUrls.length}] ${plan.monitorId} ${url}`
       );
 
+      let html;
       try {
-        const html = await getRenderedHtml(url, fetchImpl, apiKey);
+        html = await getRenderedHtml(url, fetchImpl, apiKey);
+      } catch (error) {
+        if (!isRetailerRequestFailure(error)) throw error;
+        const errorDiagnostic = safeErrorSummary(error);
+
+        logger.error(
+          `Failed monitor ${plan.monitorId} listing ${url}:`,
+          errorDiagnostic
+        );
+        pageResults.push({
+          monitor_id: plan.monitorId,
+          url,
+          product_count: 0,
+          error: errorDiagnostic
+        });
+      }
+
+      if (html !== undefined) {
         const products = extractProductsFromListing(
           html,
           url,
@@ -607,20 +672,6 @@ export async function scan({
             matchingProductUrls.add(product.url);
           }
         }
-      } catch (error) {
-        monitorFailed = true;
-        const errorDiagnostic = safeErrorDiagnostic(error);
-
-        logger.error(
-          `Failed monitor ${plan.monitorId} listing ${url}:`,
-          errorDiagnostic
-        );
-        pageResults.push({
-          monitor_id: plan.monitorId,
-          url,
-          product_count: 0,
-          error: errorDiagnostic
-        });
       }
 
       if (requestIndex < startUrls.length) await sleepImpl(1000);
@@ -633,7 +684,7 @@ export async function scan({
       min_discount_percent: plan.minDiscountPercent,
       pages: plan.pages,
       product_count: monitorProductUrls.size,
-      status: monitorFailed ? "failed" : "success"
+      status: "success"
     });
   }
 
@@ -653,11 +704,8 @@ export async function scan({
     publishedProductCount: matches.length
   });
 
-  if (scanStatus.failed_pages > 0) {
-    throw new Error(
-      `Zalando scan failed: ${scanStatus.failed_pages} of ` +
-      `${scanStatus.attempted_pages} required pages failed`
-    );
+  if (scanStatus.successful_pages === 0) {
+    throw new Error("Zalando scan produced no successful listing pages");
   }
 
   const emptyMonitor = monitorSummaries.find((monitor) => monitor.product_count === 0);

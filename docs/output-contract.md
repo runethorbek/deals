@@ -53,10 +53,9 @@ supports publication.
 
 For a source with page status, `successful_pages + failed_pages =
 attempted_pages`. A route-level failure is not automatically proof that the
-whole source scan is invalid. Vinted may publish a validated degraded scan when
-at least one page succeeds; Zalando retains its current fail-closed
-required-page policy until its separate implementation slice. Scarosso may
-publish a snapshot with missing sale categories.
+whole source scan is invalid. Vinted and Zalando may publish a validated
+degraded scan when their source-specific validation passes. Scarosso may publish
+a snapshot with missing sale categories.
 
 ## Common product concepts
 
@@ -228,13 +227,16 @@ that distinction rather than silently treating such values as one currency.
 | `debug.products_without_discount` | Products without a parsed discount |
 | `debug.products_without_price` | Products without a parsed price |
 
-Every required Zalando page request must succeed, and every monitor must produce
-at least one product across its pages, before publication. All enabled monitors
-contribute to one atomic snapshot. Products are deduplicated by normalized URL
-across pages and monitors; a URL found through different target sizes fails the
-complete scan. Configuration validates `pages` from 1 through 10. Page 1 uses
-the configured listing URL, and later pages preserve its query parameters while
-adding `p=N`.
+Zalando attempts every configured page. A complete scan has no failed pages. A
+degraded scan may publish when at least one page succeeds and every monitor
+still produces at least one product across its successful pages. Failed pages
+remain visible through `scan_status.failures`. All-page failure, an empty or
+implausible monitor, and configuration or execution failures preserve the prior
+snapshot. All enabled monitors contribute to one atomic snapshot. Products are
+deduplicated by normalized URL across pages and monitors; a URL found through
+different target sizes fails the scan. Configuration validates `pages` from 1
+through 10. Page 1 uses the configured listing URL, and later pages preserve
+its query parameters while adding `p=N`.
 
 ### Product fields
 
