@@ -136,8 +136,9 @@ contract fields.
 | `catalog_id` | Catalog filter used for the observation |
 | `target_size_id` | Size filter used for the observation |
 | `size_assumption` | Documents that the listing URL was filtered by the size ID |
-| `brand` | Parsed listing brand text, when available |
-| `size_guess` | Parsed size text, or `null` when not reliably inferred |
+| `brand` | Explicit `Varemærke:` listing brand text, or `null` when that metadata is absent |
+| `size_guess` | Explicit `Størrelse:` listing size text when available; otherwise existing size inference, or `null` |
+| `article_condition` | Additive Vinted-specific `Artiklens stand:` source text, or `null` when absent |
 | `price` | Current observed listing price, or `null` when no price is parsed |
 | `currency` | Parsed retailer-local currency (`DKK`, `EUR`, `USD`, or `null`) |
 | `raw_price` | Source price text retained for diagnostics |

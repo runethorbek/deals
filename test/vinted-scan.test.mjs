@@ -13,6 +13,24 @@ const LISTING_HTML = `
   </article>
 `;
 
+const VINTED_METADATA_LISTING_HTML = `
+  <article><a href="/items/1-zara" title="Marynarka zielona, Varemærke: Zara, Artiklens stand: Meget god, Størrelse: S, 17.50 kr"><img src="/images/1.webp"></a><span>seller, Size: XL, 17.50 kr</span></article>
+  <article><a href="/items/2-hm" title="Jakke, Varemærke: H&amp;M, Artiklens stand: God, Størrelse: EU 46 | W29, 18 kr"><img src="/images/2.webp"></a><span>18 kr</span></article>
+  <article><a href="/items/3-scotch" title="Blazer, Varemærke: Scotch &amp; Soda, Artiklens stand: Ny med prismærker, Størrelse: M, 19 kr"><img src="/images/3.webp"></a><span>19 kr</span></article>
+  <article><a href="/items/4-marks" title="Frakke, Varemærke: Marks &amp; Spencer, Artiklens stand: Ny uden prismærker, Størrelse: L, 20 kr"><img src="/images/4.webp"></a><span>20 kr</span></article>
+  <article><a href="/items/5-unlabelled" title="Generic product description"><img src="/images/5.webp"></a><span>username-not-a-brand, Size: 42, 21 kr</span></article>
+  <article><a href="/items/6-no-size" title="Trousers, Varemærke: Zara, Artiklens stand: God, 22 kr"><img src="/images/6.webp"></a><span>22 kr</span></article>
+  <article><a href="/items/7-no-comma" title="Blazer, Varemærke: Zara Artiklens stand: God, 23 kr"><img src="/images/7.webp"></a><span>23 kr</span></article>
+`;
+
+const SINGLE_MONITOR = [{
+  id: "vinted-test",
+  source: "vinted",
+  enabled: true,
+  filters: { catalogIds: ["1786"], sizeIds: ["207"] },
+  pages: 1
+}];
+
 function listingHtml(itemId, title = "Test blazer") {
   return `
     <article>
@@ -81,6 +99,51 @@ test("missing credentials remain a hard failure before retailer requests or outp
 
   assert.equal(requestCount, 0);
   assert.equal(writeCount, 0);
+});
+
+test("scanner parses explicit Vinted metadata without guessing brand", async () => {
+  let writtenOutput = null;
+
+  await scan({
+    apiKey: "test-api-key",
+    loadMonitors: async () => SINGLE_MONITOR,
+    fetchImpl: async () => ({ ok: true, async text() { return VINTED_METADATA_LISTING_HTML; } }),
+    fsImpl: {
+      async mkdir() {},
+      async writeFile(_outputPath, contents) { writtenOutput = JSON.parse(contents); },
+      async rename() {},
+      async rm() {}
+    },
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    outputPath: "vinted-test-output.json"
+  });
+
+  const product = (id) => writtenOutput.products.find((entry) => (
+    entry.url === `https://www.vinted.dk/items/${id}`
+  ));
+
+  assert.deepEqual(
+    {
+      brand: product("1-zara").brand,
+      size_guess: product("1-zara").size_guess,
+      article_condition: product("1-zara").article_condition
+    },
+    { brand: "Zara", size_guess: "S", article_condition: "Meget god" }
+  );
+  assert.equal(product("2-hm").brand, "H&M");
+  assert.equal(product("2-hm").size_guess, "EU 46 | W29");
+  assert.equal(product("2-hm").article_condition, "God");
+  assert.equal(product("3-scotch").brand, "Scotch & Soda");
+  assert.equal(product("3-scotch").article_condition, "Ny med prismærker");
+  assert.equal(product("4-marks").brand, "Marks & Spencer");
+  assert.equal(product("4-marks").article_condition, "Ny uden prismærker");
+  assert.equal(product("5-unlabelled").brand, null);
+  assert.equal(product("5-unlabelled").article_condition, null);
+  assert.equal(product("5-unlabelled").size_guess, "42");
+  assert.equal(product("6-no-size").size_guess, null);
+  assert.equal(product("7-no-comma").brand, "Zara");
+  assert.equal(product("7-no-comma").article_condition, "God");
 });
 
 test("scanner uses configured Vinted pages and writes the existing output contract", async () => {

@@ -309,45 +309,6 @@ function extractPriceFromText(text) {
   };
 }
 
-function extractBrandGuess(title, rawText) {
-  const text = normalizeText(rawText);
-
-  // Vinted listing cards often start with brand/title text, but not always.
-  // This is deliberately conservative and can be improved after seeing JSON output.
-  const knownSeparators = [
-    " - ",
-    " | ",
-    " · ",
-    ", "
-  ];
-
-  for (const sep of knownSeparators) {
-    if (title.includes(sep)) {
-      const candidate = normalizeText(title.split(sep)[0]);
-
-      if (candidate.length >= 2 && candidate.length <= 40) {
-        return candidate;
-      }
-    }
-  }
-
-  const words = text.split(" ").filter(Boolean);
-
-  // Avoid using a very long image alt-description as brand.
-  if (words.length > 0 && words[0].length >= 2 && words[0].length <= 30) {
-    const first = words[0].replace(/[^\p{L}\p{N}&'.-]/gu, "");
-
-    if (
-      first &&
-      !/^(heart|liked|size|new|item|€|kr|dkk|usd)$/i.test(first)
-    ) {
-      return first;
-    }
-  }
-
-  return null;
-}
-
 function extractSizeGuess(text) {
   const normalized = normalizeText(text);
 
@@ -365,6 +326,24 @@ function extractSizeGuess(text) {
   }
 
   return null;
+}
+
+function extractLabelledMetadata(text, label) {
+  const normalized = normalizeText(text);
+  const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const nextMetadataLabel = "(?:Varemærke|Artiklens stand|Størrelse)";
+  const pattern = new RegExp(
+    `\\b${escapedLabel}\\s*:\\s*(.+?)(?=\\s*,|\\s+${nextMetadataLabel}\\s*:|$)`,
+    "i"
+  );
+  const match = normalized.match(pattern);
+
+  return match ? normalizeText(match[1]) || null : null;
+}
+
+function extractLabelledMetadataFromListing(title, rawCardText, label) {
+  return extractLabelledMetadata(title, label) ??
+    extractLabelledMetadata(rawCardText, label);
 }
 
 function extractMetadataFromJsonLd(html) {
@@ -407,6 +386,11 @@ function extractProductsFromListing(
 
     const title = extractTitle($, anchor, container);
     const priceInfo = extractPriceFromText(rawCardText);
+    const labelledSize = extractLabelledMetadataFromListing(
+      title,
+      rawCardText,
+      "Størrelse"
+    );
 
     const product = {
       title,
@@ -418,8 +402,13 @@ function extractProductsFromListing(
       target_size_id: sizeId,
       monitor_ids: [monitorId],
       size_assumption: `listing-url-filtered-by-size-id-${sizeId}`,
-      brand: extractBrandGuess(title, rawCardText),
-      size_guess: extractSizeGuess(rawCardText),
+      brand: extractLabelledMetadataFromListing(title, rawCardText, "Varemærke"),
+      size_guess: labelledSize ?? extractSizeGuess(rawCardText),
+      article_condition: extractLabelledMetadataFromListing(
+        title,
+        rawCardText,
+        "Artiklens stand"
+      ),
       ...priceInfo,
       raw_card_text: rawCardText,
       checked_at: checkedAt

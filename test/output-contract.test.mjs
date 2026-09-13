@@ -264,6 +264,10 @@ function assertPublishedSnapshot(source, snapshot) {
       assert.equal(typeof product.catalog_id, "string");
       assert.equal(typeof product.target_size_id, "string");
       assert.equal(typeof product.size_assumption, "string");
+      assert.ok(
+        product.article_condition === null ||
+        (typeof product.article_condition === "string" && product.article_condition.trim())
+      );
       assert.ok(Array.isArray(product.source_urls));
       assert.ok(product.source_urls.length > 0);
       assert.ok(Array.isArray(product.monitor_ids));
