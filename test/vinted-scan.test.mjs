@@ -62,6 +62,27 @@ test("disabled monitor skips before credentials, requests, or output", async () 
   assert.equal(writeCount, 0);
 });
 
+test("missing credentials remain a hard failure before retailer requests or output", async () => {
+  let requestCount = 0;
+  let writeCount = 0;
+
+  await assert.rejects(
+    scan({
+      apiKey: "",
+      fetchImpl: async () => { requestCount++; },
+      fsImpl: {
+        async mkdir() {},
+        async writeFile() { writeCount++; }
+      },
+      logger: { log() {}, error() {} }
+    }),
+    /Missing SCRAPINGANT_API_KEY environment variable/
+  );
+
+  assert.equal(requestCount, 0);
+  assert.equal(writeCount, 0);
+});
+
 test("scanner uses configured Vinted pages and writes the existing output contract", async () => {
   const requestedListingUrls = [];
   const requestedTimeouts = [];
@@ -251,50 +272,48 @@ test("scanner writes a validated snapshot through an atomic replacement", async 
   ]);
 });
 
-test("scanner preserves the last good output when a required page fails", async () => {
-  let outputWrites = 0;
+test("scanner publishes a usable partial scan after attempting later pages", async () => {
+  const attemptedUrls = [];
+  let writtenOutput = null;
 
-  await assert.rejects(
-    scan({
-      apiKey: "test-api-key",
-      fetchImpl: async (endpoint) => {
-        const listingUrl = new URL(endpoint).searchParams.get("url");
+  await scan({
+    apiKey: "test-api-key",
+    loadMonitors: async () => MULTI_MONITORS,
+    fetchImpl: async (endpoint) => {
+      const listingUrl = new URL(endpoint).searchParams.get("url");
+      attemptedUrls.push(listingUrl);
+      if (listingUrl.includes("catalog[]=1234") && listingUrl.endsWith("page=1")) {
+        return { ok: false, status: 502, async text() { return "Bad Gateway"; } };
+      }
+      return { ok: true, async text() { return LISTING_HTML; } };
+    },
+    fsImpl: {
+      async mkdir() {},
+      async writeFile(_outputPath, contents) { writtenOutput = JSON.parse(contents); },
+      async rename() {},
+      async rm() {}
+    },
+    sleepImpl: async () => {},
+    logger: { log() {}, error() {} },
+    outputPath: "vinted-test-output.json"
+  });
 
-        if (listingUrl.endsWith("page=2")) {
-          return {
-            ok: false,
-            status: 502,
-            async text() {
-              return "Bad Gateway";
-            }
-          };
-        }
-
-        return {
-          ok: true,
-          async text() {
-            return LISTING_HTML;
-          }
-        };
-      },
-      fsImpl: {
-        async mkdir() {},
-        async writeFile() {
-          outputWrites++;
-        }
-      },
-      sleepImpl: async () => {},
-      logger: { log() {}, error() {} },
-      outputPath: "vinted-test-output.json"
-    }),
-    /Vinted scan failed: 2 of 6 required pages failed/
-  );
-
-  assert.equal(outputWrites, 0);
+  assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=2"));
+  assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"));
+  assert.deepEqual(writtenOutput.scan_status, {
+    attempted_pages: 3,
+    successful_pages: 2,
+    failed_pages: 1,
+    failures: [{
+      url: "https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=1",
+      error_summary: "ScrapingAnt failed for https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=1: 502 Bad Gateway"
+    }],
+    scanned_product_count: 1,
+    published_product_count: 1
+  });
 });
 
-test("scanner attempts remaining monitor pages but does not publish after any failure", async () => {
-  const attemptedUrls = [];
+test("scanner treats malformed ScrapingAnt responses as hard failures", async () => {
   let outputWrites = 0;
 
   await assert.rejects(
@@ -303,10 +322,11 @@ test("scanner attempts remaining monitor pages but does not publish after any fa
       loadMonitors: async () => MULTI_MONITORS,
       fetchImpl: async (endpoint) => {
         const listingUrl = new URL(endpoint).searchParams.get("url");
-        attemptedUrls.push(listingUrl);
-        if (listingUrl.includes("catalog[]=1234") && listingUrl.endsWith("page=1")) {
-          return { ok: false, status: 502, async text() { return "Bad Gateway"; } };
+
+        if (listingUrl.endsWith("page=1")) {
+          return { ok: true };
         }
+
         return { ok: true, async text() { return LISTING_HTML; } };
       },
       fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; } },
@@ -314,11 +334,31 @@ test("scanner attempts remaining monitor pages but does not publish after any fa
       logger: { log() {}, error() {} },
       outputPath: "vinted-test-output.json"
     }),
-    /Vinted scan failed: 1 of 3 required pages failed/
+    /Invalid ScrapingAnt response/
   );
 
-  assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=2"));
-  assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"));
+  assert.equal(outputWrites, 0);
+});
+
+test("scanner preserves the last good output when all listing pages fail", async () => {
+  let outputWrites = 0;
+
+  await assert.rejects(
+    scan({
+      apiKey: "test-api-key",
+      fetchImpl: async () => ({
+        ok: false,
+        status: 502,
+        async text() { return "Bad Gateway"; }
+      }),
+      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; } },
+      sleepImpl: async () => {},
+      logger: { log() {}, error() {} },
+      outputPath: "vinted-test-output.json"
+    }),
+    /Vinted scan produced no products/
+  );
+
   assert.equal(outputWrites, 0);
 });
 
@@ -503,7 +543,7 @@ test("scanner aborts timed-out ScrapingAnt requests and does not publish", async
       requestTimeoutMs: 5,
       outputPath: "vinted-test-output.json"
     }),
-    /Vinted scan failed: 6 of 6 required pages failed/
+    /Vinted scan produced no products/
   );
 
   assert.equal(requestAttempts, 18);

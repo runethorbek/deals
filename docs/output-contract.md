@@ -32,11 +32,13 @@ scans it equals the snapshot timestamp.
 `start_urls` array identifies the listing requests for Vinted and Zalando.
 Scarosso instead records its requested listing routes in `debug.pages`.
 
-A published snapshot contains only a validated complete result for the
-publication policy of that source. A failed or implausible scan must preserve
-the last known-good committed snapshot rather than replacing it. Source
-workflows publish through a temporary file and atomic replacement where the
-scanner supports publication.
+A published snapshot contains a validated usable result for the publication
+policy of that source. A complete scan may publish, and a source that supports
+degraded scans may also publish a validated partial result with its request
+failures retained in `scan_status`. A fatal or implausible scan preserves the
+last known-good committed snapshot rather than replacing it. Source workflows
+publish through a temporary file and atomic replacement where the scanner
+supports publication.
 
 `scan_status` is diagnostic metadata. Its common fields are:
 
@@ -51,9 +53,10 @@ scanner supports publication.
 
 For a source with page status, `successful_pages + failed_pages =
 attempted_pages`. A route-level failure is not automatically proof that the
-whole source scan is invalid. In particular, Scarosso may publish a snapshot
-with missing sale categories, while Vinted and Zalando require their configured
-listing requests to succeed and produce products.
+whole source scan is invalid. Vinted may publish a validated degraded scan when
+at least one page succeeds; Zalando retains its current fail-closed
+required-page policy until its separate implementation slice. Scarosso may
+publish a snapshot with missing sale categories.
 
 ## Common product concepts
 
@@ -103,18 +106,22 @@ plausible for the source.
 | `scanned_product_count` | Recognized products |
 | `product_count` | Published product count |
 | `products` | Published Vinted product objects |
-| `monitors` | Successful monitor summaries: ID, catalog ID, size ID, required pages, and unique observed product count |
-| `scan_status` | Required-page outcome and published count metadata |
+| `monitors` | Monitor summaries: ID, catalog ID, size ID, required pages, and unique observed product count |
+| `scan_status` | Listing-page outcome and published count metadata |
 | `debug.pages` | Per-page product counts, JSON-LD counts, and request errors |
 | `debug.products_with_price` | Recognized products with a parsed price |
 | `debug.products_without_price` | Recognized products without a parsed price |
 | `debug.products_with_brand` | Recognized products with a parsed brand |
 | `debug.products_with_size_guess` | Recognized products with an inferred size |
 
-Vinted requires all configured pages to succeed, every enabled monitor to
-observe products, and a non-empty combined recognized product set before
-publication. The checked-in monitor uses catalog `1786`, size `207`, and three
-pages; those values are monitoring intent, not universal contract fields.
+Vinted attempts every configured page. A complete scan has no failed pages. A
+degraded scan may publish when at least one page succeeds, every enabled monitor
+still observes products, and the combined recognized product set is non-empty.
+Its failed requests remain visible through `scan_status.failures`. All-page
+failure, empty or implausible output, and configuration or execution failures
+preserve the prior snapshot. The checked-in monitor uses catalog `1786`, size
+`207`, and three pages; those values are monitoring intent, not universal
+contract fields.
 
 ### Product fields
 

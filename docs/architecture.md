@@ -90,10 +90,14 @@ and plausible.
 
 ## Failure semantics
 
-The intended publication policy is fail closed:
+Scans distinguish complete, degraded, and fatal outcomes:
 
-- A required-page failure or implausible result must preserve the last known
-  good JSON file.
+- A complete scan has no listing-page failures and publishes its validated
+  output.
+- Vinted records a retailer request failure, continues attempting remaining
+  pages, and may atomically publish a validated degraded snapshot. Its
+  `scan_status` makes the failure observable to DealRadar.
+- A fatal or implausible result preserves the last known-good JSON file.
 - Output should be written to a temporary file, validated, and then replaced
   atomically.
 - DealRadar imports one exact `main` revision after the source workflow window.
@@ -102,12 +106,11 @@ The intended publication policy is fail closed:
 - External requests should have bounded timeouts and limited retries.
 - Errors must contain useful context without exposing credentials.
 
-The current scrapers do not yet enforce all of these rules; they describe the
-direction for future implementation. Vinted fails closed on required-page
-failures and empty successful scans, validates its output, atomically publishes
-validated snapshots, and uses bounded request timeouts and retries. Zalando now
-fails closed on its required listing-page failure and empty successful scans,
-validates its output, and atomically publishes validated snapshots.
+Vinted implements this model for request failures while retaining its existing
+monitor and output validation, bounded retries, and atomic publication.
+Zalando currently fails closed on required listing-page failures and empty
+successful scans; its separate implementation slice will establish the same
+high-level outcome model without changing its source-specific validation.
 
 Zalando's fail-closed behavior was added as an explicitly approved Slice 3
 scope expansion. It intentionally differs from the pre-Slice 3 behavior, which

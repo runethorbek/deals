@@ -40,7 +40,9 @@ to render without escaping.
 
 - Use request timeouts and limited retries with backoff for transient failures.
 - Treat authentication failures as terminal rather than retrying indefinitely.
-- Do not publish empty or partial output after required-page failures.
+- Do not publish empty, implausible, or fatal output. A source may publish a
+  validated degraded result only when its documented scan semantics permit it,
+  retaining bounded, sanitized request-failure diagnostics in `scan_status`.
 - Make a failed import visible and safely retryable without rerunning a scan.
 
 ## Dependencies and automation

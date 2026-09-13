@@ -6,7 +6,7 @@ import fetch from "node-fetch";
 import {
   createScrapingAntHttpError,
   createScanStatus,
-  safeErrorDiagnostic
+  safeErrorSummary
 } from "./lib/scan-status.mjs";
 import {
   buildVintedListingUrls,
@@ -23,6 +23,20 @@ const RETRY_BASE_DELAY_MS = 500;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function markRetailerRequestFailure(error, retryable = true) {
+  const requestError = error instanceof Error
+    ? error
+    : new Error(String(error ?? "Unknown retailer request failure"));
+
+  requestError.retailerRequestFailure = true;
+  requestError.retryable = retryable;
+  return requestError;
+}
+
+function isRetailerRequestFailure(error) {
+  return error?.retailerRequestFailure === true;
 }
 
 function normalizeText(value) {
@@ -68,36 +82,55 @@ async function getRenderedHtmlOnce(
   endpoint.searchParams.set("timeout", String(SCRAPINGANT_TIMEOUT_SECONDS));
 
   try {
-    const res = await fetchImpl(endpoint.toString(), {
-      headers: {
-        "user-agent": "vinted-deal-watch/1.0"
-      },
-      signal: controller.signal
-    });
+    let res;
+
+    try {
+      res = await fetchImpl(endpoint.toString(), {
+        headers: {
+          "user-agent": "vinted-deal-watch/1.0"
+        },
+        signal: controller.signal
+      });
+    } catch (error) {
+      if (controller.signal.aborted) {
+        const timeoutError = new Error(
+          `ScrapingAnt request timed out for ${url} after ` +
+          `${requestTimeoutMs}ms`
+        );
+        throw markRetailerRequestFailure(timeoutError);
+      }
+
+      throw markRetailerRequestFailure(error);
+    }
+
+    if (!res || typeof res.ok !== "boolean" || typeof res.text !== "function") {
+      throw new Error("Invalid ScrapingAnt response");
+    }
 
     if (!res.ok) {
       const error = await createScrapingAntHttpError(res, url);
-      error.retryable = (
+      const retryable = (
         res.status === 408 ||
         res.status === 423 ||
         res.status === 429 ||
         res.status >= 500
       );
-      throw error;
+      throw markRetailerRequestFailure(error, retryable);
     }
 
-    return await res.text();
-  } catch (error) {
-    if (controller.signal.aborted) {
-      const timeoutError = new Error(
-        `ScrapingAnt request timed out for ${url} after ` +
-        `${requestTimeoutMs}ms`
-      );
-      timeoutError.retryable = true;
-      throw timeoutError;
-    }
+    try {
+      return await res.text();
+    } catch (error) {
+      if (controller.signal.aborted) {
+        const timeoutError = new Error(
+          `ScrapingAnt request timed out for ${url} after ` +
+          `${requestTimeoutMs}ms`
+        );
+        throw markRetailerRequestFailure(timeoutError);
+      }
 
-    throw error;
+      throw markRetailerRequestFailure(error);
+    }
   } finally {
     clearTimeout(timeout);
   }
@@ -119,10 +152,10 @@ async function getRenderedHtml(
         requestTimeoutMs
       );
     } catch (error) {
-      const shouldRetry = (
-        error?.retryable !== false &&
-        attempt < MAX_REQUEST_ATTEMPTS
-      );
+      if (!isRetailerRequestFailure(error)) throw error;
+
+      const shouldRetry = error.retryable !== false &&
+        attempt < MAX_REQUEST_ATTEMPTS;
 
       if (!shouldRetry) {
         throw error;
@@ -467,7 +500,14 @@ function validateVintedOutput(output) {
 
   if (
     output.scan_status.attempted_pages !== output.start_urls.length ||
-    output.scan_status.failed_pages !== 0 ||
+    !Number.isSafeInteger(output.scan_status.successful_pages) ||
+    !Number.isSafeInteger(output.scan_status.failed_pages) ||
+    output.scan_status.successful_pages < 0 ||
+    output.scan_status.failed_pages < 0 ||
+    output.scan_status.successful_pages + output.scan_status.failed_pages !==
+      output.scan_status.attempted_pages ||
+    !Array.isArray(output.scan_status.failures) ||
+    output.scan_status.failures.length !== output.scan_status.failed_pages ||
     output.scan_status.scanned_product_count !== output.products.length ||
     output.scan_status.published_product_count !== output.products.length
   ) {
@@ -596,14 +636,33 @@ export async function scan({
 
     logger.log(`[${i + 1}/${monitorPages.length}] ${url}`);
 
+    let html;
+
     try {
-      const html = await getRenderedHtml(
+      html = await getRenderedHtml(
         url,
         fetchImpl,
         apiKey,
         sleepImpl,
         requestTimeoutMs
       );
+    } catch (error) {
+      if (!isRetailerRequestFailure(error)) throw error;
+
+      const errorDiagnostic = safeErrorSummary(error);
+
+      logger.error(`Failed listing ${url}:`, errorDiagnostic);
+
+      pageResults.push({
+        monitor_id: monitor.id,
+        url,
+        product_count: 0,
+        json_ld_blocks: 0,
+        error: errorDiagnostic
+      });
+    }
+
+    if (html !== undefined) {
       const products = extractProductsFromListing(
         html,
         url,
@@ -627,18 +686,6 @@ export async function scan({
         const existing = productMap.get(product.url);
         productMap.set(product.url, mergeProduct(existing, product));
       }
-    } catch (error) {
-      const errorDiagnostic = safeErrorDiagnostic(error);
-
-      logger.error(`Failed listing ${url}:`, errorDiagnostic);
-
-      pageResults.push({
-        monitor_id: monitor.id,
-        url,
-        product_count: 0,
-        json_ld_blocks: 0,
-        error: errorDiagnostic
-      });
     }
 
     if (i < monitorPages.length - 1) {
@@ -659,13 +706,6 @@ export async function scan({
     scannedProductCount: products.length,
     publishedProductCount: products.length
   });
-
-  if (scanStatus.failed_pages > 0) {
-    throw new Error(
-      `Vinted scan failed: ${scanStatus.failed_pages} of ` +
-      `${scanStatus.attempted_pages} required pages failed`
-    );
-  }
 
   if (products.length === 0) {
     throw new Error("Vinted scan produced no products");

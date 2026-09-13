@@ -132,12 +132,15 @@ missing parts). The primary image alt text describes the photograph and is not
 used as product identity; a card without structured identity receives the
 title `Unknown product`.
 
-Vinted ScrapingAnt requests time out after 30 seconds and transient failures
-are attempted at most three times with bounded backoff. If any required listing
-page still fails, or any successful monitor produces no products, the scan exits
-without replacing the last known-good output. Products are deduplicated by
-canonical item URL and include sorted `monitor_ids` provenance. Valid snapshots
-are written to a temporary file and atomically renamed into place.
+Vinted ScrapingAnt requests time out after 65 seconds and transient failures
+are attempted at most three times with bounded backoff. A failed listing request
+is recorded in `scan_status`, and the scanner continues with all remaining
+configured pages. A usable scan with both successful and failed pages is
+published atomically as a degraded snapshot; DealRadar can observe this through
+`scan_status`. An all-page failure, an empty or implausible result, and
+configuration or execution failures preserve the last known-good output.
+Products are deduplicated by canonical item URL and include sorted
+`monitor_ids` provenance.
 
 Zalando treats every configured listing page as required and preserves the
 last known-good snapshot when any request fails or a monitor's successful pages
