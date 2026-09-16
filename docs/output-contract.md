@@ -127,6 +127,7 @@ contract fields.
 | Field | Meaning |
 | --- | --- |
 | `title` | Listing title |
+| `listing_text` | Free-text segment preceding any recognized labelled metadata in the title, or the full trimmed title when no recognized label is present, or `null` when that segment is empty |
 | `url` | Canonical Vinted item URL and product identity |
 | `image` | Vinted listing image |
 | `site` | `vinted.com` |

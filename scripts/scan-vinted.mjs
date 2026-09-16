@@ -328,12 +328,14 @@ function extractSizeGuess(text) {
   return null;
 }
 
+const METADATA_LABELS = "(?:Varemærke|Artiklens stand|Størrelse)";
+const METADATA_LABEL_PATTERN = new RegExp(`\\b${METADATA_LABELS}\\s*:`, "i");
+
 function extractLabelledMetadata(text, label) {
   const normalized = normalizeText(text);
   const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const nextMetadataLabel = "(?:Varemærke|Artiklens stand|Størrelse)";
   const pattern = new RegExp(
-    `\\b${escapedLabel}\\s*:\\s*(.+?)(?=\\s*,|\\s+${nextMetadataLabel}\\s*:|$)`,
+    `\\b${escapedLabel}\\s*:\\s*(.+?)(?=\\s*,|\\s+${METADATA_LABELS}\\s*:|$)`,
     "i"
   );
   const match = normalized.match(pattern);
@@ -344,6 +346,19 @@ function extractLabelledMetadata(text, label) {
 function extractLabelledMetadataFromListing(title, rawCardText, label) {
   return extractLabelledMetadata(title, label) ??
     extractLabelledMetadata(rawCardText, label);
+}
+
+function extractListingText(title) {
+  const normalized = normalizeText(title);
+  const match = normalized.match(METADATA_LABEL_PATTERN);
+
+  if (!match) return normalized || null;
+
+  const segment = normalizeText(
+    normalized.slice(0, match.index).replace(/,\s*$/, "")
+  );
+
+  return segment || null;
 }
 
 function extractMetadataFromJsonLd(html) {
@@ -409,6 +424,7 @@ function extractProductsFromListing(
         rawCardText,
         "Artiklens stand"
       ),
+      listing_text: extractListingText(title),
       ...priceInfo,
       raw_card_text: rawCardText,
       checked_at: checkedAt

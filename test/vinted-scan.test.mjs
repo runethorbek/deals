@@ -21,6 +21,10 @@ const VINTED_METADATA_LISTING_HTML = `
   <article><a href="/items/5-unlabelled" title="Generic product description"><img src="/images/5.webp"></a><span>username-not-a-brand, Size: 42, 21 kr</span></article>
   <article><a href="/items/6-no-size" title="Trousers, Varemærke: Zara, Artiklens stand: God, 22 kr"><img src="/images/6.webp"></a><span>22 kr</span></article>
   <article><a href="/items/7-no-comma" title="Blazer, Varemærke: Zara Artiklens stand: God, 23 kr"><img src="/images/7.webp"></a><span>23 kr</span></article>
+  <article><a href="/items/8-brand-only" title="Bleizeri, Varemærke: Pois, 24 kr"><img src="/images/8.webp"></a><span>24 kr</span></article>
+  <article><a href="/items/9-label-first" title="Varemærke: Zara, Artiklens stand: God, 25 kr"><img src="/images/9.webp"></a><span>25 kr</span></article>
+  <article><a href="/items/10-amp-comma" title="Rock, Paper &amp; Scissors shirt, Varemærke: Zara, 26 kr"><img src="/images/10.webp"></a><span>26 kr</span></article>
+  <article><a href="/items/11-long-freetext" title="Spodnie chinosy COS Vintage Premium Old money Old school 90s look, Varemærke: COS, Artiklens stand: Meget god, 27 kr"><img src="/images/11.webp"></a><span>27 kr</span></article>
 `;
 
 const SINGLE_MONITOR = [{
@@ -144,6 +148,24 @@ test("scanner parses explicit Vinted metadata without guessing brand", async () 
   assert.equal(product("6-no-size").size_guess, null);
   assert.equal(product("7-no-comma").brand, "Zara");
   assert.equal(product("7-no-comma").article_condition, "God");
+
+  assert.equal(product("1-zara").listing_text, "Marynarka zielona");
+  assert.equal(product("8-brand-only").listing_text, "Bleizeri");
+  assert.equal(product("9-label-first").listing_text, null);
+  assert.equal(product("5-unlabelled").listing_text, "Generic product description");
+  assert.equal(
+    product("10-amp-comma").listing_text,
+    "Rock, Paper & Scissors shirt"
+  );
+  assert.equal(
+    product("11-long-freetext").listing_text,
+    "Spodnie chinosy COS Vintage Premium Old money Old school 90s look"
+  );
+  assert.ok(product("11-long-freetext").listing_text.length > 60);
+
+  // Preexisting label parsing is unaffected by the new field.
+  assert.equal(product("9-label-first").brand, "Zara");
+  assert.equal(product("9-label-first").article_condition, "God");
 });
 
 test("scanner uses configured Vinted pages and writes the existing output contract", async () => {
