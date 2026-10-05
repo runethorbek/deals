@@ -14,7 +14,7 @@
       "target_size": "46",
       "min_discount_percent": 30,
       "pages": 2,
-      "product_count": 113,
+      "product_count": 110,
       "status": "success"
     },
     {
@@ -23,14 +23,14 @@
       "target_size": "42",
       "min_discount_percent": 30,
       "pages": 2,
-      "product_count": 101,
+      "product_count": 99,
       "status": "success"
     }
   ],
-  "checked_at": "2026-10-04T10:03:14.772Z",
+  "checked_at": "2026-10-05T10:48:08.743Z",
   "scanned_page_count": 4,
-  "scanned_product_count": 214,
-  "product_count": 214,
+  "scanned_product_count": 209,
+  "product_count": 209,
   "products": [
     {
       "brand": "BOSS",
@@ -65,7 +65,7 @@
         1298
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -101,7 +101,7 @@
         1298
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -137,7 +137,7 @@
         648
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -161,18 +161,55 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedCalvin KleinSLIM - Bukser - slate blue740,00 krNormalpris:1.345,00 kr-45%",
+      "raw_card_text": "Dealheart_outlinedCalvin KleinSLIM - Bukser - slate blue673,00 krOprindeligt:1.345,00 kr-50%Sidste laveste pris740,00 kr-9%",
       "original_price": 1345,
-      "current_price": 740,
-      "discount_percent": 45,
+      "current_price": 673,
+      "discount_percent": 50,
       "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 45,
+      "explicit_discount_percent": 50,
       "price_candidates": [
         1345,
-        740
+        740,
+        673
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENUTA TUX",
+      "product_type": "Bukser",
+      "color": "midnight heaven",
+      "title": "Tiger of Sweden TENUTA TUX - Bukser - midnight heaven",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-tux-bukser-midnight-heaven-ti522a0j8-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/a189d352b6f647179bd86ef430425cee/e0d58b9d3717476b9828dc91e780c1a2.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA TUX - Bukser - midnight heaven1.377,00 krOprindeligt:2.295,00 kr-40%Sidste laveste pris1.492,00 kr-8%",
+      "original_price": 2295,
+      "current_price": 1377,
+      "discount_percent": 40,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 40,
+      "price_candidates": [
+        2295,
+        1492,
+        1377
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -207,7 +244,7 @@
         1037
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -243,7 +280,7 @@
         1037
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -279,7 +316,7 @@
         1037
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -315,114 +352,7 @@
         1297
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TENSER",
-      "product_type": "Bukser",
-      "color": "dark ink",
-      "title": "Tiger of Sweden TENSER - Bukser - dark ink",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenser-bukser-dark-ink-ti522e07i-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/fe70b9be6cf844d1b4d849098f98e417/6a82cef3aaf34ec3b74abb6619121e69.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENSER - Bukser - dark ink1.492,00 krOprindeligt:2.295,00 kr-35%Sidste laveste pris1.607,00 kr-7%",
-      "original_price": 2295,
-      "current_price": 1492,
-      "discount_percent": 35,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 35,
-      "price_candidates": [
-        2295,
-        1607,
-        1492
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TENUTA TUX",
-      "product_type": "Bukser",
-      "color": "midnight heaven",
-      "title": "Tiger of Sweden TENUTA TUX - Bukser - midnight heaven",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-tux-bukser-midnight-heaven-ti522a0j8-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/a189d352b6f647179bd86ef430425cee/e0d58b9d3717476b9828dc91e780c1a2.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA TUX - Bukser - midnight heaven1.492,00 krOprindeligt:2.295,00 kr-35%Sidste laveste pris1.721,00 kr-13%",
-      "original_price": 2295,
-      "current_price": 1492,
-      "discount_percent": 35,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 35,
-      "price_candidates": [
-        2295,
-        1721,
-        1492
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "BOSS",
-      "product_name": "GENIUS",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "BOSS GENIUS - Bukser - black",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "TopbedømtDealheart_outlinedBOSSGENIUS - Bukser - blackfra1.117,00 krNormalpris:1.595,00 krSpar op til-30%",
-      "original_price": 1595,
-      "current_price": 1117,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        1595,
-        1117
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -446,18 +376,161 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedCalvin KleinMICRO BARLEYCORN SLIM - Bukser - quiet gray907,00 krNormalpris:1.295,00 kr-30%",
+      "raw_card_text": "Dealheart_outlinedCalvin KleinMICRO BARLEYCORN SLIM - Bukser - quiet gray842,00 krOprindeligt:1.295,00 kr-35%Sidste laveste pris907,00 kr-7%",
       "original_price": 1295,
-      "current_price": 907,
+      "current_price": 842,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1295,
+        907,
+        842
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENSE",
+      "product_type": "Chino",
+      "color": "auburn glaze",
+      "title": "Tiger of Sweden TENSE - Chino - auburn glaze",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tense-chino-auburn-glaze-ti522e07c-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/c3e5ca8d2cc9483cbbca8b2044cd3abf/9ea2fe057aed483387d300a645d6b1ce.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENSE - Chino - auburn glaze1.102,00 krOprindeligt:1.695,00 kr-35%Sidste laveste pris1.271,00 kr-13%",
+      "original_price": 1695,
+      "current_price": 1102,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1695,
+        1271,
+        1102
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENUTA",
+      "product_type": "Bukser",
+      "color": "clay",
+      "title": "Tiger of Sweden TENUTA - Bukser - clay",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-clay-ti522e07k-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/fe1316e3001d4b0496822756f3fd2701/61bc739862fd48cc8087fcfda85766d1.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENUTA - Bukser - clay972,00 krNormalpris:1.495,00 kr-35%",
+      "original_price": 1495,
+      "current_price": 972,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1495,
+        972
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENUTA",
+      "product_type": "Bukser",
+      "color": "forest green",
+      "title": "Tiger of Sweden TENUTA - Bukser - forest green",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-forest-green-ti522e07d-m11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/16173c3aea944125b347e0e2f76138e2/b15f9333d4524c46a7d6eb4d1ae831c8.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA - Bukser - forest green972,00 krOprindeligt:1.495,00 kr-35%Sidste laveste pris1.047,00 kr-7%",
+      "original_price": 1495,
+      "current_price": 972,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1495,
+        1047,
+        972
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_name": "GENIUS",
+      "product_type": "Bukser",
+      "color": "black",
+      "title": "BOSS GENIUS - Bukser - black",
+      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "TopbedømtDealheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.117,00 krNormalpris:1.595,00 krSpar op til-30%",
+      "original_price": 1595,
+      "current_price": 1117,
       "discount_percent": 30,
       "discount_status": "calculated-from-prices",
       "explicit_discount_percent": 30,
       "price_candidates": [
-        1295,
-        907
+        1595,
+        1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -493,7 +566,42 @@
         872
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "OFFICINE GENERALE",
+      "product_type": "Bukser",
+      "color": "dark navy",
+      "title": "OFFICINE GENERALE - Bukser - dark navy",
+      "url": "https://www.zalando.dk/officine-generale-hugo-italian-fresco-bukser-dark-navy-ge022e007-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/b4cb709a66044358a4886695805c4757/c083b29e52f04b87a4c59e70be12fc7e.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedOFFICINE GENERALEBukser - dark navy1.852,00 krOprindeligt:2.645,00 kr-30%Sidste laveste pris1.984,00 kr-7%",
+      "original_price": 2645,
+      "current_price": 1852,
+      "discount_percent": 30,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 30,
+      "price_candidates": [
+        2645,
+        1984,
+        1852
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -528,17 +636,17 @@
         1189
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
-      "product_name": "TENUTA",
+      "product_name": "TENSER",
       "product_type": "Bukser",
-      "color": "forest green",
-      "title": "Tiger of Sweden TENUTA - Bukser - forest green",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-forest-green-ti522e07d-m11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/16173c3aea944125b347e0e2f76138e2/b15f9333d4524c46a7d6eb4d1ae831c8.jpg?imwidth=300",
+      "color": "dark ink",
+      "title": "Tiger of Sweden TENSER - Bukser - dark ink",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenser-bukser-dark-ink-ti522e07i-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/fe70b9be6cf844d1b4d849098f98e417/6a82cef3aaf34ec3b74abb6619121e69.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
@@ -552,43 +660,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA - Bukser - forest green1.047,00 krOprindeligt:1.495,00 kr-30%Sidste laveste pris1.121,00 kr-7%",
-      "original_price": 1495,
-      "current_price": 1047,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        1495,
-        1121,
-        1047
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TOMMIE",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "Tiger of Sweden TOMMIE - Bukser - black",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-black-ti522e07g-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/5b99e7266d5847f593590a97991d2354/0dba40b154a244339a91c9fd0fd0a450.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - black1.607,00 krOprindeligt:2.295,00 kr-30%Sidste laveste pris1.721,00 kr-7%",
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENSER - Bukser - dark ink1.607,00 krNormalpris:2.295,00 kr-30%",
       "original_price": 2295,
       "current_price": 1607,
       "discount_percent": 30,
@@ -596,47 +668,10 @@
       "explicit_discount_percent": 30,
       "price_candidates": [
         2295,
-        1721,
         1607
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TOMMIE",
-      "product_type": "Bukser",
-      "color": "phantom",
-      "title": "Tiger of Sweden TOMMIE - Bukser - phantom",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-phantom-ti522e07p-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/39c3815ed3b24699abe43f07841fa1fe/8dc2acc0d35c4e73bf7b3ca0d67cf889.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - phantom1.607,00 krOprindeligt:2.295,00 kr-30%Sidste laveste pris1.721,00 kr-7%",
-      "original_price": 2295,
-      "current_price": 1607,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        2295,
-        1721,
-        1607
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -672,7 +707,7 @@
         519
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -707,7 +742,7 @@
         1196
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -742,7 +777,7 @@
         1196
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -777,7 +812,7 @@
         1196
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -812,7 +847,7 @@
         1009
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -836,7 +871,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "DealDesignerheart_outlinedSponsoreretKARL LAGERFELDTROUSERS - Bukser - black1.721,00 krOprindeligt:2.295,00 kr-25%Sidste laveste pris2.066,00 kr-17%",
+      "raw_card_text": "DealDesignerheart_outlinedKARL LAGERFELDTROUSERS - Bukser - black1.721,00 krOprindeligt:2.295,00 kr-25%Sidste laveste pris2.066,00 kr-17%",
       "original_price": 2295,
       "current_price": 1721,
       "discount_percent": 25,
@@ -848,112 +883,7 @@
         1721
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "OFFICINE GENERALE",
-      "product_type": "Bukser",
-      "color": "dark navy",
-      "title": "OFFICINE GENERALE - Bukser - dark navy",
-      "url": "https://www.zalando.dk/officine-generale-hugo-italian-fresco-bukser-dark-navy-ge022e007-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/b4cb709a66044358a4886695805c4757/c083b29e52f04b87a4c59e70be12fc7e.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedOFFICINE GENERALEBukser - dark navy1.984,00 krOprindeligt:2.645,00 kr-25%Sidste laveste pris2.381,00 kr-17%",
-      "original_price": 2645,
-      "current_price": 1984,
-      "discount_percent": 25,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        2645,
-        2381,
-        1984
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TENSE",
-      "product_type": "Chino",
-      "color": "auburn glaze",
-      "title": "Tiger of Sweden TENSE - Chino - auburn glaze",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tense-chino-auburn-glaze-ti522e07c-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c3e5ca8d2cc9483cbbca8b2044cd3abf/9ea2fe057aed483387d300a645d6b1ce.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENSE - Chino - auburn glaze1.271,00 krNormalpris:1.695,00 kr-25%",
-      "original_price": 1695,
-      "current_price": 1271,
-      "discount_percent": 25,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        1695,
-        1271
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TENUTA",
-      "product_type": "Bukser",
-      "color": "clay",
-      "title": "Tiger of Sweden TENUTA - Bukser - clay",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-clay-ti522e07k-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/fe1316e3001d4b0496822756f3fd2701/61bc739862fd48cc8087fcfda85766d1.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENUTA - Bukser - clay1.121,00 krNormalpris:1.495,00 kr-25%",
-      "original_price": 1495,
-      "current_price": 1121,
-      "discount_percent": 25,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 25,
-      "price_candidates": [
-        1495,
-        1121
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -977,7 +907,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTHEO - Bukser - brown1.946,00 krOprindeligt:2.595,00 kr-25%Sidste laveste pris2.336,00 kr-17%",
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTHEO - Bukser - brown1.946,00 krOprindeligt:2.595,00 kr-25%Sidste laveste pris2.336,00 kr-17%",
       "original_price": 2595,
       "current_price": 1946,
       "discount_percent": 25,
@@ -989,7 +919,148 @@
         1946
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TOMMIE",
+      "product_type": "Bukser",
+      "color": "black",
+      "title": "Tiger of Sweden TOMMIE - Bukser - black",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-black-ti522e07g-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/5b99e7266d5847f593590a97991d2354/0dba40b154a244339a91c9fd0fd0a450.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - black1.721,00 krNormalpris:2.295,00 kr-25%",
+      "original_price": 2295,
+      "current_price": 1721,
+      "discount_percent": 25,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 25,
+      "price_candidates": [
+        2295,
+        1721
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TOMMIE",
+      "product_type": "Bukser",
+      "color": "phantom",
+      "title": "Tiger of Sweden TOMMIE - Bukser - phantom",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-phantom-ti522e07p-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/39c3815ed3b24699abe43f07841fa1fe/8dc2acc0d35c4e73bf7b3ca0d67cf889.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - phantom1.721,00 krNormalpris:2.295,00 kr-25%",
+      "original_price": 2295,
+      "current_price": 1721,
+      "discount_percent": 25,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 25,
+      "price_candidates": [
+        2295,
+        1721
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_type": "Bukser",
+      "color": "medium brown",
+      "title": "BOSS - Bukser - medium brown",
+      "url": "https://www.zalando.dk/boss-bukser-medium-brown-bb122a16p-o11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/222709f2b68245d08554c0eea44567bd/799230e2995940e39ed511ea359f60f3.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedBOSSBukser - medium brown2.631,00 krOprindeligt:3.095,00 kr-15%Sidste laveste pris2.786,00 kr-6%",
+      "original_price": 3095,
+      "current_price": 2631,
+      "discount_percent": 15,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 15,
+      "price_candidates": [
+        3095,
+        2786,
+        2631
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_name": "GENIUS",
+      "product_type": "Bukser",
+      "color": "dark blue",
+      "title": "BOSS GENIUS - Bukser - dark blue",
+      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-blue-bb122a17c-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ec6c9a1564444a869d57b9046853b8bb/b2edf090e298446b919e0b2f43098c5a.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedBOSSGENIUS - Bukser - dark blue1.526,00 krOprindeligt:1.795,00 kr-15%Sidste laveste pris1.616,00 kr-6%",
+      "original_price": 1795,
+      "current_price": 1526,
+      "discount_percent": 15,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 15,
+      "price_candidates": [
+        1795,
+        1616,
+        1526
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1024,7 +1095,7 @@
         2336
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1047,7 +1118,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedGANTBukser - shadow brown2.066,00 krNormalpris:2.295,00 kr-10%",
+      "raw_card_text": "Dealheart_outlinedSponsoreretGANTBukser - shadow brown2.066,00 krNormalpris:2.295,00 kr-10%",
       "original_price": 2295,
       "current_price": 2066,
       "discount_percent": 10,
@@ -1058,40 +1129,7 @@
         2066
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "ARKET",
-      "product_type": "Bukser",
-      "color": "dark blue",
-      "title": "ARKET - Bukser - dark blue",
-      "url": "https://www.zalando.dk/arket-bukser-dark-blue-aru22e02e-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c0f8a717ef5549daa12924ec0968f0c1/bbebd4f7d8b74d39b91b6ebea323966b.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedARKETBukser - dark blue1.150,00 kr",
-      "original_price": null,
-      "current_price": 1150,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1150
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1124,7 +1162,7 @@
         950
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1157,40 +1195,7 @@
         1040
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "ARKET",
-      "product_type": "Bukser",
-      "color": "grey",
-      "title": "ARKET - Bukser - grey",
-      "url": "https://www.zalando.dk/arket-arket-relaxed-lightweight-wool-trousers-bukser-grey-aru22e02n-c11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/8dcbc67541f74fe6a581558110213330/f830e81c84b24ef28c9174c15d916949.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Nyhedheart_outlinedARKETBukser - grey950,00 kr",
-      "original_price": null,
-      "current_price": 950,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        950
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1214,7 +1219,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedBläckNINO LINEN CHINOS - Chino - ecru559,00 krSidste laveste pris:699,00 kr-20%",
+      "raw_card_text": "Dealheart_outlinedSponsoreretBläckNINO LINEN CHINOS - Chino - ecru559,00 krSidste laveste pris:699,00 kr-20%",
       "original_price": null,
       "current_price": 559,
       "discount_percent": null,
@@ -1225,7 +1230,40 @@
         559
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Boggi Milano",
+      "product_type": "Bukser",
+      "color": "grey",
+      "title": "Boggi Milano - Bukser - grey",
+      "url": "https://www.zalando.dk/boggi-milano-bukser-grey-bq122e09i-c11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/9b8a321c4996455481f15cc992cdba81/ab257dd17b4949778725d132c974de76.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DesignerNyhedheart_outlinedBoggi MilanoBukser - grey1.849,00 kr",
+      "original_price": null,
+      "current_price": 1849,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1849
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1258,7 +1296,7 @@
         1549
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1291,7 +1329,40 @@
         2099
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Boggi Milano",
+      "product_type": "Bukser",
+      "color": "sand",
+      "title": "Boggi Milano - Bukser - sand",
+      "url": "https://www.zalando.dk/boggi-milano-bukser-sand-bq122e09c-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/13da0f33a53a488f95ff8f0fc59c6449/064609c705d141ccaf89913957e9c975.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DesignerNyhedheart_outlinedBoggi MilanoBukser - sand1.549,00 kr",
+      "original_price": null,
+      "current_price": 1549,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1549
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1324,40 +1395,7 @@
         2099
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Boggi Milano",
-      "product_type": "Chino",
-      "color": "black",
-      "title": "Boggi Milano - Chino - black",
-      "url": "https://www.zalando.dk/boggi-milano-chino-black-bq122e067-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/84362177aa404f9bbe0934acfa874e17/682094acc44942a881bef98783571957.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedBoggi MilanoChino - black1.649,00 kr",
-      "original_price": null,
-      "current_price": 1649,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1649
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1390,7 +1428,7 @@
         2299
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1401,7 +1439,7 @@
       "url": "https://www.zalando.dk/boggi-milano-chino-medium-grey-bq122e066-c11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/bbfcf0236dcf4d2eaaf0d9feb5de7bf5/1c12f39f447342f2b79bb407cec82c0e.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -1423,7 +1461,7 @@
         2299
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1456,7 +1494,7 @@
         1999
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1479,7 +1517,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedBOSSBukser - black one1.799,00 kr",
+      "raw_card_text": "Designerheart_outlinedSponsoreretBOSSBukser - black one1.799,00 kr",
       "original_price": null,
       "current_price": 1799,
       "discount_percent": null,
@@ -1489,40 +1527,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "BOSS",
-      "product_type": "Bukser",
-      "color": "dark blue five",
-      "title": "BOSS - Bukser - dark blue five",
-      "url": "https://www.zalando.dk/boss-bukser-dark-blue-five-bb122e1ez-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/69adfb9888014ad197353c3648c3188a/9da522c07de34f09b6cd4a6dade352a7.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerMix & matchheart_outlinedBOSSBukser - dark blue five1.299,00 kr",
-      "original_price": null,
-      "current_price": 1299,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1299
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1533,39 +1538,6 @@
       "url": "https://www.zalando.dk/boss-bukser-dark-blue-one-bb122e1em-k11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/99ac57ff211e408391a2e0a547b5aefe/b10c56f93d2e44b894fb5f95f8758dcb.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedBOSSBukser - dark blue one1.799,00 kr",
-      "original_price": null,
-      "current_price": 1799,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1799
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "BOSS",
-      "product_type": "Bukser",
-      "color": "medium brown",
-      "title": "BOSS - Bukser - medium brown",
-      "url": "https://www.zalando.dk/boss-bukser-medium-brown-bb122a16p-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/222709f2b68245d08554c0eea44567bd/799230e2995940e39ed511ea359f60f3.jpg?imwidth=300",
-      "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
@@ -1578,18 +1550,17 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedBOSSBukser - medium brown2.786,00 krSidste laveste pris:3.095,00 kr-10%",
+      "raw_card_text": "Designerheart_outlinedSponsoreretBOSSBukser - dark blue one1.799,00 kr",
       "original_price": null,
-      "current_price": 2786,
+      "current_price": 1799,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        3095,
-        2786
+        1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1622,7 +1593,7 @@
         2199
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1645,7 +1616,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedBOSSHabitbukser - black one1.799,00 kr",
+      "raw_card_text": "Designerheart_outlinedSponsoreretBOSSHabitbukser - black one1.799,00 kr",
       "original_price": null,
       "current_price": 1799,
       "discount_percent": null,
@@ -1655,7 +1626,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1678,7 +1649,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedBOSSHabitbukser - dark blue one1.799,00 kr",
+      "raw_card_text": "Designerheart_outlinedSponsoreretBOSSHabitbukser - dark blue one1.799,00 kr",
       "original_price": null,
       "current_price": 1799,
       "discount_percent": null,
@@ -1688,7 +1659,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1722,7 +1693,7 @@
         2199
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1756,7 +1727,7 @@
         2199
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1767,41 +1738,6 @@
       "title": "BOSS BOSS P-PERIN-IDS-263F - Chino - light beige one",
       "url": "https://www.zalando.dk/boss-habitbukser-light-beige-one-bb122a187-b11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/2d44e24123d64fb1b46b72155764ab08/d4768ca434c247818a3744fc120f804b.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealDesignerheart_outlinedBOSSBOSS P-PERIN-IDS-263F - Chino - light beige one1.279,20 krSidste laveste pris:1.599,00 kr-20%",
-      "original_price": null,
-      "current_price": 1279.2,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1599,
-        1279.2
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "BOSS",
-      "product_name": "GENIUS",
-      "product_type": "Bukser",
-      "color": "dark blue",
-      "title": "BOSS GENIUS - Bukser - dark blue",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-dark-blue-bb122a17c-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ec6c9a1564444a869d57b9046853b8bb/b2edf090e298446b919e0b2f43098c5a.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
@@ -1815,18 +1751,18 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedBOSSGENIUS - Bukser - dark blue1.616,00 krSidste laveste pris:1.795,00 kr-10%",
+      "raw_card_text": "DealDesignerheart_outlinedSponsoreretBOSSBOSS P-PERIN-IDS-263F - Chino - light beige one1.279,20 krSidste laveste pris:1.599,00 kr-20%",
       "original_price": null,
-      "current_price": 1616,
+      "current_price": 1279.2,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        1795,
-        1616
+        1599,
+        1279.2
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1850,17 +1786,18 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedBOSSGENIUS - Bukser - dark brown1.795,00 kr",
+      "raw_card_text": "Designerheart_outlinedBOSSGENIUS - Bukser - dark brown1.616,00 krSidste laveste pris:1.795,00 kr-10%",
       "original_price": null,
-      "current_price": 1795,
+      "current_price": 1616,
       "discount_percent": null,
       "discount_status": "no-discount-found",
       "explicit_discount_percent": null,
       "price_candidates": [
-        1795
+        1795,
+        1616
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1895,7 +1832,7 @@
         1976
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1930,7 +1867,7 @@
         1436
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1964,7 +1901,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -1998,7 +1935,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2032,7 +1969,7 @@
         1499
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2066,7 +2003,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2100,7 +2037,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2135,7 +2072,7 @@
         1439.2
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2170,7 +2107,7 @@
         1439.2
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2205,41 +2142,7 @@
         1976
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "BOSS",
-      "product_name": "WENTEN",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "BOSS WENTEN - Bukser - black",
-      "url": "https://www.zalando.dk/boss-wenten-habitbukser-black-bb122a0va-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/4050d332707f44fa881ff6e54323c9f5/7f9b79d690394e07ba3907d95ebb5e40.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerMix & matchheart_outlinedBOSSWENTEN - Bukser - black1.799,00 kr",
-      "original_price": null,
-      "current_price": 1799,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1799
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2271,7 +2174,7 @@
       "explicit_discount_percent": null,
       "price_candidates": [],
       "currency": null,
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2305,7 +2208,7 @@
         2779
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2339,7 +2242,7 @@
         2439
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2373,7 +2276,7 @@
         2439
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2407,75 +2310,7 @@
         2439
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "HUGO",
-      "product_type": "Bukser",
-      "color": "brown overflow",
-      "title": "HUGO - Bukser - brown overflow",
-      "url": "https://www.zalando.dk/hugo-bukser-brown-overflow-hu722e0mm-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ee1f71512108470db55337b5f856749d/81e4fcfa3a30406f8b44b20bf7ca606b.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DesignerNyhedheart_outlinedHUGOBukser - brown overflow1.795,00 kr",
-      "original_price": null,
-      "current_price": 1795,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1795
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "HUGO",
-      "product_name": "HUGO GATUR263X",
-      "product_type": "Bukser",
-      "color": "open blue thirtyeight",
-      "title": "HUGO HUGO GATUR263X - Bukser - open blue thirtyeight",
-      "url": "https://www.zalando.dk/hugo-bukser-open-blue-thirtyeight-hu722e0mx-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/9a8068b79c2c446e91dc3d6d703c5b48/590f2730d6c441e59cb4c49e15ede7b9.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealDesignerheart_outlinedHUGOHUGO GATUR263X - Bukser - open blue thirtyeight999,20 krSidste laveste pris:1.249,00 kr-20%",
-      "original_price": null,
-      "current_price": 999.2,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1249,
-        999.2
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2487,7 +2322,7 @@
       "url": "https://www.zalando.dk/hugo-hugo-gatur264-habitbukser-brown-melange-three-hu722e0ne-o11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/3152bdd24f9b43d5968e117a23157f55/390a9204e3bd47df8908d7642244cb85.jpg?imwidth=300",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
         "zalando-dk-mens-trousers-size-46"
       ],
@@ -2509,7 +2344,7 @@
         1499
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2543,42 +2378,7 @@
         1299
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "KARL LAGERFELD",
-      "product_name": "TROUSERS",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "KARL LAGERFELD TROUSERS - Bukser - black",
-      "url": "https://www.zalando.dk/karl-lagerfeld-trousers-bukser-black-k4822a046-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/7e69ea5e5e1a4515b9d5fcfbb9abf994/676572840aef458b8c67e0ae3eb843a9.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "DealDesignerheart_outlinedSponsoreretKARL LAGERFELDTROUSERS - Bukser - black1.871,00 krSidste laveste pris:2.495,00 kr-25%",
-      "original_price": null,
-      "current_price": 1871,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2495,
-        1871
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2611,7 +2411,7 @@
         699
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2644,7 +2444,7 @@
         699
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2677,7 +2477,7 @@
         899
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2711,7 +2511,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2746,7 +2546,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2780,41 +2580,7 @@
         799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Mango",
-      "product_name": "ADULT",
-      "product_type": "Bukser",
-      "color": "brown",
-      "title": "Mango ADULT - Bukser - brown",
-      "url": "https://www.zalando.dk/mango-bukser-brown-m9122e1fe-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/29b8a10fb20a4afb85098becb1167b58/c83560413050484592fe022b007f8daf.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "heart_outlinedMangoADULT - Bukser - brown599,00 kr",
-      "original_price": null,
-      "current_price": 599,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        599
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2848,7 +2614,41 @@
         799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Mango",
+      "product_name": "ADULT",
+      "product_type": "Bukser",
+      "color": "brown",
+      "title": "Mango ADULT - Bukser - brown",
+      "url": "https://www.zalando.dk/mango-bukser-brown-m9122e1fe-o11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/29b8a10fb20a4afb85098becb1167b58/c83560413050484592fe022b007f8daf.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "heart_outlinedMangoADULT - Bukser - brown599,00 kr",
+      "original_price": null,
+      "current_price": 599,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        599
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2883,7 +2683,7 @@
         499
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2918,7 +2718,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2953,7 +2753,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -2988,7 +2788,41 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Mango",
+      "product_name": "ADULT",
+      "product_type": "Chino",
+      "color": "black",
+      "title": "Mango ADULT - Chino - black",
+      "url": "https://www.zalando.dk/mango-bukser-black-m9122e1hv-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ff8f9618d228454c909e02a7b1a30cba/5f852298b8ce4bb3a4e06f8de3c60d06.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Nyhedheart_outlinedMangoADULT - Chino - black799,00 kr",
+      "original_price": null,
+      "current_price": 799,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        799
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3023,7 +2857,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3058,7 +2892,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3093,7 +2927,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3128,7 +2962,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3163,7 +2997,7 @@
         399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3198,7 +3032,7 @@
         499
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3232,7 +3066,7 @@
         799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3266,7 +3100,7 @@
         256
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3301,7 +3135,7 @@
         415
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3336,7 +3170,7 @@
         415
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3370,7 +3204,7 @@
         912
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3403,7 +3237,7 @@
         3295
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3437,7 +3271,7 @@
         1399
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3461,7 +3295,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretOscar JacobsonDANDY TROUSERS - Chino - navy1.799,00 kr",
+      "raw_card_text": "Designerheart_outlinedOscar JacobsonDANDY TROUSERS - Chino - navy1.799,00 kr",
       "original_price": null,
       "current_price": 1799,
       "discount_percent": null,
@@ -3471,7 +3305,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3505,41 +3339,7 @@
         1699
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Oscar Jacobson",
-      "product_name": "DANDY TROUSERS",
-      "product_type": "Chino",
-      "color": "white grass",
-      "title": "Oscar Jacobson DANDY TROUSERS - Chino - white grass",
-      "url": "https://www.zalando.dk/oscar-jacobson-dandy-trousers-chino-white-grass-sj322e030-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/78df4e886d844f368548a3640ad446be/53b5d38528fa48468570aadbe03f7e85.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedOscar JacobsonDANDY TROUSERS - Chino - white grass1.699,00 kr",
-      "original_price": null,
-      "current_price": 1699,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1699
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3573,7 +3373,7 @@
         1699
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3608,7 +3408,7 @@
         979
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3642,7 +3442,7 @@
         1999
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3676,7 +3476,7 @@
         1999
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3710,7 +3510,7 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3744,7 +3544,75 @@
         1799
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Paul Smith",
+      "product_name": "MENS FATIGUE",
+      "product_type": "Bukser",
+      "color": "43_greyish blue",
+      "title": "Paul Smith MENS FATIGUE - Bukser - 43_greyish blue",
+      "url": "https://www.zalando.dk/paul-smith-mens-fatigue-bukser-43_greyish-blue-ps922e02s-k12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/8e4b292fdc064d6eb46072caaab9318b/d70408cb0f8c4bfcb6cec7dfa73a8bcc.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DesignerNyhedheart_outlinedPaul SmithMENS FATIGUE - Bukser - 43_greyish blue4.595,00 kr",
+      "original_price": null,
+      "current_price": 4595,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        4595
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Paul Smith",
+      "product_name": "MENS FATIGUE",
+      "product_type": "Bukser",
+      "color": "very dark navy",
+      "title": "Paul Smith MENS FATIGUE - Bukser - very dark navy",
+      "url": "https://www.zalando.dk/paul-smith-mens-fatigue-trouser-bukser-very-dark-navy-ps922e02s-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/1d50c87781e74e7abb34ea40f884c930/2171cbf40eca4a2ba9c74b37aea7f07c.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "DesignerNyhedheart_outlinedPaul SmithMENS FATIGUE - Bukser - very dark navy4.595,00 kr",
+      "original_price": null,
+      "current_price": 4595,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        4595
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3777,7 +3645,7 @@
         2785
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3811,7 +3679,7 @@
         2445
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -3840,35 +3708,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_type": "Business sko",
-      "color": "black- calf",
-      "title": "Scarosso - Business sko - black- calf",
-      "url": "https://www.zalando.dk/scarosso-snoeresko-black-calf-sr612m017-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/26080b92e1d34ef6bbeb9635c59c0e2b/59b7d96b11f540edb7d3fddbb8d6124f.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoBusiness sko - black- calf2.480,00 kr",
-      "original_price": null,
-      "current_price": 2480,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2480
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -3896,7 +3736,7 @@
         2865
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -3906,7 +3746,7 @@
       "url": "https://www.zalando.dk/scarosso-ankelstoevler-black-sr612k02h-q11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/f48a71b578a14ed9ba7ab91801735a49/1e40ada53e2a42b4b9c625ce37fad7c1.jpg?imwidth=300&filter=packshot",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
       "monitor_ids": [
         "zalando-scarosso-shoes-42"
       ],
@@ -3924,35 +3764,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_type": "Loafers",
-      "color": "black calf",
-      "title": "Scarosso - Loafers - black calf",
-      "url": "https://www.zalando.dk/scarosso-loafers-black-calf-sr612c071-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/4750a97d7b354494bf530889dda8b6d4/5fb8fe7944f24abb894fe365df64e48e.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoLoafers - black calf2.440,00 kr",
-      "original_price": null,
-      "current_price": 2440,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2440
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -3980,35 +3792,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_type": "Loafers",
-      "color": "brown calf",
-      "title": "Scarosso - Loafers - brown calf",
-      "url": "https://www.zalando.dk/scarosso-sneakers-brown-calf-sr612c01k-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/565a10ad6e604bfeb377881a58bacf01/c5ba4ef5230a4553aacfcff9497af446.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoLoafers - brown calf1.895,00 kr",
-      "original_price": null,
-      "current_price": 1895,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1895
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4036,7 +3820,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4064,7 +3848,35 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_type": "Loafers",
+      "color": "sand suede",
+      "title": "Scarosso - Loafers - sand suede",
+      "url": "https://www.zalando.dk/scarosso-loafers-sand-suede-sr612c060-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/f34e8c7bffed4f70b38950ad34efb8a7/67e5c2db476b47fd81e3eca508443a6d.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoLoafers - sand suede2.360,00 kr",
+      "original_price": null,
+      "current_price": 2360,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2360
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4092,35 +3904,7 @@
         2130
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_type": "Loafers",
-      "color": "sand suede",
-      "title": "Scarosso - Loafers - sand suede",
-      "url": "https://www.zalando.dk/scarosso-loafers-sand-suede-sr612c03f-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/a6174d2e991b4985bf6fd243e3da9932/3e87a58e15b94b919506297097a723ea.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoLoafers - sand suede2.090,00 kr",
-      "original_price": null,
-      "current_price": 2090,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2090
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4148,7 +3932,7 @@
         2205
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4176,7 +3960,63 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_type": "Sandaler",
+      "color": "black calf",
+      "title": "Scarosso - Sandaler - black calf",
+      "url": "https://www.zalando.dk/scarosso-ballerinasko-m-rem-black-calf-sr611a060-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/9d7ac4be62d5406896275b019e82d78c/a76c17f8276a479897f7f52ba1ddb941.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoSandaler - black calf1.625,00 kr",
+      "original_price": null,
+      "current_price": 1625,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1625
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_type": "Sejlersko",
+      "color": "dark brown calf",
+      "title": "Scarosso - Sejlersko - dark brown calf",
+      "url": "https://www.zalando.dk/scarosso-sejlersko-dark-brown-calf-sr612c046-o11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/e941ddd11ac64f1d80c97d2061078823/db3805cb2a6b4fa6af4240126b95e2dc.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoSejlersko - dark brown calf1.705,00 kr",
+      "original_price": null,
+      "current_price": 1705,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1705
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4204,7 +4044,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4232,7 +4072,7 @@
         2785
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4260,7 +4100,35 @@
         2940
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_type": "Støvletter",
+      "color": "blue",
+      "title": "Scarosso - Støvletter - blue",
+      "url": "https://www.zalando.dk/scarosso-giacomo-stoevletter-blue-sr612k020-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/4f14c88668314132a9411b4fca1e802b/5c5e6e0f990e4dea95f17a9ecf812abb.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoStøvletter - blue2.285,00 kr",
+      "original_price": null,
+      "current_price": 2285,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2285
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4288,7 +4156,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4317,7 +4185,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4346,7 +4214,7 @@
         2515
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4375,7 +4243,36 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "ALESSANDRO NERO - Loafers",
+      "product_type": "brown",
+      "color": "suede",
+      "title": "Scarosso ALESSANDRO NERO - Loafers - brown - suede",
+      "url": "https://www.zalando.dk/scarosso-loafers-brown-suede-sr612c039-o12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/8c3f9dbf99ae4560ada99b8b1a5403d3/37d3c68182a344c1b022cf104c1f6c06.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoALESSANDRO NERO - Loafers - brown - suede2.360,00 kr",
+      "original_price": null,
+      "current_price": 2360,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2360
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4404,7 +4301,7 @@
         2670
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4433,65 +4330,7 @@
         1935
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "Ankelboots med snøre",
-      "product_type": "beige",
-      "color": "suede",
-      "title": "Scarosso Ankelboots med snøre - beige - suede",
-      "url": "https://www.zalando.dk/scarosso-ankelboots-med-snoere-beige-suede-sr612k034-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/4678df0aa0e048c98114c94dffa79e08/39ddd06e78a746fa9f340febdc512b80.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "Nyhedheart_outlinedScarossoAnkelboots med snøre - beige - suede2.285,00 kr",
-      "original_price": null,
-      "current_price": 2285,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2285
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "Ankelboots med snøre",
-      "product_type": "tobacco",
-      "color": "suede",
-      "title": "Scarosso Ankelboots med snøre - tobacco - suede",
-      "url": "https://www.zalando.dk/scarosso-ankelboots-med-snoere-tobacco-suede-sr612k034-b12.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/d7d7e563838c4597b5c2eb1eef58fcf9/b289c7f1e14a422c86e8b14ac76346aa.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "Nyhedheart_outlinedScarossoAnkelboots med snøre - tobacco - suede2.285,00 kr",
-      "original_price": null,
-      "current_price": 2285,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2285
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4520,36 +4359,7 @@
         1395
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "ARTHUR BLACK - Sejlersko",
-      "product_type": "black",
-      "color": "calf",
-      "title": "Scarosso ARTHUR BLACK - Sejlersko - black - calf",
-      "url": "https://www.zalando.dk/scarosso-arthur-black-sejlersko-black-calf-sr612c077-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/d887e5cbd71a4c49bbfa0d38cdc4a28c/9507e579142343df9f255b72bc02df99.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoARTHUR BLACK - Sejlersko - black - calf2.440,00 kr",
-      "original_price": null,
-      "current_price": 2440,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2440
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4578,7 +4388,7 @@
         2440
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4607,7 +4417,7 @@
         2865
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4636,7 +4446,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4665,7 +4475,7 @@
         1240
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4676,7 +4486,7 @@
       "url": "https://www.zalando.dk/scarosso-snoerestoevletter-black-calf-sr612k00h-q11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/53e0081570024c59b5b9fdba35c9e5a2/df04b19f5ce44578af8c760dc01a4fc9.jpg?imwidth=300&filter=packshot",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
       "monitor_ids": [
         "zalando-scarosso-shoes-42"
       ],
@@ -4694,7 +4504,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4723,7 +4533,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4752,7 +4562,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4781,7 +4591,7 @@
         2785
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4810,36 +4620,7 @@
         2940
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "EMILIO",
-      "product_type": "Business sko",
-      "color": "black calf",
-      "title": "Scarosso EMILIO - Business sko - black calf",
-      "url": "https://www.zalando.dk/scarosso-business-sko-black-calf-sr612m00f-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/085e1f6689ce442780afab9db6e20931/c17be931a3f94b17a493b7421db6be77.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoEMILIO - Business sko - black calf2.015,00 kr",
-      "original_price": null,
-      "current_price": 2015,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2015
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4850,7 +4631,7 @@
       "url": "https://www.zalando.dk/scarosso-sandaler-black-calf-sr612g00d-q11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/47508b7c2f954a9e8486acf47ea09657/6b9a5eedb86d45a3bcb8f362a53b214c.jpg?imwidth=300&filter=packshot",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
       "monitor_ids": [
         "zalando-scarosso-shoes-42"
       ],
@@ -4868,7 +4649,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4897,7 +4678,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4926,7 +4707,7 @@
         1935
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4955,7 +4736,7 @@
         1935
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -4984,7 +4765,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5013,7 +4794,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5042,7 +4823,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5071,7 +4852,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5100,7 +4881,36 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "GIANCARLO",
+      "product_type": "Støvletter",
+      "color": "taupe suede",
+      "title": "Scarosso GIANCARLO - Støvletter - taupe suede",
+      "url": "https://www.zalando.dk/scarosso-giancarlo-stoevletter-taupe-suede-sr612k01z-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/15cd98d76bb04dcd905538e2d2c5f60e/3a218a778e984e20b16f82dc1f65fac8.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoGIANCARLO - Støvletter - taupe suede2.480,00 kr",
+      "original_price": null,
+      "current_price": 2480,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2480
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5129,7 +4939,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5158,7 +4968,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5187,36 +4997,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "HANS",
-      "product_type": "Sneakers",
-      "color": "white",
-      "title": "Scarosso HANS - Sneakers - white",
-      "url": "https://www.zalando.dk/scarosso-hans-sneakers-white-sr612o00c-a11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c7b67120fa9f45f7821abe233c6602e0/4ef4a2fe25be43c2a83876b7a54103a5.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoHANS - Sneakers - white2.015,00 kr",
-      "original_price": null,
-      "current_price": 2015,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2015
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5245,7 +5026,7 @@
         2515
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5274,7 +5055,7 @@
         3135
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5303,7 +5084,7 @@
         2480
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5332,7 +5113,7 @@
         2285
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5361,7 +5142,7 @@
         2555
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5390,7 +5171,36 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "LEONARDO",
+      "product_type": "Støvletter",
+      "color": "sand suede",
+      "title": "Scarosso LEONARDO - Støvletter - sand suede",
+      "url": "https://www.zalando.dk/scarosso-stoevletter-sand-suede-sr612k02c-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/c0b6eef8bfd945b4ab1f745064527d9b/58f6a6b06dad4613b99be6a573d02084.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoLEONARDO - Støvletter - sand suede2.245,00 kr",
+      "original_price": null,
+      "current_price": 2245,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2245
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5419,7 +5229,7 @@
         2630
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5448,7 +5258,7 @@
         3060
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5477,36 +5287,7 @@
         2440
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "Loafers",
-      "product_type": "blue",
-      "color": "suede",
-      "title": "Scarosso Loafers - blue - suede",
-      "url": "https://www.zalando.dk/scarosso-loafers-blue-suede-sr612c06m-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/3929a1be2886437da5cb999d5e2bd032/d160ef5816554a19a9b9d590acf6fdaa.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoLoafers - blue - suede2.090,00 kr",
-      "original_price": null,
-      "current_price": 2090,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2090
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5535,7 +5316,7 @@
         3060
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5564,7 +5345,7 @@
         2440
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5593,7 +5374,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5622,7 +5403,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5651,7 +5432,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5680,36 +5461,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "LUDOVICO",
-      "product_type": "Loafers",
-      "color": "steel blue suede",
-      "title": "Scarosso LUDOVICO - Loafers - steel blue suede",
-      "url": "https://www.zalando.dk/scarosso-loafers-steel-blue-suede-sr612c02x-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/882683940be1495386080b081c653c20/bc1d52a04f9c4b82891d54a1c2d01059.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoLUDOVICO - Loafers - steel blue suede2.050,00 kr",
-      "original_price": null,
-      "current_price": 2050,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2050
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5738,36 +5490,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "MANUEL",
-      "product_type": "Espadrilles",
-      "color": "beige suede",
-      "title": "Scarosso MANUEL - Espadrilles - beige suede",
-      "url": "https://www.zalando.dk/scarosso-manuel-espadrilles-beige-suede-sr612c02q-b11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/468d157bd71c4019a79bbc423810540a/9bae10d196614420b13f209d35697028.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoMANUEL - Espadrilles - beige suede970,00 kr",
-      "original_price": null,
-      "current_price": 970,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        970
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5796,7 +5519,7 @@
         2130
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5825,7 +5548,7 @@
         1740
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5855,36 +5578,7 @@
         1935
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "PERSEO BROWN",
-      "product_type": "Træsko",
-      "color": "cognac",
-      "title": "Scarosso PERSEO BROWN - Træsko - cognac",
-      "url": "https://www.zalando.dk/scarosso-perseo-brown-slip-on-sandaler-cognac-sr612i009-o12.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/84c6ab695d6544dcac635107670a0d82/ba46a574d192412081a2defb21aebb00.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoPERSEO BROWN - Træsko - cognac1.510,00 kr",
-      "original_price": null,
-      "current_price": 1510,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        1510
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5913,36 +5607,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "RENATO",
-      "product_type": "Loafers",
-      "color": "brown calf",
-      "title": "Scarosso RENATO - Loafers - brown calf",
-      "url": "https://www.zalando.dk/scarosso-loafers-brown-calf-sr612c019-o11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/4950bca7cc884b5d9720c5f743d5d4ea/f304d4e9d37446d793e33f37fc0080c8.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoRENATO - Loafers - brown calf2.050,00 kr",
-      "original_price": null,
-      "current_price": 2050,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2050
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -5953,7 +5618,7 @@
       "url": "https://www.zalando.dk/scarosso-renato-loafers-brown-suede-sr612c019-o12.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/8a11bad5ba7c433da3627ddc229a4700/3752037c1c9f4e6e9f95d712651d9164.jpg?imwidth=300&filter=packshot",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
       "monitor_ids": [
         "zalando-scarosso-shoes-42"
       ],
@@ -5971,36 +5636,7 @@
         2050
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "RODRIGO",
-      "product_type": "Business sko",
-      "color": "black patent",
-      "title": "Scarosso RODRIGO - Business sko - black patent",
-      "url": "https://www.zalando.dk/scarosso-snoeresko-black-patent-sr612m00m-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/c07d6d2c3f574890859149bc7b5a8b90/b6426c7f01f24a88989b77f4918b353c.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoRODRIGO - Business sko - black patent2.440,00 kr",
-      "original_price": null,
-      "current_price": 2440,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2440
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6011,7 +5647,7 @@
       "url": "https://www.zalando.dk/scarosso-rupert-black-grain-snoeresko-black-calf-sr612c079-q11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/12ded7f32c4545a9aed0b9246905bf54/ab07fcd169f448d8b344c051298f5c75.jpg?imwidth=300&filter=packshot",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
       "monitor_ids": [
         "zalando-scarosso-shoes-42"
       ],
@@ -6029,7 +5665,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6058,36 +5694,7 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
-    },
-    {
-      "brand": "Scarosso",
-      "product_name": "SCAROSSO - Business sko",
-      "product_type": "dark brown",
-      "color": "calf",
-      "title": "Scarosso SCAROSSO - Business sko - dark brown - calf",
-      "url": "https://www.zalando.dk/scarosso-snoeresko-dark-brown-calf-sr612c06k-o12.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/7077286b6f58490eb1f77e672dcaa086/c1bbf685be5e4e928a5c049c7f3183a4.jpg?imwidth=300&filter=packshot",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
-      "monitor_ids": [
-        "zalando-scarosso-shoes-42"
-      ],
-      "target_size": "42",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-42",
-      "material_filter": [],
-      "raw_card_text": "heart_outlinedScarossoSCAROSSO - Business sko - dark brown - calf2.865,00 kr",
-      "original_price": null,
-      "current_price": 2865,
-      "discount_percent": null,
-      "discount_status": "no-discount-found",
-      "explicit_discount_percent": null,
-      "price_candidates": [
-        2865
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6116,7 +5723,94 @@
         2905
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "SCAROSSO - Klassiske ankelboots",
+      "product_type": "dark brown",
+      "color": "suede",
+      "title": "Scarosso SCAROSSO - Klassiske ankelboots - dark brown - suede",
+      "url": "https://www.zalando.dk/scarosso-scarosso-klassiske-ankelboots-dark-brown-suede-sr612k032-o12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/0cbecd558f3549e8ac59cc62561572c0/6de5d2fd65fc4be68a1b8a0e6e2ff06e.png?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "Nyhedheart_outlinedScarossoSCAROSSO - Klassiske ankelboots - dark brown - suede2.905,00 kr",
+      "original_price": null,
+      "current_price": 2905,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2905
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "SCAROSSO",
+      "product_type": "Loafers",
+      "color": "brown – suede",
+      "title": "Scarosso SCAROSSO - Loafers - brown – suede",
+      "url": "https://www.zalando.dk/scarosso-loafers-brown-suede-sr612c06d-o12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/db0c84fdc33f4246a4ab5ed820c7fae7/f34824f87d1e47c5b2df9b4bd418cdf0.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoSCAROSSO - Loafers - brown – suede2.360,00 kr",
+      "original_price": null,
+      "current_price": 2360,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2360
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "SCAROSSO - Slip-on sandaler",
+      "product_type": "brown",
+      "color": "raffia",
+      "title": "Scarosso SCAROSSO - Slip-on sandaler - brown - raffia",
+      "url": "https://www.zalando.dk/scarosso-scarosso-slip-on-sandaler-brown-raffia-sr612i006-o12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/7b8da477dd274f33bf9f3b5be89d57d9/bbab2e521d16415e97577a41d969d244.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoSCAROSSO - Slip-on sandaler - brown - raffia1.470,00 kr",
+      "original_price": null,
+      "current_price": 1470,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1470
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6127,7 +5821,7 @@
       "url": "https://www.zalando.dk/scarosso-slip-on-sandaler-brown-suede-sr612i006-o11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/7a346a76e5344c079e9fc9b56297bdb4/212e4f71422b432db968ed3995102d01.jpg?imwidth=300&filter=packshot",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
       "monitor_ids": [
         "zalando-scarosso-shoes-42"
       ],
@@ -6145,7 +5839,65 @@
         1470
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "SCAROSSO - Slip-on sandaler",
+      "product_type": "khaki",
+      "color": "raffia",
+      "title": "Scarosso SCAROSSO - Slip-on sandaler - khaki - raffia",
+      "url": "https://www.zalando.dk/scarosso-scarosso-slip-on-sandaler-khaki-raffia-sr612i006-n11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/414f15ad47804ce2b148fcd9be5c5ee0/f22b2d3b1e504875ace5c1676e85a856.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoSCAROSSO - Slip-on sandaler - khaki - raffia1.470,00 kr",
+      "original_price": null,
+      "current_price": 1470,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1470
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "Snørestøvletter",
+      "product_type": "brown",
+      "color": "suede",
+      "title": "Scarosso Snørestøvletter - brown - suede",
+      "url": "https://www.zalando.dk/scarosso-snoerestoevletter-brown-suede-sr612k031-o11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/9915dd5889264174934c842930ceaf30/f7f00b0b9aa8486a83c8778e216cfb36.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoSnørestøvletter - brown - suede2.905,00 kr",
+      "original_price": null,
+      "current_price": 2905,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2905
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6174,7 +5926,7 @@
         2515
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6203,7 +5955,36 @@
         2205
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "STEFANO",
+      "product_type": "Loafers",
+      "color": "brown calf",
+      "title": "Scarosso STEFANO - Loafers - brown calf",
+      "url": "https://www.zalando.dk/scarosso-stefano-loafers-brown-calf-sr612c01j-o12.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/eb8a4349e2f14f0b85481e232b803946/8cc81a48ae0e4c1c9f18ba3f9d9b103e.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoSTEFANO - Loafers - brown calf2.205,00 kr",
+      "original_price": null,
+      "current_price": 2205,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        2205
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6232,7 +6013,7 @@
         2245
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6261,7 +6042,7 @@
         2750
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6290,7 +6071,7 @@
         2630
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6319,7 +6100,7 @@
         2090
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6348,7 +6129,7 @@
         2630
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6377,7 +6158,7 @@
         1895
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6406,7 +6187,7 @@
         1895
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6435,7 +6216,7 @@
         2555
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6464,7 +6245,7 @@
         850
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6493,7 +6274,7 @@
         850
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6522,7 +6303,7 @@
         2170
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6551,7 +6332,7 @@
         2710
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6580,7 +6361,7 @@
         2710
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6609,7 +6390,7 @@
         2750
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6620,7 +6401,7 @@
       "url": "https://www.zalando.dk/scarosso-william-loafers-black-calf-sr612c017-q11.html",
       "image": "https://img01.ztat.net/article/spp-media-p1/2f37c993df8c4954be4cdf91b496eea3/e664cade494d4072af4e4f33c7534e3a.jpg?imwidth=300&filter=packshot",
       "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/",
       "monitor_ids": [
         "zalando-scarosso-shoes-42"
       ],
@@ -6638,7 +6419,36 @@
         2360
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Scarosso",
+      "product_name": "WILLIAM IV POKER - Loafers",
+      "product_type": "blue",
+      "color": "velvet",
+      "title": "Scarosso WILLIAM IV POKER - Loafers - blue - velvet",
+      "url": "https://www.zalando.dk/scarosso-loafers-blue-velvet-sr612c076-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/880b02eaada947c09c1dcc999629b3c6/26422f5dd271440e8e9f26f4405917d4.jpg?imwidth=300&filter=packshot",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
+      "monitor_ids": [
+        "zalando-scarosso-shoes-42"
+      ],
+      "target_size": "42",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-42",
+      "material_filter": [],
+      "raw_card_text": "heart_outlinedScarossoWILLIAM IV POKER - Loafers - blue - velvet930,00 kr",
+      "original_price": null,
+      "current_price": 930,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        930
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6667,7 +6477,7 @@
         930
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6696,7 +6506,7 @@
         930
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
     },
     {
       "brand": "Scarosso",
@@ -6725,7 +6535,41 @@
         2595
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z"
+      "checked_at": "2026-10-05T10:48:08.743Z"
+    },
+    {
+      "brand": "Selected",
+      "product_type": "Habitbukser",
+      "color": "dark sapphire",
+      "title": "Selected - Habitbukser - dark sapphire",
+      "url": "https://www.zalando.dk/selected-homme-bukser-dark-sapphire-se622a0up-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/45fbdd2db9614930938d47cfe7c48e2e/efddca4a6df742f098120f86eb74f6e4.png?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Dealheart_outlinedSelectedHabitbukser - dark sapphire659,95 krSidste laveste pris:1.099,95 kr-40%",
+      "original_price": null,
+      "current_price": 659.95,
+      "discount_percent": null,
+      "discount_status": "no-discount-found",
+      "explicit_discount_percent": null,
+      "price_candidates": [
+        1099.95,
+        659.95
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
     },
     {
       "brand": "The Kooples",
@@ -6758,7 +6602,7 @@
         2310
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -6792,7 +6636,7 @@
         2995
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -6826,11 +6670,11 @@
         1495
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     }
   ],
-  "match_count": 17,
+  "match_count": 18,
   "matches": [
     {
       "brand": "BOSS",
@@ -6865,7 +6709,7 @@
         1298
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -6901,7 +6745,7 @@
         1298
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -6937,7 +6781,7 @@
         648
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -6961,18 +6805,55 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedCalvin KleinSLIM - Bukser - slate blue740,00 krNormalpris:1.345,00 kr-45%",
+      "raw_card_text": "Dealheart_outlinedCalvin KleinSLIM - Bukser - slate blue673,00 krOprindeligt:1.345,00 kr-50%Sidste laveste pris740,00 kr-9%",
       "original_price": 1345,
-      "current_price": 740,
-      "discount_percent": 45,
+      "current_price": 673,
+      "discount_percent": 50,
       "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 45,
+      "explicit_discount_percent": 50,
       "price_candidates": [
         1345,
-        740
+        740,
+        673
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENUTA TUX",
+      "product_type": "Bukser",
+      "color": "midnight heaven",
+      "title": "Tiger of Sweden TENUTA TUX - Bukser - midnight heaven",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-tux-bukser-midnight-heaven-ti522a0j8-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/a189d352b6f647179bd86ef430425cee/e0d58b9d3717476b9828dc91e780c1a2.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA TUX - Bukser - midnight heaven1.377,00 krOprindeligt:2.295,00 kr-40%Sidste laveste pris1.492,00 kr-8%",
+      "original_price": 2295,
+      "current_price": 1377,
+      "discount_percent": 40,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 40,
+      "price_candidates": [
+        2295,
+        1492,
+        1377
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -7007,7 +6888,7 @@
         1037
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -7043,7 +6924,7 @@
         1037
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -7079,7 +6960,7 @@
         1037
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -7115,114 +6996,7 @@
         1297
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TENSER",
-      "product_type": "Bukser",
-      "color": "dark ink",
-      "title": "Tiger of Sweden TENSER - Bukser - dark ink",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenser-bukser-dark-ink-ti522e07i-k11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/fe70b9be6cf844d1b4d849098f98e417/6a82cef3aaf34ec3b74abb6619121e69.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENSER - Bukser - dark ink1.492,00 krOprindeligt:2.295,00 kr-35%Sidste laveste pris1.607,00 kr-7%",
-      "original_price": 2295,
-      "current_price": 1492,
-      "discount_percent": 35,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 35,
-      "price_candidates": [
-        2295,
-        1607,
-        1492
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TENUTA TUX",
-      "product_type": "Bukser",
-      "color": "midnight heaven",
-      "title": "Tiger of Sweden TENUTA TUX - Bukser - midnight heaven",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-tux-bukser-midnight-heaven-ti522a0j8-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/a189d352b6f647179bd86ef430425cee/e0d58b9d3717476b9828dc91e780c1a2.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA TUX - Bukser - midnight heaven1.492,00 krOprindeligt:2.295,00 kr-35%Sidste laveste pris1.721,00 kr-13%",
-      "original_price": 2295,
-      "current_price": 1492,
-      "discount_percent": 35,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 35,
-      "price_candidates": [
-        2295,
-        1721,
-        1492
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "BOSS",
-      "product_name": "GENIUS",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "BOSS GENIUS - Bukser - black",
-      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "TopbedømtDealheart_outlinedBOSSGENIUS - Bukser - blackfra1.117,00 krNormalpris:1.595,00 krSpar op til-30%",
-      "original_price": 1595,
-      "current_price": 1117,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        1595,
-        1117
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -7246,18 +7020,161 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Dealheart_outlinedCalvin KleinMICRO BARLEYCORN SLIM - Bukser - quiet gray907,00 krNormalpris:1.295,00 kr-30%",
+      "raw_card_text": "Dealheart_outlinedCalvin KleinMICRO BARLEYCORN SLIM - Bukser - quiet gray842,00 krOprindeligt:1.295,00 kr-35%Sidste laveste pris907,00 kr-7%",
       "original_price": 1295,
-      "current_price": 907,
+      "current_price": 842,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1295,
+        907,
+        842
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENSE",
+      "product_type": "Chino",
+      "color": "auburn glaze",
+      "title": "Tiger of Sweden TENSE - Chino - auburn glaze",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tense-chino-auburn-glaze-ti522e07c-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/c3e5ca8d2cc9483cbbca8b2044cd3abf/9ea2fe057aed483387d300a645d6b1ce.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENSE - Chino - auburn glaze1.102,00 krOprindeligt:1.695,00 kr-35%Sidste laveste pris1.271,00 kr-13%",
+      "original_price": 1695,
+      "current_price": 1102,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1695,
+        1271,
+        1102
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENUTA",
+      "product_type": "Bukser",
+      "color": "clay",
+      "title": "Tiger of Sweden TENUTA - Bukser - clay",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-clay-ti522e07k-b11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/fe1316e3001d4b0496822756f3fd2701/61bc739862fd48cc8087fcfda85766d1.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedTiger of SwedenTENUTA - Bukser - clay972,00 krNormalpris:1.495,00 kr-35%",
+      "original_price": 1495,
+      "current_price": 972,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1495,
+        972
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "Tiger of Sweden",
+      "product_name": "TENUTA",
+      "product_type": "Bukser",
+      "color": "forest green",
+      "title": "Tiger of Sweden TENUTA - Bukser - forest green",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-forest-green-ti522e07d-m11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/16173c3aea944125b347e0e2f76138e2/b15f9333d4524c46a7d6eb4d1ae831c8.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA - Bukser - forest green972,00 krOprindeligt:1.495,00 kr-35%Sidste laveste pris1.047,00 kr-7%",
+      "original_price": 1495,
+      "current_price": 972,
+      "discount_percent": 35,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 35,
+      "price_candidates": [
+        1495,
+        1047,
+        972
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "BOSS",
+      "product_name": "GENIUS",
+      "product_type": "Bukser",
+      "color": "black",
+      "title": "BOSS GENIUS - Bukser - black",
+      "url": "https://www.zalando.dk/boss-genius-habitbukser-black-bb122a0vg-q11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/ac85688f85fe47588ddca85f3e26b1fd/fe6ac5033461466b8d7007a12011c35e.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "TopbedømtDealheart_outlinedSponsoreretBOSSGENIUS - Bukser - blackfra1.117,00 krNormalpris:1.595,00 krSpar op til-30%",
+      "original_price": 1595,
+      "current_price": 1117,
       "discount_percent": 30,
       "discount_status": "calculated-from-prices",
       "explicit_discount_percent": 30,
       "price_candidates": [
-        1295,
-        907
+        1595,
+        1117
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -7293,7 +7210,42 @@
         872
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
+      "size_46_available": true
+    },
+    {
+      "brand": "OFFICINE GENERALE",
+      "product_type": "Bukser",
+      "color": "dark navy",
+      "title": "OFFICINE GENERALE - Bukser - dark navy",
+      "url": "https://www.zalando.dk/officine-generale-hugo-italian-fresco-bukser-dark-navy-ge022e007-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/b4cb709a66044358a4886695805c4757/c083b29e52f04b87a4c59e70be12fc7e.jpg?imwidth=300",
+      "site": "zalando.dk",
+      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
+      "monitor_ids": [
+        "zalando-dk-mens-trousers-size-46"
+      ],
+      "target_size": "46",
+      "available": true,
+      "size_assumption": "listing-url-filtered-by-size-46",
+      "material_filter": [
+        "pure_cashmere",
+        "pure_linen",
+        "pure_wool"
+      ],
+      "raw_card_text": "Designerheart_outlinedOFFICINE GENERALEBukser - dark navy1.852,00 krOprindeligt:2.645,00 kr-30%Sidste laveste pris1.984,00 kr-7%",
+      "original_price": 2645,
+      "current_price": 1852,
+      "discount_percent": 30,
+      "discount_status": "calculated-from-prices",
+      "explicit_discount_percent": 30,
+      "price_candidates": [
+        2645,
+        1984,
+        1852
+      ],
+      "currency": "DKK",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
@@ -7328,17 +7280,17 @@
         1189
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     },
     {
       "brand": "Tiger of Sweden",
-      "product_name": "TENUTA",
+      "product_name": "TENSER",
       "product_type": "Bukser",
-      "color": "forest green",
-      "title": "Tiger of Sweden TENUTA - Bukser - forest green",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tenuta-bukser-forest-green-ti522e07d-m11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/16173c3aea944125b347e0e2f76138e2/b15f9333d4524c46a7d6eb4d1ae831c8.jpg?imwidth=300",
+      "color": "dark ink",
+      "title": "Tiger of Sweden TENSER - Bukser - dark ink",
+      "url": "https://www.zalando.dk/tiger-of-sweden-tenser-bukser-dark-ink-ti522e07i-k11.html",
+      "image": "https://img01.ztat.net/article/spp-media-p1/fe70b9be6cf844d1b4d849098f98e417/6a82cef3aaf34ec3b74abb6619121e69.jpg?imwidth=300",
       "site": "zalando.dk",
       "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "monitor_ids": [
@@ -7352,43 +7304,7 @@
         "pure_linen",
         "pure_wool"
       ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENUTA - Bukser - forest green1.047,00 krOprindeligt:1.495,00 kr-30%Sidste laveste pris1.121,00 kr-7%",
-      "original_price": 1495,
-      "current_price": 1047,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        1495,
-        1121,
-        1047
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TOMMIE",
-      "product_type": "Bukser",
-      "color": "black",
-      "title": "Tiger of Sweden TOMMIE - Bukser - black",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-black-ti522e07g-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/5b99e7266d5847f593590a97991d2354/0dba40b154a244339a91c9fd0fd0a450.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - black1.607,00 krOprindeligt:2.295,00 kr-30%Sidste laveste pris1.721,00 kr-7%",
+      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTENSER - Bukser - dark ink1.607,00 krNormalpris:2.295,00 kr-30%",
       "original_price": 2295,
       "current_price": 1607,
       "discount_percent": 30,
@@ -7396,47 +7312,10 @@
       "explicit_discount_percent": 30,
       "price_candidates": [
         2295,
-        1721,
         1607
       ],
       "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
-      "size_46_available": true
-    },
-    {
-      "brand": "Tiger of Sweden",
-      "product_name": "TOMMIE",
-      "product_type": "Bukser",
-      "color": "phantom",
-      "title": "Tiger of Sweden TOMMIE - Bukser - phantom",
-      "url": "https://www.zalando.dk/tiger-of-sweden-tommie-bukser-phantom-ti522e07p-q11.html",
-      "image": "https://img01.ztat.net/article/spp-media-p1/39c3815ed3b24699abe43f07841fa1fe/8dc2acc0d35c4e73bf7b3ca0d67cf889.jpg?imwidth=300",
-      "site": "zalando.dk",
-      "source_url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
-      "monitor_ids": [
-        "zalando-dk-mens-trousers-size-46"
-      ],
-      "target_size": "46",
-      "available": true,
-      "size_assumption": "listing-url-filtered-by-size-46",
-      "material_filter": [
-        "pure_cashmere",
-        "pure_linen",
-        "pure_wool"
-      ],
-      "raw_card_text": "Designerheart_outlinedSponsoreretTiger of SwedenTOMMIE - Bukser - phantom1.607,00 krOprindeligt:2.295,00 kr-30%Sidste laveste pris1.721,00 kr-7%",
-      "original_price": 2295,
-      "current_price": 1607,
-      "discount_percent": 30,
-      "discount_status": "calculated-from-prices",
-      "explicit_discount_percent": 30,
-      "price_candidates": [
-        2295,
-        1721,
-        1607
-      ],
-      "currency": "DKK",
-      "checked_at": "2026-10-04T10:03:14.772Z",
+      "checked_at": "2026-10-05T10:48:08.743Z",
       "size_46_available": true
     }
   ],
@@ -7445,8 +7324,8 @@
     "successful_pages": 4,
     "failed_pages": 0,
     "failures": [],
-    "scanned_product_count": 214,
-    "published_product_count": 17
+    "scanned_product_count": 209,
+    "published_product_count": 18
   },
   "debug": {
     "pages": [
@@ -7459,7 +7338,7 @@
       {
         "monitor_id": "zalando-dk-mens-trousers-size-46",
         "url": "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool&p=2",
-        "product_count": 31,
+        "product_count": 34,
         "error": null
       },
       {
@@ -7471,13 +7350,13 @@
       {
         "monitor_id": "zalando-scarosso-shoes-42",
         "url": "https://www.zalando.dk/herresko/scarosso__stoerrelse-42/?p=2",
-        "product_count": 60,
+        "product_count": 59,
         "error": null
       }
     ],
-    "products_with_discount": 29,
-    "products_below_minimum_discount": 12,
-    "products_without_discount": 185,
+    "products_with_discount": 31,
+    "products_below_minimum_discount": 13,
+    "products_without_discount": 178,
     "products_without_price": 1
   }
 }
