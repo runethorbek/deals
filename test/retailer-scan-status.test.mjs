@@ -5,7 +5,7 @@ import {
   createScanStatus,
   safeErrorDiagnostic,
   safeErrorSummary
-} from "../scripts/lib/scan-status.mjs";
+} from "../scripts/lib/scan-status.ts";
 
 test("builds the shared scan status shape from execution results", () => {
   const pageResults = [

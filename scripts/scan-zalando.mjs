@@ -8,12 +8,12 @@ import {
   createScanStatus,
   safeErrorDiagnostic,
   safeErrorSummary
-} from "./lib/scan-status.mjs";
+} from "./lib/scan-status.ts";
 import { extractPriceInfo } from "./lib/zalando-price.mjs";
 import {
   buildZalandoScanPlan,
   loadEnabledZalandoMonitors
-} from "./lib/zalando-monitor.mjs";
+} from "./lib/zalando-monitor.ts";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 

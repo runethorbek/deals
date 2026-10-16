@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import fetch from "node-fetch";
-import { safeErrorDiagnostic } from "./lib/scan-status.mjs";
+import { safeErrorDiagnostic } from "./lib/scan-status.ts";
 import {
   extractProductsFromListing,
   extractProductUrlOccurrences,
