@@ -8,8 +8,16 @@ import {
   scan,
   validateZalandoOutput
 } from "../scripts/scan-zalando.ts";
+import type { FsLike, ZalandoSnapshot } from "../scripts/scan-zalando.ts";
+import type { ZalandoMonitor } from "../scripts/lib/zalando-monitor.ts";
 
-function listingGrid(cards) {
+// Non-null assertions (`!`) in this file mark values the test expects to
+// exist: an indexed or found product, a recorded write, or the `url` query
+// parameter the scanner always sends. They only narrow the static type for
+// noUncheckedIndexedAccess and strict null checks; a missing value still
+// fails the test at runtime, as it did before.
+
+function listingGrid(cards: string) {
   return `<main id="main-content"><ul role="list"><li>${cards}</li></ul></main>`;
 }
 
@@ -28,11 +36,11 @@ const LISTING_HTML = listingGrid(`
   </article>
 `);
 
-function listingCard(pathname, title, priceText = "500,00 kr") {
+function listingCard(pathname: string, title: string, priceText = "500,00 kr") {
   return `<article><a data-card-type="media" href="${pathname}"><h3><span>Test</span><span>${title} - blue</span></h3><span>${priceText}</span></a></article>`;
 }
 
-const configuredMonitor = {
+const configuredMonitor: ZalandoMonitor = {
   id: "zalando-test-monitor",
   source: "zalando",
   enabled: true,
@@ -44,11 +52,11 @@ const configuredMonitor = {
   pages: 1
 };
 
-function createFsRecorder(initialFiles = {}) {
-  const writes = [];
-  const renames = [];
-  const removals = [];
-  const files = new Map(Object.entries(initialFiles));
+function createFsRecorder(initialFiles: Record<string, string> = {}) {
+  const writes: Array<{ pathname: string; contents: string }> = [];
+  const renames: Array<{ from: string; to: string }> = [];
+  const removals: Array<{ pathname: string; options: { force: true } }> = [];
+  const files = new Map<string, string | undefined>(Object.entries(initialFiles));
 
   return {
     writes,
@@ -70,7 +78,7 @@ function createFsRecorder(initialFiles = {}) {
         removals.push({ pathname, options });
         files.delete(pathname);
       }
-    }
+    } satisfies FsLike
   };
 }
 
@@ -86,9 +94,9 @@ test("extracts Zalando listing-card identity instead of photo descriptions", asy
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
-  const boss = products.find((product) => product.brand === "BOSS");
-  const boggi = products.find((product) => product.brand === "Boggi Milano");
-  const polo = products.find((product) => product.brand === "Polo Ralph Lauren");
+  const boss = products.find((product) => product.brand === "BOSS")!;
+  const boggi = products.find((product) => product.brand === "Boggi Milano")!;
+  const polo = products.find((product) => product.brand === "Polo Ralph Lauren")!;
 
   assert.deepEqual(
     {
@@ -140,9 +148,9 @@ test("uses Unknown product when a listing card has no structured identity", () =
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
-  assert.equal(products[0].title, "Unknown product");
+  assert.equal(products[0]!.title, "Unknown product");
   for (const field of ["brand", "product_name", "product_type", "color"]) {
-    assert.equal(Object.hasOwn(products[0], field), false);
+    assert.equal(Object.hasOwn(products[0]!, field), false);
   }
 });
 
@@ -156,10 +164,10 @@ test("splits identity descriptors from the right", () => {
 
   assert.deepEqual(
     {
-      product_name: products[0].product_name,
-      product_type: products[0].product_type,
-      color: products[0].color,
-      title: products[0].title
+      product_name: products[0]!.product_name,
+      product_type: products[0]!.product_type,
+      color: products[0]!.color,
+      title: products[0]!.title
     },
     {
       product_name: "ADULT - SLIM",
@@ -179,8 +187,8 @@ test("bounds extracted identity text and rejects invalid published identity fiel
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
-  assert.equal(products[0].title, "Unknown product");
-  assert.equal(Object.hasOwn(products[0], "brand"), false);
+  assert.equal(products[0]!.title, "Unknown product");
+  assert.equal(Object.hasOwn(products[0]!, "brand"), false);
 
   const output = {
     site: "zalando.dk",
@@ -206,6 +214,8 @@ test("bounds extracted identity text and rejects invalid published identity fiel
     matches: []
   };
 
+  // @ts-expect-error The output is deliberately incomplete and invalid;
+  // validateZalandoOutput must reject it at runtime.
   assert.throws(() => validateZalandoOutput(output), /Invalid Zalando output contract/);
 });
 
@@ -218,12 +228,12 @@ test("omits a reassembled product name that exceeds the identity field limit", (
     { monitorId: configuredMonitor.id, targetSize: "46", upperMaterials: ["pure_linen"] }
   );
 
-  assert.equal(Object.hasOwn(products[0], "product_name"), false);
-  assert.equal(products[0].title, "Mango - Chino - blue");
+  assert.equal(Object.hasOwn(products[0]!, "product_name"), false);
+  assert.equal(products[0]!.title, "Mango - Chino - blue");
 });
 
 test("scanner uses configured Zalando intent and preserves the output contract", async () => {
-  const requestedListingUrls = [];
+  const requestedListingUrls: Array<string | null> = [];
   const fsRecorder = createFsRecorder();
   const outputPath = "zalando-test-output.json";
 
@@ -249,7 +259,7 @@ test("scanner uses configured Zalando intent and preserves the output contract",
   const expectedListingUrl =
     "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
     "?upper_material=pure_linen";
-  const output = JSON.parse(fsRecorder.writes[0].contents);
+  const output: ZalandoSnapshot = JSON.parse(fsRecorder.writes[0]!.contents);
 
   assert.deepEqual(requestedListingUrls, [expectedListingUrl]);
   assert.deepEqual(
@@ -299,12 +309,12 @@ test("scanner uses configured Zalando intent and preserves the output contract",
   );
   assert.deepEqual(
     {
-      target_size: output.products[0].target_size,
-      monitor_ids: output.products[0].monitor_ids,
-      available: output.products[0].available,
-      size_46_available: output.products[0].size_46_available,
-      size_assumption: output.products[0].size_assumption,
-      material_filter: output.products[0].material_filter
+      target_size: output.products[0]!.target_size,
+      monitor_ids: output.products[0]!.monitor_ids,
+      available: output.products[0]!.available,
+      size_46_available: output.products[0]!.size_46_available,
+      size_assumption: output.products[0]!.size_assumption,
+      material_filter: output.products[0]!.material_filter
     },
     {
       target_size: "46",
@@ -317,7 +327,7 @@ test("scanner uses configured Zalando intent and preserves the output contract",
   );
   assert.deepEqual(output.products.map((product) => product.currency), ["DKK", "DKK"]);
   const missingCurrency = structuredClone(output);
-  missingCurrency.products[0].currency = null;
+  missingCurrency.products[0]!.currency = null;
   assert.throws(
     () => validateZalandoOutput(missingCurrency),
     /Invalid Zalando output contract/
@@ -332,7 +342,7 @@ test("scanner uses configured Zalando intent and preserves the output contract",
 });
 
 test("scans and deduplicates pages while rejecting incoherent pagination metadata", async () => {
-  const requestedListingUrls = [];
+  const requestedListingUrls: Array<string | null> = [];
   const fsRecorder = createFsRecorder();
   const paginatedMonitor = { ...configuredMonitor, pages: 3 };
   const duplicate = listingCard(
@@ -350,7 +360,7 @@ test("scans and deduplicates pages while rejecting incoherent pagination metadat
     fetchImpl: async (endpoint) => {
       const listingUrl = new URL(endpoint).searchParams.get("url");
       requestedListingUrls.push(listingUrl);
-      const page = new URL(listingUrl).searchParams.get("p");
+      const page = new URL(listingUrl!).searchParams.get("p");
       return {
         ok: true,
         async text() {
@@ -369,7 +379,7 @@ test("scans and deduplicates pages while rejecting incoherent pagination metadat
   const baseUrl =
     "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
     "?upper_material=pure_linen";
-  const output = JSON.parse(fsRecorder.writes[0].contents);
+  const output: ZalandoSnapshot = JSON.parse(fsRecorder.writes[0]!.contents);
 
   assert.deepEqual(requestedListingUrls, [
     baseUrl,
@@ -379,8 +389,8 @@ test("scans and deduplicates pages while rejecting incoherent pagination metadat
   assert.equal(output.scanned_page_count, 3);
   assert.equal(output.scan_status.attempted_pages, 3);
   assert.deepEqual(output.debug.pages.map((page) => page.product_count), [1, 2, 1]);
-  assert.equal(output.monitors[0].pages, 3);
-  assert.equal(output.monitors[0].product_count, 2);
+  assert.equal(output.monitors[0]!.pages, 3);
+  assert.equal(output.monitors[0]!.product_count, 2);
   assert.equal(output.products.length, 2);
   assert.equal(
     output.products.filter((product) => product.url.includes("shared-trousers")).length,
@@ -388,7 +398,7 @@ test("scans and deduplicates pages while rejecting incoherent pagination metadat
   );
 
   const incoherentOutput = structuredClone(output);
-  incoherentOutput.monitors[0].pages = 10;
+  incoherentOutput.monitors[0]!.pages = 10;
   assert.throws(
     () => validateZalandoOutput(incoherentOutput),
     /Invalid Zalando output contract/
@@ -427,6 +437,8 @@ test("missing credentials remain a hard failure before requests or output", asyn
 
   await assert.rejects(
     scan({
+      // @ts-expect-error null deliberately models a missing credential, which
+      // the scanner must reject at runtime.
       apiKey: null,
       fetchImpl: async () => { requestCount++; },
       fsImpl: fsRecorder.implementation,
@@ -448,6 +460,8 @@ test("unexpected execution failures remain fatal without publishing", async () =
   await assert.rejects(
     scan({
       apiKey: "test-api-key",
+      // @ts-expect-error A non-function `text` is deliberately invalid; the
+      // scanner must reject the response at runtime.
       fetchImpl: async () => ({ ok: true, text: null }),
       fsImpl: fsRecorder.implementation,
       logger: { log() {}, error() {} },
@@ -490,7 +504,7 @@ test("all-page failures preserve the previous Zalando output", async () => {
 });
 
 test("a failed page does not prevent later page attempts and publishes a degraded scan", async () => {
-  const requestedListingUrls = [];
+  const requestedListingUrls: Array<string | null> = [];
   const fsRecorder = createFsRecorder();
   const paginatedMonitor = { ...configuredMonitor, pages: 3 };
 
@@ -499,7 +513,7 @@ test("a failed page does not prevent later page attempts and publishes a degrade
     fetchImpl: async (endpoint) => {
       const listingUrl = new URL(endpoint).searchParams.get("url");
       requestedListingUrls.push(listingUrl);
-      if (new URL(listingUrl).searchParams.get("p") === "2") {
+      if (new URL(listingUrl!).searchParams.get("p") === "2") {
         return { ok: false, status: 502, async text() { return "x".repeat(500); } };
       }
       return { ok: true, async text() { return LISTING_HTML; } };
@@ -512,26 +526,26 @@ test("a failed page does not prevent later page attempts and publishes a degrade
   });
 
   assert.equal(requestedListingUrls.length, 3);
-  assert.equal(new URL(requestedListingUrls[2]).searchParams.get("p"), "3");
+  assert.equal(new URL(requestedListingUrls[2]!).searchParams.get("p"), "3");
   assert.equal(fsRecorder.writes.length, 1);
   assert.deepEqual(fsRecorder.renames, [{
     from: "zalando-test-output.json.tmp",
     to: "zalando-test-output.json"
   }]);
-  const output = JSON.parse(fsRecorder.writes[0].contents);
+  const output: ZalandoSnapshot = JSON.parse(fsRecorder.writes[0]!.contents);
   assert.deepEqual(output.scan_status, {
     attempted_pages: 3,
     successful_pages: 2,
     failed_pages: 1,
     failures: [{
       url: requestedListingUrls[1],
-      error_summary: output.debug.pages[1].error
+      error_summary: output.debug.pages[1]!.error
     }],
     scanned_product_count: 2,
     published_product_count: 1
   });
-  assert.equal(output.debug.pages[1].error.length, 300);
-  assert.equal(output.monitors[0].status, "success");
+  assert.equal(output.debug.pages[1]!.error!.length, 300);
+  assert.equal(output.monitors[0]!.status, "success");
   assert.doesNotThrow(() => validateZalandoOutput(output));
 });
 
@@ -579,8 +593,8 @@ test("extracts only genuine Zalando result-card product links", () => {
   assert.deepEqual(products.map((product) => product.url), [
     "https://www.zalando.dk/real-product-rp123a456-q11.html"
   ]);
-  assert.equal(products[0].available, true);
-  assert.equal(Object.hasOwn(products[0], "size_46_available"), false);
+  assert.equal(products[0]!.available, true);
+  assert.equal(Object.hasOwn(products[0]!, "size_46_available"), false);
 });
 
 test("excludes embedded Zalando content blocks and their nested carousel products", async () => {
@@ -615,7 +629,7 @@ test("excludes embedded Zalando content blocks and their nested carousel product
 
 test("combines multiple monitors into one snapshot with truthful provenance", async () => {
   const fsRecorder = createFsRecorder();
-  const shoesMonitor = {
+  const shoesMonitor: ZalandoMonitor = {
     id: "zalando-shoes-size-42",
     source: "zalando",
     enabled: true,
@@ -634,7 +648,7 @@ test("combines multiple monitors into one snapshot with truthful provenance", as
       ok: true,
       async text() {
         const listingUrl = new URL(endpoint).searchParams.get("url");
-        return listingUrl.includes("herresko") ? shoeHtml : LISTING_HTML;
+        return listingUrl!.includes("herresko") ? shoeHtml : LISTING_HTML;
       }
     }),
     fsImpl: fsRecorder.implementation,
@@ -645,14 +659,14 @@ test("combines multiple monitors into one snapshot with truthful provenance", as
     outputPath: "zalando-test-output.json"
   });
 
-  const output = JSON.parse(fsRecorder.writes[0].contents);
+  const output: ZalandoSnapshot = JSON.parse(fsRecorder.writes[0]!.contents);
   assert.equal(output.monitors.length, 2);
   assert.equal(output.products.length, 3);
   assert.equal(output.matches.length, 2);
   assert.equal(Object.hasOwn(output, "target_size"), false);
   assert.equal(Object.hasOwn(output, "min_discount_percent"), false);
 
-  const shoe = output.products.find((product) => product.target_size === "42");
+  const shoe = output.products.find((product) => product.target_size === "42")!;
   assert.deepEqual(shoe.monitor_ids, [shoesMonitor.id]);
   assert.equal(shoe.available, true);
   assert.equal(Object.hasOwn(shoe, "size_46_available"), false);
@@ -677,9 +691,9 @@ test("merges duplicate same-size product provenance deterministically", async ()
     outputPath: "zalando-test-output.json"
   });
 
-  const output = JSON.parse(fsRecorder.writes[0].contents);
+  const output: ZalandoSnapshot = JSON.parse(fsRecorder.writes[0]!.contents);
   assert.equal(output.products.length, 2);
-  assert.deepEqual(output.products[0].monitor_ids, [
+  assert.deepEqual(output.products[0]!.monitor_ids, [
     secondMonitor.id,
     configuredMonitor.id
   ].sort());
@@ -709,7 +723,7 @@ test("conflicting target sizes fail after all monitors are attempted", async () 
     logger: { log() {}, error() {} },
     loadMonitors: async () => [configuredMonitor, secondMonitor],
     outputPath: "zalando-test-output.json"
-  }), (error) => {
+  }), (error: Error) => {
     assert.match(error.message, /conflicting target sizes/);
     assert.match(
       error.message,
@@ -763,6 +777,8 @@ test("a failed monitor does not prevent remaining monitor attempts but remains i
 test("zero enabled monitors is a successful no-op", async () => {
   let requestCount = 0;
   const result = await scan({
+    // @ts-expect-error null deliberately models a missing credential; with no
+    // enabled monitor the scanner must skip before checking it.
     apiKey: null,
     fetchImpl: async () => { requestCount++; },
     logger: { log() {}, error() {} },
