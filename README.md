@@ -3,7 +3,6 @@
 This repository collects deal data for the separate DealRadar application. It
 contains listing-page scrapers for:
 
-- Scarosso (deprecated/inactive direct source)
 - Vinted
 - Zalando
 
@@ -11,7 +10,6 @@ Each scraper fetches rendered retailer pages through ScrapingAnt, extracts
 product data, and writes its latest snapshot to `public/deals/`:
 
 ```text
-public/deals/scarosso-latest.json
 public/deals/vinted-latest.json
 public/deals/zalando-latest.json
 ```
@@ -20,7 +18,7 @@ These generated JSON files are intentionally committed to the repository.
 
 ## Automated scans and import
 
-The three source workflows in `.github/workflows/` run each scraper on its own
+The two source workflows in `.github/workflows/` run each scraper on its own
 daily schedule and can also be started manually with `workflow_dispatch`. When
 an output file changes, its source workflow commits and pushes that source's
 JSON snapshot. This keeps scans independently observable and failure-isolated.
@@ -46,7 +44,6 @@ running a scraper:
 
 ```sh
 npm ci
-npm run scan:scarosso
 node scripts/scan-vinted.mjs
 node scripts/scan-zalando.mjs
 ```
@@ -57,8 +54,8 @@ the DealRadar import endpoint.
 
 Issue #14's Slice 0 pagination investigation is separate from a normal scan.
 It makes six bounded rendered ScrapingAnt requests for the trousers and
-Scarosso-shoe examples (pages 1 through 3), does not publish deal output, and
-writes a sanitized, git-ignored `zalando-pagination-report.json.tmp`:
+Scarosso-brand shoe examples on Zalando (pages 1 through 3), does not publish
+deal output, and writes a sanitized, git-ignored `zalando-pagination-report.json.tmp`:
 
 ```sh
 npm run investigate:zalando-pagination
@@ -70,15 +67,14 @@ URLs. The report contains neither the ScrapingAnt API key nor raw HTML.
 
 ## Monitoring configuration
 
-Vinted, Scarosso, and Zalando read their monitoring intent from the shared
+Vinted and Zalando read their monitoring intent from the shared
 `config/monitors.json` file. Before a scanner selects a monitor, the loader
 parses and validates the complete document: known sources, unique non-empty
 IDs, boolean `enabled`, object `filters`, and the supported source-specific
 fields. Scanners receive the resulting validated monitor object rather than
 depending on file-reading behavior.
 
-Vinted and Zalando may have multiple enabled monitors; Scarosso may have at
-most one. A scheduled workflow with no enabled monitor for its source exits
+Vinted and Zalando may have multiple enabled monitors. A scheduled workflow with no enabled monitor for its source exits
 successfully and skips scanning, publishing, and committing. Disabled monitors
 are still validated so an
 invalid document cannot be partially used.
@@ -92,17 +88,6 @@ Each Vinted monitor contains one numeric `catalogIds` value, one numeric
 are scanned in ID order and merged into one atomic snapshot. Invalid
 configuration stops the scanner before it makes retailer requests or writes
 output.
-
-The checked-in direct Scarosso monitor is disabled: current Scarosso monitoring
-has moved to Zalando. The direct scanner, workflow, tests, and its last
-known-good `public/deals/scarosso-latest.json` snapshot are retained temporarily
-as a fallback and for compatibility with existing consumers. Its preserved
-configuration covers the six current men's sale listings, size 42, and the 30
-percent match threshold. Its relative listing URLs include the Scarosso size
-query. The Scarosso adapter owns the
-`https://www.scarosso.com/en-dk/` storefront base URL, safely resolves the
-configured listings against it, and currently accepts size 42 only to preserve
-the published `size_42_available` field.
 
 Each Zalando monitor stores a stable `id`, a Zalando-relative `listingPath`, an
 explicit `targetSize`, a `minDiscountPercent`, and `pages`. The adapter owns the

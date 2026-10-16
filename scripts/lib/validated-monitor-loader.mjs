@@ -4,12 +4,10 @@ import {
   selectEnabledMonitors
 } from "./monitor-config.mjs";
 import { validateVintedMonitor } from "./vinted-monitor.mjs";
-import { validateScarossoMonitor } from "./scarosso-monitor.mjs";
 import { validateZalandoMonitor } from "./zalando-monitor.mjs";
 
 const validators = {
   vinted: validateVintedMonitor,
-  scarosso: validateScarossoMonitor,
   zalando: validateZalandoMonitor
 };
 

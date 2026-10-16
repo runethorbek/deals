@@ -1,8 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import scarossoSnapshot from "./fixtures/scarosso-empty.json" with { type: "json" };
-import scarossoFixture from "./fixtures/scarosso-populated.json" with { type: "json" };
 import vintedSnapshot from "./fixtures/vinted-populated.json" with { type: "json" };
 import zalandoSnapshot from "./fixtures/zalando-populated.json" with { type: "json" };
 import publishedZalandoSnapshot from "../public/deals/zalando-latest.json" with { type: "json" };
@@ -15,13 +13,6 @@ const SOURCE_RULES = {
     hostname: "www.vinted.dk",
     productPath: /^\/items\//,
     currentPrice: "price"
-  },
-  scarosso: {
-    site: "scarosso.com",
-    scanMode: "listing-pages-only",
-    hostname: "www.scarosso.com",
-    productPath: /\/[^/]+\.html$/,
-    currentPrice: "current_price"
   },
   zalando: {
     site: "zalando.dk",
@@ -91,25 +82,6 @@ function assertPriceRelationships(source, product) {
       expected,
       "calculated discount must match prices"
     );
-  }
-
-  if (source === "scarosso" && current === null) {
-    assert.equal(original, null, "missing Scarosso current price forbids original price");
-    assert.equal(product.currency, null, "missing Scarosso price forbids currency");
-    assert.equal(product.discount_percent, null, "missing Scarosso price forbids discount");
-  }
-
-  if (source === "scarosso") {
-    if (current !== null) {
-      assert.notEqual(product.currency, null, "Scarosso price requires currency");
-    }
-    if (product.discount_percent !== null) {
-      assert.equal(
-        product.discount_status,
-        "calculated",
-        "Scarosso discount requires calculated price relationship"
-      );
-    }
   }
 
   if (source === "zalando") {
@@ -275,7 +247,48 @@ function assertPublishedSnapshot(source, snapshot) {
       assert.ok(product.monitor_ids.every((id) => monitorById.has(id)));
     }
   } else {
-    if (source === "scarosso") {
+    assert.equal(snapshot.scanned_page_count, snapshot.start_urls.length);
+    assert.deepEqual(
+      snapshot.debug.pages.map((page) => page.url),
+      snapshot.start_urls,
+      "debug page URLs must match start_urls"
+    );
+    assert.equal(status.failed_pages, 0);
+    if (Array.isArray(snapshot.monitors)) {
+      assert.ok(snapshot.monitors.length > 0);
+      const monitorById = new Map(
+        snapshot.monitors.map((monitor) => [monitor.id, monitor])
+      );
+      assert.equal(monitorById.size, snapshot.monitors.length);
+      if (snapshot.monitors.length > 1) {
+        assert.equal(Object.hasOwn(snapshot, "target_size"), false);
+        assert.equal(Object.hasOwn(snapshot, "min_discount_percent"), false);
+      }
+
+      for (const product of snapshot.products) {
+        assert.equal(product.site, rules.site);
+        assert.equal(product.available, true);
+        assert.ok(Array.isArray(product.monitor_ids));
+        assert.ok(product.monitor_ids.length > 0);
+        assert.ok(product.monitor_ids.every((id) => (
+          monitorById.get(id)?.target_size === product.target_size
+        )));
+        assert.equal(
+          product.target_size === "46",
+          product.size_46_available === true
+        );
+        assert.equal(typeof product.size_assumption, "string");
+        assert.ok(Array.isArray(product.material_filter));
+      }
+
+      const expectedMatches = snapshot.products.filter((product) => (
+        typeof product.discount_percent === "number" &&
+        product.monitor_ids.some((id) => (
+          product.discount_percent >= monitorById.get(id).min_discount_percent
+        ))
+      ));
+      assert.deepEqual(snapshot.matches, expectedMatches);
+    } else {
       assertPlausibleNumber(
         snapshot.min_discount_percent,
         "min_discount_percent",
@@ -283,80 +296,15 @@ function assertPublishedSnapshot(source, snapshot) {
       );
       assert.ok(snapshot.min_discount_percent <= 100);
       for (const product of snapshot.products) {
-        assert.ok(Array.isArray(product.available_sizes));
-        const expectedAvailability = product.available_sizes.length > 0
-          ? product.available_sizes.includes(snapshot.target_size)
-          : null;
-        assert.equal(
-          product.size_42_available,
-          expectedAvailability,
-          "Scarosso availability must match available_sizes"
-        );
-        assert.ok(["USD", "EUR", "GBP", null].includes(product.currency));
-        assert.ok(Array.isArray(product.source_urls));
-        assert.ok(product.source_urls.length > 0);
+        assert.equal(product.site, rules.site);
+        assert.equal(product.target_size, snapshot.target_size);
+        assert.equal(product.size_46_available, true);
+        assert.equal(typeof product.size_assumption, "string");
+        assert.ok(Array.isArray(product.material_filter));
       }
-    } else {
-      assert.equal(snapshot.scanned_page_count, snapshot.start_urls.length);
-      assert.deepEqual(
-        snapshot.debug.pages.map((page) => page.url),
-        snapshot.start_urls,
-        "debug page URLs must match start_urls"
-      );
-      assert.equal(status.failed_pages, 0);
-      if (Array.isArray(snapshot.monitors)) {
-        assert.ok(snapshot.monitors.length > 0);
-        const monitorById = new Map(
-          snapshot.monitors.map((monitor) => [monitor.id, monitor])
-        );
-        assert.equal(monitorById.size, snapshot.monitors.length);
-        if (snapshot.monitors.length > 1) {
-          assert.equal(Object.hasOwn(snapshot, "target_size"), false);
-          assert.equal(Object.hasOwn(snapshot, "min_discount_percent"), false);
-        }
-
-        for (const product of snapshot.products) {
-          assert.equal(product.site, rules.site);
-          assert.equal(product.available, true);
-          assert.ok(Array.isArray(product.monitor_ids));
-          assert.ok(product.monitor_ids.length > 0);
-          assert.ok(product.monitor_ids.every((id) => (
-            monitorById.get(id)?.target_size === product.target_size
-          )));
-          assert.equal(
-            product.target_size === "46",
-            product.size_46_available === true
-          );
-          assert.equal(typeof product.size_assumption, "string");
-          assert.ok(Array.isArray(product.material_filter));
-        }
-
-        const expectedMatches = snapshot.products.filter((product) => (
-          typeof product.discount_percent === "number" &&
-          product.monitor_ids.some((id) => (
-            product.discount_percent >= monitorById.get(id).min_discount_percent
-          ))
-        ));
-        assert.deepEqual(snapshot.matches, expectedMatches);
-      } else {
-        assertPlausibleNumber(
-          snapshot.min_discount_percent,
-          "min_discount_percent",
-          { nullable: false }
-        );
-        assert.ok(snapshot.min_discount_percent <= 100);
-        for (const product of snapshot.products) {
-          assert.equal(product.site, rules.site);
-          assert.equal(product.target_size, snapshot.target_size);
-          assert.equal(product.size_46_available, true);
-          assert.equal(typeof product.size_assumption, "string");
-          assert.ok(Array.isArray(product.material_filter));
-        }
-        assertMatchesReferenceProducts(snapshot, productUrls);
-      }
+      assertMatchesReferenceProducts(snapshot, productUrls);
     }
 
-    if (source === "scarosso") assertMatchesReferenceProducts(snapshot, productUrls);
     assert.equal(status.published_product_count, snapshot.matches.length);
   }
 }
@@ -412,7 +360,6 @@ function projectForDealRadar(source, snapshot, product) {
 
 test("representative source outputs satisfy the producer contract", () => {
   assertPublishedSnapshot("vinted", vintedSnapshot);
-  assertPublishedSnapshot("scarosso", scarossoFixture);
   assertPublishedSnapshot("zalando", zalandoSnapshot);
 });
 
@@ -420,15 +367,7 @@ test("the checked-in Zalando snapshot satisfies the currency contract", () => {
   assertPublishedSnapshot("zalando", publishedZalandoSnapshot);
 });
 
-test("the empty Scarosso snapshot remains a separate snapshot-level case", () => {
-  assert.equal(scarossoSnapshot.products.length, 0);
-  assertPublishedSnapshot("scarosso", scarossoSnapshot);
-});
-
 test("published_product_count preserves source-specific match semantics", () => {
-  assert.equal(scarossoFixture.products.length, 2);
-  assert.equal(scarossoFixture.matches.length, 1);
-  assert.equal(scarossoFixture.scan_status.published_product_count, 1);
   assert.equal(zalandoSnapshot.products.length, 2);
   assert.equal(zalandoSnapshot.matches.length, 1);
   assert.equal(zalandoSnapshot.scan_status.published_product_count, 1);
@@ -447,10 +386,10 @@ test("Vinted contract checks retain nullable and USD price behavior", () => {
 });
 
 test("contract checks reject invalid retailer URLs deterministically", () => {
-  const invalidHost = structuredClone(scarossoFixture);
-  invalidHost.products[0].url = "https://example.com/en-us/test-penny-loafer.html";
+  const invalidHost = structuredClone(zalandoSnapshot);
+  invalidHost.products[0].url = "https://example.com/test-trousers-brand-z123.html";
   assert.throws(
-    () => assertPublishedSnapshot("scarosso", invalidHost),
+    () => assertPublishedSnapshot("zalando", invalidHost),
     /invalid host/
   );
 
@@ -477,10 +416,10 @@ test("contract checks reject duplicate URLs and invalid numeric values", () => {
     /product URLs must be unique/
   );
 
-  const negativePrice = structuredClone(scarossoFixture);
+  const negativePrice = structuredClone(zalandoSnapshot);
   negativePrice.products[0].current_price = -1;
   assert.throws(
-    () => assertPublishedSnapshot("scarosso", negativePrice),
+    () => assertPublishedSnapshot("zalando", negativePrice),
     /implausible/
   );
 
@@ -500,24 +439,24 @@ test("contract checks reject inconsistent scan status and discounts", () => {
     /scan_status page counts must be consistent/
   );
 
-  const invalidDiscount = structuredClone(scarossoFixture);
+  const invalidDiscount = structuredClone(zalandoSnapshot);
   invalidDiscount.products[0].discount_percent = 101;
   assert.throws(
-    () => assertPublishedSnapshot("scarosso", invalidDiscount),
+    () => assertPublishedSnapshot("zalando", invalidDiscount),
     /discount_percent must not exceed 100/
   );
 });
 
 test("contract checks connect scan status to requested and debug pages", () => {
-  const disconnectedStatus = structuredClone(scarossoSnapshot);
+  const disconnectedStatus = structuredClone(zalandoSnapshot);
   disconnectedStatus.scanned_page_count++;
   disconnectedStatus.debug.pages.push({
-    url: "https://www.scarosso.com/en-dk/sales/men/boots/?prefn1=c_size&prefv1=42",
+    url: "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen&p=2",
     product_count: 0,
     error: null
   });
   assert.throws(
-    () => assertPublishedSnapshot("scarosso", disconnectedStatus),
+    () => assertPublishedSnapshot("zalando", disconnectedStatus),
     /attempted_pages must equal scanned_page_count/
   );
 
@@ -531,17 +470,10 @@ test("contract checks connect scan status to requested and debug pages", () => {
 });
 
 test("contract checks reject contradictory source-specific relationships", () => {
-  const invalidAvailability = structuredClone(scarossoFixture);
-  invalidAvailability.products[0].available_sizes = ["41"];
-  assert.throws(
-    () => assertPublishedSnapshot("scarosso", invalidAvailability),
-    /availability must match available_sizes/
-  );
-
-  const invalidPrices = structuredClone(scarossoFixture);
+  const invalidPrices = structuredClone(zalandoSnapshot);
   invalidPrices.products[0].original_price = 100;
   assert.throws(
-    () => assertPublishedSnapshot("scarosso", invalidPrices),
+    () => assertPublishedSnapshot("zalando", invalidPrices),
     /original price must exceed current price/
   );
 
@@ -552,25 +484,16 @@ test("contract checks reject contradictory source-specific relationships", () =>
     /calculated discount must match prices/
   );
 
-  const discountWithoutPrices = structuredClone(scarossoFixture);
-  discountWithoutPrices.products[0].original_price = null;
-  discountWithoutPrices.products[0].discount_status = "single-price";
-  assert.throws(
-    () => assertPublishedSnapshot("scarosso", discountWithoutPrices),
-    /Scarosso discount requires calculated price relationship/
-  );
-
-  const belowThresholdMatch = structuredClone(scarossoFixture);
+  const belowThresholdMatch = structuredClone(zalandoSnapshot);
   belowThresholdMatch.min_discount_percent = 50;
   assert.throws(
-    () => assertPublishedSnapshot("scarosso", belowThresholdMatch),
+    () => assertPublishedSnapshot("zalando", belowThresholdMatch),
     /matches must exactly satisfy min_discount_percent/
   );
 });
 
 test("DealRadar mapping remains compatible for every consumed field", () => {
   const vintedProduct = vintedSnapshot.products[0];
-  const scarossoProduct = scarossoFixture.products[0];
   const zalandoProduct = zalandoSnapshot.products[0];
 
   assert.deepEqual(projectForDealRadar("vinted", vintedSnapshot, vintedProduct), {
@@ -589,26 +512,6 @@ test("DealRadar mapping remains compatible for every consumed field", () => {
     observedAt: vintedProduct.checked_at,
     rawData: vintedProduct
   });
-
-  assert.deepEqual(
-    projectForDealRadar("scarosso", scarossoFixture, scarossoProduct),
-    {
-      source: scarossoFixture.site,
-      externalUrl: scarossoProduct.url,
-      title: scarossoProduct.title,
-      imageUrl: scarossoProduct.image,
-      currentPrice: scarossoProduct.current_price,
-      originalPrice: scarossoProduct.original_price,
-      currency: scarossoProduct.currency,
-      discountPercent: scarossoProduct.discount_percent,
-      targetSize: scarossoFixture.target_size,
-      available: scarossoProduct.size_42_available,
-      brand: null,
-      category: scarossoProduct.category,
-      observedAt: scarossoProduct.checked_at,
-      rawData: scarossoProduct
-    }
-  );
 
   assert.deepEqual(
     projectForDealRadar("zalando", zalandoSnapshot, zalandoProduct),
@@ -658,13 +561,10 @@ test("DealRadar mapping accepts the additive Zalando multi-monitor fields", () =
   assert.deepEqual(projected.rawData.monitor_ids, [snapshot.monitors[0].id]);
 });
 
-test("DealRadar category and timestamp fallbacks remain compatible", () => {
-  const product = structuredClone(scarossoFixture.products[1]);
+test("DealRadar timestamp fallback remains compatible", () => {
+  const product = structuredClone(zalandoSnapshot.products[0]);
   product.checked_at = "not-a-timestamp";
 
-  const projected = projectForDealRadar("scarosso", scarossoFixture, product);
-  assert.equal(projected.category, "flats");
-  assert.equal(projected.targetSize, scarossoFixture.target_size);
-  assert.equal(projected.available, null);
-  assert.equal(projected.observedAt, scarossoFixture.checked_at);
+  const projected = projectForDealRadar("zalando", zalandoSnapshot, product);
+  assert.equal(projected.observedAt, zalandoSnapshot.checked_at);
 });

@@ -2,7 +2,7 @@
 
 ## Repository purpose
 
-This repository contains small Node.js scrapers for Scarosso, Vinted, and Zalando.
+This repository contains small Node.js scrapers for Vinted and Zalando.
 
 The scrapers:
 
