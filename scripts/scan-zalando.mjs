@@ -9,7 +9,7 @@ import {
   safeErrorDiagnostic,
   safeErrorSummary
 } from "./lib/scan-status.ts";
-import { extractPriceInfo } from "./lib/zalando-price.mjs";
+import { extractPriceInfo } from "./lib/zalando-price.ts";
 import {
   buildZalandoScanPlan,
   loadEnabledZalandoMonitors
