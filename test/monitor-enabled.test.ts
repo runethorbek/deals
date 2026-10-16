@@ -13,7 +13,7 @@ test("monitor-enabled writes the GitHub enabled output", async () => {
   const outputPath = path.join(directory, "github-output");
 
   try {
-    await execFileAsync(process.execPath, ["scripts/monitor-enabled.mjs", "vinted"], {
+    await execFileAsync(process.execPath, ["scripts/monitor-enabled.ts", "vinted"], {
       cwd: process.cwd(),
       env: { ...process.env, GITHUB_OUTPUT: outputPath }
     });
