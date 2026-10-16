@@ -8,10 +8,148 @@ import {
   createScanStatus,
   safeErrorSummary
 } from "./lib/scan-status.ts";
+import type { PageResult, ScanStatus } from "./lib/scan-status.ts";
 import {
   buildVintedListingUrls,
   loadEnabledVintedMonitors
 } from "./lib/vinted-monitor.ts";
+import type { VintedMonitor } from "./lib/vinted-monitor.ts";
+
+/** A published Vinted product; see the Vinted product table in `docs/output-contract.md`. */
+export interface VintedProduct {
+  title: string;
+  url: string;
+  image: string | null;
+  site: "vinted.com";
+  /** Set to `undefined` (and so dropped by `JSON.stringify`) once observations are merged. */
+  source_url?: string;
+  catalog_id: string;
+  target_size_id: string;
+  monitor_ids: string[];
+  size_assumption: string;
+  brand: string | null;
+  size_guess: string | null;
+  article_condition: string | null;
+  listing_text: string | null;
+  price: number | null;
+  currency: "EUR" | "DKK" | "USD" | null;
+  raw_price: string | null;
+  raw_card_text: string;
+  checked_at: string;
+  source_urls: string[];
+}
+
+/** One listing-card observation before `mergeProduct` adds `source_urls`. */
+type VintedObservation = Omit<VintedProduct, "source_urls"> &
+  Partial<Pick<VintedProduct, "source_urls">>;
+
+/** A `monitors` entry in the Vinted snapshot. */
+export interface VintedMonitorSummary {
+  id: string;
+  catalog_id: string;
+  size_id: string;
+  pages: number;
+  product_count: number;
+  status: "success";
+}
+
+/** A `debug.pages` entry in the Vinted snapshot. */
+export interface VintedPageResult extends PageResult {
+  monitor_id: string;
+  product_count: number;
+  json_ld_blocks: number;
+}
+
+/** The published Vinted snapshot; see the Vinted snapshot table in `docs/output-contract.md`. */
+export interface VintedSnapshot {
+  site: "vinted.com";
+  scan_mode: "vinted-listing-pages-only";
+  start_urls: string[];
+  /** Present only when exactly one monitor is enabled. */
+  catalog_id?: string;
+  /** Present only when exactly one monitor is enabled. */
+  target_size_id?: string;
+  checked_at: string;
+  scanned_page_count: number;
+  scanned_product_count: number;
+  product_count: number;
+  products: VintedProduct[];
+  monitors: VintedMonitorSummary[];
+  scan_status: ScanStatus;
+  debug: {
+    pages: VintedPageResult[];
+    products_with_price: number;
+    products_without_price: number;
+    products_with_brand: number;
+    products_with_size_guess: number;
+  };
+}
+
+export interface ScanResult {
+  skipped: boolean;
+}
+
+/**
+ * An error from a ScrapingAnt request. The original error object is kept and
+ * marked, so its class and message are unchanged.
+ */
+export interface RetailerRequestError extends Error {
+  retailerRequestFailure: true;
+  retryable: boolean;
+}
+
+/** The parts of a fetch response the scanner reads. */
+export interface FetchResponseLike {
+  ok: boolean;
+  /** Read only when `ok` is false. */
+  status: number;
+  text(): Promise<string>;
+}
+
+export interface FetchInit {
+  headers: Record<string, string>;
+  signal: AbortSignal;
+}
+
+/**
+ * The injected fetch. Its result is untrusted: `ok` and `text` are checked at
+ * runtime, so it may resolve to a partial response or to nothing.
+ */
+export type FetchLike = (
+  url: string,
+  init: FetchInit
+) => Promise<Partial<FetchResponseLike> | void>;
+
+/**
+ * The injected file system. `rm` is optional: cleanup of the temporary file
+ * is skipped when it is missing.
+ */
+export interface FsLike {
+  mkdir(path: string, options: { recursive: true }): Promise<unknown>;
+  writeFile(path: string, data: string): Promise<unknown>;
+  rename(oldPath: string, newPath: string): Promise<unknown>;
+  rm?(path: string, options: { force: true }): Promise<unknown>;
+}
+
+export interface Logger {
+  log(...data: unknown[]): void;
+  error(...data: unknown[]): void;
+}
+
+interface ScanOptions {
+  apiKey?: string | undefined;
+  fetchImpl?: FetchLike;
+  fsImpl?: FsLike;
+  sleepImpl?: (ms: number) => Promise<unknown>;
+  logger?: Logger;
+  now?: () => Date;
+  loadMonitors?: () => Promise<VintedMonitor[]>;
+  requestTimeoutMs?: number;
+  outputPath?: string;
+}
+
+// cheerio does not re-export domhandler's node type; take it from its API.
+type AnyNode = Parameters<typeof cheerio.contains>[0];
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
@@ -21,29 +159,52 @@ const SCRAPINGANT_TIMEOUT_SECONDS = 60;
 const REQUEST_TIMEOUT_MS = 65_000;
 const RETRY_BASE_DELAY_MS = 500;
 
-function sleep(ms) {
+function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function markRetailerRequestFailure(error, retryable = true) {
+function markRetailerRequestFailure(
+  error: unknown,
+  retryable = true
+): RetailerRequestError {
   const requestError = error instanceof Error
     ? error
     : new Error(String(error ?? "Unknown retailer request failure"));
 
-  requestError.retailerRequestFailure = true;
-  requestError.retryable = retryable;
-  return requestError;
+  // Same two property assignments as before, in the same order.
+  return Object.assign(requestError, {
+    retailerRequestFailure: true as const,
+    retryable
+  });
 }
 
-function isRetailerRequestFailure(error) {
-  return error?.retailerRequestFailure === true;
+function isRetailerRequestFailure(
+  error: unknown
+): error is RetailerRequestError {
+  // The object/function check only narrows `unknown`: the previous
+  // `error?.retailerRequestFailure === true` was false for null and undefined,
+  // and for primitives unless a built-in prototype was patched.
+  return (
+    (typeof error === "object" || typeof error === "function") &&
+    error !== null &&
+    "retailerRequestFailure" in error &&
+    error.retailerRequestFailure === true
+  );
 }
 
-function normalizeText(value) {
+function isFetchResponse(
+  res: Partial<FetchResponseLike> | void
+): res is FetchResponseLike {
+  // The existing guard. `status` is not checked, as before; it is read only
+  // when `ok` is false.
+  return !(!res || typeof res.ok !== "boolean" || typeof res.text !== "function");
+}
+
+function normalizeText(value: string | null | undefined): string {
   return value?.replace(/\s+/g, " ").trim() ?? "";
 }
 
-function absoluteUrl(value) {
+function absoluteUrl(value: string | null | undefined): string | null {
   if (!value) return null;
 
   try {
@@ -53,7 +214,7 @@ function absoluteUrl(value) {
   }
 }
 
-function normalizeProductUrl(href) {
+function normalizeProductUrl(href: string | undefined): string | null {
   const url = absoluteUrl(href);
   if (!url) return null;
 
@@ -67,11 +228,11 @@ function normalizeProductUrl(href) {
 }
 
 async function getRenderedHtmlOnce(
-  url,
-  fetchImpl,
-  apiKey,
-  requestTimeoutMs
-) {
+  url: string,
+  fetchImpl: FetchLike,
+  apiKey: string,
+  requestTimeoutMs: number
+): Promise<string> {
   const endpoint = new URL("https://api.scrapingant.com/v2/general");
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
@@ -82,7 +243,7 @@ async function getRenderedHtmlOnce(
   endpoint.searchParams.set("timeout", String(SCRAPINGANT_TIMEOUT_SECONDS));
 
   try {
-    let res;
+    let res: Partial<FetchResponseLike> | void;
 
     try {
       res = await fetchImpl(endpoint.toString(), {
@@ -103,7 +264,7 @@ async function getRenderedHtmlOnce(
       throw markRetailerRequestFailure(error);
     }
 
-    if (!res || typeof res.ok !== "boolean" || typeof res.text !== "function") {
+    if (!isFetchResponse(res)) {
       throw new Error("Invalid ScrapingAnt response");
     }
 
@@ -137,12 +298,12 @@ async function getRenderedHtmlOnce(
 }
 
 async function getRenderedHtml(
-  url,
-  fetchImpl,
-  apiKey,
-  sleepImpl,
-  requestTimeoutMs
-) {
+  url: string,
+  fetchImpl: FetchLike,
+  apiKey: string,
+  sleepImpl: (ms: number) => Promise<unknown>,
+  requestTimeoutMs: number
+): Promise<string> {
   for (let attempt = 1; attempt <= MAX_REQUEST_ATTEMPTS; attempt++) {
     try {
       return await getRenderedHtmlOnce(
@@ -168,7 +329,7 @@ async function getRenderedHtml(
   throw new Error(`ScrapingAnt failed for ${url}`);
 }
 
-function isVintedItemUrl(url) {
+function isVintedItemUrl(url: string | null): url is string {
   if (!url) return false;
 
   try {
@@ -186,7 +347,10 @@ function isVintedItemUrl(url) {
   }
 }
 
-function findProductContainer($, anchor) {
+function findProductContainer(
+  $: cheerio.CheerioAPI,
+  anchor: AnyNode
+): cheerio.Cheerio<AnyNode> {
   const selectors = [
     "[data-testid*='item']",
     "[data-testid*='Item']",
@@ -213,7 +377,11 @@ function findProductContainer($, anchor) {
   return $(anchor).parent();
 }
 
-function extractImage($, container, anchor) {
+function extractImage(
+  $: cheerio.CheerioAPI,
+  container: cheerio.Cheerio<AnyNode>,
+  anchor: AnyNode
+): string | null {
   const image =
     container.find("img").first().length
       ? container.find("img").first()
@@ -242,7 +410,11 @@ function extractImage($, container, anchor) {
   return absoluteUrl(best);
 }
 
-function extractTitle($, anchor, container) {
+function extractTitle(
+  $: cheerio.CheerioAPI,
+  anchor: AnyNode,
+  container: cheerio.Cheerio<AnyNode>
+): string {
   const candidates = [
     $(anchor).attr("title"),
     $(anchor).attr("aria-label"),
@@ -270,7 +442,9 @@ function extractTitle($, anchor, container) {
   return "Unknown item";
 }
 
-function extractPriceFromText(text) {
+function extractPriceFromText(
+  text: string
+): Pick<VintedProduct, "price" | "currency" | "raw_price"> {
   const patterns = [
     /(?:€|EUR)\s?(\d+(?:[.,]\d{1,2})?)/i,
     /(\d+(?:[.,]\d{1,2})?)\s?(?:€|EUR)/i,
@@ -285,11 +459,13 @@ function extractPriceFromText(text) {
 
     if (!match) continue;
 
-    const value = Number.parseFloat(match[1].replace(",", "."));
+    // Group 1 is not optional in any pattern, so it is always set when the
+    // pattern matches.
+    const value = Number.parseFloat((match[1] ?? "").replace(",", "."));
 
     if (!Number.isFinite(value)) continue;
 
-    let currency = null;
+    let currency: VintedProduct["currency"] = null;
 
     if (/€|EUR/i.test(match[0])) currency = "EUR";
     if (/kr|DKK/i.test(match[0])) currency = "DKK";
@@ -309,7 +485,7 @@ function extractPriceFromText(text) {
   };
 }
 
-function extractSizeGuess(text) {
+function extractSizeGuess(text: string): string | null {
   const normalized = normalizeText(text);
 
   const patterns = [
@@ -331,7 +507,7 @@ function extractSizeGuess(text) {
 const METADATA_LABELS = "(?:Varemærke|Artiklens stand|Størrelse)";
 const METADATA_LABEL_PATTERN = new RegExp(`\\b${METADATA_LABELS}\\s*:`, "i");
 
-function extractLabelledMetadata(text, label) {
+function extractLabelledMetadata(text: string, label: string): string | null {
   const normalized = normalizeText(text);
   const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const pattern = new RegExp(
@@ -343,12 +519,16 @@ function extractLabelledMetadata(text, label) {
   return match ? normalizeText(match[1]) || null : null;
 }
 
-function extractLabelledMetadataFromListing(title, rawCardText, label) {
+function extractLabelledMetadataFromListing(
+  title: string,
+  rawCardText: string,
+  label: string
+): string | null {
   return extractLabelledMetadata(title, label) ??
     extractLabelledMetadata(rawCardText, label);
 }
 
-function extractListingText(title) {
+function extractListingText(title: string): string | null {
   const normalized = normalizeText(title);
   const match = normalized.match(METADATA_LABEL_PATTERN);
 
@@ -361,9 +541,9 @@ function extractListingText(title) {
   return segment || null;
 }
 
-function extractMetadataFromJsonLd(html) {
+function extractMetadataFromJsonLd(html: string): unknown[] {
   const $ = cheerio.load(html);
-  const items = [];
+  const items: unknown[] = [];
 
   $('script[type="application/ld+json"]').each((_, el) => {
     const raw = $(el).contents().text();
@@ -371,7 +551,7 @@ function extractMetadataFromJsonLd(html) {
     if (!raw) return;
 
     try {
-      const parsed = JSON.parse(raw);
+      const parsed: unknown = JSON.parse(raw);
       items.push(parsed);
     } catch {
       // Ignore invalid JSON-LD.
@@ -382,13 +562,17 @@ function extractMetadataFromJsonLd(html) {
 }
 
 function extractProductsFromListing(
-  html,
-  sourceUrl,
-  checkedAt,
-  { catalogId, sizeId, monitorId }
-) {
+  html: string,
+  sourceUrl: string,
+  checkedAt: string,
+  { catalogId, sizeId, monitorId }: {
+    catalogId: string;
+    sizeId: string;
+    monitorId: string;
+  }
+): VintedObservation[] {
   const $ = cheerio.load(html);
-  const products = new Map();
+  const products = new Map<string, VintedObservation>();
 
   $("a[href]").each((_, anchor) => {
     const href = $(anchor).attr("href");
@@ -407,7 +591,7 @@ function extractProductsFromListing(
       "Størrelse"
     );
 
-    const product = {
+    const product: VintedObservation = {
       title,
       url,
       image: extractImage($, container, anchor),
@@ -440,7 +624,7 @@ function extractProductsFromListing(
   return [...products.values()];
 }
 
-function scoreProduct(product) {
+function scoreProduct(product: VintedObservation): number {
   let score = 0;
 
   if (product.title && product.title !== "Unknown item") score += 5;
@@ -453,7 +637,10 @@ function scoreProduct(product) {
   return score;
 }
 
-function mergeProduct(existing, incoming) {
+function mergeProduct(
+  existing: VintedProduct | undefined,
+  incoming: VintedObservation
+): VintedProduct {
   if (!existing) {
     return {
       ...incoming,
@@ -476,7 +663,8 @@ function mergeProduct(existing, incoming) {
   return {
     ...best,
     source_url: undefined,
-    source_urls: [...sourceUrls].filter(Boolean),
+    // Same truthiness test as `.filter(Boolean)`, written as a type guard.
+    source_urls: [...sourceUrls].filter((url): url is string => Boolean(url)),
     monitor_ids: [...new Set([
       ...(existing.monitor_ids ?? []),
       ...(incoming.monitor_ids ?? [])
@@ -485,7 +673,7 @@ function mergeProduct(existing, incoming) {
   };
 }
 
-function validateVintedOutput(output) {
+function validateVintedOutput(output: VintedSnapshot): void {
   if (
     output.site !== "vinted.com" ||
     output.scan_mode !== "vinted-listing-pages-only" ||
@@ -519,14 +707,16 @@ function validateVintedOutput(output) {
     throw new Error("Inconsistent Vinted scan output status");
   }
 
-  const productUrls = new Set();
-  const monitorIds = new Set();
+  const productUrls = new Set<string>();
+  const monitorIds = new Set<string>();
 
   for (const monitor of output.monitors) {
     if (
       typeof monitor.id !== "string" ||
       monitorIds.has(monitor.id) ||
-      (monitorIds.size > 0 && [...monitorIds].at(-1) > monitor.id) ||
+      // `at(-1)` is set when size > 0; `?? ""` only narrows, and `"" > id`
+      // is false, as `undefined > id` was.
+      (monitorIds.size > 0 && ([...monitorIds].at(-1) ?? "") > monitor.id) ||
       typeof monitor.catalog_id !== "string" ||
       !/^\d+$/.test(monitor.catalog_id) ||
       typeof monitor.size_id !== "string" ||
@@ -556,7 +746,8 @@ function validateVintedOutput(output) {
       product.monitor_ids.length === 0 ||
       new Set(product.monitor_ids).size !== product.monitor_ids.length ||
       product.monitor_ids.some((id, index, ids) => (
-        !monitorIds.has(id) || (index > 0 && ids[index - 1] > id)
+        // As above: the previous id exists when index > 0.
+        !monitorIds.has(id) || (index > 0 && (ids[index - 1] ?? "") > id)
       ))
     ) {
       throw new Error("Invalid Vinted product provenance in scan output");
@@ -566,7 +757,11 @@ function validateVintedOutput(output) {
   }
 }
 
-async function publishOutput(outputPath, output, fsImpl) {
+async function publishOutput(
+  outputPath: string,
+  output: VintedSnapshot,
+  fsImpl: FsLike
+): Promise<void> {
   validateVintedOutput(output);
 
   const temporaryOutputPath = `${outputPath}.tmp`;
@@ -602,7 +797,7 @@ export async function scan({
     "deals",
     "vinted-latest.json"
   )
-} = {}) {
+}: ScanOptions = {}): Promise<ScanResult> {
   const monitors = (await loadMonitors()).sort((a, b) => (
     a.id.localeCompare(b.id)
   ));
@@ -625,23 +820,24 @@ export async function scan({
   ));
   const startUrls = monitorPages.map(({ url }) => url);
   const checkedAt = now().toISOString();
-  const productMap = new Map();
-  const pageResults = [];
+  const productMap = new Map<string, VintedProduct>();
+  const pageResults: VintedPageResult[] = [];
+  // Every monitor ID is a key, so the lookups below never return undefined;
+  // their `?.` and `?? 0` only narrow the type.
   const monitorProductUrls = new Map(monitors.map((monitor) => [
     monitor.id,
-    new Set()
+    new Set<string>()
   ]));
 
   logger.log("Fetching Vinted listing pages...");
 
-  for (let i = 0; i < monitorPages.length; i++) {
-    const { monitor, url } = monitorPages[i];
+  for (const [i, { monitor, url }] of monitorPages.entries()) {
     const catalogId = monitor.filters.catalogIds[0];
     const sizeId = monitor.filters.sizeIds[0];
 
     logger.log(`[${i + 1}/${monitorPages.length}] ${url}`);
 
-    let html;
+    let html: string | undefined;
 
     try {
       html = await getRenderedHtml(
@@ -687,7 +883,7 @@ export async function scan({
       });
 
       for (const product of products) {
-        monitorProductUrls.get(monitor.id).add(product.url);
+        monitorProductUrls.get(monitor.id)?.add(product.url);
         const existing = productMap.get(product.url);
         productMap.set(product.url, mergeProduct(existing, product));
       }
@@ -717,29 +913,30 @@ export async function scan({
   }
 
   const emptyMonitor = monitors.find((monitor) => (
-    monitorProductUrls.get(monitor.id).size === 0
+    (monitorProductUrls.get(monitor.id)?.size ?? 0) === 0
   ));
   if (emptyMonitor) {
     throw new Error(`Vinted monitor ${emptyMonitor.id} produced no products`);
   }
 
-  const monitorSummaries = monitors.map((monitor) => ({
+  const monitorSummaries: VintedMonitorSummary[] = monitors.map((monitor) => ({
     id: monitor.id,
     catalog_id: monitor.filters.catalogIds[0],
     size_id: monitor.filters.sizeIds[0],
     pages: monitor.pages,
-    product_count: monitorProductUrls.get(monitor.id).size,
+    product_count: monitorProductUrls.get(monitor.id)?.size ?? 0,
     status: "success"
   }));
 
-  const output = {
+  const output: VintedSnapshot = {
     site: "vinted.com",
     scan_mode: "vinted-listing-pages-only",
     start_urls: startUrls,
     ...(monitors.length === 1
       ? {
-          catalog_id: monitors[0].filters.catalogIds[0],
-          target_size_id: monitors[0].filters.sizeIds[0]
+          // monitors[0] exists when the length is 1; `?.` only narrows.
+          catalog_id: monitors[0]?.filters.catalogIds[0],
+          target_size_id: monitors[0]?.filters.sizeIds[0]
         }
       : {}),
     checked_at: checkedAt,

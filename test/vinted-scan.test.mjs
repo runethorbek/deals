@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import monitorConfig from "../config/monitors.json" with { type: "json" };
 import { buildVintedListingUrls } from "../scripts/lib/vinted-monitor.ts";
-import { scan } from "../scripts/scan-vinted.mjs";
+import { scan } from "../scripts/scan-vinted.ts";
 
 const LISTING_HTML = `
   <article>
@@ -74,7 +74,8 @@ test("disabled monitor skips before credentials, requests, or output", async () 
     },
     fsImpl: {
       async mkdir() {},
-      async writeFile() { writeCount++; }
+      async writeFile() { writeCount++; },
+      async rename() {}
     },
     logger: { log() {}, error() {} }
   });
@@ -94,7 +95,8 @@ test("missing credentials remain a hard failure before retailer requests or outp
       fetchImpl: async () => { requestCount++; },
       fsImpl: {
         async mkdir() {},
-        async writeFile() { writeCount++; }
+        async writeFile() { writeCount++; },
+        async rename() {}
       },
       logger: { log() {}, error() {} }
     }),
@@ -414,7 +416,7 @@ test("scanner treats malformed ScrapingAnt responses as hard failures", async ()
 
         return { ok: true, async text() { return LISTING_HTML; } };
       },
-      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; } },
+      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; }, async rename() {} },
       sleepImpl: async () => {},
       logger: { log() {}, error() {} },
       outputPath: "vinted-test-output.json"
@@ -436,7 +438,7 @@ test("scanner preserves the last good output when all listing pages fail", async
         status: 502,
         async text() { return "Bad Gateway"; }
       }),
-      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; } },
+      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; }, async rename() {} },
       sleepImpl: async () => {},
       logger: { log() {}, error() {} },
       outputPath: "vinted-test-output.json"
@@ -463,7 +465,8 @@ test("scanner preserves the last good output when successful pages contain no pr
         async mkdir() {},
         async writeFile() {
           outputWrites++;
-        }
+        },
+        async rename() {}
       },
       sleepImpl: async () => {},
       logger: { log() {}, error() {} },
@@ -493,7 +496,7 @@ test("scanner fails closed when one successful monitor is empty", async () => {
           }
         };
       },
-      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; } },
+      fsImpl: { async mkdir() {}, async writeFile() { outputWrites++; }, async rename() {} },
       sleepImpl: async () => {},
       logger: { log() {}, error() {} },
       outputPath: "vinted-test-output.json"
@@ -621,7 +624,8 @@ test("scanner aborts timed-out ScrapingAnt requests and does not publish", async
         async mkdir() {},
         async writeFile() {
           outputWrites++;
-        }
+        },
+        async rename() {}
       },
       sleepImpl: async () => {},
       logger: { log() {}, error() {} },

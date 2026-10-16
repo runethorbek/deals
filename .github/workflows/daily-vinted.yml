@@ -46,7 +46,7 @@ jobs:
         if: steps.monitor.outputs.enabled == 'true'
         env:
           SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
-        run: node scripts/scan-vinted.mjs
+        run: node scripts/scan-vinted.ts
 
       - name: Commit updated Vinted deals JSON
         if: steps.monitor.outputs.enabled == 'true'
