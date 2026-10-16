@@ -7,7 +7,7 @@ import {
   isZalandoProductUrl,
   scan,
   validateZalandoOutput
-} from "../scripts/scan-zalando.mjs";
+} from "../scripts/scan-zalando.ts";
 
 function listingGrid(cards) {
   return `<main id="main-content"><ul role="list"><li>${cards}</li></ul></main>`;

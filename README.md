@@ -45,7 +45,7 @@ running a scraper:
 ```sh
 npm ci
 node scripts/scan-vinted.ts
-node scripts/scan-zalando.mjs
+node scripts/scan-zalando.ts
 ```
 
 Running a scraper writes directly to its file in `public/deals/`. Review the

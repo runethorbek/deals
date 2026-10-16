@@ -7,7 +7,7 @@ import {
   extractProductsFromListing,
   extractProductUrlOccurrences,
   getRenderedHtml
-} from "./scan-zalando.mjs";
+} from "./scan-zalando.ts";
 
 const DEFAULT_OUTPUT_PATH = path.join(
   process.cwd(),

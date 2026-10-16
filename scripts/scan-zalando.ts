@@ -9,11 +9,157 @@ import {
   safeErrorDiagnostic,
   safeErrorSummary
 } from "./lib/scan-status.ts";
+import type { PageResult, ScanStatus } from "./lib/scan-status.ts";
 import { extractPriceInfo } from "./lib/zalando-price.ts";
+import type { ZalandoPriceInfo } from "./lib/zalando-price.ts";
 import {
   buildZalandoScanPlan,
   loadEnabledZalandoMonitors
 } from "./lib/zalando-monitor.ts";
+import type { MonitorEnvelope } from "./lib/monitor-config.ts";
+
+/**
+ * Identity fields parsed from a listing card. Each optional field is absent
+ * (never `null`) when the card does not provide it.
+ */
+interface ZalandoProductIdentity {
+  brand?: string;
+  product_name?: string;
+  product_type?: string;
+  color?: string;
+}
+
+/** A published Zalando product; see the Zalando tables in `docs/output-contract.md`. */
+export interface ZalandoProduct extends ZalandoProductIdentity, ZalandoPriceInfo {
+  title: string;
+  url: string;
+  image: string | null;
+  site: "zalando.dk";
+  source_url: string;
+  monitor_ids: string[];
+  target_size: string;
+  available: true;
+  size_assumption: string;
+  material_filter: string[];
+  raw_card_text: string;
+  checked_at: string;
+  /** Present, and `true`, only when `target_size` is `"46"`. */
+  size_46_available?: true;
+}
+
+/** A `monitors` entry in the Zalando snapshot. */
+export interface ZalandoMonitorSummary {
+  id: string;
+  listing_url: string;
+  target_size: string;
+  min_discount_percent: number;
+  pages: number;
+  product_count: number;
+  status: "success";
+}
+
+/** A `debug.pages` entry in the Zalando snapshot. */
+export interface ZalandoPageResult extends PageResult {
+  monitor_id: string;
+  product_count: number;
+}
+
+/** The published Zalando snapshot; see the Zalando snapshot table in `docs/output-contract.md`. */
+export interface ZalandoSnapshot {
+  site: "zalando.dk";
+  scan_mode: "zalando-listing-page-only";
+  start_urls: string[];
+  monitors: ZalandoMonitorSummary[];
+  /** Present only when exactly one monitor is enabled. */
+  target_size?: string;
+  /** Present only when exactly one monitor is enabled. */
+  min_discount_percent?: number;
+  checked_at: string;
+  scanned_page_count: number;
+  scanned_product_count: number;
+  product_count: number;
+  products: ZalandoProduct[];
+  match_count: number;
+  matches: ZalandoProduct[];
+  scan_status: ScanStatus;
+  debug: {
+    pages: ZalandoPageResult[];
+    products_with_discount: number;
+    products_below_minimum_discount: number;
+    products_without_discount: number;
+    products_without_price: number;
+  };
+}
+
+export interface ScanResult {
+  skipped: boolean;
+}
+
+/**
+ * An error from a ScrapingAnt request. The original error object is kept and
+ * marked, so its class and message are unchanged.
+ */
+export interface RetailerRequestError extends Error {
+  retailerRequestFailure: true;
+}
+
+/** The parts of a fetch response the scanner reads. */
+export interface FetchResponseLike {
+  ok: boolean;
+  /** Read only when `ok` is false. */
+  status: number;
+  text(): Promise<string>;
+}
+
+export interface FetchInit {
+  headers: Record<string, string>;
+}
+
+/**
+ * The injected fetch. Its result is untrusted: `ok` and `text` are checked at
+ * runtime, so it may resolve to a partial response or to nothing.
+ */
+export type FetchLike = (
+  url: string,
+  init: FetchInit
+) => Promise<Partial<FetchResponseLike> | void>;
+
+/**
+ * The injected file system. `rm` is optional: cleanup of the temporary file
+ * is skipped when it is missing.
+ */
+export interface FsLike {
+  mkdir(path: string, options: { recursive: true }): Promise<unknown>;
+  writeFile(path: string, data: string): Promise<unknown>;
+  rename(oldPath: string, newPath: string): Promise<unknown>;
+  rm?(path: string, options: { force: true }): Promise<unknown>;
+}
+
+export interface Logger {
+  log(...data: unknown[]): void;
+  error(...data: unknown[]): void;
+}
+
+interface ScanOptions {
+  apiKey?: string | undefined;
+  fetchImpl?: FetchLike;
+  fsImpl?: FsLike;
+  sleepImpl?: (ms: number) => Promise<unknown>;
+  logger?: Logger;
+  now?: () => Date;
+  loadMonitors?: () => Promise<MonitorEnvelope[]>;
+  outputPath?: string;
+}
+
+/** Where a product was observed; used only for the conflict diagnostic. */
+interface ProductObservation {
+  monitorId: string;
+  targetSize: string;
+  pageUrl: string;
+}
+
+// cheerio does not re-export domhandler's node type; take it from its API.
+type AnyNode = Parameters<typeof cheerio.contains>[0];
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 
@@ -27,43 +173,64 @@ const MAX_DIAGNOSTIC_VALUE_LENGTH = 300;
 const PRODUCT_ANCHOR_SELECTOR =
   "article a[data-card-type='media'][href]";
 
-function sleep(ms) {
+function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function markRetailerRequestFailure(error) {
+function markRetailerRequestFailure(error: unknown): RetailerRequestError {
   const requestError = error instanceof Error
     ? error
     : new Error(String(error ?? "Unknown retailer request failure"));
-  requestError.retailerRequestFailure = true;
-  return requestError;
+  // Same property assignment as before.
+  return Object.assign(requestError, { retailerRequestFailure: true as const });
 }
 
-function isRetailerRequestFailure(error) {
-  return error?.retailerRequestFailure === true;
+function isRetailerRequestFailure(
+  error: unknown
+): error is RetailerRequestError {
+  // The object/function check only narrows `unknown`: the previous
+  // `error?.retailerRequestFailure === true` was false for null and undefined,
+  // and for primitives unless a built-in prototype was patched.
+  return (
+    (typeof error === "object" || typeof error === "function") &&
+    error !== null &&
+    "retailerRequestFailure" in error &&
+    error.retailerRequestFailure === true
+  );
 }
 
-function normalizeText(value) {
+function isFetchResponse(
+  res: Partial<FetchResponseLike> | void
+): res is FetchResponseLike {
+  // The existing guard. `status` is not checked, as before; it is read only
+  // when `ok` is false.
+  return !(!res || typeof res.ok !== "boolean" || typeof res.text !== "function");
+}
+
+function normalizeText(value: string | null | undefined): string {
   return value?.replace(/\s+/g, " ").trim() ?? "";
 }
 
-function normalizeIdentityText(value) {
+function normalizeIdentityText(value: string): string {
   const text = normalizeText(value);
   return text.length <= MAX_IDENTITY_FIELD_LENGTH ? text : "";
 }
 
-function isBoundedOptionalString(value, maximumLength) {
+function isBoundedOptionalString(value: unknown, maximumLength: number): boolean {
   return (
     value === undefined ||
     isBoundedString(value, maximumLength)
   );
 }
 
-function isBoundedString(value, maximumLength) {
+function isBoundedString(value: unknown, maximumLength: number): value is string {
   return typeof value === "string" && value.length > 0 && value.length <= maximumLength;
 }
 
-function buildExpectedPaginationUrls(listingUrl, pages) {
+function buildExpectedPaginationUrls(
+  listingUrl: string,
+  pages: number
+): string[] | null {
   try {
     const baseUrl = new URL(listingUrl);
     return Array.from({ length: pages }, (_, index) => {
@@ -77,14 +244,14 @@ function buildExpectedPaginationUrls(listingUrl, pages) {
   }
 }
 
-function boundedDiagnosticValue(value) {
+function boundedDiagnosticValue(value: string): string {
   return safeErrorDiagnostic(value).slice(0, MAX_DIAGNOSTIC_VALUE_LENGTH);
 }
 
 function createConflictingTargetSizeError(
-  conflictingProductUrls,
-  productObservations
-) {
+  conflictingProductUrls: Set<string>,
+  productObservations: Map<string, ProductObservation[]>
+): Error {
   const urls = [...conflictingProductUrls].sort();
   const details = urls
     .slice(0, MAX_CONFLICTS_IN_DIAGNOSTIC)
@@ -115,7 +282,7 @@ function createConflictingTargetSizeError(
   );
 }
 
-function absoluteUrl(value) {
+function absoluteUrl(value: string | null | undefined): string | null {
   if (!value) return null;
 
   try {
@@ -125,7 +292,9 @@ function absoluteUrl(value) {
   }
 }
 
-export function normalizeProductUrl(href) {
+export function normalizeProductUrl(
+  href: string | null | undefined
+): string | null {
   const url = absoluteUrl(href);
   if (!url) return null;
 
@@ -142,7 +311,9 @@ export function normalizeProductUrl(href) {
   }
 }
 
-export function isZalandoProductUrl(url) {
+export function isZalandoProductUrl(
+  url: string | null | undefined
+): url is string {
   if (!url) return false;
 
   try {
@@ -158,13 +329,17 @@ export function isZalandoProductUrl(url) {
   }
 }
 
-export async function getRenderedHtml(url, fetchImpl, apiKey) {
+export async function getRenderedHtml(
+  url: string,
+  fetchImpl: FetchLike,
+  apiKey: string
+): Promise<string> {
   const endpoint = new URL("https://api.scrapingant.com/v2/general");
   endpoint.searchParams.set("url", url);
   endpoint.searchParams.set("x-api-key", apiKey);
   endpoint.searchParams.set("browser", "true");
 
-  let res;
+  let res: Partial<FetchResponseLike> | void;
   try {
     res = await fetchImpl(endpoint.toString(), {
       headers: {
@@ -175,7 +350,7 @@ export async function getRenderedHtml(url, fetchImpl, apiKey) {
     throw markRetailerRequestFailure(error);
   }
 
-  if (!res || typeof res.ok !== "boolean" || typeof res.text !== "function") {
+  if (!isFetchResponse(res)) {
     throw new Error("Invalid ScrapingAnt response");
   }
 
@@ -192,13 +367,19 @@ export async function getRenderedHtml(url, fetchImpl, apiKey) {
   }
 }
 
-function visibleText($, node) {
+function visibleText(
+  $: cheerio.CheerioAPI,
+  node: cheerio.Cheerio<AnyNode>
+): string {
   const clone = $(node).clone();
   clone.find("script, style, noscript").remove();
   return normalizeText(clone.text());
 }
 
-function findProductContainer($, anchor) {
+function findProductContainer(
+  $: cheerio.CheerioAPI,
+  anchor: AnyNode
+): cheerio.Cheerio<AnyNode> {
   const selectors = [
     "article",
     "[data-testid]",
@@ -218,7 +399,10 @@ function findProductContainer($, anchor) {
   return $(anchor).parent();
 }
 
-function extractImage($, container) {
+function extractImage(
+  $: cheerio.CheerioAPI,
+  container: cheerio.Cheerio<AnyNode>
+): string | null {
   const img = container.find("img").first();
   if (!img.length) return null;
 
@@ -242,14 +426,17 @@ function extractImage($, container) {
   return absoluteUrl(lastCandidate);
 }
 
-function extractProductIdentity($, container) {
+function extractProductIdentity(
+  $: cheerio.CheerioAPI,
+  container: cheerio.Cheerio<AnyNode>
+): ZalandoProductIdentity & { title: string } {
   const spans = container.find("h3").first().children("span");
   const brand = normalizeIdentityText(spans.eq(0).text());
   const descriptor = normalizeText(spans.eq(1).text());
 
   if (!brand && !descriptor) return { title: "Unknown product" };
 
-  const identity = {};
+  const identity: ZalandoProductIdentity = {};
   if (brand) identity.brand = brand;
 
   const parts = descriptor.split(" - ").map(normalizeIdentityText);
@@ -276,7 +463,9 @@ function extractProductIdentity($, container) {
     : { title: "Unknown product" };
 }
 
-function findListingProductAnchors($) {
+function findListingProductAnchors(
+  $: cheerio.CheerioAPI
+): cheerio.Cheerio<AnyNode> {
   const productList = $("main#main-content ul[role='list']")
     .filter((_, list) => (
       $(list).children("li").find(PRODUCT_ANCHOR_SELECTOR).length > 0
@@ -293,7 +482,10 @@ function findListingProductAnchors($) {
     );
 }
 
-function productLinkMatchesTargetSize(href, targetSize) {
+function productLinkMatchesTargetSize(
+  href: string | undefined,
+  targetSize: string
+): boolean {
   if (!targetSize) return true;
 
   const url = absoluteUrl(href);
@@ -304,9 +496,12 @@ function productLinkMatchesTargetSize(href, targetSize) {
   );
 }
 
-export function extractProductUrlOccurrences(html, targetSize) {
+export function extractProductUrlOccurrences(
+  html: string,
+  targetSize: string
+): string[] {
   const $ = cheerio.load(html);
-  const productUrls = [];
+  const productUrls: string[] = [];
 
   findListingProductAnchors($).each((_, anchor) => {
     const href = $(anchor).attr("href");
@@ -318,7 +513,7 @@ export function extractProductUrlOccurrences(html, targetSize) {
   return productUrls;
 }
 
-function scoreProduct(product) {
+function scoreProduct(product: ZalandoProduct): number {
   let score = 0;
   if (product.title && product.title !== "Unknown product") score += 2;
   if (product.image) score += 2;
@@ -328,13 +523,18 @@ function scoreProduct(product) {
 }
 
 export function extractProductsFromListing(
-  html,
-  sourceUrl,
-  checkedAt,
-  { monitorId, targetSize, upperMaterials = [] }
-) {
+  html: string,
+  sourceUrl: string,
+  checkedAt: string,
+  { monitorId, targetSize, upperMaterials = [] }: {
+    /** Omitted by the pagination investigation script. */
+    monitorId?: string;
+    targetSize: string;
+    upperMaterials?: string[];
+  }
+): ZalandoProduct[] {
   const $ = cheerio.load(html);
-  const products = new Map();
+  const products = new Map<string, ZalandoProduct>();
 
   findListingProductAnchors($).each((_, anchor) => {
     const href = $(anchor).attr("href");
@@ -347,7 +547,7 @@ export function extractProductsFromListing(
     const text = visibleText($, container);
     const priceInfo = extractPriceInfo(text);
 
-    const product = {
+    const product: ZalandoProduct = {
       ...extractProductIdentity($, container),
       url,
       image: extractImage($, container),
@@ -374,7 +574,7 @@ export function extractProductsFromListing(
   return [...products.values()];
 }
 
-export function validateZalandoOutput(output) {
+export function validateZalandoOutput(output: ZalandoSnapshot): void {
   if (
     output?.site !== SITE ||
     output.scan_mode !== "zalando-listing-page-only" ||
@@ -402,7 +602,7 @@ export function validateZalandoOutput(output) {
     throw new Error("Invalid Zalando output contract");
   }
 
-  const monitorById = new Map();
+  const monitorById = new Map<string, ZalandoMonitorSummary>();
   let expectedPageCount = 0;
   for (const monitor of output.monitors) {
     const monitorPages = output.debug.pages.filter(
@@ -463,16 +663,17 @@ export function validateZalandoOutput(output) {
   }
 
   if (
+    // monitors[0] exists when the length is 1; `?.` only narrows.
     output.monitors.length === 1
-      ? output.target_size !== output.monitors[0].target_size ||
-        output.min_discount_percent !== output.monitors[0].min_discount_percent
+      ? output.target_size !== output.monitors[0]?.target_size ||
+        output.min_discount_percent !== output.monitors[0]?.min_discount_percent
       : Object.hasOwn(output, "target_size") ||
         Object.hasOwn(output, "min_discount_percent")
   ) {
     throw new Error("Invalid Zalando output contract");
   }
 
-  const productUrls = new Set();
+  const productUrls = new Set<string>();
 
   for (const product of output.products) {
     const productMonitors = Array.isArray(product?.monitor_ids)
@@ -486,8 +687,12 @@ export function validateZalandoOutput(output) {
       productMonitors.length === 0 ||
       productMonitors.some((monitor) => !monitor) ||
       new Set(product.monitor_ids).size !== product.monitor_ids.length ||
-      product.monitor_ids.some((id, index, ids) => index > 0 && ids[index - 1] > id) ||
-      productMonitors.some((monitor) => monitor.target_size !== product.target_size) ||
+      // The previous id exists when index > 0; `?? ""` only narrows, and
+      // `"" > id` is false, as `undefined > id` was.
+      product.monitor_ids.some((id, index, ids) => index > 0 && (ids[index - 1] ?? "") > id) ||
+      // Every monitor is set here: a missing one already made the
+      // `!monitor` check above true, so `?.` only narrows.
+      productMonitors.some((monitor) => monitor?.target_size !== product.target_size) ||
       (product.target_size === "46"
         ? product.size_46_available !== true
         : Object.hasOwn(product, "size_46_available")) ||
@@ -513,7 +718,12 @@ export function validateZalandoOutput(output) {
     .filter((product) => (
       typeof product.discount_percent === "number" &&
       product.monitor_ids.some((id) => (
-        product.discount_percent >= monitorById.get(id).min_discount_percent
+        // Repeats the check above: a property narrowing does not carry into
+        // a callback. Every product monitor ID was found in monitorById
+        // above, so `?.` and `?? Infinity` only narrow.
+        typeof product.discount_percent === "number" &&
+        product.discount_percent >=
+          (monitorById.get(id)?.min_discount_percent ?? Infinity)
       ))
     ))
     .map((product) => product.url)
@@ -528,7 +738,11 @@ export function validateZalandoOutput(output) {
   }
 }
 
-async function publishOutput(outputPath, output, fsImpl) {
+async function publishOutput(
+  outputPath: string,
+  output: ZalandoSnapshot,
+  fsImpl: FsLike
+): Promise<void> {
   validateZalandoOutput(output);
 
   const temporaryOutputPath = `${outputPath}.tmp`;
@@ -561,7 +775,7 @@ export async function scan({
     "deals",
     "zalando-latest.json"
   )
-} = {}) {
+}: ScanOptions = {}): Promise<ScanResult> {
   const monitors = await loadMonitors();
 
   if (monitors.length === 0) {
@@ -578,18 +792,18 @@ export async function scan({
     .sort((left, right) => left.monitorId.localeCompare(right.monitorId));
   const startUrls = plans.flatMap((plan) => plan.listingUrls);
   const checkedAt = now().toISOString();
-  const productMap = new Map();
-  const productObservations = new Map();
-  const matchingProductUrls = new Set();
-  const conflictingProductUrls = new Set();
-  const pageResults = [];
-  const monitorSummaries = [];
+  const productMap = new Map<string, ZalandoProduct>();
+  const productObservations = new Map<string, ProductObservation[]>();
+  const matchingProductUrls = new Set<string>();
+  const conflictingProductUrls = new Set<string>();
+  const pageResults: ZalandoPageResult[] = [];
+  const monitorSummaries: ZalandoMonitorSummary[] = [];
 
   logger.log("Fetching Zalando listing pages...");
 
   let requestIndex = 0;
   for (const plan of plans) {
-    const monitorProductUrls = new Set();
+    const monitorProductUrls = new Set<string>();
 
     for (const url of plan.listingUrls) {
       requestIndex++;
@@ -597,7 +811,7 @@ export async function scan({
         `[${requestIndex}/${startUrls.length}] ${plan.monitorId} ${url}`
       );
 
-      let html;
+      let html: string | undefined;
       try {
         html = await getRenderedHtml(url, fetchImpl, apiKey);
       } catch (error) {
@@ -679,7 +893,9 @@ export async function scan({
 
     monitorSummaries.push({
       id: plan.monitorId,
-      listing_url: plan.listingUrls[0],
+      // A plan has 1 to 10 pages, so the first URL is always set; `?? ""`
+      // only narrows (validateZalandoOutput rejects both "" and undefined).
+      listing_url: plan.listingUrls[0] ?? "",
       target_size: plan.targetSize,
       min_discount_percent: plan.minDiscountPercent,
       pages: plan.pages,
@@ -720,14 +936,15 @@ export async function scan({
     );
   }
 
-  const output = {
+  const output: ZalandoSnapshot = {
     site: SITE,
     scan_mode: "zalando-listing-page-only",
     start_urls: startUrls,
     monitors: monitorSummaries,
     ...(plans.length === 1 ? {
-      target_size: plans[0].targetSize,
-      min_discount_percent: plans[0].minDiscountPercent
+      // plans[0] exists when the length is 1; `?.` only narrows.
+      target_size: plans[0]?.targetSize,
+      min_discount_percent: plans[0]?.minDiscountPercent
     } : {}),
     checked_at: checkedAt,
     scanned_page_count: startUrls.length,
