@@ -96,7 +96,7 @@ Two facts matter for ordering:
 | `process.env.GITHUB_OUTPUT`, `process.argv[2]` | `monitor-enabled.mjs:4-8` |
 | `config/monitors.json` | `monitor-config.mjs:23-47` (`JSON.parse` plus envelope validation), then the per-source validators |
 | ScrapingAnt and retailer HTML | `getRenderedHtml*` in each scanner (`res.ok`, `res.status`, `res.text()`), parsed with `cheerio.load` |
-| Embedded JSON-LD | `scan-vinted.mjs:364-381` (`JSON.parse` inside try/catch) |
+| Embedded JSON-LD | `scan-vinted.mjs:364-381` and, for Scarosso product pages, `scarosso-image.mjs:180` (`JSON.parse` inside try/catch in both) |
 | Scarosso product pages (direct fetch) | `scarosso-image-fetcher.mjs` |
 | Previous snapshot | `scarosso-image-snapshot.mjs:35-43` (`JSON.parse` of `public/deals/scarosso-latest.json`) |
 
@@ -192,8 +192,11 @@ This is documentation-based: it could not be checked without installing
 Rationale, tied to this repository:
 
 - `erasableSyntaxOnly`, `verbatimModuleSyntax`, and
-  `allowImportingTsExtensions` make `tsc` reject the same syntax that Node's
-  stripper rejects at runtime (section 2), so the typecheck catches it first.
+  `allowImportingTsExtensions` are meant to make `tsc` reject the syntax that
+  Node's stripper rejects at runtime (section 2), so the typecheck catches it
+  first [D, unverified]. There may be a gap: it is not confirmed that
+  `erasableSyntaxOnly` flags angle-bracket assertions (`<T>x`), which Node
+  rejects. Slice 2 verification confirms this with `tsc`.
 - `strict: true` with no exceptions. `noUncheckedIndexedAccess` is added
   because the parsers index into regex matches and arrays all the time (for
   example `source[0]` at `monitor-config.mjs:54` and `parsedListingUrls[0]` at
@@ -275,7 +278,8 @@ experiment confirms that Node executes ill-typed code without complaint.
   (`scan-vinted.mjs:529`).
 - **Untyped JSON.** `JSON.parse` returns `any`, which `strict` does **not**
   flag. Annotate each result as `unknown` explicitly (`monitor-config.mjs:30`,
-  `scan-vinted.mjs:374`, `scarosso-image-snapshot.mjs:39`). JSON imports in
+  `scan-vinted.mjs:374`, `scarosso-image.mjs:180`,
+  `scarosso-image-snapshot.mjs:39`). JSON imports in
   tests infer widened types (for example `site: string`), so they will not
   satisfy literal-typed snapshot types without a runtime check.
 - **Catch variables.** `useUnknownInCatchVariables` (part of `strict`) affects
@@ -301,7 +305,7 @@ experiment confirms that Node executes ill-typed code without complaint.
 
 | Risk | Evidence | Mitigation (decision owner) |
 | --- | --- | --- |
-| New dev tooling with no lockfile | `package.json` has caret ranges; workflows run `npm install`, which also installs devDependencies; `docs/security.md` says to commit a lockfile and use `npm ci` once deterministic CI is added | Slice 2: pin exact `typescript` and `@types/node` versions. Committing `package-lock.json` and switching workflows to `npm ci` changes CI install semantics and needs a **human decision** in Slice 2. Runtime scans don't use the dev tools, so a TS release cannot break a scan |
+| New dev tooling with no lockfile | `package.json` has caret ranges; workflows run `npm install`, which also installs devDependencies; `docs/security.md` says to commit a lockfile and use `npm ci` once deterministic CI is added | Slice 2: pin exact `typescript` and `@types/node` versions. Committing `package-lock.json` and switching workflows to `npm ci` changes CI install semantics and needs a **human decision** in Slice 2. Dev tooling cannot change scan behaviour, because scans never load it. But a failed devDependency install would still fail the scan job (the last known-good snapshot is kept). Using `npm install --omit=dev` in the scan workflows is an option for that Slice 2 decision |
 | Test discovery after renames | Default `node --test` runs both `.test.ts` and `.test.mjs`, and any non-test `.ts`/`.mjs` under `test/` [L] | Keep the `.test.ts` suffix. Never leave both forms of one test. Put no helpers in `test/` without accounting for discovery. Compare the **test count** (122 plus new tests), not just "0 fail" |
 | Workflow paths must change in the same slice as the file they invoke | Section 1 invocations. `npm test` does not exercise workflows. A stale path makes the scheduled job fail, and the last known-good snapshot is kept (`docs/output-contract.md`), so the failure is safe but silent until someone looks | In each renaming slice: `grep -rn "<old>.mjs" .github package.json README.md test scripts` must return nothing. Run `node scripts/monitor-enabled.<ext> <source>` locally (reads config only, no network). A manual `workflow_dispatch` is a live scan and needs **human approval** |
 | Types are not enforced anywhere automatically | No CI runs tests; Node runs ill-typed code [L] | `npm run typecheck` goes into every slice's Definition of Done. Adding a PR check workflow is a separate **human decision** (new workflow and permissions) |
@@ -321,7 +325,7 @@ revert fixes it.
 | Slice | Verification |
 | --- | --- |
 | All | `npm test` count equals the previous count plus any intentional new tests, with 0 fail; `npm run typecheck` is clean (from Slice 2 on); `git diff --check`; no `any`, `as unknown as`, or `@ts-ignore` added without a stated reason; no live scans |
-| 2 | Typecheck runs. `test/typescript-runtime.test.ts` is discovered (count 123). `tsc` rejects an `enum` in a scratch check |
+| 2 | Typecheck runs. `test/typescript-runtime.test.ts` is discovered (count 123). In a scratch check, confirm with `tsc` which of `enum`, `namespace`, parameter properties, and `<T>x` it rejects. Record any syntax that only Node rejects |
 | 3 | `test/monitor-config`, `test/*-monitor`, `test/retailer-scan-status`, and `test/monitor-enabled` all pass. `node scripts/monitor-enabled.mjs vinted` prints the same line as before. No `.mjs` specifier for renamed files remains |
 | 4 | `test/zalando-price.test.mjs` and `test/zalando-scan.test.mjs` pass |
 | 5, 6 | Source tests and `test/output-contract.test.mjs` pass. Representative output is unchanged: in a scratch run, capture the JSON written by `scan()` with the existing fixture fetch doubles before and after, then diff (expect no difference except `checked_at` when `now` is not fixed). The workflow and README paths are updated |
