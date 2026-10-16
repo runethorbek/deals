@@ -121,13 +121,13 @@ export type FetchLike = (
 ) => Promise<Partial<FetchResponseLike> | void>;
 
 /**
- * The injected file system. `rename` is optional only so that partial test
- * doubles fit; publishing fails without it, as before.
+ * The injected file system. `rm` is optional: cleanup of the temporary file
+ * is skipped when it is missing.
  */
 export interface FsLike {
   mkdir(path: string, options: { recursive: true }): Promise<unknown>;
   writeFile(path: string, data: string): Promise<unknown>;
-  rename?(oldPath: string, newPath: string): Promise<unknown>;
+  rename(oldPath: string, newPath: string): Promise<unknown>;
   rm?(path: string, options: { force: true }): Promise<unknown>;
 }
 
@@ -775,9 +775,6 @@ async function publishOutput(
       temporaryOutputPath,
       JSON.stringify(output, null, 2)
     );
-    // Narrows the optional `rename`. Calling the missing method threw this
-    // same TypeError here before, so the temporary file is still removed.
-    if (!fsImpl.rename) throw new TypeError("fsImpl.rename is not a function");
     await fsImpl.rename(temporaryOutputPath, outputPath);
   } catch (error) {
     await fsImpl.rm?.(temporaryOutputPath, { force: true }).catch(() => {});
