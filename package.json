@@ -8,10 +8,15 @@
   "scripts": {
     "investigate:zalando-pagination": "node scripts/investigate-zalando-pagination.mjs",
     "scan:scarosso": "node scripts/scan-scarosso.mjs",
-    "test": "node --test"
+    "test": "node --test",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
   }
 }
