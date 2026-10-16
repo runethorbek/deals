@@ -5,15 +5,17 @@ import {
   loadValidatedEnabledMonitor,
   loadValidatedEnabledMonitors
 } from "../scripts/lib/validated-monitor-loader.ts";
+import type { VintedMonitor } from "../scripts/lib/vinted-monitor.ts";
+import type { ZalandoMonitor } from "../scripts/lib/zalando-monitor.ts";
 
-const vintedMonitor = {
+const vintedMonitor: VintedMonitor = {
   id: "vinted-monitor",
   source: "vinted",
   enabled: true,
   filters: { catalogIds: ["1786"], sizeIds: ["207"] },
   pages: 3
 };
-const zalandoMonitor = {
+const zalandoMonitor: ZalandoMonitor = {
   id: "zalando-monitor",
   source: "zalando",
   enabled: true,
@@ -25,7 +27,7 @@ const zalandoMonitor = {
   pages: 1
 };
 
-function load(source, monitors) {
+function load(source: unknown, monitors: unknown) {
   return loadEnabledMonitor(source, {
     readFile: async () => JSON.stringify(monitors)
   });
