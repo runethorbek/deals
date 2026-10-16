@@ -6,9 +6,6 @@ import {
   safeErrorDiagnostic,
   safeErrorSummary
 } from "../scripts/lib/scan-status.mjs";
-import {
-  createScanStatus as createScarossoScanStatus
-} from "../scripts/scan-scarosso.mjs";
 
 test("builds the shared scan status shape from execution results", () => {
   const pageResults = [
@@ -42,15 +39,6 @@ test("builds the shared scan status shape from execution results", () => {
     scanned_product_count: 3,
     published_product_count: 2
   });
-
-  assert.deepEqual(
-    status,
-    createScarossoScanStatus({
-      pageResults,
-      scannedProductCount: 3,
-      publishedProductCount: 2
-    })
-  );
 });
 
 test("produces bounded credential-safe failure summaries", () => {

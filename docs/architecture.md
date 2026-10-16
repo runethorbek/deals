@@ -19,15 +19,7 @@ DealRadar application, database, ingestion logic, or user-facing rendering.
    revision, and calls the authenticated DealRadar import endpoint once for
    that revision.
 
-The direct Scarosso scanner is deprecated and inactive because current Scarosso
-monitoring has moved to Zalando. Its implementation, workflow, tests, and last
-known-good published snapshot remain temporarily as a fallback and for existing
-consumer compatibility. When reactivated, the Scarosso scanner discovers
-products only through its six listing-page ScrapingAnt requests. As best-effort
-image enrichment, it reuses validated images from the previous snapshot by
-exact normalized product URL, then fetches still-missing product pages directly
-from Scarosso with bounded concurrency. Those product-page requests never go
-through ScrapingAnt and do not affect listing scan status.
+The repository scans two sources: Vinted and Zalando.
 
 ## Responsibilities
 
@@ -56,8 +48,7 @@ Configuration describes requested monitoring intent, while each retailer
 adapter defines the subset it can translate safely. Zalando monitors use a
 retailer-relative `listingPath` plus an explicit `targetSize`, avoiding a generic
 cross-retailer taxonomy model. Multiple enabled Vinted and Zalando monitors
-form one source-level scan and one atomic output snapshot. Scarosso retains its
-maximum-one-enabled-monitor constraint.
+form one source-level scan and one atomic output snapshot.
 
 The Zalando scanner builds page 1 through the configured `pages` value for every
 monitor, using URL search parameters to add `p=N` while preserving listing
@@ -75,12 +66,9 @@ separate authenticated service boundary.
 
 ## Output contracts
 
-The three sources currently have related but different product shapes. Vinted
-uses `price` and `currency`. Scarosso exposes original price, current price,
-discount fields, and a normalized `currency` of `USD`, `EUR`, `GBP`, or `null`.
-Its `conflicting-currencies` status means numeric candidates were retained but
-prices were not compared across currencies. Zalando exposes original price,
-current price, and discount fields. These differences must be documented and
+The two sources currently have related but different product shapes. Vinted
+uses `price` and `currency`. Zalando exposes original price, current price, and
+discount fields. These differences must be documented and
 tested before treating the formats as a single schema.
 
 Contract changes require explicit approval and coordination with DealRadar.

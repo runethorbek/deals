@@ -9,7 +9,6 @@ The published boundary is:
 
 ```text
 public/deals/vinted-latest.json
-public/deals/scarosso-latest.json
 public/deals/zalando-latest.json
 ```
 
@@ -30,7 +29,6 @@ scans it equals the snapshot timestamp.
 
 `scan_mode` identifies the kind of retailer scan and is source-specific. A
 `start_urls` array identifies the listing requests for Vinted and Zalando.
-Scarosso instead records its requested listing routes in `debug.pages`.
 
 A published snapshot contains a validated usable result for the publication
 policy of that source. A complete scan may publish, and a source that supports
@@ -49,13 +47,12 @@ supports publication.
 | `failed_pages` | Requests that failed |
 | `failures` | Failed request URL and sanitized error summary |
 | `scanned_product_count` | Products recognized before publication filtering |
-| `published_product_count` | Legacy source-specific result count: `products.length` for Vinted and `matches.length` for Scarosso and Zalando |
+| `published_product_count` | Legacy source-specific result count: `products.length` for Vinted and `matches.length` for Zalando |
 
 For a source with page status, `successful_pages + failed_pages =
 attempted_pages`. A route-level failure is not automatically proof that the
 whole source scan is invalid. Vinted and Zalando may publish a validated
-degraded scan when their source-specific validation passes. Scarosso may publish
-a snapshot with missing sale categories.
+degraded scan when their source-specific validation passes.
 
 ## Common product concepts
 
@@ -65,7 +62,7 @@ The concepts below are shared, although the JSON keys are not always shared:
 | --- | --- |
 | Product identity | The canonical HTTPS retailer product URL in `url`; URLs are unique within a source snapshot |
 | Display name | `title`, the retailer or parser-provided product title |
-| Current observed price | The sale/listing price observed at scan time (`price` for Vinted, `current_price` for Scarosso and Zalando) |
+| Current observed price | The sale/listing price observed at scan time (`price` for Vinted, `current_price` for Zalando) |
 | Original/reference price | A source-reported regular or reference price, when reliably available; it is not the current price |
 | Currency | A source-reported or safely parsed ISO-style currency code; it is not application-wide normalized currency |
 | Image | `image`, the image associated with the product URL, or `null` when association is not reliable |
@@ -76,7 +73,6 @@ The concepts below are shared, although the JSON keys are not always shared:
 The current-price key is intentionally source-specific:
 
 - Vinted: `price`
-- Scarosso: `current_price`
 - Zalando: `current_price`
 
 No universal price field is added merely to align names. Prices are finite
@@ -145,64 +141,6 @@ contract fields.
 | `raw_price` | Source price text retained for diagnostics |
 | `raw_card_text` | Bounded source card text retained for diagnostics |
 | `checked_at` | Product observation time |
-
-## Scarosso
-
-### Snapshot fields
-
-| Field | Meaning |
-| --- | --- |
-| `site` | `scarosso.com` |
-| `scan_mode` | `listing-pages-only` |
-| `target_size` | Configured size filter, currently `42` |
-| `min_discount_percent` | Matching threshold, not a claim that every product has this discount |
-| `checked_at` | Scan observation time |
-| `scanned_page_count` | Configured listing routes requested |
-| `scanned_product_count` | Products recognized across listing pages |
-| `product_count` | Published product count |
-| `products` | Published Scarosso product objects |
-| `match_count` / `matches` | Products meeting the configured discount threshold |
-| `scan_status` | Attempted, successful, and failed route counts |
-| `debug.pages` | Per-route product count and error diagnostics |
-| `debug.products_with_discount` | Products with a parsed discount |
-| `debug.products_below_minimum_discount` | Products with a discount below the configured threshold |
-| `debug.products_without_discount` | Products without a parsed discount |
-| `debug.products_without_price` | Products without a parsed price |
-| `debug.products_without_size_information` | Products without parsed size information |
-
-A zero-product Scarosso snapshot is diagnostically ambiguous. A successful
-page with zero recognized products is distinct from a request failure. Slice 1
-captured six configured `en-dk` routes with two 404 failures and four
-successful pages with zero recognized products; see
-`docs/issue-12-slice-1.md` for that point-in-time evidence. This is documented
-evidence, not a parser-root-cause claim. Missing sale categories remain
-tolerated route-level observations; this contract does not change publication
-policy or request/parsing behavior.
-
-### Product fields
-
-| Field | Meaning |
-| --- | --- |
-| `title` | Scarosso product title |
-| `url` | Canonical Scarosso product URL and identity |
-| `image` | Product image associated with the URL, or `null` |
-| `category` | Category derived from the listing route |
-| `source_url` | Listing route where the product was observed |
-| `source_urls` | Listing routes retained when duplicate observations are merged |
-| `categories` | Categories retained when duplicate observations are merged |
-| `available_sizes` | Sizes visible in the listing card |
-| `size_42_available` | Whether size 42 is explicitly visible; `null` when unavailable to determine |
-| `original_price` | Parsed regular/reference price, or `null` |
-| `current_price` | Parsed current observed price, or `null` |
-| `currency` | Parsed source currency (`USD`, `EUR`, `GBP`, or `null`) |
-| `price_candidates` | Numeric prices parsed from the listing card and retained for diagnostics; they are not interchangeable across conflicting currencies |
-| `discount_percent` | Discount calculated from comparable prices, or `null` |
-| `discount_status` | Source parser status describing how the discount was determined |
-| `checked_at` | Product observation time |
-
-When price candidates contain conflicting currencies, numeric candidates may be
-retained but prices are not compared across currencies. Consumers must preserve
-that distinction rather than silently treating such values as one currency.
 
 ## Zalando
 

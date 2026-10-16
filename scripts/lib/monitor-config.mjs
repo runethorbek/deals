@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 
 const DEFAULT_CONFIG_URL = new URL("../../config/monitors.json", import.meta.url);
-const KNOWN_SOURCES = new Set(["vinted", "scarosso", "zalando"]);
+const KNOWN_SOURCES = new Set(["vinted", "zalando"]);
 
 function isObject(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -68,11 +68,6 @@ export function selectEnabledMonitors(source, monitors) {
   const enabledMonitors = monitors.filter(
     (monitor) => monitor.source === source && monitor.enabled
   );
-
-  if (source === "scarosso" && enabledMonitors.length > 1) {
-    const sourceLabel = source[0].toUpperCase() + source.slice(1);
-    throw new Error(`Monitor configuration must contain at most one enabled ${sourceLabel} monitor`);
-  }
 
   return enabledMonitors;
 }

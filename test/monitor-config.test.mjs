@@ -13,15 +13,6 @@ const vintedMonitor = {
   filters: { catalogIds: ["1786"], sizeIds: ["207"] },
   pages: 3
 };
-const scarossoMonitor = {
-  id: "scarosso-monitor",
-  source: "scarosso",
-  enabled: true,
-  filters: {
-    listingUrls: ["/sales/men/?prefn1=c_size&prefv1=42"],
-    minDiscountPercent: 30
-  }
-};
 const zalandoMonitor = {
   id: "zalando-monitor",
   source: "zalando",
@@ -41,30 +32,29 @@ function load(source, monitors) {
 }
 
 test("selects source monitors from one shared configuration", async () => {
-  const monitors = [vintedMonitor, scarossoMonitor, zalandoMonitor];
+  const monitors = [vintedMonitor, zalandoMonitor];
 
   assert.deepEqual(await load("vinted", monitors), vintedMonitor);
-  assert.deepEqual(await load("scarosso", monitors), scarossoMonitor);
   assert.deepEqual(await load("zalando", monitors), zalandoMonitor);
 });
 
 test("requires a JSON array and at most one enabled monitor per source", async () => {
   await assert.rejects(
-    loadEnabledMonitor("scarosso", {
+    loadEnabledMonitor("vinted", {
       readFile: async () => JSON.stringify({ monitors: [] })
     }),
     /must be a JSON array/
   );
   assert.equal(
-    await load("scarosso", [{ ...scarossoMonitor, enabled: false }]),
+    await load("vinted", [{ ...vintedMonitor, enabled: false }]),
     null
   );
   await assert.rejects(
-    load("scarosso", [
-      scarossoMonitor,
-      { ...scarossoMonitor, id: "another-scarosso-monitor" }
+    load("vinted", [
+      vintedMonitor,
+      { ...vintedMonitor, id: "another-vinted-monitor" }
     ]),
-    /at most one enabled Scarosso monitor/
+    /at most one enabled Vinted monitor/
   );
 
   assert.deepEqual(
@@ -100,12 +90,12 @@ test("validated plural selection allows multiple Zalando monitors only", async (
 
 test("validates the shared monitor envelope", async () => {
   for (const monitor of [
-    { ...scarossoMonitor, id: "" },
-    { ...scarossoMonitor, filters: null },
-    { ...scarossoMonitor, filters: [] }
+    { ...zalandoMonitor, id: "" },
+    { ...zalandoMonitor, filters: null },
+    { ...zalandoMonitor, filters: [] }
   ]) {
     await assert.rejects(
-      load("scarosso", [monitor]),
+      load("zalando", [monitor]),
       /Invalid monitor configuration envelope/
     );
   }
@@ -115,11 +105,11 @@ test("validates every monitor before selecting a source", async () => {
   const invalidMonitors = [
     [{ ...vintedMonitor, source: "unknown" }],
     [{ ...vintedMonitor, id: "" }],
-    [vintedMonitor, { ...scarossoMonitor, id: vintedMonitor.id }],
+    [vintedMonitor, { ...zalandoMonitor, id: vintedMonitor.id }],
     [{ ...vintedMonitor, enabled: "true" }],
     [{ ...vintedMonitor, filters: null }],
     [{ ...zalandoMonitor, filters: null }],
-    [{ ...scarossoMonitor, enabled: "false" }]
+    [{ ...zalandoMonitor, enabled: "false" }]
   ];
 
   for (const monitors of invalidMonitors) {
@@ -129,6 +119,36 @@ test("validates every monitor before selecting a source", async () => {
   await assert.rejects(
     loadEnabledMonitor("vinted", { readFile: async () => "{" }),
     /malformed JSON/
+  );
+});
+
+test("rejects the removed Scarosso source", async () => {
+  const scarossoMonitor = {
+    id: "scarosso-dk-mens-sale-size-42",
+    source: "scarosso",
+    enabled: false,
+    filters: {
+      listingUrls: ["/sales/men/?prefn1=c_size&prefv1=42"],
+      minDiscountPercent: 30
+    }
+  };
+  const options = {
+    readFile: async () => JSON.stringify([vintedMonitor, zalandoMonitor, scarossoMonitor])
+  };
+
+  await assert.rejects(
+    loadEnabledMonitor("vinted", options),
+    /Invalid monitor configuration envelope/
+  );
+  await assert.rejects(
+    loadValidatedEnabledMonitors("zalando", options),
+    /Invalid monitor configuration envelope/
+  );
+  await assert.rejects(
+    loadValidatedEnabledMonitors("scarosso", {
+      readFile: async () => JSON.stringify([vintedMonitor])
+    }),
+    /Monitor source must be a known non-empty string/
   );
 });
 

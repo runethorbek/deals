@@ -20,22 +20,6 @@
     "pages": 3
   },
   {
-    "id": "scarosso-dk-mens-sale-size-42",
-    "source": "scarosso",
-    "enabled": false,
-    "filters": {
-      "listingUrls": [
-        "/sales/men/?prefn1=c_size&prefv1=42",
-        "/sales/men/sneakers/?prefn1=c_size&prefv1=42",
-        "/sales/men/loafers/?prefn1=c_size&prefv1=42",
-        "/sales/men/flats/?prefn1=c_size&prefv1=42",
-        "/sales/men/boots/?prefn1=c_size&prefv1=42",
-        "/sales/men/last-pairs/?prefn1=c_size&prefv1=42"
-      ],
-      "minDiscountPercent": 30
-    }
-  },
-  {
     "id": "zalando-dk-mens-trousers-size-46",
     "source": "zalando",
     "enabled": true,
