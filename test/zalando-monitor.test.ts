@@ -4,8 +4,9 @@ import {
   buildZalandoScanPlan,
   loadEnabledZalandoMonitors
 } from "../scripts/lib/zalando-monitor.ts";
+import type { ZalandoMonitor } from "../scripts/lib/zalando-monitor.ts";
 
-const validMonitor = {
+const validMonitor: ZalandoMonitor = {
   id: "zalando-dk-mens-trousers-size-46",
   source: "zalando",
   enabled: true,
@@ -19,7 +20,7 @@ const validMonitor = {
   pages: 2
 };
 
-const shoesMonitor = {
+const shoesMonitor: ZalandoMonitor = {
   id: "zalando-scarosso-shoes-42",
   source: "zalando",
   enabled: true,
@@ -31,7 +32,7 @@ const shoesMonitor = {
   pages: 2
 };
 
-const load = (monitors) => loadEnabledZalandoMonitors({
+const load = (monitors: unknown) => loadEnabledZalandoMonitors({
   readFile: async () => JSON.stringify(monitors)
 });
 
@@ -39,7 +40,9 @@ test("repository configuration preserves the current Zalando scan URL", async ()
   const monitors = await loadEnabledZalandoMonitors();
 
   assert.deepEqual(monitors, [validMonitor, shoesMonitor]);
-  assert.deepEqual(buildZalandoScanPlan(monitors[0]), {
+  // The deepEqual above proves `monitors[0]` exists; noUncheckedIndexedAccess
+  // cannot see that.
+  assert.deepEqual(buildZalandoScanPlan(monitors[0]!), {
     monitorId: validMonitor.id,
     listingUrls: [
       "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/" +
