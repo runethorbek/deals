@@ -44,7 +44,7 @@ running a scraper:
 
 ```sh
 npm ci
-node scripts/scan-vinted.mjs
+node scripts/scan-vinted.ts
 node scripts/scan-zalando.mjs
 ```
 

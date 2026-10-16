@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import monitorConfig from "../config/monitors.json" with { type: "json" };
 import { buildVintedListingUrls } from "../scripts/lib/vinted-monitor.ts";
-import { scan } from "../scripts/scan-vinted.mjs";
+import { scan } from "../scripts/scan-vinted.ts";
 
 const LISTING_HTML = `
   <article>
