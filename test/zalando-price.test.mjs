@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { extractDkkPriceCandidates, extractPriceInfo } from "../scripts/lib/zalando-price.mjs";
+import { extractDkkPriceCandidates, extractPriceInfo } from "../scripts/lib/zalando-price.ts";
 
 test("parses Danish prices containing thousands separators", () => {
   assert.deepEqual(extractDkkPriceCandidates("fra1.037,00 kr Normalpris:1.595,00 kr"), [1595, 1037]);

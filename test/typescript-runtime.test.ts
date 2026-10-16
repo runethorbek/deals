@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { extractPriceInfo } from "../scripts/lib/zalando-price.mjs";
+import { extractPriceInfo } from "../scripts/lib/zalando-price.ts";
 
 type ExpectedPrice = {
   current_price: number;
