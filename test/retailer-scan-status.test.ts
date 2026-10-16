@@ -6,6 +6,7 @@ import {
   safeErrorDiagnostic,
   safeErrorSummary
 } from "../scripts/lib/scan-status.ts";
+import type { PageResult } from "../scripts/lib/scan-status.ts";
 
 test("builds the shared scan status shape from execution results", () => {
   const pageResults = [
@@ -180,12 +181,19 @@ test("preserves a sanitized response-body diagnostic for HTTP failures", async (
       "x-api-key=[REDACTED] Authorization: Bearer [REDACTED]"
   );
 
+  // Hoisted and annotated so the extra `product_count` that real scanners
+  // pass is not rejected by the excess-property check on a fresh literal.
+  const pageResults: Array<PageResult & { product_count: number }> = [
+    { url, product_count: 0, error: error.message }
+  ];
   const status = createScanStatus({
-    pageResults: [{ url, product_count: 0, error: error.message }],
+    pageResults,
     scannedProductCount: 0,
     publishedProductCount: 0
   });
 
-  assert.equal(status.failures[0].error_summary, error.message);
-  assert.doesNotMatch(status.failures[0].error_summary, /body-secret|body-bearer/);
+  // The one failed page above yields exactly one failure; the non-null
+  // assertions only satisfy noUncheckedIndexedAccess.
+  assert.equal(status.failures[0]!.error_summary, error.message);
+  assert.doesNotMatch(status.failures[0]!.error_summary, /body-secret|body-bearer/);
 });
