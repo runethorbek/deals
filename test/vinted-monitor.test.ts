@@ -5,6 +5,7 @@ import {
   loadEnabledVintedMonitor,
   loadEnabledVintedMonitors
 } from "../scripts/lib/vinted-monitor.ts";
+import type { VintedMonitor } from "../scripts/lib/vinted-monitor.ts";
 
 test("repository configuration preserves the current Vinted scan URLs", async () => {
   const monitors = await loadEnabledVintedMonitors();
@@ -24,10 +25,10 @@ test("repository configuration preserves the current Vinted scan URLs", async ()
 });
 
 test("configuration skips when no Vinted monitor is enabled and permits multiples", async () => {
-  const load = (monitors) => loadEnabledVintedMonitors({
+  const load = (monitors: unknown) => loadEnabledVintedMonitors({
     readFile: async () => JSON.stringify(monitors)
   });
-  const monitor = {
+  const monitor: VintedMonitor = {
     id: "vinted-mens-shoes-42",
     source: "vinted",
     enabled: true,
@@ -50,7 +51,7 @@ test("configuration skips when no Vinted monitor is enabled and permits multiple
 });
 
 test("configuration rejects an invalid enabled Vinted monitor", async () => {
-  const validMonitor = {
+  const validMonitor: VintedMonitor = {
     id: "vinted-mens-shoes-42",
     source: "vinted",
     enabled: true,
