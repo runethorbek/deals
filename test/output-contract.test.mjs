@@ -560,3 +560,11 @@ test("DealRadar mapping accepts the additive Zalando multi-monitor fields", () =
   assert.equal(projected.available, true);
   assert.deepEqual(projected.rawData.monitor_ids, [snapshot.monitors[0].id]);
 });
+
+test("DealRadar timestamp fallback remains compatible", () => {
+  const product = structuredClone(zalandoSnapshot.products[0]);
+  product.checked_at = "not-a-timestamp";
+
+  const projected = projectForDealRadar("zalando", zalandoSnapshot, product);
+  assert.equal(projected.observedAt, zalandoSnapshot.checked_at);
+});
