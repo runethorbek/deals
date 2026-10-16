@@ -46,7 +46,7 @@ jobs:
         if: steps.monitor.outputs.enabled == 'true'
         env:
           SCRAPINGANT_API_KEY: ${{ secrets.SCRAPINGANT_API_KEY }}
-        run: node scripts/scan-zalando.mjs
+        run: node scripts/scan-zalando.ts
 
       - name: Commit updated deals JSON
         if: steps.monitor.outputs.enabled == 'true'
