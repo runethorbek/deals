@@ -162,8 +162,13 @@ All experiments ran on Node v24.18.0 (`process.features.typescript` is
 
 ## 3. Proposed `tsconfig.json` (to be added in Slice 2)
 
-This is documentation-based: it could not be checked without installing
-`typescript`. It requires TypeScript 5.8 or newer for `erasableSyntaxOnly`.
+In Slice 1 this was documentation-based, because it could not be checked
+without installing `typescript`; Slice 2 verified it (below). It requires TypeScript 5.8 or newer for `erasableSyntaxOnly`.
+
+Slice 2 (#26) added it unchanged as the root `tsconfig.json`, with
+`typescript` 7.0.2 and `@types/node` 24.19.2 pinned exactly. `npm run
+typecheck` (`tsc`) exits 0 and includes every `.mjs` file under `scripts/` and
+`test/` plus the imported JSON files, with no errors [L].
 
 ```jsonc
 {
@@ -192,11 +197,15 @@ This is documentation-based: it could not be checked without installing
 Rationale, tied to this repository:
 
 - `erasableSyntaxOnly`, `verbatimModuleSyntax`, and
-  `allowImportingTsExtensions` are meant to make `tsc` reject the syntax that
-  Node's stripper rejects at runtime (section 2), so the typecheck catches it
-  first [D, unverified]. There may be a gap: it is not confirmed that
-  `erasableSyntaxOnly` flags angle-bracket assertions (`<T>x`), which Node
-  rejects. Slice 2 verification confirms this with `tsc`.
+  `allowImportingTsExtensions` make `tsc` reject the syntax that Node's
+  stripper rejects at runtime (section 2), so the typecheck catches it first.
+  Verified in Slice 2 with `tsc` 7.0.2 [L]: `enum`, `namespace`, constructor
+  parameter properties, and `<T>x` all fail with TS1294 ("This syntax is not
+  allowed when 'erasableSyntaxOnly' is enabled"). A value import of an
+  interface fails with TS1484 and an extensionless relative import with
+  TS2835. One gap remains: `tsc` accepts `import … from "./x.js"` for a `.ts`
+  file, but Node fails with `ERR_MODULE_NOT_FOUND`. Use `.ts` specifiers;
+  `npm test` catches the mistake for any module that tests import.
 - `strict: true` with no exceptions. `noUncheckedIndexedAccess` is added
   because the parsers index into regex matches and arrays all the time (for
   example `source[0]` at `monitor-config.mjs:54` and `parsedListingUrls[0]` at
@@ -214,9 +223,12 @@ Rationale, tied to this repository:
 
 **JS/TS coexistence.** `allowJs: true` with `checkJs: false` lets `.ts` files
 import not-yet-migrated `.mjs` files during the transition. The cost is that
-types imported from those files are loose (`any`-like). Because migration goes
-leaf-first, `.ts` code rarely imports `.mjs`. In the other direction, `.mjs`
-code importing `.ts` works at runtime [L] and is simply not typechecked.
+types imported from those files are loose (`any`-like). Slice 2 confirmed this
+[L]: `tsc` infers a return type for `extractPriceInfo` from
+`zalando-price.mjs`, but its unannotated parameters are `any`, so
+`current_price` is `any` and assigning it to a `boolean` is not reported.
+Because migration goes leaf-first, `.ts` code rarely imports `.mjs`. In the
+other direction, `.mjs` code importing `.ts` works at runtime [L] and is simply not typechecked.
 Slice 8 removes `allowJs`. Never keep a `.mjs` and a `.ts` with the same
 basename: rename each file with `git mv` and update all of its importers in the
 same change.
@@ -305,7 +317,7 @@ experiment confirms that Node executes ill-typed code without complaint.
 
 | Risk | Evidence | Mitigation (decision owner) |
 | --- | --- | --- |
-| New dev tooling with no lockfile | `package.json` has caret ranges; workflows run `npm install`, which also installs devDependencies; `docs/security.md` says to commit a lockfile and use `npm ci` once deterministic CI is added | Slice 2: pin exact `typescript` and `@types/node` versions. Committing `package-lock.json` and switching workflows to `npm ci` changes CI install semantics and needs a **human decision** in Slice 2. Dev tooling cannot change scan behaviour, because scans never load it. But a failed devDependency install would still fail the scan job (the last known-good snapshot is kept). Using `npm install --omit=dev` in the scan workflows is an option for that Slice 2 decision |
+| New dev tooling with no lockfile | `package.json` has caret ranges; workflows run `npm install`, which also installs devDependencies; `docs/security.md` says to commit a lockfile and use `npm ci` once deterministic CI is added | Slice 2: pin exact `typescript` and `@types/node` versions. Committing `package-lock.json` and switching workflows to `npm ci` changes CI install semantics and needs a **human decision** in Slice 2. Dev tooling cannot change scan behaviour, because scans never load it. But a failed devDependency install would still fail the scan job (the last known-good snapshot is kept). Using `npm install --omit=dev` in the scan workflows is an option for that Slice 2 decision. **Resolved (#26):** decided and done. `package-lock.json` is committed; CI and the three scan workflows use plain `npm ci` with devDependencies installed; `--omit=dev` is deferred until runtime dependency needs are verified. Trade-off: transitive fixes (for example `undici`) now arrive only through deliberate lockfile updates |
 | Test discovery after renames | Default `node --test` runs both `.test.ts` and `.test.mjs`, and any non-test `.ts`/`.mjs` under `test/` [L] | Keep the `.test.ts` suffix. Never leave both forms of one test. Put no helpers in `test/` without accounting for discovery. Compare the **test count** (122 plus new tests), not just "0 fail" |
 | Workflow paths must change in the same slice as the file they invoke | Section 1 invocations. `npm test` does not exercise workflows. A stale path makes the scheduled job fail, and the last known-good snapshot is kept (`docs/output-contract.md`), so the failure is safe but silent until someone looks | In each renaming slice: `grep -rn "<old>.mjs" .github package.json README.md test scripts` must return nothing. Run `node scripts/monitor-enabled.<ext> <source>` locally (reads config only, no network). A manual `workflow_dispatch` is a live scan and needs **human approval** |
 | Types are not enforced anywhere automatically | No CI runs tests; Node runs ill-typed code [L] | `npm run typecheck` goes into every slice's Definition of Done. Adding a PR check workflow is a separate **human decision** (new workflow and permissions) |
@@ -325,7 +337,7 @@ revert fixes it.
 | Slice | Verification |
 | --- | --- |
 | All | `npm test` count equals the previous count plus any intentional new tests, with 0 fail; `npm run typecheck` is clean (from Slice 2 on); `git diff --check`; no `any`, `as unknown as`, or `@ts-ignore` added without a stated reason; no live scans |
-| 2 | Typecheck runs. `test/typescript-runtime.test.ts` is discovered (count 123). In a scratch check, confirm with `tsc` which of `enum`, `namespace`, parameter properties, and `<T>x` it rejects. Record any syntax that only Node rejects |
+| 2 | Typecheck runs. `test/typescript-runtime.test.ts` is discovered (count 123). In a scratch check, confirm with `tsc` which of `enum`, `namespace`, parameter properties, and `<T>x` it rejects. Record any syntax that only Node rejects. **Done (#26):** 123 pass; a deliberate `const n: number = "…"` fails `npm run typecheck` (TS2322); `tsc` rejects all four constructs (section 3); only Node rejects `.js` specifiers for `.ts` files. `npm ci` from a clean `node_modules` leaves `package-lock.json` unchanged and fails when the lockfile is out of sync. The `CI` workflow runs `npm ci`, `npm test`, `npm run typecheck`; the scan workflows use `npm ci` |
 | 3 | `test/monitor-config`, `test/*-monitor`, `test/retailer-scan-status`, and `test/monitor-enabled` all pass. `node scripts/monitor-enabled.mjs vinted` prints the same line as before. No `.mjs` specifier for renamed files remains |
 | 4 | `test/zalando-price.test.mjs` and `test/zalando-scan.test.mjs` pass |
 | 5, 6 | Source tests and `test/output-contract.test.mjs` pass. Representative output is unchanged: in a scratch run, capture the JSON written by `scan()` with the existing fixture fetch doubles before and after, then diff (expect no difference except `checked_at` when `now` is not fixed). The workflow and README paths are updated |

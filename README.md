@@ -40,11 +40,12 @@ GitHub Actions uses these repository secrets:
 
 ## Run locally
 
-Node.js 24 or newer is required. Install dependencies and set
-`SCRAPINGANT_API_KEY` in your environment before running a scraper:
+Node.js 24 or newer is required. Install the locked dependencies from
+`package-lock.json` and set `SCRAPINGANT_API_KEY` in your environment before
+running a scraper:
 
 ```sh
-npm install
+npm ci
 npm run scan:scarosso
 node scripts/scan-vinted.mjs
 node scripts/scan-zalando.mjs
@@ -150,11 +151,17 @@ observed products. `scan_status` retains the failure diagnostics for DealRadar.
 All-page failure, an empty or implausible monitor, and configuration or
 execution failure preserve the last known-good snapshot.
 
-Run the deterministic test suite with:
+Run the deterministic test suite and the TypeScript typecheck with:
 
 ```sh
 npm test
+npm run typecheck
 ```
+
+The `CI` workflow (`.github/workflows/ci.yml`) runs `npm ci`, `npm test`, and
+`npm run typecheck` on every push and pull request. TypeScript files run
+directly with Node's built-in type stripping; `tsc` only checks types and emits
+nothing. See `docs/typescript-migration.md`.
 
 ## Development workflow
 
