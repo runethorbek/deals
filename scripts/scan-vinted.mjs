@@ -7,11 +7,11 @@ import {
   createScrapingAntHttpError,
   createScanStatus,
   safeErrorSummary
-} from "./lib/scan-status.mjs";
+} from "./lib/scan-status.ts";
 import {
   buildVintedListingUrls,
   loadEnabledVintedMonitors
-} from "./lib/vinted-monitor.mjs";
+} from "./lib/vinted-monitor.ts";
 
 const API_KEY = process.env.SCRAPINGANT_API_KEY;
 

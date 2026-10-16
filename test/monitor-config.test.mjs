@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { loadEnabledMonitor } from "../scripts/lib/monitor-config.mjs";
+import { loadEnabledMonitor } from "../scripts/lib/monitor-config.ts";
 import {
   loadValidatedEnabledMonitor,
   loadValidatedEnabledMonitors
-} from "../scripts/lib/validated-monitor-loader.mjs";
+} from "../scripts/lib/validated-monitor-loader.ts";
 
 const vintedMonitor = {
   id: "vinted-monitor",

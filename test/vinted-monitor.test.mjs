@@ -4,7 +4,7 @@ import {
   buildVintedListingUrls,
   loadEnabledVintedMonitor,
   loadEnabledVintedMonitors
-} from "../scripts/lib/vinted-monitor.mjs";
+} from "../scripts/lib/vinted-monitor.ts";
 
 test("repository configuration preserves the current Vinted scan URLs", async () => {
   const monitors = await loadEnabledVintedMonitors();

@@ -3,7 +3,7 @@ import test from "node:test";
 import {
   buildZalandoScanPlan,
   loadEnabledZalandoMonitors
-} from "../scripts/lib/zalando-monitor.mjs";
+} from "../scripts/lib/zalando-monitor.ts";
 
 const validMonitor = {
   id: "zalando-dk-mens-trousers-size-46",

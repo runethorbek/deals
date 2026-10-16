@@ -1,5 +1,5 @@
 import fs from "node:fs/promises";
-import { loadValidatedEnabledMonitors } from "./lib/validated-monitor-loader.mjs";
+import { loadValidatedEnabledMonitors } from "./lib/validated-monitor-loader.ts";
 
 const source = process.argv[2];
 const enabled = (await loadValidatedEnabledMonitors(source)).length > 0;
