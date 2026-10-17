@@ -2,7 +2,15 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import monitorConfig from "../config/monitors.json" with { type: "json" };
 import { buildVintedListingUrls } from "../scripts/lib/vinted-monitor.ts";
+import type { VintedMonitor } from "../scripts/lib/vinted-monitor.ts";
 import { scan } from "../scripts/scan-vinted.ts";
+import type { VintedSnapshot } from "../scripts/scan-vinted.ts";
+
+// Non-null assertions (`!`) in this file mark values the test expects to
+// exist: the snapshot written through the fs double, an indexed or found
+// product, or the `url` query parameter the scanner always sends. They only
+// narrow the static type for noUncheckedIndexedAccess and strict null checks;
+// a missing value still fails the test at runtime, as it did before.
 
 const LISTING_HTML = `
   <article>
@@ -27,7 +35,7 @@ const VINTED_METADATA_LISTING_HTML = `
   <article><a href="/items/11-long-freetext" title="Spodnie chinosy COS Vintage Premium Old money Old school 90s look, Varemærke: COS, Artiklens stand: Meget god, 27 kr"><img src="/images/11.webp"></a><span>27 kr</span></article>
 `;
 
-const SINGLE_MONITOR = [{
+const SINGLE_MONITOR: VintedMonitor[] = [{
   id: "vinted-test",
   source: "vinted",
   enabled: true,
@@ -35,7 +43,7 @@ const SINGLE_MONITOR = [{
   pages: 1
 }];
 
-function listingHtml(itemId, title = "Test blazer") {
+function listingHtml(itemId: string, title = "Test blazer") {
   return `
     <article>
       <a href="/items/${itemId}-${title.toLowerCase().replaceAll(" ", "-")}" title="${title}">
@@ -46,7 +54,7 @@ function listingHtml(itemId, title = "Test blazer") {
   `;
 }
 
-const MULTI_MONITORS = [
+const MULTI_MONITORS: VintedMonitor[] = [
   {
     id: "vinted-zeta",
     source: "vinted",
@@ -108,7 +116,7 @@ test("missing credentials remain a hard failure before retailer requests or outp
 });
 
 test("scanner parses explicit Vinted metadata without guessing brand", async () => {
-  let writtenOutput = null;
+  let writtenOutput: VintedSnapshot | null = null;
 
   await scan({
     apiKey: "test-api-key",
@@ -125,9 +133,9 @@ test("scanner parses explicit Vinted metadata without guessing brand", async () 
     outputPath: "vinted-test-output.json"
   });
 
-  const product = (id) => writtenOutput.products.find((entry) => (
+  const product = (id: string) => writtenOutput!.products.find((entry) => (
     entry.url === `https://www.vinted.dk/items/${id}`
-  ));
+  ))!;
 
   assert.deepEqual(
     {
@@ -163,7 +171,7 @@ test("scanner parses explicit Vinted metadata without guessing brand", async () 
     product("11-long-freetext").listing_text,
     "Spodnie chinosy COS Vintage Premium Old money Old school 90s look"
   );
-  assert.ok(product("11-long-freetext").listing_text.length > 60);
+  assert.ok(product("11-long-freetext").listing_text!.length > 60);
 
   // Preexisting label parsing is unaffected by the new field.
   assert.equal(product("9-label-first").brand, "Zara");
@@ -171,14 +179,16 @@ test("scanner parses explicit Vinted metadata without guessing brand", async () 
 });
 
 test("scanner uses configured Vinted pages and writes the existing output contract", async () => {
-  const requestedListingUrls = [];
-  const requestedTimeouts = [];
-  let writtenOutput = null;
+  const requestedListingUrls: Array<string | null> = [];
+  const requestedTimeouts: Array<string | null> = [];
+  let writtenOutput: VintedSnapshot | null = null;
   const configuredMonitors = monitorConfig
-    .filter((monitor) => monitor.source === "vinted" && monitor.enabled)
+    // The scan below validates this same configuration; the predicate only
+    // tells the compiler what that runtime validation guarantees.
+    .filter((monitor): monitor is VintedMonitor => monitor.source === "vinted" && monitor.enabled)
     .sort((left, right) => left.id.localeCompare(right.id));
   const expectedUrls = configuredMonitors.flatMap(buildVintedListingUrls);
-  const primaryMonitor = configuredMonitors[0];
+  const primaryMonitor = configuredMonitors[0]!;
 
   await scan({
     apiKey: "test-api-key",
@@ -211,17 +221,17 @@ test("scanner uses configured Vinted pages and writes the existing output contra
   assert.deepEqual(requestedTimeouts, expectedUrls.map(() => "60"));
   assert.deepEqual(
     {
-      site: writtenOutput.site,
-      scan_mode: writtenOutput.scan_mode,
-      start_urls: writtenOutput.start_urls,
-      catalog_id: writtenOutput.catalog_id,
-      target_size_id: writtenOutput.target_size_id,
-      checked_at: writtenOutput.checked_at,
-      scanned_page_count: writtenOutput.scanned_page_count,
-      scanned_product_count: writtenOutput.scanned_product_count,
-      product_count: writtenOutput.product_count,
-      monitors: writtenOutput.monitors,
-      scan_status: writtenOutput.scan_status
+      site: writtenOutput!.site,
+      scan_mode: writtenOutput!.scan_mode,
+      start_urls: writtenOutput!.start_urls,
+      catalog_id: writtenOutput!.catalog_id,
+      target_size_id: writtenOutput!.target_size_id,
+      checked_at: writtenOutput!.checked_at,
+      scanned_page_count: writtenOutput!.scanned_page_count,
+      scanned_product_count: writtenOutput!.scanned_product_count,
+      product_count: writtenOutput!.product_count,
+      monitors: writtenOutput!.monitors,
+      scan_status: writtenOutput!.scan_status
     },
     {
       site: "vinted.com",
@@ -253,15 +263,15 @@ test("scanner uses configured Vinted pages and writes the existing output contra
   );
   assert.deepEqual(
     {
-      title: writtenOutput.products[0].title,
-      url: writtenOutput.products[0].url,
-      price: writtenOutput.products[0].price,
-      currency: writtenOutput.products[0].currency,
-      catalog_id: writtenOutput.products[0].catalog_id,
-      target_size_id: writtenOutput.products[0].target_size_id,
-      size_assumption: writtenOutput.products[0].size_assumption,
-      monitor_ids: writtenOutput.products[0].monitor_ids,
-      source_urls: writtenOutput.products[0].source_urls
+      title: writtenOutput!.products[0]!.title,
+      url: writtenOutput!.products[0]!.url,
+      price: writtenOutput!.products[0]!.price,
+      currency: writtenOutput!.products[0]!.currency,
+      catalog_id: writtenOutput!.products[0]!.catalog_id,
+      target_size_id: writtenOutput!.products[0]!.target_size_id,
+      size_assumption: writtenOutput!.products[0]!.size_assumption,
+      monitor_ids: writtenOutput!.products[0]!.monitor_ids,
+      source_urls: writtenOutput!.products[0]!.source_urls
     },
     {
       title: "Test blazer",
@@ -278,8 +288,8 @@ test("scanner uses configured Vinted pages and writes the existing output contra
 });
 
 test("scanner combines sorted Vinted monitors with deduplicated provenance", async () => {
-  const requestedListingUrls = [];
-  let writtenOutput = null;
+  const requestedListingUrls: Array<string | null> = [];
+  let writtenOutput: VintedSnapshot | null = null;
 
   await scan({
     apiKey: "test-api-key",
@@ -287,8 +297,8 @@ test("scanner combines sorted Vinted monitors with deduplicated provenance", asy
     fetchImpl: async (endpoint) => {
       const listingUrl = new URL(endpoint).searchParams.get("url");
       requestedListingUrls.push(listingUrl);
-      const page = new URL(listingUrl).searchParams.get("page");
-      const catalog = new URL(listingUrl).searchParams.get("catalog[]");
+      const page = new URL(listingUrl!).searchParams.get("page");
+      const catalog = new URL(listingUrl!).searchParams.get("catalog[]");
       const html = catalog === "1234"
         ? (page === "1" ? listingHtml("shared") : listingHtml("alpha-only"))
         : listingHtml("shared");
@@ -310,21 +320,21 @@ test("scanner combines sorted Vinted monitors with deduplicated provenance", asy
     "https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=2",
     "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"
   ]);
-  assert.equal("catalog_id" in writtenOutput, false);
-  assert.equal("target_size_id" in writtenOutput, false);
-  assert.deepEqual(writtenOutput.monitors, [
+  assert.equal("catalog_id" in writtenOutput!, false);
+  assert.equal("target_size_id" in writtenOutput!, false);
+  assert.deepEqual(writtenOutput!.monitors, [
     { id: "vinted-alpha", catalog_id: "1234", size_id: "208", pages: 2, product_count: 2, status: "success" },
     { id: "vinted-zeta", catalog_id: "1786", size_id: "207", pages: 1, product_count: 1, status: "success" }
   ]);
-  assert.equal(writtenOutput.products.length, 2);
-  const shared = writtenOutput.products.find((product) => product.url.includes("shared"));
+  assert.equal(writtenOutput!.products.length, 2);
+  const shared = writtenOutput!.products.find((product) => product.url.includes("shared"))!;
   assert.deepEqual(shared.monitor_ids, ["vinted-alpha", "vinted-zeta"]);
   assert.equal(shared.source_urls.length, 2);
 });
 
 test("scanner writes a validated snapshot through an atomic replacement", async () => {
-  const temporaryWrites = [];
-  const renames = [];
+  const temporaryWrites: Array<{ pathname: string; contents: string }> = [];
+  const renames: Array<{ from: string; to: string }> = [];
   const outputPath = "vinted-test-output.json";
 
   await scan({
@@ -360,8 +370,8 @@ test("scanner writes a validated snapshot through an atomic replacement", async 
 });
 
 test("scanner publishes a usable partial scan after attempting later pages", async () => {
-  const attemptedUrls = [];
-  let writtenOutput = null;
+  const attemptedUrls: Array<string | null> = [];
+  let writtenOutput: VintedSnapshot | null = null;
 
   await scan({
     apiKey: "test-api-key",
@@ -369,7 +379,7 @@ test("scanner publishes a usable partial scan after attempting later pages", asy
     fetchImpl: async (endpoint) => {
       const listingUrl = new URL(endpoint).searchParams.get("url");
       attemptedUrls.push(listingUrl);
-      if (listingUrl.includes("catalog[]=1234") && listingUrl.endsWith("page=1")) {
+      if (listingUrl!.includes("catalog[]=1234") && listingUrl!.endsWith("page=1")) {
         return { ok: false, status: 502, async text() { return "Bad Gateway"; } };
       }
       return { ok: true, async text() { return LISTING_HTML; } };
@@ -387,7 +397,7 @@ test("scanner publishes a usable partial scan after attempting later pages", asy
 
   assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1234&size_ids[]=208&page=2"));
   assert.ok(attemptedUrls.includes("https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1"));
-  assert.deepEqual(writtenOutput.scan_status, {
+  assert.deepEqual(writtenOutput!.scan_status, {
     attempted_pages: 3,
     successful_pages: 2,
     failed_pages: 1,
@@ -410,7 +420,7 @@ test("scanner treats malformed ScrapingAnt responses as hard failures", async ()
       fetchImpl: async (endpoint) => {
         const listingUrl = new URL(endpoint).searchParams.get("url");
 
-        if (listingUrl.endsWith("page=1")) {
+        if (listingUrl!.endsWith("page=1")) {
           return { ok: true };
         }
 
@@ -490,7 +500,7 @@ test("scanner fails closed when one successful monitor is empty", async () => {
         return {
           ok: true,
           async text() {
-            return listingUrl.includes("catalog[]=1234")
+            return listingUrl!.includes("catalog[]=1234")
               ? LISTING_HTML
               : "<html><body>No items</body></html>";
           }
@@ -508,8 +518,8 @@ test("scanner fails closed when one successful monitor is empty", async () => {
 });
 
 test("scanner retries transient ScrapingAnt failures before publishing", async () => {
-  const attemptsByListingUrl = new Map();
-  let writtenOutput = null;
+  const attemptsByListingUrl = new Map<string | null, number>();
+  let writtenOutput: VintedSnapshot | null = null;
 
   await scan({
     apiKey: "test-api-key",
@@ -518,7 +528,7 @@ test("scanner retries transient ScrapingAnt failures before publishing", async (
       const attempts = (attemptsByListingUrl.get(listingUrl) ?? 0) + 1;
       attemptsByListingUrl.set(listingUrl, attempts);
 
-      if (listingUrl.endsWith("page=1") && attempts < 3) {
+      if (listingUrl!.endsWith("page=1") && attempts < 3) {
         throw new Error("Temporary network failure");
       }
 
@@ -546,12 +556,12 @@ test("scanner retries transient ScrapingAnt failures before publishing", async (
     "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=1";
 
   assert.equal(attemptsByListingUrl.get(firstPageUrl), 3);
-  assert.equal(writtenOutput.scan_status.failed_pages, 0);
+  assert.equal(writtenOutput!.scan_status.failed_pages, 0);
 });
 
 test("scanner retries a ScrapingAnt 423 browser-detection response", async () => {
-  const attemptsByListingUrl = new Map();
-  let writtenOutput = null;
+  const attemptsByListingUrl = new Map<string | null, number>();
+  let writtenOutput: VintedSnapshot | null = null;
 
   await scan({
     apiKey: "test-api-key",
@@ -560,7 +570,7 @@ test("scanner retries a ScrapingAnt 423 browser-detection response", async () =>
       const attempts = (attemptsByListingUrl.get(listingUrl) ?? 0) + 1;
       attemptsByListingUrl.set(listingUrl, attempts);
 
-      if (listingUrl.endsWith("page=2") && attempts === 1) {
+      if (listingUrl!.endsWith("page=2") && attempts === 1) {
         return {
           ok: false,
           status: 423,
@@ -594,7 +604,7 @@ test("scanner retries a ScrapingAnt 423 browser-detection response", async () =>
     "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=2";
 
   assert.equal(attemptsByListingUrl.get(secondPageUrl), 2);
-  assert.equal(writtenOutput.scan_status.failed_pages, 0);
+  assert.equal(writtenOutput!.scan_status.failed_pages, 0);
 });
 
 test("scanner aborts timed-out ScrapingAnt requests and does not publish", async () => {

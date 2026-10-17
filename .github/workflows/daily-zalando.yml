@@ -29,7 +29,7 @@ jobs:
 
       - name: Validate monitor configuration
         id: monitor
-        run: node scripts/monitor-enabled.mjs zalando
+        run: node scripts/monitor-enabled.ts zalando
 
       - name: Debug environment
         run: |

@@ -4,9 +4,91 @@ import test from "node:test";
 import vintedSnapshot from "./fixtures/vinted-populated.json" with { type: "json" };
 import zalandoSnapshot from "./fixtures/zalando-populated.json" with { type: "json" };
 import publishedZalandoSnapshot from "../public/deals/zalando-latest.json" with { type: "json" };
+import type { MonitorSource } from "../scripts/lib/monitor-config.ts";
+import type { ScanStatus } from "../scripts/lib/scan-status.ts";
+
+// The checker below reads published snapshots of either source, including the
+// legacy single-monitor Zalando shape in the fixture, so it uses its own
+// structural view of the documented fields rather than the producer types
+// (VintedSnapshot, ZalandoSnapshot), which describe only what the current
+// scanners write. Every field is still checked at runtime.
+interface PageUnderTest {
+  url: string;
+  error: string | null;
+  product_count?: number;
+}
+
+interface MonitorUnderTest {
+  id: string;
+  target_size?: string;
+  min_discount_percent?: number;
+  [field: string]: unknown;
+}
+
+interface ProductUnderTest {
+  title: string;
+  url: string;
+  image: string | null;
+  site: string;
+  checked_at: string;
+  currency: string | null;
+  price?: number | null;
+  current_price?: number | null;
+  original_price?: number | null;
+  discount_percent?: number | null;
+  explicit_discount_percent?: number | null;
+  discount_status?: string;
+  price_candidates?: number[];
+  catalog_id?: string;
+  target_size_id?: string;
+  target_size?: string;
+  size_assumption?: string;
+  size_guess?: string | null;
+  article_condition?: string | null;
+  brand?: string | null;
+  source_urls?: string[];
+  monitor_ids?: string[];
+  available?: boolean;
+  size_46_available?: boolean;
+  material_filter?: string[];
+  [field: string]: unknown;
+}
+
+interface SnapshotUnderTest {
+  site: string;
+  scan_mode: string;
+  start_urls: string[];
+  checked_at: string;
+  scanned_page_count: number;
+  scanned_product_count: number;
+  product_count: number;
+  products: ProductUnderTest[];
+  match_count?: number;
+  matches?: ProductUnderTest[];
+  monitors?: MonitorUnderTest[];
+  target_size?: string;
+  target_size_id?: string;
+  min_discount_percent?: number;
+  scan_status: ScanStatus;
+  debug: { pages: PageUnderTest[]; [field: string]: unknown };
+  [field: string]: unknown;
+}
+
+interface SourceRules {
+  site: string;
+  scanMode: string;
+  hostname: string;
+  productPath: RegExp;
+  currentPrice: "price" | "current_price";
+}
+
+// Non-null assertions (`!`) in this file mark values that an earlier runtime
+// assertion has already proven present (Node's assert does not narrow through
+// `typeof x` comparisons or into callbacks), or fixture entries the test
+// expects to exist. They change no runtime behavior.
 
 const MAX_REASONABLE_AMOUNT = 1_000_000;
-const SOURCE_RULES = {
+const SOURCE_RULES: Record<MonitorSource, SourceRules> = {
   vinted: {
     site: "vinted.com",
     scanMode: "vinted-listing-pages-only",
@@ -23,7 +105,7 @@ const SOURCE_RULES = {
   }
 };
 
-function assertTimestamp(value, label) {
+function assertTimestamp(value: string, label: string) {
   assert.equal(typeof value, "string", `${label} must be a string`);
   const parsed = new Date(value);
   assert.equal(
@@ -34,18 +116,22 @@ function assertTimestamp(value, label) {
   assert.equal(parsed.toISOString(), value, `${label} must be canonical UTC`);
 }
 
-function assertPlausibleNumber(value, label, { nullable = true } = {}) {
+function assertPlausibleNumber(
+  value: number | null | undefined,
+  label: string,
+  { nullable = true }: { nullable?: boolean } = {}
+) {
   if (nullable && value === null) return;
 
   assert.equal(typeof value, "number", `${label} must be numeric or null`);
   assert.equal(Number.isFinite(value), true, `${label} must be finite`);
   assert.ok(
-    value >= 0 && value <= MAX_REASONABLE_AMOUNT,
+    value! >= 0 && value! <= MAX_REASONABLE_AMOUNT,
     `${label} is implausible`
   );
 }
 
-function assertProductUrl(url, rules) {
+function assertProductUrl(url: string, rules: SourceRules) {
   const parsed = new URL(url);
   assert.equal(parsed.protocol, "https:", "product URL must use HTTPS");
   assert.equal(
@@ -62,12 +148,12 @@ function assertProductUrl(url, rules) {
   assert.equal(parsed.hash, "", "canonical product URL must not have a fragment");
 }
 
-function assertPriceRelationships(source, product) {
+function assertPriceRelationships(source: MonitorSource, product: ProductUnderTest) {
   const { current_price: current, original_price: original } = product;
 
   if (original !== undefined && original !== null) {
     assert.equal(typeof current, "number", "original price requires current price");
-    assert.ok(original > current, "original price must exceed current price");
+    assert.ok(original > current!, "original price must exceed current price");
   }
 
   if (
@@ -76,7 +162,7 @@ function assertPriceRelationships(source, product) {
   ) {
     assert.equal(typeof original, "number", "calculated discount requires prices");
     assert.equal(typeof current, "number", "calculated discount requires prices");
-    const expected = Math.round(((original - current) / original) * 1000) / 10;
+    const expected = Math.round(((original! - current!) / original!) * 1000) / 10;
     assert.equal(
       product.discount_percent,
       expected,
@@ -104,7 +190,10 @@ function assertPriceRelationships(source, product) {
   }
 }
 
-function assertMatchesReferenceProducts(snapshot, productUrls) {
+function assertMatchesReferenceProducts(
+  snapshot: SnapshotUnderTest,
+  productUrls: Set<string>
+) {
   assert.ok(Array.isArray(snapshot.matches));
   assert.equal(snapshot.match_count, snapshot.matches.length);
 
@@ -119,7 +208,7 @@ function assertMatchesReferenceProducts(snapshot, productUrls) {
   const expectedMatchUrls = snapshot.products
     .filter((product) =>
       typeof product.discount_percent === "number" &&
-      product.discount_percent >= snapshot.min_discount_percent
+      product.discount_percent >= snapshot.min_discount_percent!
     )
     .map((product) => product.url)
     .sort();
@@ -132,7 +221,7 @@ function assertMatchesReferenceProducts(snapshot, productUrls) {
 
 // This is deliberately test-only. Runtime publication continues to use each
 // scanner's existing source-specific checks and failure policy.
-function assertPublishedSnapshot(source, snapshot) {
+function assertPublishedSnapshot(source: MonitorSource, snapshot: SnapshotUnderTest) {
   const rules = SOURCE_RULES[source];
   assert.ok(rules, `unsupported source ${source}`);
   assert.equal(snapshot.site, rules.site);
@@ -148,7 +237,7 @@ function assertPublishedSnapshot(source, snapshot) {
   assert.ok(Array.isArray(snapshot.debug.pages));
   assert.equal(snapshot.debug.pages.length, snapshot.scanned_page_count);
 
-  const productUrls = new Set();
+  const productUrls = new Set<string>();
   for (const product of snapshot.products) {
     assert.equal(typeof product.title, "string");
     assert.ok(product.title.length > 0);
@@ -171,7 +260,7 @@ function assertPublishedSnapshot(source, snapshot) {
       assertPlausibleNumber(product.discount_percent, "discount_percent");
       if (product.discount_percent !== null) {
         assert.ok(
-          product.discount_percent <= 100,
+          product.discount_percent! <= 100,
           "discount_percent must not exceed 100"
         );
       }
@@ -283,8 +372,8 @@ function assertPublishedSnapshot(source, snapshot) {
 
       const expectedMatches = snapshot.products.filter((product) => (
         typeof product.discount_percent === "number" &&
-        product.monitor_ids.some((id) => (
-          product.discount_percent >= monitorById.get(id).min_discount_percent
+        product.monitor_ids!.some((id) => (
+          product.discount_percent! >= monitorById.get(id)!.min_discount_percent!
         ))
       ));
       assert.deepEqual(snapshot.matches, expectedMatches);
@@ -294,7 +383,7 @@ function assertPublishedSnapshot(source, snapshot) {
         "min_discount_percent",
         { nullable: false }
       );
-      assert.ok(snapshot.min_discount_percent <= 100);
+      assert.ok(snapshot.min_discount_percent! <= 100);
       for (const product of snapshot.products) {
         assert.equal(product.site, rules.site);
         assert.equal(product.target_size, snapshot.target_size);
@@ -305,25 +394,29 @@ function assertPublishedSnapshot(source, snapshot) {
       assertMatchesReferenceProducts(snapshot, productUrls);
     }
 
-    assert.equal(status.published_product_count, snapshot.matches.length);
+    assert.equal(status.published_product_count, snapshot.matches!.length);
   }
 }
 
-function optionalString(value) {
+function optionalString(value: unknown) {
   return typeof value === "string" && value.trim() ? value.trim() : null;
 }
 
-function optionalNumber(value) {
+function optionalNumber(value: unknown) {
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
-function optionalBoolean(value) {
+function optionalBoolean(value: unknown) {
   return typeof value === "boolean" ? value : null;
 }
 
 // Mirrors the field selection in DealRadar's normalizeProducts importer. It
 // intentionally stops before DealRadar-owned currency normalization.
-function projectForDealRadar(source, snapshot, product) {
+function projectForDealRadar(
+  source: MonitorSource,
+  snapshot: SnapshotUnderTest,
+  product: ProductUnderTest
+) {
   const currentPriceField = SOURCE_RULES[source].currentPrice;
   const targetSize = source === "vinted"
     ? optionalString(product.size_guess) ??
@@ -374,27 +467,27 @@ test("published_product_count preserves source-specific match semantics", () => 
 });
 
 test("Vinted contract checks retain nullable and USD price behavior", () => {
-  const withoutPrice = structuredClone(vintedSnapshot);
-  withoutPrice.products[0].price = null;
-  withoutPrice.products[0].currency = null;
+  const withoutPrice: SnapshotUnderTest = structuredClone(vintedSnapshot);
+  withoutPrice.products[0]!.price = null;
+  withoutPrice.products[0]!.currency = null;
   assertPublishedSnapshot("vinted", withoutPrice);
 
-  const usdPrice = structuredClone(vintedSnapshot);
-  usdPrice.products[0].price = 25;
-  usdPrice.products[0].currency = "USD";
+  const usdPrice: SnapshotUnderTest = structuredClone(vintedSnapshot);
+  usdPrice.products[0]!.price = 25;
+  usdPrice.products[0]!.currency = "USD";
   assertPublishedSnapshot("vinted", usdPrice);
 });
 
 test("contract checks reject invalid retailer URLs deterministically", () => {
-  const invalidHost = structuredClone(zalandoSnapshot);
-  invalidHost.products[0].url = "https://example.com/test-trousers-brand-z123.html";
+  const invalidHost: SnapshotUnderTest = structuredClone(zalandoSnapshot);
+  invalidHost.products[0]!.url = "https://example.com/test-trousers-brand-z123.html";
   assert.throws(
     () => assertPublishedSnapshot("zalando", invalidHost),
     /invalid host/
   );
 
-  const invalidProtocol = structuredClone(zalandoSnapshot);
-  invalidProtocol.products[0].url = invalidProtocol.products[0].url.replace(
+  const invalidProtocol: SnapshotUnderTest = structuredClone(zalandoSnapshot);
+  invalidProtocol.products[0]!.url = invalidProtocol.products[0]!.url.replace(
     "https:",
     "http:"
   );
@@ -405,8 +498,8 @@ test("contract checks reject invalid retailer URLs deterministically", () => {
 });
 
 test("contract checks reject duplicate URLs and invalid numeric values", () => {
-  const duplicate = structuredClone(vintedSnapshot);
-  duplicate.products.push(structuredClone(duplicate.products[0]));
+  const duplicate: SnapshotUnderTest = structuredClone(vintedSnapshot);
+  duplicate.products.push(structuredClone(duplicate.products[0]!));
   duplicate.product_count++;
   duplicate.scanned_product_count++;
   duplicate.scan_status.scanned_product_count++;
@@ -416,15 +509,15 @@ test("contract checks reject duplicate URLs and invalid numeric values", () => {
     /product URLs must be unique/
   );
 
-  const negativePrice = structuredClone(zalandoSnapshot);
-  negativePrice.products[0].current_price = -1;
+  const negativePrice: SnapshotUnderTest = structuredClone(zalandoSnapshot);
+  negativePrice.products[0]!.current_price = -1;
   assert.throws(
     () => assertPublishedSnapshot("zalando", negativePrice),
     /implausible/
   );
 
-  const infinitePrice = structuredClone(zalandoSnapshot);
-  infinitePrice.products[0].current_price = Number.POSITIVE_INFINITY;
+  const infinitePrice: SnapshotUnderTest = structuredClone(zalandoSnapshot);
+  infinitePrice.products[0]!.current_price = Number.POSITIVE_INFINITY;
   assert.throws(
     () => assertPublishedSnapshot("zalando", infinitePrice),
     /must be finite/
@@ -432,15 +525,15 @@ test("contract checks reject duplicate URLs and invalid numeric values", () => {
 });
 
 test("contract checks reject inconsistent scan status and discounts", () => {
-  const inconsistentStatus = structuredClone(zalandoSnapshot);
+  const inconsistentStatus: SnapshotUnderTest = structuredClone(zalandoSnapshot);
   inconsistentStatus.scan_status.successful_pages++;
   assert.throws(
     () => assertPublishedSnapshot("zalando", inconsistentStatus),
     /scan_status page counts must be consistent/
   );
 
-  const invalidDiscount = structuredClone(zalandoSnapshot);
-  invalidDiscount.products[0].discount_percent = 101;
+  const invalidDiscount: SnapshotUnderTest = structuredClone(zalandoSnapshot);
+  invalidDiscount.products[0]!.discount_percent = 101;
   assert.throws(
     () => assertPublishedSnapshot("zalando", invalidDiscount),
     /discount_percent must not exceed 100/
@@ -448,7 +541,7 @@ test("contract checks reject inconsistent scan status and discounts", () => {
 });
 
 test("contract checks connect scan status to requested and debug pages", () => {
-  const disconnectedStatus = structuredClone(zalandoSnapshot);
+  const disconnectedStatus: SnapshotUnderTest = structuredClone(zalandoSnapshot);
   disconnectedStatus.scanned_page_count++;
   disconnectedStatus.debug.pages.push({
     url: "https://www.zalando.dk/herretoej-bukser/__stoerrelse-46/?upper_material=pure_linen&p=2",
@@ -460,8 +553,8 @@ test("contract checks connect scan status to requested and debug pages", () => {
     /attempted_pages must equal scanned_page_count/
   );
 
-  const mismatchedStartUrls = structuredClone(vintedSnapshot);
-  mismatchedStartUrls.debug.pages[0].url =
+  const mismatchedStartUrls: SnapshotUnderTest = structuredClone(vintedSnapshot);
+  mismatchedStartUrls.debug.pages[0]!.url =
     "https://www.vinted.dk/catalog?catalog[]=1786&size_ids[]=207&page=2";
   assert.throws(
     () => assertPublishedSnapshot("vinted", mismatchedStartUrls),
@@ -470,21 +563,21 @@ test("contract checks connect scan status to requested and debug pages", () => {
 });
 
 test("contract checks reject contradictory source-specific relationships", () => {
-  const invalidPrices = structuredClone(zalandoSnapshot);
-  invalidPrices.products[0].original_price = 100;
+  const invalidPrices: SnapshotUnderTest = structuredClone(zalandoSnapshot);
+  invalidPrices.products[0]!.original_price = 100;
   assert.throws(
     () => assertPublishedSnapshot("zalando", invalidPrices),
     /original price must exceed current price/
   );
 
-  const inconsistentDiscount = structuredClone(zalandoSnapshot);
-  inconsistentDiscount.products[0].discount_percent = 29;
+  const inconsistentDiscount: SnapshotUnderTest = structuredClone(zalandoSnapshot);
+  inconsistentDiscount.products[0]!.discount_percent = 29;
   assert.throws(
     () => assertPublishedSnapshot("zalando", inconsistentDiscount),
     /calculated discount must match prices/
   );
 
-  const belowThresholdMatch = structuredClone(zalandoSnapshot);
+  const belowThresholdMatch: SnapshotUnderTest = structuredClone(zalandoSnapshot);
   belowThresholdMatch.min_discount_percent = 50;
   assert.throws(
     () => assertPublishedSnapshot("zalando", belowThresholdMatch),
@@ -493,8 +586,8 @@ test("contract checks reject contradictory source-specific relationships", () =>
 });
 
 test("DealRadar mapping remains compatible for every consumed field", () => {
-  const vintedProduct = vintedSnapshot.products[0];
-  const zalandoProduct = zalandoSnapshot.products[0];
+  const vintedProduct = vintedSnapshot.products[0]!;
+  const zalandoProduct = zalandoSnapshot.products[0]!;
 
   assert.deepEqual(projectForDealRadar("vinted", vintedSnapshot, vintedProduct), {
     source: vintedSnapshot.site,
@@ -535,7 +628,7 @@ test("DealRadar mapping remains compatible for every consumed field", () => {
 });
 
 test("DealRadar mapping accepts the additive Zalando multi-monitor fields", () => {
-  const snapshot = structuredClone(zalandoSnapshot);
+  const snapshot: SnapshotUnderTest = structuredClone(zalandoSnapshot);
   delete snapshot.target_size;
   delete snapshot.min_discount_percent;
   snapshot.monitors = [
@@ -549,8 +642,8 @@ test("DealRadar mapping accepts the additive Zalando multi-monitor fields", () =
       status: "success"
     }
   ];
-  const product = structuredClone(snapshot.products[0]);
-  product.monitor_ids = [snapshot.monitors[0].id];
+  const product = structuredClone(snapshot.products[0]!);
+  product.monitor_ids = [snapshot.monitors[0]!.id];
   product.target_size = "42";
   product.available = true;
   delete product.size_46_available;
@@ -558,11 +651,11 @@ test("DealRadar mapping accepts the additive Zalando multi-monitor fields", () =
   const projected = projectForDealRadar("zalando", snapshot, product);
   assert.equal(projected.targetSize, "42");
   assert.equal(projected.available, true);
-  assert.deepEqual(projected.rawData.monitor_ids, [snapshot.monitors[0].id]);
+  assert.deepEqual(projected.rawData.monitor_ids, [snapshot.monitors[0]!.id]);
 });
 
 test("DealRadar timestamp fallback remains compatible", () => {
-  const product = structuredClone(zalandoSnapshot.products[0]);
+  const product = structuredClone(zalandoSnapshot.products[0]!);
   product.checked_at = "not-a-timestamp";
 
   const projected = projectForDealRadar("zalando", zalandoSnapshot, product);

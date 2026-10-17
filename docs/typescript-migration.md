@@ -12,6 +12,11 @@ The repository now has two sources, Vinted and Zalando. Sections 1 to 7 are
 updated to that state; the test counts recorded for Slices 1 and 2 are
 historical.
 
+Update (#32): Slice 7 deleted the one-off Zalando pagination investigation
+script (written for #14, which is closed), together with its test and its
+`package.json` script. No workflow used it and it published no deals; it
+remains in git history. Sections 1 to 7 no longer list it.
+
 ## 1. Current state
 
 ### Commands and baseline
@@ -20,7 +25,7 @@ historical.
 | --- | --- |
 | Runtime | ESM (`"type": "module"`), `engines.node` `>=24`; local Node v24.18.0, npm 11.16.0 |
 | Dependencies | `cheerio` `^1.0.0` (1.2.0 installed locally), `node-fetch` `^3.3.2`; no devDependencies, no lockfile, no build step |
-| Scripts (`package.json`) | `test`: `node --test`; `investigate:zalando-pagination`: `node scripts/investigate-zalando-pagination.mjs` |
+| Scripts (`package.json`) | `test`: `node --test` |
 | Typecheck / lint | None |
 | CI for tests | None. No workflow runs `npm test`; the workflows only scan and import |
 | Type declarations | `cheerio` and `node-fetch` both ship their own `.d.ts` files; Node types would need `@types/node` |
@@ -58,8 +63,6 @@ Entrypoints
                                  -> lib/scan-status, lib/vinted-monitor
   scan-zalando.mjs [cheerio, node-fetch]
                                  -> lib/scan-status, lib/zalando-price, lib/zalando-monitor
-  investigate-zalando-pagination.mjs [node-fetch]
-                                 -> lib/scan-status, scan-zalando (an entrypoint importing an entrypoint)
 
 scripts/lib (6 modules)
   Leaves:  scan-status, monitor-config, zalando-price
@@ -69,7 +72,7 @@ scripts/lib (6 modules)
 ```
 
 Tests import `scripts/` directly: `scan-zalando.mjs`, `scan-vinted.mjs`,
-`investigate-zalando-pagination.mjs`, and all 6 lib modules. Tests also import JSON with `with { type: "json" }`:
+and all 6 lib modules. Tests also import JSON with `with { type: "json" }`:
 `config/monitors.json`, `public/deals/{vinted,zalando}-latest.json`, and
 fixtures (`test/issue-12-slice-1.test.mjs`, `test/output-contract.test.mjs`,
 `test/vinted-scan.test.mjs`).
@@ -82,7 +85,7 @@ So the Vinted path also runs the Zalando monitor validator, and the reverse.
 
 | Input | Where it enters |
 | --- | --- |
-| `process.env.SCRAPINGANT_API_KEY` | `scan-vinted.mjs:16`, `scan-zalando.mjs:18`, `investigate-zalando-pagination.mjs:157`; checked with `if (!apiKey) throw` |
+| `process.env.SCRAPINGANT_API_KEY` | `scan-vinted.mjs:16`, `scan-zalando.mjs:18`; checked with `if (!apiKey) throw` |
 | `process.env.GITHUB_OUTPUT`, `process.argv[2]` | `monitor-enabled.mjs:4-8` |
 | `config/monitors.json` | `monitor-config.mjs:23-47` (`JSON.parse` plus envelope validation), then the per-source validators |
 | ScrapingAnt and retailer HTML | `getRenderedHtml*` in each scanner (`res.ok`, `res.status`, `res.text()`), parsed with `cheerio.load` |
@@ -231,11 +234,11 @@ specifiers carry the extension. Tests may stay `.mjs` until Slice 7, since
 | Slice | Modules (source files) | Also must change in the same slice | Adjustment to #24 and reason |
 | --- | --- | --- | --- |
 | 2 Infrastructure | none migrated; add a test-only `test/typescript-runtime.test.ts` that imports a `.mjs` lib | `package.json` (devDeps, `typecheck`), `tsconfig.json` | As in #24. Pin exact devDependency versions (section 7) |
-| 3 Contracts + monitor/status modules | `scripts/lib/scan-status.mjs` first; then, as one unit, `monitor-config.mjs`, `vinted-monitor.mjs`, `zalando-monitor.mjs`, `validated-monitor-loader.mjs` | Importers: `scan-{vinted,zalando}.mjs`, `investigate-zalando-pagination.mjs`, `monitor-enabled.mjs`, and the tests importing them | **Changed.** Contract types are defined together with the module that produces them, so the compiler checks them against real code. A standalone types file would have no consumer to check against. The monitor modules move together because of the static/dynamic import cycle |
+| 3 Contracts + monitor/status modules | `scripts/lib/scan-status.mjs` first; then, as one unit, `monitor-config.mjs`, `vinted-monitor.mjs`, `zalando-monitor.mjs`, `validated-monitor-loader.mjs` | Importers: `scan-{vinted,zalando}.mjs`, the pagination investigation script (deleted in Slice 7), `monitor-enabled.mjs`, and the tests importing them | **Changed.** Contract types are defined together with the module that produces them, so the compiler checks them against real code. A standalone types file would have no consumer to check against. The monitor modules move together because of the static/dynamic import cycle |
 | 4 Small shared modules | `scripts/lib/zalando-price.mjs` | `scan-zalando.mjs`, `test/zalando-price.test.mjs` | **Shrunk.** The only leaf not migrated in Slice 3. Can be merged into Slice 6 |
 | 5 Vinted | `scripts/scan-vinted.mjs` (plus `VintedSnapshot`/`VintedProduct` types) | `.github/workflows/daily-vinted.yml` run line, `README.md`, `test/vinted-scan.test.mjs` import | **Changed.** The workflow path changes here, not in Slice 8 (section 7) |
-| 6 Zalando | `scripts/scan-zalando.mjs` (plus `ZalandoSnapshot`/`ZalandoProduct` types) | `daily-zalando.yml`, `README.md`, `test/zalando-scan.test.mjs`, **and** `investigate-zalando-pagination.mjs`, which imports `./scan-zalando.mjs` (line 10) | **Changed**, for the same reason. The investigation script must be edited even if Slice 7 freezes it |
-| 7 Remaining code and tests | `monitor-enabled.mjs` (with both workflow lines and `test/monitor-enabled.test.mjs:16`); `investigate-zalando-pagination.mjs` (`package.json` script) **according to the Slice 7 decision**; test files to `.test.ts` | Whatever path references the decided renames touch | **Shrunk.** The deprecated direct scanner removed in #27 is not migrated. The investigation script decision is still made here (options in section 7) |
+| 6 Zalando | `scripts/scan-zalando.mjs` (plus `ZalandoSnapshot`/`ZalandoProduct` types) | `daily-zalando.yml`, `README.md`, `test/zalando-scan.test.mjs`, **and** the pagination investigation script, which imported `./scan-zalando.mjs` | **Changed**, for the same reason. The investigation script had to be edited even though Slice 7 later deleted it |
+| 7 Remaining code and tests | `monitor-enabled.mjs` (with both workflow lines and `test/monitor-enabled.test.mjs:16`); the pagination investigation script **deleted** with its test, `package.json` script, and README section (decision in section 7); test files to `.test.ts` | Whatever path references the renames touch | **Shrunk.** The deprecated direct scanner removed in #27 is not migrated, and the investigation script is deleted rather than migrated |
 | 8 Cleanup | Remove `allowJs`/`checkJs`, check no `.mjs` remains on active paths, update `AGENTS.md` and docs | — | **Shrunk.** Workflows are already updated in 5–7, and no removed-scanner code is left to freeze or migrate |
 
 ## 5. Contract types worth making explicit
@@ -305,7 +308,7 @@ experiment confirms that Node executes ill-typed code without complaint.
 | Test discovery after renames | Default `node --test` runs both `.test.ts` and `.test.mjs`, and any non-test `.ts`/`.mjs` under `test/` [L] | Keep the `.test.ts` suffix. Never leave both forms of one test. Put no helpers in `test/` without accounting for discovery. Compare the **test count** (the previous slice's count plus new tests), not just "0 fail" |
 | Workflow paths must change in the same slice as the file they invoke | Section 1 invocations. `npm test` does not exercise workflows. A stale path makes the scheduled job fail, and the last known-good snapshot is kept (`docs/output-contract.md`), so the failure is safe but silent until someone looks | In each renaming slice: `grep -rn "<old>.mjs" .github package.json README.md test scripts` must return nothing. Run `node scripts/monitor-enabled.<ext> <source>` locally (reads config only, no network). A manual `workflow_dispatch` is a live scan and needs **human approval** |
 | Types are not enforced anywhere automatically | No CI runs tests; Node runs ill-typed code [L] | `npm run typecheck` goes into every slice's Definition of Done. Adding a PR check workflow is a separate **human decision** (new workflow and permissions). **Resolved (#26):** `.github/workflows/ci.yml` runs `npm ci`, `npm test`, and `npm run typecheck` on `push` and `pull_request` |
-| Status of the investigation script | `investigate-zalando-pagination.mjs` imports `scan-zalando` and has its own test. The deprecated direct scanner, disabled since #15, was removed in #27 and is no longer part of this decision | Options for **Slice 7**: (a) migrate; (b) freeze as `.mjs` (works at runtime by importing migrated `.ts` modules, is not typechecked, and needs `allowJs` kept or the files excluded); (c) remove in a separate issue. Not decided here |
+| Status of the investigation script | The one-off Zalando pagination investigation script for #14 imported `scan-zalando` and had its own test. The deprecated direct scanner, disabled since #15, was removed in #27 and is no longer part of this decision | Options for **Slice 7**: (a) migrate; (b) freeze as `.mjs` (works at runtime by importing migrated `.ts` modules, is not typechecked, and needs `allowJs` kept or the files excluded); (c) remove. **Resolved (#32):** owner decision on 2026-10-16 to delete it in Slice 7, with its test (3 tests), `package.json` script, and README section. #14 is closed, no workflow used the script, and it published no deals; it remains in git history |
 | Node 24 minor drift | `setup-node` `"24"` floats; `engines` is `>=24` | Type stripping has been on by default since v23.6 [D], so every 24.x has it. Re-check the stability notes for Node 24 in Slice 2 [D]. **Slice 2 (#26):** on v24.18.0, `process.features.typescript` is `"strip"` and `npm test` (including the `.ts` test) printed no `ExperimentalWarning` [L]. Node's documented stability label for type stripping was **not** re-checked; this is deferred to a later slice |
 | TypeScript major-version defaults | TS majors may change defaults [D] | Every relevant option is explicit in `tsconfig.json` |
 
@@ -325,7 +328,7 @@ revert fixes it.
 | 3 | `test/monitor-config`, `test/*-monitor`, `test/retailer-scan-status`, and `test/monitor-enabled` all pass. `node scripts/monitor-enabled.mjs vinted` prints the same line as before. No `.mjs` specifier for renamed files remains. **Done (#28):** 83 pass, typecheck clean; `monitor-enabled.mjs vinted` and `zalando` print and write the same output as before. Validators are assertion functions (`asserts monitor is VintedMonitor`) and the config is parsed as `unknown`; a scratch comparison of the old and new modules (645 calls over 23 valid and invalid configurations) found no difference in results or error messages |
 | 4 | `test/zalando-price.test.mjs` and `test/zalando-scan.test.mjs` pass. **Done (#29):** 83 pass, typecheck clean; every return site is checked against `ZalandoPriceInfo`, and a scratch `const bad: boolean = result.current_price` now fails (TS2322). A scratch comparison of the old and new modules (about 20,000 inputs, test strings included) found no difference in results or key order |
 | 5, 6 | Source tests and `test/output-contract.test.mjs` pass. Representative output is unchanged: in a scratch run, capture the JSON written by `scan()` with the existing fixture fetch doubles before and after, then diff (expect no difference except `checked_at` when `now` is not fixed). The workflow and README paths are updated. **Done (#30, Vinted):** 83 pass, typecheck clean; `node scripts/scan-vinted.ts` without `SCRAPINGANT_API_KEY` fails with the same error. With a fixed `now`, the JSON written for four scenarios (configured monitor, metadata parsing, merged multi-monitor provenance, partial scan) is byte-identical before and after. The injected ports accept every fetch, fs, and logger double in `test/vinted-scan.test.mjs` without casts. **Done (#31, Zalando):** 83 pass (including `test/zalando-pagination-investigation.test.mjs`), typecheck clean; `node scripts/scan-zalando.ts` without `SCRAPINGANT_API_KEY` fails with the same error. With a fixed `now`, the JSON written for eight scenarios (configured monitor, two card fixtures, three-page deduplication, two monitors, merged provenance, two paginated monitors, partial scan) is byte-identical before and after, as are the `scan()` results and logger calls apart from the output path |
-| 7 | As above for whatever is migrated. Every workflow, `package.json`, and README path resolves |
+| 7 | As above for whatever is migrated. Every workflow, `package.json`, and README path resolves. **Done (#32):** 80 pass (83 before, minus the 3 deleted investigation tests), typecheck clean; `git ls-files 'test/*.mjs' 'scripts/*.mjs' 'scripts/**/*.mjs'` is empty. `node scripts/monitor-enabled.ts vinted` and `zalando` write `enabled=true` and print the same line as before; an unknown or missing source still exits 1 with `Monitor source must be a known non-empty string` and writes nothing. Test doubles and inputs are typed with the production ports and monitor types; deliberately invalid inputs use `@ts-expect-error` with a reason. `output-contract.test.ts` uses its own structural snapshot view, because the fixture keeps the legacy single-monitor Zalando shape that `ZalandoSnapshot` does not describe |
 | 8 | `git ls-files '*.mjs'` lists only files that Slice 7 deliberately froze. `allowJs` is removed and typecheck is still clean. Docs and `AGENTS.md` describe run, test, and typecheck |
 
 ## Learning notes (Slice 1)
