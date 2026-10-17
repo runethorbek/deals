@@ -17,6 +17,16 @@ script (written for #14, which is closed), together with its test and its
 `package.json` script. No workflow used it and it published no deals; it
 remains in git history. Sections 1 to 7 no longer list it.
 
+Update (#33): **the migration is complete.** Slice 8 removed `allowJs` and
+`checkJs` from `tsconfig.json` and deleted the Slice 2 smoke test
+`test/typescript-runtime.test.ts`, whose single check is covered by
+`test/zalando-price.test.ts`. No `.js`, `.mjs`, or `.cjs` file remains. All
+code and tests are TypeScript and run with `node` directly, with no build
+step, both locally and in GitHub Actions. The final suite is **79 tests, 79
+pass, 0 fail**, and `npm run typecheck` is clean. Section 1 and the per-slice
+records in sections 4 and 8 are historical; `AGENTS.md`, `README.md`, and
+`docs/architecture.md` describe the current model.
+
 ## 1. Current state
 
 ### Commands and baseline
@@ -220,7 +230,8 @@ types imported from those files are loose (`any`-like). Slice 2 confirmed this
 `current_price` is `any` and assigning it to a `boolean` is not reported.
 Because migration goes leaf-first, `.ts` code rarely imports `.mjs`. In the
 other direction, `.mjs` code importing `.ts` works at runtime [L] and is
-simply not typechecked. Slice 8 removes `allowJs`. Never keep a `.mjs` and a
+simply not typechecked. Slice 8 removes `allowJs` (done in #33; the block
+above is the Slice 2 configuration). Never keep a `.mjs` and a
 `.ts` with the same basename: rename each file with `git mv` and update all of
 its importers in the same change.
 
@@ -329,7 +340,7 @@ revert fixes it.
 | 4 | `test/zalando-price.test.mjs` and `test/zalando-scan.test.mjs` pass. **Done (#29):** 83 pass, typecheck clean; every return site is checked against `ZalandoPriceInfo`, and a scratch `const bad: boolean = result.current_price` now fails (TS2322). A scratch comparison of the old and new modules (about 20,000 inputs, test strings included) found no difference in results or key order |
 | 5, 6 | Source tests and `test/output-contract.test.mjs` pass. Representative output is unchanged: in a scratch run, capture the JSON written by `scan()` with the existing fixture fetch doubles before and after, then diff (expect no difference except `checked_at` when `now` is not fixed). The workflow and README paths are updated. **Done (#30, Vinted):** 83 pass, typecheck clean; `node scripts/scan-vinted.ts` without `SCRAPINGANT_API_KEY` fails with the same error. With a fixed `now`, the JSON written for four scenarios (configured monitor, metadata parsing, merged multi-monitor provenance, partial scan) is byte-identical before and after. The injected ports accept every fetch, fs, and logger double in `test/vinted-scan.test.mjs` without casts. **Done (#31, Zalando):** 83 pass (including `test/zalando-pagination-investigation.test.mjs`), typecheck clean; `node scripts/scan-zalando.ts` without `SCRAPINGANT_API_KEY` fails with the same error. With a fixed `now`, the JSON written for eight scenarios (configured monitor, two card fixtures, three-page deduplication, two monitors, merged provenance, two paginated monitors, partial scan) is byte-identical before and after, as are the `scan()` results and logger calls apart from the output path |
 | 7 | As above for whatever is migrated. Every workflow, `package.json`, and README path resolves. **Done (#32):** 80 pass (83 before, minus the 3 deleted investigation tests), typecheck clean; `git ls-files 'test/*.mjs' 'scripts/*.mjs' 'scripts/**/*.mjs'` is empty. `node scripts/monitor-enabled.ts vinted` and `zalando` write `enabled=true` and print the same line as before; an unknown or missing source still exits 1 with `Monitor source must be a known non-empty string` and writes nothing. Test doubles and inputs are typed with the production ports and monitor types; deliberately invalid inputs use `@ts-expect-error` with a reason. `output-contract.test.ts` uses its own structural snapshot view, because the fixture keeps the legacy single-monitor Zalando shape that `ZalandoSnapshot` does not describe |
-| 8 | `git ls-files '*.mjs'` lists only files that Slice 7 deliberately froze. `allowJs` is removed and typecheck is still clean. Docs and `AGENTS.md` describe run, test, and typecheck |
+| 8 | `git ls-files '*.mjs'` returns nothing (Slice 7 froze no files). `allowJs` is removed and typecheck is still clean. Docs and `AGENTS.md` describe run, test, and typecheck. **Done (#33):** 79 pass (80 before, minus the removed `test/typescript-runtime.test.ts`, whose one check on the `BOSS GENIUS` card string is a subset of "extracts current and normal price from a Zalando card" in `test/zalando-price.test.ts`), typecheck clean; `git ls-files '*.mjs' '*.js' '*.cjs'` is empty; `tsc --listFilesOnly` still lists all 9 `scripts/**/*.ts` and all 11 `test/*.ts` files |
 
 ## Learning notes (Slice 1)
 

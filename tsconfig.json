@@ -13,9 +13,7 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "checkJs": false
+    "skipLibCheck": true
   },
   "include": ["scripts/**/*", "test/**/*"]
 }

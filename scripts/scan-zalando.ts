@@ -527,7 +527,6 @@ export function extractProductsFromListing(
   sourceUrl: string,
   checkedAt: string,
   { monitorId, targetSize, upperMaterials = [] }: {
-    /** Omitted by the pagination investigation script. */
     monitorId?: string;
     targetSize: string;
     upperMaterials?: string[];
