@@ -58,6 +58,24 @@ request failure, empty monitor result, or duplicate URL associated with
 different target sizes prevents publication. Product `monitor_ids` preserve
 provenance. Configuration accepts the approved `pages` range 1–10.
 
+## Code layout and commands
+
+All code is TypeScript and runs directly on Node.js 24 with built-in type
+stripping. There is no build step: local runs and GitHub Actions invoke the
+same files with `node scripts/*.ts`.
+
+- `scripts/scan-vinted.ts`, `scripts/scan-zalando.ts`: scraper entry points.
+- `scripts/monitor-enabled.ts <source>`: workflow gate that validates the
+  monitor configuration and reports whether a source has an enabled monitor.
+- `scripts/lib/*.ts`: monitor configuration loading and validation, scan
+  status, and Zalando price parsing.
+- `test/*.test.ts`: deterministic tests with fixtures in `test/fixtures/`.
+
+`npm test` runs the tests with `node --test`, and `npm run typecheck` runs
+`tsc`, which checks types and emits nothing. The `CI` workflow runs `npm ci`,
+`npm test`, and `npm run typecheck`. Static types do not replace the runtime
+validation of configuration, retailer responses, and output described below.
+
 ## Trust boundaries
 
 ScrapingAnt and retailer responses are external and untrusted. Extracted data

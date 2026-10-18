@@ -162,6 +162,17 @@ Do not commit, push, or merge unless explicitly requested.
 * Validate output before publishing it or triggering DealRadar import.
 * Published snapshots must satisfy the documented output contract.
 
+## TypeScript
+
+All code in `scripts/` and tests in `test/` are TypeScript. Node.js runs `.ts` files directly with built-in type stripping (`node scripts/scan-vinted.ts`); there is no build step, and `tsc` only checks types (`noEmit`).
+
+* Use `.ts` specifiers in relative imports (`./lib/scan-status.ts`), never extensionless or `.js` specifiers.
+* Use `import type` for type-only imports (`verbatimModuleSyntax`).
+* Use erasable syntax only: no `enum`, `namespace`, or constructor parameter properties (`erasableSyntaxOnly`).
+* Do not add `.js` or `.mjs` files, and keep `strict` enabled.
+* `npm run typecheck` is part of verification, next to `npm test`. CI runs both.
+* Types do not replace runtime validation of external input. Configuration, retailer HTML, JSON-LD, parsed JSON, and previous snapshots remain untrusted: parse them as `unknown` and keep the existing validators.
+
 ## Security
 
 * Never log secrets.

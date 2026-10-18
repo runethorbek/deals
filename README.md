@@ -131,9 +131,12 @@ npm run typecheck
 ```
 
 The `CI` workflow (`.github/workflows/ci.yml`) runs `npm ci`, `npm test`, and
-`npm run typecheck` on every push and pull request. TypeScript files run
-directly with Node's built-in type stripping; `tsc` only checks types and emits
-nothing. See `docs/typescript-migration.md`.
+`npm run typecheck` on every push and pull request. All code in `scripts/` and
+tests in `test/` are TypeScript (`.ts`). They run directly with Node's built-in
+type stripping, with no build step, so local runs and the scan workflows use
+the same `node scripts/*.ts` commands; `tsc` only checks types and emits
+nothing. TypeScript conventions are listed in `AGENTS.md`; the completed
+migration is recorded in `docs/typescript-migration.md`.
 
 ## Development workflow
 
