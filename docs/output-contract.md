@@ -13,14 +13,15 @@ public/deals/zalando-latest.json
 public/deals/monitor-recommendations.json
 ```
 
-The files are committed snapshots. The two `*-latest.json` files are scan
-results; the [monitor recommendation document](#monitor-recommendations) is
-generated from configuration. DealRadar imports the files from one exact
-`main` revision, not from a mixture of revisions.
+The two `*-latest.json` files are committed scan snapshots. DealRadar imports
+them from one exact `main` revision, not from a mixture of revisions. The
+[monitor recommendation document](#monitor-recommendations) is a committed
+document generated from configuration, not a scan snapshot.
 
 ## Common snapshot semantics
 
-Every snapshot identifies its retailer with `site`, records the observation
+This section applies to the two `*-latest.json` scan snapshots. Every snapshot
+identifies its retailer with `site`, records the observation
 time in `checked_at`, and provides a `products` array. `product_count` is the
 number of published products and equals `products.length`. Where present,
 `scanned_product_count` describes products recognized during the scan before
@@ -219,8 +220,9 @@ fails CI when the committed file differs from the generator output (line
 endings are normalized before comparison). The scanners do not read or write
 this document, and their feeds do not change because of it.
 
-DealRadar reads this document at the same exact ref as the feeds, so one commit
-gives a consistent set of monitor definitions and observations.
+DealRadar must read this document at the same exact ref as the feeds, so one
+commit gives a consistent set of monitor definitions and observations.
+DealRadar does not consume it yet.
 
 ### Document fields
 
