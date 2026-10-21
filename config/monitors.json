@@ -3,42 +3,62 @@
     "id": "vinted-mens-blazers-size-s",
     "source": "vinted",
     "enabled": true,
+    "displayName": "Vinted – blazers",
     "filters": {
       "catalogIds": ["1786"],
       "sizeIds": ["207"]
     },
-    "pages": 3
+    "pages": 3,
+    "recommendation": {
+      "strategy": "best_match",
+      "minimumOverallScore": 7
+    }
   },
   {
     "id": "vinted-mens-pants-size-46",
     "source": "vinted",
     "enabled": true,
+    "displayName": "Vinted – trousers",
     "filters": {
       "catalogIds": ["34"],
       "sizeIds": ["1637"]
     },
-    "pages": 3
+    "pages": 3,
+    "recommendation": {
+      "strategy": "best_match",
+      "minimumOverallScore": 7
+    }
   },
   {
     "id": "zalando-dk-mens-trousers-size-46",
     "source": "zalando",
     "enabled": true,
+    "displayName": "Zalando – trousers",
     "filters": {
       "listingPath": "/herretoej-bukser/__stoerrelse-46/?upper_material=pure_cashmere.pure_linen.pure_wool",
       "targetSize": "46",
       "minDiscountPercent": 30
     },
-    "pages": 2
+    "pages": 2,
+    "recommendation": {
+      "strategy": "discount_threshold",
+      "minimumDiscountPercent": 50
+    }
   },
   {
     "id": "zalando-scarosso-shoes-42",
     "source": "zalando",
     "enabled": true,
+    "displayName": "Zalando – Scarosso shoes",
     "filters": {
       "listingPath": "/herresko/scarosso__stoerrelse-42/",
       "targetSize": "42",
       "minDiscountPercent": 30
     },
-    "pages": 2
+    "pages": 2,
+    "recommendation": {
+      "strategy": "discount_threshold",
+      "minimumDiscountPercent": 20
+    }
   }
 ]

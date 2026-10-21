@@ -185,7 +185,7 @@ test("scanner uses configured Vinted pages and writes the existing output contra
   const configuredMonitors = monitorConfig
     // The scan below validates this same configuration; the predicate only
     // tells the compiler what that runtime validation guarantees.
-    .filter((monitor): monitor is VintedMonitor => monitor.source === "vinted" && monitor.enabled)
+    .filter((monitor): monitor is typeof monitor & VintedMonitor => monitor.source === "vinted" && monitor.enabled)
     .sort((left, right) => left.id.localeCompare(right.id));
   const expectedUrls = configuredMonitors.flatMap(buildVintedListingUrls);
   const primaryMonitor = configuredMonitors[0]!;
