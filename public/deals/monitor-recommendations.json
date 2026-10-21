@@ -1,0 +1,46 @@
+{
+  "contract_version": 1,
+  "monitor_count": 4,
+  "monitors": [
+    {
+      "id": "vinted-mens-blazers-size-s",
+      "source": "vinted",
+      "display_name": "Vinted – blazers",
+      "enabled": true,
+      "recommendation": {
+        "strategy": "best_match",
+        "minimum_overall_score": 7
+      }
+    },
+    {
+      "id": "vinted-mens-pants-size-46",
+      "source": "vinted",
+      "display_name": "Vinted – trousers",
+      "enabled": true,
+      "recommendation": {
+        "strategy": "best_match",
+        "minimum_overall_score": 7
+      }
+    },
+    {
+      "id": "zalando-dk-mens-trousers-size-46",
+      "source": "zalando",
+      "display_name": "Zalando – trousers",
+      "enabled": true,
+      "recommendation": {
+        "strategy": "discount_threshold",
+        "minimum_discount_percent": 50
+      }
+    },
+    {
+      "id": "zalando-scarosso-shoes-42",
+      "source": "zalando",
+      "display_name": "Zalando – Scarosso shoes",
+      "enabled": true,
+      "recommendation": {
+        "strategy": "discount_threshold",
+        "minimum_discount_percent": 20
+      }
+    }
+  ]
+}

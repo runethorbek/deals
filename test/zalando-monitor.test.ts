@@ -39,7 +39,20 @@ const load = (monitors: unknown) => loadEnabledZalandoMonitors({
 test("repository configuration preserves the current Zalando scan URL", async () => {
   const monitors = await loadEnabledZalandoMonitors();
 
-  assert.deepEqual(monitors, [validMonitor, shoesMonitor]);
+  // The scanner loader passes the recommendation keys through untouched and
+  // does not validate them; only the recommendation generator does.
+  assert.deepEqual(monitors, [
+    {
+      ...validMonitor,
+      displayName: "Zalando – trousers",
+      recommendation: { strategy: "discount_threshold", minimumDiscountPercent: 50 }
+    },
+    {
+      ...shoesMonitor,
+      displayName: "Zalando – Scarosso shoes",
+      recommendation: { strategy: "discount_threshold", minimumDiscountPercent: 20 }
+    }
+  ]);
   // The deepEqual above proves `monitors[0]` exists; noUncheckedIndexedAccess
   // cannot see that.
   assert.deepEqual(buildZalandoScanPlan(monitors[0]!), {

@@ -10,14 +10,18 @@ The published boundary is:
 ```text
 public/deals/vinted-latest.json
 public/deals/zalando-latest.json
+public/deals/monitor-recommendations.json
 ```
 
-The files are committed snapshots. DealRadar imports the files from one exact
-`main` revision, not from a mixture of revisions.
+The two `*-latest.json` files are committed scan snapshots. DealRadar imports
+them from one exact `main` revision, not from a mixture of revisions. The
+[monitor recommendation document](#monitor-recommendations) is a committed
+document generated from configuration, not a scan snapshot.
 
 ## Common snapshot semantics
 
-Every snapshot identifies its retailer with `site`, records the observation
+This section applies to the two `*-latest.json` scan snapshots. Every snapshot
+identifies its retailer with `site`, records the observation
 time in `checked_at`, and provides a `products` array. `product_count` is the
 number of published products and equals `products.length`. Where present,
 `scanned_product_count` describes products recognized during the scan before
@@ -205,6 +209,67 @@ its query parameters while adding `p=N`.
 
 `original_price` is only comparable when it is higher than the current price.
 `discount_percent` is not an application-wide normalized value.
+
+## Monitor recommendations
+
+`public/deals/monitor-recommendations.json` publishes the per-monitor
+recommendation settings that Deals owns. It is generated deterministically from
+`config/monitors.json` by `node scripts/generate-monitor-recommendations.ts`
+and committed in the same change as the configuration. A test in `npm test`
+fails CI when the committed file differs from the generator output (line
+endings are normalized before comparison). The scanners do not read or write
+this document, and their feeds do not change because of it.
+
+DealRadar must read this document at the same exact ref as the feeds, so one
+commit gives a consistent set of monitor definitions and observations.
+DealRadar does not consume it yet.
+
+### Document fields
+
+| Field | Meaning |
+| --- | --- |
+| `contract_version` | Integer document version; currently `1` |
+| `monitor_count` | Number of entries; equals `monitors.length` |
+| `monitors` | Every configured monitor, including disabled ones, sorted by `id` in code-unit order. A monitor that is absent has been removed. |
+
+Each entry in `monitors`:
+
+| Field | Meaning |
+| --- | --- |
+| `id` | Stable Deals monitor ID; the same ID that feed products carry in `monitor_ids` |
+| `source` | Deals monitor source: `vinted` or `zalando` |
+| `display_name` | Configured `displayName`, or `null` when none is configured (DealRadar then shows the monitor ID) |
+| `enabled` | The monitor's configured `enabled` value |
+| `recommendation` | `{ "strategy": "discount_threshold", "minimum_discount_percent": N }`, `{ "strategy": "best_match", "minimum_overall_score": N }`, or `null` when the monitor has no configured recommendation |
+
+The document contains no URLs, filters, pages, selectors, or timestamps, so it
+changes only when the configuration changes. Keys are snake_case. A `null`
+recommendation means unconfigured: no default strategy is applied.
+
+### Configuration rules
+
+In `config/monitors.json`, `displayName` and `recommendation` are optional
+monitor keys. The generator and CI validate them; the scanner validators ignore
+them, so an invalid recommendation fails generation and CI but never stops a
+scrape.
+
+- `displayName`, when present, is a trimmed string of 1 to 80 characters.
+- `recommendation`, when present, is an object whose `strategy` is
+  `discount_threshold` or `best_match`. Unknown keys are rejected.
+- `discount_threshold` requires `minimumDiscountPercent`, an integer from 1 to
+  99, and is allowed only for `source: "zalando"`.
+- `best_match` requires `minimumOverallScore`, a finite number from 0 to 10
+  with at most one decimal.
+
+`filters.minDiscountPercent` is unrelated to `minimumDiscountPercent`; no rule
+links them.
+
+### Versioning
+
+`contract_version` is one integer with no negotiation. Adding optional fields
+keeps the current version, and DealRadar ignores unknown keys within a known
+version. A breaking change uses a new `contract_version`, and DealRadar must
+support that version before Deals publishes it.
 
 ## Consumer boundary and compatibility
 

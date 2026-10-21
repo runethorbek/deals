@@ -66,6 +66,13 @@ successfully and skips scanning, publishing, and committing. Disabled monitors
 are still validated so an
 invalid document cannot be partially used.
 
+Each monitor may also carry an optional `displayName` and `recommendation`.
+Scanners ignore both keys. `node scripts/generate-monitor-recommendations.ts`
+validates them and regenerates `public/deals/monitor-recommendations.json`;
+run it after changing `config/monitors.json` and commit the result, because
+`npm test` fails when the committed file is out of date. See
+[docs/output-contract.md](docs/output-contract.md#monitor-recommendations).
+
 The checked-in Vinted monitor preserves the current catalog, size, and
 three-page scan. Vinted's base URL and query construction remain implementation
 details of the scraper.
